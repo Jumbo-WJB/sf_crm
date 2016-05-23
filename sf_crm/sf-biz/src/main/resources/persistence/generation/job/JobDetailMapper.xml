@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.job.JobDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.job.JobDetail" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_end_time" property="maxEndTime" jdbcType="BIGINT" />
+    <result column="min_end_time" property="minEndTime" jdbcType="BIGINT" />
+    <result column="avg_end_time" property="avgEndTime" jdbcType="BIGINT" />
+    <result column="count_end_time" property="countEndTime" jdbcType="BIGINT" />
+    <result column="sum_end_time" property="sumEndTime" jdbcType="TIMESTAMP" />
+    <result column="max_sync_flag_id" property="maxSyncFlagId" jdbcType="BIGINT" />
+    <result column="min_sync_flag_id" property="minSyncFlagId" jdbcType="BIGINT" />
+    <result column="avg_sync_flag_id" property="avgSyncFlagId" jdbcType="BIGINT" />
+    <result column="count_sync_flag_id" property="countSyncFlagId" jdbcType="BIGINT" />
+    <result column="sum_sync_flag_id" property="sumSyncFlagId" jdbcType="VARCHAR" />
+    <result column="max_sync_data_interval_time" property="maxSyncDataIntervalTime" jdbcType="BIGINT" />
+    <result column="min_sync_data_interval_time" property="minSyncDataIntervalTime" jdbcType="BIGINT" />
+    <result column="avg_sync_data_interval_time" property="avgSyncDataIntervalTime" jdbcType="BIGINT" />
+    <result column="count_sync_data_interval_time" property="countSyncDataIntervalTime" jdbcType="BIGINT" />
+    <result column="sum_sync_data_interval_time" property="sumSyncDataIntervalTime" jdbcType="INTEGER" />
+    <result column="max_end_sync_data_time" property="maxEndSyncDataTime" jdbcType="BIGINT" />
+    <result column="min_end_sync_data_time" property="minEndSyncDataTime" jdbcType="BIGINT" />
+    <result column="avg_end_sync_data_time" property="avgEndSyncDataTime" jdbcType="BIGINT" />
+    <result column="count_end_sync_data_time" property="countEndSyncDataTime" jdbcType="BIGINT" />
+    <result column="sum_end_sync_data_time" property="sumEndSyncDataTime" jdbcType="TIMESTAMP" />
+    <result column="max_job_demo" property="maxJobDemo" jdbcType="BIGINT" />
+    <result column="min_job_demo" property="minJobDemo" jdbcType="BIGINT" />
+    <result column="avg_job_demo" property="avgJobDemo" jdbcType="BIGINT" />
+    <result column="count_job_demo" property="countJobDemo" jdbcType="BIGINT" />
+    <result column="sum_job_demo" property="sumJobDemo" jdbcType="VARCHAR" />
+    <result column="max_job_name" property="maxJobName" jdbcType="BIGINT" />
+    <result column="min_job_name" property="minJobName" jdbcType="BIGINT" />
+    <result column="avg_job_name" property="avgJobName" jdbcType="BIGINT" />
+    <result column="count_job_name" property="countJobName" jdbcType="BIGINT" />
+    <result column="sum_job_name" property="sumJobName" jdbcType="VARCHAR" />
+    <result column="max_shop_id" property="maxShopId" jdbcType="BIGINT" />
+    <result column="min_shop_id" property="minShopId" jdbcType="BIGINT" />
+    <result column="avg_shop_id" property="avgShopId" jdbcType="BIGINT" />
+    <result column="count_shop_id" property="countShopId" jdbcType="BIGINT" />
+    <result column="sum_shop_id" property="sumShopId" jdbcType="BIGINT" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+    <result column="shop_id" property="shopId" jdbcType="BIGINT" />
+    <result column="job_name" property="jobName" jdbcType="VARCHAR" />
+    <result column="job_demo" property="jobDemo" jdbcType="VARCHAR" />
+    <result column="end_sync_data_time" property="endSyncDataTime" jdbcType="TIMESTAMP" />
+    <result column="sync_data_interval_time" property="syncDataIntervalTime" jdbcType="INTEGER" />
+    <result column="sync_flag_id" property="syncFlagId" jdbcType="VARCHAR" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, created_by, modified_by, is_deleted, seller_id, shop_id, 
+    job_name, job_demo, end_sync_data_time, sync_data_interval_time, sync_flag_id, end_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.job.JobDetailExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from job_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from job_detail
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update job_detail
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.job.JobDetailExample" >
+    update job_detail
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.job.JobDetail" useGeneratedKeys="true" keyProperty="id" >
+    insert into job_detail (id, gmt_created, gmt_modified, 
+      created_by, modified_by, is_deleted, 
+      seller_id, shop_id, job_name, 
+      job_demo, end_sync_data_time, sync_data_interval_time, 
+      sync_flag_id, end_time)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{sellerId,jdbcType=BIGINT}, #{shopId,jdbcType=BIGINT}, #{jobName,jdbcType=VARCHAR}, 
+      #{jobDemo,jdbcType=VARCHAR}, #{endSyncDataTime,jdbcType=TIMESTAMP}, #{syncDataIntervalTime,jdbcType=INTEGER}, 
+      #{syncFlagId,jdbcType=VARCHAR}, #{endTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.job.JobDetail" useGeneratedKeys="true" keyProperty="id" >
+    insert into job_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="shopId != null" >
+        shop_id,
+      </if>
+      <if test="jobName != null" >
+        job_name,
+      </if>
+      <if test="jobDemo != null" >
+        job_demo,
+      </if>
+      <if test="endSyncDataTime != null" >
+        end_sync_data_time,
+      </if>
+      <if test="syncDataIntervalTime != null" >
+        sync_data_interval_time,
+      </if>
+      <if test="syncFlagId != null" >
+        sync_flag_id,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+      <if test="shopId != null" >
+        #{shopId,jdbcType=BIGINT},
+      </if>
+      <if test="jobName != null" >
+        #{jobName,jdbcType=VARCHAR},
+      </if>
+      <if test="jobDemo != null" >
+        #{jobDemo,jdbcType=VARCHAR},
+      </if>
+      <if test="endSyncDataTime != null" >
+        #{endSyncDataTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="syncDataIntervalTime != null" >
+        #{syncDataIntervalTime,jdbcType=INTEGER},
+      </if>
+      <if test="syncFlagId != null" >
+        #{syncFlagId,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.job.JobDetailExample" resultType="java.lang.Integer" >
+    select count(*) from job_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update job_detail
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.shopId!=null and record.shopIdExpression==null" >
+          shop_id = #{record.shopId,jdbcType=BIGINT},
+        </if>
+        <if test="record.shopIdExpression!=null" >
+          shop_id = ${record.shopIdExpression},
+        </if>
+        <if test="record.jobName!=null and record.jobNameExpression==null" >
+          job_name = #{record.jobName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.jobNameExpression!=null" >
+          job_name = ${record.jobNameExpression},
+        </if>
+        <if test="record.jobDemo!=null and record.jobDemoExpression==null" >
+          job_demo = #{record.jobDemo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.jobDemoExpression!=null" >
+          job_demo = ${record.jobDemoExpression},
+        </if>
+        <if test="record.endSyncDataTime!=null and record.endSyncDataTimeExpression==null" >
+          end_sync_data_time = #{record.endSyncDataTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.endSyncDataTimeExpression!=null" >
+          end_sync_data_time = ${record.endSyncDataTimeExpression},
+        </if>
+        <if test="record.syncDataIntervalTime!=null and record.syncDataIntervalTimeExpression==null" >
+          sync_data_interval_time = #{record.syncDataIntervalTime,jdbcType=INTEGER},
+        </if>
+        <if test="record.syncDataIntervalTimeExpression!=null" >
+          sync_data_interval_time = ${record.syncDataIntervalTimeExpression},
+        </if>
+        <if test="record.syncFlagId!=null and record.syncFlagIdExpression==null" >
+          sync_flag_id = #{record.syncFlagId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.syncFlagIdExpression!=null" >
+          sync_flag_id = ${record.syncFlagIdExpression},
+        </if>
+        <if test="record.endTime!=null and record.endTimeExpression==null" >
+          end_time = #{record.endTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.endTimeExpression!=null" >
+          end_time = ${record.endTimeExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update job_detail
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=BIGINT},
+      shop_id = #{record.shopId,jdbcType=BIGINT},
+      job_name = #{record.jobName,jdbcType=VARCHAR},
+      job_demo = #{record.jobDemo,jdbcType=VARCHAR},
+      end_sync_data_time = #{record.endSyncDataTime,jdbcType=TIMESTAMP},
+      sync_data_interval_time = #{record.syncDataIntervalTime,jdbcType=INTEGER},
+      sync_flag_id = #{record.syncFlagId,jdbcType=VARCHAR},
+      end_time = #{record.endTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.job.JobDetail" >
+    update job_detail
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.shopId!=null and record.shopIdExpression==null" >
+          shop_id = #{record.shopId,jdbcType=BIGINT},
+        </if>
+        <if test="record.shopIdExpression!=null" >
+          shop_id = ${record.shopIdExpression},
+        </if>
+        <if test="record.jobName!=null and record.jobNameExpression==null" >
+          job_name = #{record.jobName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.jobNameExpression!=null" >
+          job_name = ${record.jobNameExpression},
+        </if>
+        <if test="record.jobDemo!=null and record.jobDemoExpression==null" >
+          job_demo = #{record.jobDemo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.jobDemoExpression!=null" >
+          job_demo = ${record.jobDemoExpression},
+        </if>
+        <if test="record.endSyncDataTime!=null and record.endSyncDataTimeExpression==null" >
+          end_sync_data_time = #{record.endSyncDataTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.endSyncDataTimeExpression!=null" >
+          end_sync_data_time = ${record.endSyncDataTimeExpression},
+        </if>
+        <if test="record.syncDataIntervalTime!=null and record.syncDataIntervalTimeExpression==null" >
+          sync_data_interval_time = #{record.syncDataIntervalTime,jdbcType=INTEGER},
+        </if>
+        <if test="record.syncDataIntervalTimeExpression!=null" >
+          sync_data_interval_time = ${record.syncDataIntervalTimeExpression},
+        </if>
+        <if test="record.syncFlagId!=null and record.syncFlagIdExpression==null" >
+          sync_flag_id = #{record.syncFlagId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.syncFlagIdExpression!=null" >
+          sync_flag_id = ${record.syncFlagIdExpression},
+        </if>
+        <if test="record.endTime!=null and record.endTimeExpression==null" >
+          end_time = #{record.endTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.endTimeExpression!=null" >
+          end_time = ${record.endTimeExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.job.JobDetail" >
+    update job_detail
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=BIGINT},
+      shop_id = #{shopId,jdbcType=BIGINT},
+      job_name = #{jobName,jdbcType=VARCHAR},
+      job_demo = #{jobDemo,jdbcType=VARCHAR},
+      end_sync_data_time = #{endSyncDataTime,jdbcType=TIMESTAMP},
+      sync_data_interval_time = #{syncDataIntervalTime,jdbcType=INTEGER},
+      sync_flag_id = #{syncFlagId,jdbcType=VARCHAR},
+      end_time = #{endTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

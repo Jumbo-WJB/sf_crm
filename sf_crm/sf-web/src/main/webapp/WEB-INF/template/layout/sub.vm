@@ -1,0 +1,30 @@
+<a href="${rc.contextPath}/admin"><div class="menuTop" style="color:#fff;">积分</div></a>
+
+<ul class="menu">
+    <li class="menuSP">
+        <a href="">积分兑换统计</a>
+    </li>
+    <ol class="submenu" style="display: none">
+        <li>
+            <a onclick="">subTest</a>
+        </li>
+    </ol>
+    <li class="menuSP">
+        <a href="">积分兑换统计</a>
+    </li>
+    <ol class="submenu" style="display: none">
+        <li>
+            <a onclick="">subTest</a>
+        </li>
+    </ol>
+</ul>
+
+<script>
+    $('.menu').on('click', 'li:first', function(event){
+        event.preventDefault()
+        $(this).parent().find('ol').toggle();
+        event.stopPropagation()
+    });
+
+
+</script>

@@ -1,0 +1,307 @@
+#set($layout = "/layout/blank.vm")
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <title>积分兑换</title>
+
+    <link rel="stylesheet" type="text/css" href="${rc.contextPath}/media/mobile/assets/css/style.css">
+    <script type="text/javascript" src="${rc.contextPath}/media/mobile/assets/js/geo.js"/>
+
+    <!--手机端通用js引入-->
+    <script src="${rc.contextPath}/media/mobile/assets/vendor/jquery/1.11.1/jquery.min.js"></script>
+
+
+    <style type="text/css">
+        html, body{
+            background: white;
+        }
+        .u-body .u-radioGroup ul li input{
+            display: none;
+        }
+        .u-body .u-radioGroup ul li label{
+            padding-left: 25px;
+            background: #fff url("${rc.contextPath}/media/mobile/assets/images/public/icon2.png") no-repeat scroll 0 0 / 20px 20px;
+        }
+        .u-body .u-radioGroup ul li label.checked{
+            background: #fff url("${rc.contextPath}/media/mobile/assets/images/public/icon1.png") no-repeat scroll 0 0 / 20px 20px;
+        }
+
+        a.add_rece{
+            background: #01b961;
+            display: block;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 3px;
+            color: white;
+            text-align: center;
+            margin: 0 5px 0 0;
+            font-size; 18px
+        }
+
+        .u-footer{
+            overflow: hidden;
+            height: 3em;
+            position:absolute;
+            bottom:0px;
+            right:0px;
+            left:0px;
+            border-top:none;
+            z-index: 999;
+            background: white;
+            border-top: 1px solid #f3f3f3 !important;
+            font-size: 15px;
+        }
+
+    </style>
+</head>
+
+<body>
+    #set($flag = "/")
+    #if($goodsSkuExchangeInfoDo)           ##有sku的
+##        #if($!{goodsSkuExchangeInfoDo.imgsUrl} && $goodsSkuExchangeInfoDo.imgsUrl ne '')
+##            #if($goodsSkuExchangeInfoDo.imgsUrl.indexOf(',') > 0)
+##                #foreach($img in $goodsSkuExchangeInfoDo.imgsUrl.split(','))
+##                    #if($velocityCount == 1)
+##                        #set($firstImg = $img)
+##                    #end
+##                #end
+##            #else
+##                #set($firstImg = $goodsSkuExchangeInfoDo.imgsUrl)
+##            #end
+##        #end
+        #set($firstImg = $goodsSkuExchangeInfoDo.thumbnail)
+        #set($payPoint = $goodsSkuExchangeInfoDo.point)
+        #set($goodsTitle = $goodsSkuExchangeInfoDo.title)
+        #set($isV = $goodsSkuExchangeInfoDo.isVirtual)
+    #elseif($mallGoods)
+##        #if($!{mallGoods.imgsUrl} && $mallGoods.imgsUrl ne '')
+##            #if($mallGoods.imgsUrl.indexOf(',') > 0)
+##                #foreach($img in $mallGoods.imgsUrl.split(','))
+##                    #if($velocityCount == 1)
+##                        #set($firstImg = $img)
+##                    #end
+##                #end
+##            #else
+##                #set($firstImg = $mallGoods.imgsUrl)
+##            #end
+##        #end
+        #set($firstImg = $mallGoods.thumbnail)
+        #set($payPoint = $mallGoods.point)
+        #set($goodsTitle = $mallGoods.title)
+        #set($isV = $mallGoods.isVirtual)
+    #else
+
+    #end
+<div class="u-body" id="main_div">
+    <div class="u-block">
+        #if($isV eq 'n')
+            <div class="addReserveInfo u-bottomeBorder">
+                <a href="#" onclick="javascript:toChangeReceiver('$!sellerId','$!userId');">
+                    <div class="u-iconInput">
+                        <input type="text" class="u-inputtext" value="添加或者更换收件人信息" readonly >
+                    </div>
+                    <span class="icon-right"></span>
+                </a>
+            </div>
+                #if($defaultReceiver)
+                    <div class="info" style="display:" id = "receiver_info">
+                        <div class="phonebook"><span class="name" id="name">$!defaultReceiver.name</span><span class="phone" id="phone">$!defaultReceiver.mobile</span></div>
+                        <div class="address" id="address">$!defaultReceiver.province$!defaultReceiver.city$!defaultReceiver.district$!defaultReceiver.address</div>
+                        <input type="hidden" id="receiver_id" value="$!defaultReceiver.receiverId">
+                    </div>
+                #else
+                    <div class="info" style="display: none" id = "receiver_info">
+                        <div class="phonebook"><span class="name" id="name"></span><span class="phone" id="phone"></span></div>
+                        <div class="address" id="address"></div>
+                        <input type="hidden" id="receiver_id" value="">
+                    </div>
+                #end
+        #end
+    </div>
+
+    <div class="u-block orderInfo">
+        <div class="goodsInfo">
+            <img src="$rc.contextPath$flag$!firstImg" style="width: 100px;height: 100px">
+            <div class="info" style="margin: 0 120px; height: 60px;width: 50%">
+                <div style="overflow: hidden;text-overflow:ellipsis; height: 51px; width:120px;">$!goodsTitle</div>
+                <div class="num" id="ex_num" style="position: relative">兑换数量：$!amount</div>
+                #if(!$giftSource)
+                    <div class="num-plug" style="display: inline-block">
+                        <a href="javascript:" class="del">－</a>
+                        <input type="text" class="inputtext" value="$!amount" id="buy_amount" style="font-size: 14px" readonly />
+                        <input type="hidden" value="$!amount" id="buy_amount_hidden"/>
+                        <a href="javascript:" class="add">＋</a>
+                    </div>
+                    <span style="font-size: 0.5em;color: #E8E8E8;overflow:hidden;text-overflow:ellipsis;width:50px; white-space: nowrap;display: inline-block">$!stockTotal</span>
+                #end
+            </div>
+            <div class="score">
+                <span>积分</span>
+                <span style="color:#ff6701;">$!payPoint</span>
+            </div>
+        </div>
+        #set($payPointTotal = $amount * $payPoint)
+        <div class="u-tr"><span class="tr-label">本次需消耗积分</span><span class="tr-info u-fontAtv" id="pay_point_total">$!payPointTotal</span></div>
+        <div class="u-bottomeBorder u-tr"><span class="tr-label">配送方式</span><span class="tr-info u-fontAtv">#if($isV eq 'n') 快递发货 #else 无需发货 #end</span></div>
+    </div>
+    <div>
+        #if($giftSource)
+            <a href="javascript:" class="u-submit" style="margin: 10px 10px" onclick="exchangeNext('$sellerId','$userId','$goodsId','$!skuId','$!obtainId','$!giftSource','$isV')">领取</a>
+        #else
+            <a href="javascript:" class="u-submit" style="margin: 10px 10px" onclick="exchangeNext('$sellerId','$userId','$goodsId','$!skuId','$!obtainId','$!giftSource','$isV')">确认兑换</a>
+        #end
+        <input type="hidden" id="token" name="token" value="$!token"/>
+    </div>
+##    <div>添加收件人</div>
+</div>
+<!-- 添加收件人页面开始 -->
+<div class="u-body" style="display: none" id="change_rece">
+    <div class="myscore-li" style="margin: 5px 0">
+        <div class="goodsPanle" id="rece_list">
+            #if($mallReceivers)
+                #foreach($rec in $mallReceivers)
+                    <div class="itemLi">
+                    <a href="javascript:">
+                        <div class="info"style="margin: 0">
+                            <div class="name" style="line-height: 25px"><span id="rec_name_$rec.receiverId">$rec.name</span><span id="rec_mobile_$rec.receiverId" style="margin: 0 10px">$rec.mobile</span></div>
+                            <input type="radio" class="u-inputradio" name="r"
+                                #if($rec.isDefault == 'y')
+                                   checked
+                                #end
+                                    value="$rec.receiverId">
+                            <label for="label1" id="rec_address_$rec.receiverId">
+                                $!rec.province $!rec.city $!rec.district $!rec.address
+                            </label>
+                            <br/>
+                        </div>
+                    ##                <div class="pull-right" style="top:60px"><a href="${rc.contextPath}/mobile/mall/goods/detail?sellerId=$sellerId&userId=$userId&gid=$goods.goodsId" class="u-btn-exchange">立即兑换</a></div>
+                    </a>
+                    </div>
+                #end
+            #end
+            <div class="itemLi">
+                <div class="info" style="margin: 0">
+                    <div class="name" style="line-height: 25px"></div>
+                        <a href="javascript:toAddRece()" class="add_rece">添加收件人</a>
+                    <br/>
+                </div>
+##                <div class="pull-right" style="top:60px"><a href="${rc.contextPath}/mobile/mall/goods/detail?sellerId=$sellerId&userId=$userId&gid=$goods.goodsId" class="u-btn-exchange">立即兑换</a></div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<!---更改收件人页面结束 -->
+<!---添加收件人页面开始-->
+<div class="u-body" id="add_receiver" style="display: none">
+    <div class="u-block">
+        <form id="myForm" role="form">
+            <div class="form-grounp">
+                <label class="label">收件人姓名</label>
+                <div class="label-info"><input type="text" class="inputtext" name="userName" placeholder="收件人真实姓名"></div>
+            </div>
+            <div class="form-grounp">
+                <label class="label">手机号</label>
+                <div class="label-info"><input type="text" id="mobile" name="mobile" class="inputtext"  placeholder="收件人手机号码"></div>
+            </div>
+            <div class="form-grounp">
+                <label class="label">省</label>
+                <div class="label-info">
+##                    <input type="text" id="province" name="province" class="inputtext"  placeholder="所在省份">
+                    <select id="province" name="province">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-grounp">
+                <label class="label">市</label>
+                <div class="label-info">
+##                    <input type="text" id="city" name="city" class="inputtext"  placeholder="所在市">
+                    <select id="city" name="city">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-grounp">
+                <label class="label">区/县</label>
+                <div class="label-info">
+##                    <input type="text" id="district" name="district" class="inputtext"  placeholder="所在区县">
+                    <select id="district" name="district">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-grounp">
+                <label class="label">详细地址</label>
+                <div class="label-info"><input type="text" id="road" name="road" class="inputtext"  placeholder="所在街道,门牌号信息"></div>
+            </div>
+            <div class="form-grounp">
+                <label class="label">邮政编码</label>
+                <div class="label-info"><input type="text" id="zip" name="zip" class="inputtext"  placeholder="邮政编码"></div>
+            </div>
+        </form>
+    </div>
+    <div>
+        <a id="submit" href="javascript:addRece('$sellerId','$userId')" class="u-submit">保存</a>
+    </div>
+</div>
+<!--添加收件人页面结束-->
+<div class="u-footer">
+    <p>
+        <img src="${rc.contextPath}/media/mobile/assets/images/public/suniu_logo_grey.jpg">
+        <span>技术支持·速牛科技</span>
+    </p>
+</div>
+</body>
+</html>
+<!--手机端通用js引入-->
+<script src="${rc.contextPath}/media/mobile/assets/vendor/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+    // 省市区三级联动
+    new Dsy({
+        // 绑定三个select的id
+        s:['province','city','district'],
+        // 是否是大陆
+        isMainLand:true,
+        // 默认浙江省
+        p_key:'浙江省'
+    });
+
+    var stockTotal = Number('$!stockTotal');        //库存数量
+    var pointPerOne = Number('$!payPoint');         //每件消耗积分
+
+//    console.dir(stockTotal);
+    //数量减法
+    $('.num-plug a.del').click(function(){
+        var num = $('#buy_amount').val();
+        if(num > 1){
+            var tmp = num - 1;
+            $('#buy_amount').val(tmp);
+            $('#buy_amount_hidden').val(tmp);
+            $('#ex_num').html('兑换数量：' + tmp);
+            $('#pay_point_total').html(tmp * pointPerOne);
+        }
+    });
+    //数量加法
+    $('.num-plug a.add').click(function(){
+        var num = $('#buy_amount').val();
+        if(stockTotal != 0){
+            if(num < stockTotal){
+                num = Number(num) + 1;
+                $('#buy_amount').val(num);
+                $('#buy_amount_hidden').val(num);
+                $('#ex_num').html('兑换数量：' + num);
+                $('#pay_point_total').html(num * pointPerOne);
+            }
+        }
+    });
+
+</script>
+<!--  -->
+<script type="text/javascript" src="${rc.contextPath}/media/mobile/assets/js/mall/mall.js"></script>

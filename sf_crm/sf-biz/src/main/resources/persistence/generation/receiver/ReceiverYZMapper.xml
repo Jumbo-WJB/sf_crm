@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.receiver.ReceiverYZMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.receiver.ReceiverYZ" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_receiver_state" property="maxReceiverState" jdbcType="BIGINT" />
+    <result column="min_receiver_state" property="minReceiverState" jdbcType="BIGINT" />
+    <result column="avg_receiver_state" property="avgReceiverState" jdbcType="BIGINT" />
+    <result column="count_receiver_state" property="countReceiverState" jdbcType="BIGINT" />
+    <result column="sum_receiver_state" property="sumReceiverState" jdbcType="VARCHAR" />
+    <result column="max_receiver_mobile" property="maxReceiverMobile" jdbcType="BIGINT" />
+    <result column="min_receiver_mobile" property="minReceiverMobile" jdbcType="BIGINT" />
+    <result column="avg_receiver_mobile" property="avgReceiverMobile" jdbcType="BIGINT" />
+    <result column="count_receiver_mobile" property="countReceiverMobile" jdbcType="BIGINT" />
+    <result column="sum_receiver_mobile" property="sumReceiverMobile" jdbcType="VARCHAR" />
+    <result column="max_receiver_zip" property="maxReceiverZip" jdbcType="BIGINT" />
+    <result column="min_receiver_zip" property="minReceiverZip" jdbcType="BIGINT" />
+    <result column="avg_receiver_zip" property="avgReceiverZip" jdbcType="BIGINT" />
+    <result column="count_receiver_zip" property="countReceiverZip" jdbcType="BIGINT" />
+    <result column="sum_receiver_zip" property="sumReceiverZip" jdbcType="VARCHAR" />
+    <result column="max_receiver_address" property="maxReceiverAddress" jdbcType="BIGINT" />
+    <result column="min_receiver_address" property="minReceiverAddress" jdbcType="BIGINT" />
+    <result column="avg_receiver_address" property="avgReceiverAddress" jdbcType="BIGINT" />
+    <result column="count_receiver_address" property="countReceiverAddress" jdbcType="BIGINT" />
+    <result column="sum_receiver_address" property="sumReceiverAddress" jdbcType="VARCHAR" />
+    <result column="max_receiver_name" property="maxReceiverName" jdbcType="BIGINT" />
+    <result column="min_receiver_name" property="minReceiverName" jdbcType="BIGINT" />
+    <result column="avg_receiver_name" property="avgReceiverName" jdbcType="BIGINT" />
+    <result column="count_receiver_name" property="countReceiverName" jdbcType="BIGINT" />
+    <result column="sum_receiver_name" property="sumReceiverName" jdbcType="VARCHAR" />
+    <result column="max_receiver_district" property="maxReceiverDistrict" jdbcType="BIGINT" />
+    <result column="min_receiver_district" property="minReceiverDistrict" jdbcType="BIGINT" />
+    <result column="avg_receiver_district" property="avgReceiverDistrict" jdbcType="BIGINT" />
+    <result column="count_receiver_district" property="countReceiverDistrict" jdbcType="BIGINT" />
+    <result column="sum_receiver_district" property="sumReceiverDistrict" jdbcType="VARCHAR" />
+    <result column="max_receiver_city" property="maxReceiverCity" jdbcType="BIGINT" />
+    <result column="min_receiver_city" property="minReceiverCity" jdbcType="BIGINT" />
+    <result column="avg_receiver_city" property="avgReceiverCity" jdbcType="BIGINT" />
+    <result column="count_receiver_city" property="countReceiverCity" jdbcType="BIGINT" />
+    <result column="sum_receiver_city" property="sumReceiverCity" jdbcType="VARCHAR" />
+    <result column="max_created" property="maxCreated" jdbcType="BIGINT" />
+    <result column="min_created" property="minCreated" jdbcType="BIGINT" />
+    <result column="avg_created" property="avgCreated" jdbcType="BIGINT" />
+    <result column="count_created" property="countCreated" jdbcType="BIGINT" />
+    <result column="sum_created" property="sumCreated" jdbcType="TIMESTAMP" />
+    <result column="max_user_id_yz" property="maxUserIdYz" jdbcType="BIGINT" />
+    <result column="min_user_id_yz" property="minUserIdYz" jdbcType="BIGINT" />
+    <result column="avg_user_id_yz" property="avgUserIdYz" jdbcType="BIGINT" />
+    <result column="count_user_id_yz" property="countUserIdYz" jdbcType="BIGINT" />
+    <result column="sum_user_id_yz" property="sumUserIdYz" jdbcType="BIGINT" />
+    <result column="max_receiver_id_yz" property="maxReceiverIdYz" jdbcType="BIGINT" />
+    <result column="min_receiver_id_yz" property="minReceiverIdYz" jdbcType="BIGINT" />
+    <result column="avg_receiver_id_yz" property="avgReceiverIdYz" jdbcType="BIGINT" />
+    <result column="count_receiver_id_yz" property="countReceiverIdYz" jdbcType="BIGINT" />
+    <result column="sum_receiver_id_yz" property="sumReceiverIdYz" jdbcType="BIGINT" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="receiver_id_yz" property="receiverIdYz" jdbcType="BIGINT" />
+    <result column="user_id_yz" property="userIdYz" jdbcType="BIGINT" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="receiver_city" property="receiverCity" jdbcType="VARCHAR" />
+    <result column="receiver_district" property="receiverDistrict" jdbcType="VARCHAR" />
+    <result column="receiver_name" property="receiverName" jdbcType="VARCHAR" />
+    <result column="receiver_address" property="receiverAddress" jdbcType="VARCHAR" />
+    <result column="receiver_zip" property="receiverZip" jdbcType="VARCHAR" />
+    <result column="receiver_mobile" property="receiverMobile" jdbcType="VARCHAR" />
+    <result column="receiver_state" property="receiverState" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, created_by, modified_by, is_deleted, receiver_id_yz, 
+    user_id_yz, created, receiver_city, receiver_district, receiver_name, receiver_address, 
+    receiver_zip, receiver_mobile, receiver_state
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.receiver.ReceiverYZExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from receiver_yz
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from receiver_yz
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update receiver_yz
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.receiver.ReceiverYZExample" >
+    update receiver_yz
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.receiver.ReceiverYZ" useGeneratedKeys="true" keyProperty="id" >
+    insert into receiver_yz (id, gmt_created, gmt_modified, 
+      created_by, modified_by, is_deleted, 
+      receiver_id_yz, user_id_yz, created, 
+      receiver_city, receiver_district, receiver_name, 
+      receiver_address, receiver_zip, receiver_mobile, 
+      receiver_state)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{receiverIdYz,jdbcType=BIGINT}, #{userIdYz,jdbcType=BIGINT}, #{created,jdbcType=TIMESTAMP}, 
+      #{receiverCity,jdbcType=VARCHAR}, #{receiverDistrict,jdbcType=VARCHAR}, #{receiverName,jdbcType=VARCHAR}, 
+      #{receiverAddress,jdbcType=VARCHAR}, #{receiverZip,jdbcType=VARCHAR}, #{receiverMobile,jdbcType=VARCHAR}, 
+      #{receiverState,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.receiver.ReceiverYZ" useGeneratedKeys="true" keyProperty="id" >
+    insert into receiver_yz
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="receiverIdYz != null" >
+        receiver_id_yz,
+      </if>
+      <if test="userIdYz != null" >
+        user_id_yz,
+      </if>
+      <if test="created != null" >
+        created,
+      </if>
+      <if test="receiverCity != null" >
+        receiver_city,
+      </if>
+      <if test="receiverDistrict != null" >
+        receiver_district,
+      </if>
+      <if test="receiverName != null" >
+        receiver_name,
+      </if>
+      <if test="receiverAddress != null" >
+        receiver_address,
+      </if>
+      <if test="receiverZip != null" >
+        receiver_zip,
+      </if>
+      <if test="receiverMobile != null" >
+        receiver_mobile,
+      </if>
+      <if test="receiverState != null" >
+        receiver_state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverIdYz != null" >
+        #{receiverIdYz,jdbcType=BIGINT},
+      </if>
+      <if test="userIdYz != null" >
+        #{userIdYz,jdbcType=BIGINT},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="receiverCity != null" >
+        #{receiverCity,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverDistrict != null" >
+        #{receiverDistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverName != null" >
+        #{receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverAddress != null" >
+        #{receiverAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverZip != null" >
+        #{receiverZip,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverMobile != null" >
+        #{receiverMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverState != null" >
+        #{receiverState,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.receiver.ReceiverYZExample" resultType="java.lang.Integer" >
+    select count(*) from receiver_yz
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update receiver_yz
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.receiverIdYz!=null and record.receiverIdYzExpression==null" >
+          receiver_id_yz = #{record.receiverIdYz,jdbcType=BIGINT},
+        </if>
+        <if test="record.receiverIdYzExpression!=null" >
+          receiver_id_yz = ${record.receiverIdYzExpression},
+        </if>
+        <if test="record.userIdYz!=null and record.userIdYzExpression==null" >
+          user_id_yz = #{record.userIdYz,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdYzExpression!=null" >
+          user_id_yz = ${record.userIdYzExpression},
+        </if>
+        <if test="record.created!=null and record.createdExpression==null" >
+          created = #{record.created,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.createdExpression!=null" >
+          created = ${record.createdExpression},
+        </if>
+        <if test="record.receiverCity!=null and record.receiverCityExpression==null" >
+          receiver_city = #{record.receiverCity,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverCityExpression!=null" >
+          receiver_city = ${record.receiverCityExpression},
+        </if>
+        <if test="record.receiverDistrict!=null and record.receiverDistrictExpression==null" >
+          receiver_district = #{record.receiverDistrict,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverDistrictExpression!=null" >
+          receiver_district = ${record.receiverDistrictExpression},
+        </if>
+        <if test="record.receiverName!=null and record.receiverNameExpression==null" >
+          receiver_name = #{record.receiverName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverNameExpression!=null" >
+          receiver_name = ${record.receiverNameExpression},
+        </if>
+        <if test="record.receiverAddress!=null and record.receiverAddressExpression==null" >
+          receiver_address = #{record.receiverAddress,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverAddressExpression!=null" >
+          receiver_address = ${record.receiverAddressExpression},
+        </if>
+        <if test="record.receiverZip!=null and record.receiverZipExpression==null" >
+          receiver_zip = #{record.receiverZip,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverZipExpression!=null" >
+          receiver_zip = ${record.receiverZipExpression},
+        </if>
+        <if test="record.receiverMobile!=null and record.receiverMobileExpression==null" >
+          receiver_mobile = #{record.receiverMobile,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverMobileExpression!=null" >
+          receiver_mobile = ${record.receiverMobileExpression},
+        </if>
+        <if test="record.receiverState!=null and record.receiverStateExpression==null" >
+          receiver_state = #{record.receiverState,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverStateExpression!=null" >
+          receiver_state = ${record.receiverStateExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update receiver_yz
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      receiver_id_yz = #{record.receiverIdYz,jdbcType=BIGINT},
+      user_id_yz = #{record.userIdYz,jdbcType=BIGINT},
+      created = #{record.created,jdbcType=TIMESTAMP},
+      receiver_city = #{record.receiverCity,jdbcType=VARCHAR},
+      receiver_district = #{record.receiverDistrict,jdbcType=VARCHAR},
+      receiver_name = #{record.receiverName,jdbcType=VARCHAR},
+      receiver_address = #{record.receiverAddress,jdbcType=VARCHAR},
+      receiver_zip = #{record.receiverZip,jdbcType=VARCHAR},
+      receiver_mobile = #{record.receiverMobile,jdbcType=VARCHAR},
+      receiver_state = #{record.receiverState,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.receiver.ReceiverYZ" >
+    update receiver_yz
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.receiverIdYz!=null and record.receiverIdYzExpression==null" >
+          receiver_id_yz = #{record.receiverIdYz,jdbcType=BIGINT},
+        </if>
+        <if test="record.receiverIdYzExpression!=null" >
+          receiver_id_yz = ${record.receiverIdYzExpression},
+        </if>
+        <if test="record.userIdYz!=null and record.userIdYzExpression==null" >
+          user_id_yz = #{record.userIdYz,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdYzExpression!=null" >
+          user_id_yz = ${record.userIdYzExpression},
+        </if>
+        <if test="record.created!=null and record.createdExpression==null" >
+          created = #{record.created,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.createdExpression!=null" >
+          created = ${record.createdExpression},
+        </if>
+        <if test="record.receiverCity!=null and record.receiverCityExpression==null" >
+          receiver_city = #{record.receiverCity,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverCityExpression!=null" >
+          receiver_city = ${record.receiverCityExpression},
+        </if>
+        <if test="record.receiverDistrict!=null and record.receiverDistrictExpression==null" >
+          receiver_district = #{record.receiverDistrict,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverDistrictExpression!=null" >
+          receiver_district = ${record.receiverDistrictExpression},
+        </if>
+        <if test="record.receiverName!=null and record.receiverNameExpression==null" >
+          receiver_name = #{record.receiverName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverNameExpression!=null" >
+          receiver_name = ${record.receiverNameExpression},
+        </if>
+        <if test="record.receiverAddress!=null and record.receiverAddressExpression==null" >
+          receiver_address = #{record.receiverAddress,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverAddressExpression!=null" >
+          receiver_address = ${record.receiverAddressExpression},
+        </if>
+        <if test="record.receiverZip!=null and record.receiverZipExpression==null" >
+          receiver_zip = #{record.receiverZip,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverZipExpression!=null" >
+          receiver_zip = ${record.receiverZipExpression},
+        </if>
+        <if test="record.receiverMobile!=null and record.receiverMobileExpression==null" >
+          receiver_mobile = #{record.receiverMobile,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverMobileExpression!=null" >
+          receiver_mobile = ${record.receiverMobileExpression},
+        </if>
+        <if test="record.receiverState!=null and record.receiverStateExpression==null" >
+          receiver_state = #{record.receiverState,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverStateExpression!=null" >
+          receiver_state = ${record.receiverStateExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.receiver.ReceiverYZ" >
+    update receiver_yz
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      receiver_id_yz = #{receiverIdYz,jdbcType=BIGINT},
+      user_id_yz = #{userIdYz,jdbcType=BIGINT},
+      created = #{created,jdbcType=TIMESTAMP},
+      receiver_city = #{receiverCity,jdbcType=VARCHAR},
+      receiver_district = #{receiverDistrict,jdbcType=VARCHAR},
+      receiver_name = #{receiverName,jdbcType=VARCHAR},
+      receiver_address = #{receiverAddress,jdbcType=VARCHAR},
+      receiver_zip = #{receiverZip,jdbcType=VARCHAR},
+      receiver_mobile = #{receiverMobile,jdbcType=VARCHAR},
+      receiver_state = #{receiverState,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

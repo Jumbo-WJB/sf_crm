@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.marketActivity.MarketRecordsMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.marketActivity.MarketRecords" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="max_execute_time" property="maxExecuteTime" jdbcType="BIGINT" />
+    <result column="min_execute_time" property="minExecuteTime" jdbcType="BIGINT" />
+    <result column="avg_execute_time" property="avgExecuteTime" jdbcType="BIGINT" />
+    <result column="count_execute_time" property="countExecuteTime" jdbcType="BIGINT" />
+    <result column="sum_execute_time" property="sumExecuteTime" jdbcType="TIMESTAMP" />
+    <result column="max_type" property="maxType" jdbcType="BIGINT" />
+    <result column="min_type" property="minType" jdbcType="BIGINT" />
+    <result column="avg_type" property="avgType" jdbcType="BIGINT" />
+    <result column="count_type" property="countType" jdbcType="BIGINT" />
+    <result column="sum_type" property="sumType" jdbcType="VARCHAR" />
+    <result column="max_is_open" property="maxIsOpen" jdbcType="BIGINT" />
+    <result column="min_is_open" property="minIsOpen" jdbcType="BIGINT" />
+    <result column="avg_is_open" property="avgIsOpen" jdbcType="BIGINT" />
+    <result column="count_is_open" property="countIsOpen" jdbcType="BIGINT" />
+    <result column="sum_is_open" property="sumIsOpen" jdbcType="VARCHAR" />
+    <result column="max_is_success" property="maxIsSuccess" jdbcType="BIGINT" />
+    <result column="min_is_success" property="minIsSuccess" jdbcType="BIGINT" />
+    <result column="avg_is_success" property="avgIsSuccess" jdbcType="BIGINT" />
+    <result column="count_is_success" property="countIsSuccess" jdbcType="BIGINT" />
+    <result column="sum_is_success" property="sumIsSuccess" jdbcType="VARCHAR" />
+    <result column="max_email" property="maxEmail" jdbcType="BIGINT" />
+    <result column="min_email" property="minEmail" jdbcType="BIGINT" />
+    <result column="avg_email" property="avgEmail" jdbcType="BIGINT" />
+    <result column="count_email" property="countEmail" jdbcType="BIGINT" />
+    <result column="sum_email" property="sumEmail" jdbcType="VARCHAR" />
+    <result column="max_mobile" property="maxMobile" jdbcType="BIGINT" />
+    <result column="min_mobile" property="minMobile" jdbcType="BIGINT" />
+    <result column="avg_mobile" property="avgMobile" jdbcType="BIGINT" />
+    <result column="count_mobile" property="countMobile" jdbcType="BIGINT" />
+    <result column="sum_mobile" property="sumMobile" jdbcType="VARCHAR" />
+    <result column="max_activity_title" property="maxActivityTitle" jdbcType="BIGINT" />
+    <result column="min_activity_title" property="minActivityTitle" jdbcType="BIGINT" />
+    <result column="avg_activity_title" property="avgActivityTitle" jdbcType="BIGINT" />
+    <result column="count_activity_title" property="countActivityTitle" jdbcType="BIGINT" />
+    <result column="sum_activity_title" property="sumActivityTitle" jdbcType="VARCHAR" />
+    <result column="max_user_id" property="maxUserId" jdbcType="BIGINT" />
+    <result column="min_user_id" property="minUserId" jdbcType="BIGINT" />
+    <result column="avg_user_id" property="avgUserId" jdbcType="BIGINT" />
+    <result column="count_user_id" property="countUserId" jdbcType="BIGINT" />
+    <result column="sum_user_id" property="sumUserId" jdbcType="BIGINT" />
+    <result column="max_activity_id" property="maxActivityId" jdbcType="BIGINT" />
+    <result column="min_activity_id" property="minActivityId" jdbcType="BIGINT" />
+    <result column="avg_activity_id" property="avgActivityId" jdbcType="BIGINT" />
+    <result column="count_activity_id" property="countActivityId" jdbcType="BIGINT" />
+    <result column="sum_activity_id" property="sumActivityId" jdbcType="BIGINT" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="activity_id" property="activityId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="activity_title" property="activityTitle" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="is_success" property="isSuccess" jdbcType="VARCHAR" />
+    <result column="is_open" property="isOpen" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="execute_time" property="executeTime" jdbcType="TIMESTAMP" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, created_by, modified_by, is_deleted, activity_id, 
+    user_id, activity_title, mobile, email, is_success, is_open, type, execute_time, 
+    seller_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.marketActivity.MarketRecordsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from market_records
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from market_records
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update market_records
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.marketActivity.MarketRecordsExample" >
+    update market_records
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.marketActivity.MarketRecords" useGeneratedKeys="true" keyProperty="id" >
+    insert into market_records (id, gmt_created, gmt_modified, 
+      created_by, modified_by, is_deleted, 
+      activity_id, user_id, activity_title, 
+      mobile, email, is_success, 
+      is_open, type, execute_time, 
+      seller_id)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{activityId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{activityTitle,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{isSuccess,jdbcType=VARCHAR}, 
+      #{isOpen,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{executeTime,jdbcType=TIMESTAMP}, 
+      #{sellerId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.marketActivity.MarketRecords" useGeneratedKeys="true" keyProperty="id" >
+    insert into market_records
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="activityId != null" >
+        activity_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="activityTitle != null" >
+        activity_title,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="isSuccess != null" >
+        is_success,
+      </if>
+      <if test="isOpen != null" >
+        is_open,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="executeTime != null" >
+        execute_time,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="activityId != null" >
+        #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="activityTitle != null" >
+        #{activityTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="isSuccess != null" >
+        #{isSuccess,jdbcType=VARCHAR},
+      </if>
+      <if test="isOpen != null" >
+        #{isOpen,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="executeTime != null" >
+        #{executeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.marketActivity.MarketRecordsExample" resultType="java.lang.Integer" >
+    select count(*) from market_records
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update market_records
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.activityId!=null and record.activityIdExpression==null" >
+          activity_id = #{record.activityId,jdbcType=BIGINT},
+        </if>
+        <if test="record.activityIdExpression!=null" >
+          activity_id = ${record.activityIdExpression},
+        </if>
+        <if test="record.userId!=null and record.userIdExpression==null" >
+          user_id = #{record.userId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdExpression!=null" >
+          user_id = ${record.userIdExpression},
+        </if>
+        <if test="record.activityTitle!=null and record.activityTitleExpression==null" >
+          activity_title = #{record.activityTitle,jdbcType=VARCHAR},
+        </if>
+        <if test="record.activityTitleExpression!=null" >
+          activity_title = ${record.activityTitleExpression},
+        </if>
+        <if test="record.mobile!=null and record.mobileExpression==null" >
+          mobile = #{record.mobile,jdbcType=VARCHAR},
+        </if>
+        <if test="record.mobileExpression!=null" >
+          mobile = ${record.mobileExpression},
+        </if>
+        <if test="record.email!=null and record.emailExpression==null" >
+          email = #{record.email,jdbcType=VARCHAR},
+        </if>
+        <if test="record.emailExpression!=null" >
+          email = ${record.emailExpression},
+        </if>
+        <if test="record.isSuccess!=null and record.isSuccessExpression==null" >
+          is_success = #{record.isSuccess,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isSuccessExpression!=null" >
+          is_success = ${record.isSuccessExpression},
+        </if>
+        <if test="record.isOpen!=null and record.isOpenExpression==null" >
+          is_open = #{record.isOpen,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isOpenExpression!=null" >
+          is_open = ${record.isOpenExpression},
+        </if>
+        <if test="record.type!=null and record.typeExpression==null" >
+          type = #{record.type,jdbcType=VARCHAR},
+        </if>
+        <if test="record.typeExpression!=null" >
+          type = ${record.typeExpression},
+        </if>
+        <if test="record.executeTime!=null and record.executeTimeExpression==null" >
+          execute_time = #{record.executeTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.executeTimeExpression!=null" >
+          execute_time = ${record.executeTimeExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update market_records
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      activity_id = #{record.activityId,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      activity_title = #{record.activityTitle,jdbcType=VARCHAR},
+      mobile = #{record.mobile,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      is_success = #{record.isSuccess,jdbcType=VARCHAR},
+      is_open = #{record.isOpen,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=VARCHAR},
+      execute_time = #{record.executeTime,jdbcType=TIMESTAMP},
+      seller_id = #{record.sellerId,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.marketActivity.MarketRecords" >
+    update market_records
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.activityId!=null and record.activityIdExpression==null" >
+          activity_id = #{record.activityId,jdbcType=BIGINT},
+        </if>
+        <if test="record.activityIdExpression!=null" >
+          activity_id = ${record.activityIdExpression},
+        </if>
+        <if test="record.userId!=null and record.userIdExpression==null" >
+          user_id = #{record.userId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdExpression!=null" >
+          user_id = ${record.userIdExpression},
+        </if>
+        <if test="record.activityTitle!=null and record.activityTitleExpression==null" >
+          activity_title = #{record.activityTitle,jdbcType=VARCHAR},
+        </if>
+        <if test="record.activityTitleExpression!=null" >
+          activity_title = ${record.activityTitleExpression},
+        </if>
+        <if test="record.mobile!=null and record.mobileExpression==null" >
+          mobile = #{record.mobile,jdbcType=VARCHAR},
+        </if>
+        <if test="record.mobileExpression!=null" >
+          mobile = ${record.mobileExpression},
+        </if>
+        <if test="record.email!=null and record.emailExpression==null" >
+          email = #{record.email,jdbcType=VARCHAR},
+        </if>
+        <if test="record.emailExpression!=null" >
+          email = ${record.emailExpression},
+        </if>
+        <if test="record.isSuccess!=null and record.isSuccessExpression==null" >
+          is_success = #{record.isSuccess,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isSuccessExpression!=null" >
+          is_success = ${record.isSuccessExpression},
+        </if>
+        <if test="record.isOpen!=null and record.isOpenExpression==null" >
+          is_open = #{record.isOpen,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isOpenExpression!=null" >
+          is_open = ${record.isOpenExpression},
+        </if>
+        <if test="record.type!=null and record.typeExpression==null" >
+          type = #{record.type,jdbcType=VARCHAR},
+        </if>
+        <if test="record.typeExpression!=null" >
+          type = ${record.typeExpression},
+        </if>
+        <if test="record.executeTime!=null and record.executeTimeExpression==null" >
+          execute_time = #{record.executeTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.executeTimeExpression!=null" >
+          execute_time = ${record.executeTimeExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.marketActivity.MarketRecords" >
+    update market_records
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      activity_id = #{activityId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      activity_title = #{activityTitle,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      is_success = #{isSuccess,jdbcType=VARCHAR},
+      is_open = #{isOpen,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      execute_time = #{executeTime,jdbcType=TIMESTAMP},
+      seller_id = #{sellerId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

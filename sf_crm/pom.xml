@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.shufensoft.crm</groupId>
+    <artifactId>sf-crm</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>sf-crm</name>
+    <url>http://maven.apache.org</url>
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <modules>
+        <module>sf-biz</module>
+        <module>sf-common</module>
+        <module>sf-web</module>
+        <module>sf-job</module>
+        <module>sf-polySpire</module>
+    </modules>
+    <build>
+        <plugins>
+            <!--项目测试覆盖率报告-->
+            <plugin>
+                <groupId>com.atlassian.maven.plugins</groupId>
+                <artifactId>maven-clover2-plugin</artifactId>
+                <version>4.0.0</version>
+                <configuration>
+                    <singleCloverDatabase>true</singleCloverDatabase>
+                    <targetPercentage>30%</targetPercentage>
+                    <contextFilters>catch,static</contextFilters>
+                    <excludes>
+                        <exclude>com/shufensoft/crm/biz/service/*.java</exclude>
+                    </excludes>
+                    <includesTestSourceRoots>false</includesTestSourceRoots>
+                    <generateHistorical>true</generateHistorical>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+</project>

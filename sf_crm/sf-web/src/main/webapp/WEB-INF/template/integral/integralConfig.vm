@@ -1,0 +1,62 @@
+#set($layout = "/layout/blank.vm")
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <div class="BoxStyleA">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <i class="modal-logo interact"></i>
+                    <ul class="breadcrumb" style="margin-left: 2px">
+                        <li></li>
+                        <li>客户互动</li>
+                        <li>积分</li>
+                        <li class="active">创建积分规则</li>
+                    </ul>
+                </div>
+                <div class="widget-body" id="integralConfigDiv">
+                    <div class="widget-main">
+                        <form class="form-horizontal markAct" id="integralConfigForm" role="form" style=""  method="post">
+                            <div id ="mdiv">
+                                <div class="form-group">
+                                    <div class="radio">
+                                        <label class="col-sm-4 control-label no-padding-right" style="margin-left: 100px;margin-bottom: 30px">
+                                            <input id="configName" name="configName" type="radio" class="ace" value="SYS" checked="checked"/>
+                                            <span class="lbl">系统默认</span>
+                                        </label>
+                                        <label class="col-sm-2 control-label no-padding-right">
+                                            <input id="configName" name="configName" type="radio" class="ace" value="CUSTOM" />
+                                            <span class="lbl">自定义</span>
+                                        </label>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group" style="display:inline-block;width: 40%;">
+                                    <label class="col-sm-6 control-label no-padding-right">提前一年开始购物每1元送积分：</label>
+                                    <div class="col-sm-6" style="padding-left: 25px;">
+                                        <input type="text"   name="conertMoney" placeholder="输入积分" class="col-xs-10 col-sm-5"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" style="display:inline-block">
+                                    <label class="col-sm-7 control-label no-padding-right" style="margin-left: -52px;text-align: left;">首次关注公众号赠送积分：</label>
+                                    <div class="col-sm-5">
+                                            <input type="text"  name="attentionIntegral" placeholder="输入积分" class="col-xs-10 col-sm-12">
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="modal-footer  sn-footer">
+                                <center><input class="sure" id="sure" type="submit" value="开始计算" >
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="${rc.contextPath}/media/js/admin/ruleConfig/integralRule.js"></script>

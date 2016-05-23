@@ -1,0 +1,1160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.trade.OrderJDMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.trade.OrderJD" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="max_is_excel_import" property="maxIsExcelImport" jdbcType="BIGINT" />
+    <result column="min_is_excel_import" property="minIsExcelImport" jdbcType="BIGINT" />
+    <result column="avg_is_excel_import" property="avgIsExcelImport" jdbcType="BIGINT" />
+    <result column="count_is_excel_import" property="countIsExcelImport" jdbcType="BIGINT" />
+    <result column="sum_is_excel_import" property="sumIsExcelImport" jdbcType="VARCHAR" />
+    <result column="max_store_order" property="maxStoreOrder" jdbcType="BIGINT" />
+    <result column="min_store_order" property="minStoreOrder" jdbcType="BIGINT" />
+    <result column="avg_store_order" property="avgStoreOrder" jdbcType="BIGINT" />
+    <result column="count_store_order" property="countStoreOrder" jdbcType="BIGINT" />
+    <result column="sum_store_order" property="sumStoreOrder" jdbcType="VARCHAR" />
+    <result column="max_order_type" property="maxOrderType" jdbcType="BIGINT" />
+    <result column="min_order_type" property="minOrderType" jdbcType="BIGINT" />
+    <result column="avg_order_type" property="avgOrderType" jdbcType="BIGINT" />
+    <result column="count_order_type" property="countOrderType" jdbcType="BIGINT" />
+    <result column="sum_order_type" property="sumOrderType" jdbcType="VARCHAR" />
+    <result column="max_parent_order_id" property="maxParentOrderId" jdbcType="BIGINT" />
+    <result column="min_parent_order_id" property="minParentOrderId" jdbcType="BIGINT" />
+    <result column="avg_parent_order_id" property="avgParentOrderId" jdbcType="BIGINT" />
+    <result column="count_parent_order_id" property="countParentOrderId" jdbcType="BIGINT" />
+    <result column="sum_parent_order_id" property="sumParentOrderId" jdbcType="VARCHAR" />
+    <result column="max_modified" property="maxModified" jdbcType="BIGINT" />
+    <result column="min_modified" property="minModified" jdbcType="BIGINT" />
+    <result column="avg_modified" property="avgModified" jdbcType="BIGINT" />
+    <result column="count_modified" property="countModified" jdbcType="BIGINT" />
+    <result column="sum_modified" property="sumModified" jdbcType="TIMESTAMP" />
+    <result column="max_logistics_id" property="maxLogisticsId" jdbcType="BIGINT" />
+    <result column="min_logistics_id" property="minLogisticsId" jdbcType="BIGINT" />
+    <result column="avg_logistics_id" property="avgLogisticsId" jdbcType="BIGINT" />
+    <result column="count_logistics_id" property="countLogisticsId" jdbcType="BIGINT" />
+    <result column="sum_logistics_id" property="sumLogisticsId" jdbcType="VARCHAR" />
+    <result column="max_logistics_name" property="maxLogisticsName" jdbcType="BIGINT" />
+    <result column="min_logistics_name" property="minLogisticsName" jdbcType="BIGINT" />
+    <result column="avg_logistics_name" property="avgLogisticsName" jdbcType="BIGINT" />
+    <result column="count_logistics_name" property="countLogisticsName" jdbcType="BIGINT" />
+    <result column="sum_logistics_name" property="sumLogisticsName" jdbcType="VARCHAR" />
+    <result column="max_waybill" property="maxWaybill" jdbcType="BIGINT" />
+    <result column="min_waybill" property="minWaybill" jdbcType="BIGINT" />
+    <result column="avg_waybill" property="avgWaybill" jdbcType="BIGINT" />
+    <result column="count_waybill" property="countWaybill" jdbcType="BIGINT" />
+    <result column="sum_waybill" property="sumWaybill" jdbcType="VARCHAR" />
+    <result column="max_payment_confirm_time" property="maxPaymentConfirmTime" jdbcType="BIGINT" />
+    <result column="min_payment_confirm_time" property="minPaymentConfirmTime" jdbcType="BIGINT" />
+    <result column="avg_payment_confirm_time" property="avgPaymentConfirmTime" jdbcType="BIGINT" />
+    <result column="count_payment_confirm_time" property="countPaymentConfirmTime" jdbcType="BIGINT" />
+    <result column="sum_payment_confirm_time" property="sumPaymentConfirmTime" jdbcType="TIMESTAMP" />
+    <result column="max_return_order" property="maxReturnOrder" jdbcType="BIGINT" />
+    <result column="min_return_order" property="minReturnOrder" jdbcType="BIGINT" />
+    <result column="avg_return_order" property="avgReturnOrder" jdbcType="BIGINT" />
+    <result column="count_return_order" property="countReturnOrder" jdbcType="BIGINT" />
+    <result column="sum_return_order" property="sumReturnOrder" jdbcType="VARCHAR" />
+    <result column="max_pin" property="maxPin" jdbcType="BIGINT" />
+    <result column="min_pin" property="minPin" jdbcType="BIGINT" />
+    <result column="avg_pin" property="avgPin" jdbcType="BIGINT" />
+    <result column="count_pin" property="countPin" jdbcType="BIGINT" />
+    <result column="sum_pin" property="sumPin" jdbcType="VARCHAR" />
+    <result column="max_pull_comment" property="maxPullComment" jdbcType="BIGINT" />
+    <result column="min_pull_comment" property="minPullComment" jdbcType="BIGINT" />
+    <result column="avg_pull_comment" property="avgPullComment" jdbcType="BIGINT" />
+    <result column="count_pull_comment" property="countPullComment" jdbcType="BIGINT" />
+    <result column="sum_pull_comment" property="sumPullComment" jdbcType="BIT" />
+    <result column="max_balance_used" property="maxBalanceUsed" jdbcType="BIGINT" />
+    <result column="min_balance_used" property="minBalanceUsed" jdbcType="BIGINT" />
+    <result column="avg_balance_used" property="avgBalanceUsed" jdbcType="BIGINT" />
+    <result column="count_balance_used" property="countBalanceUsed" jdbcType="BIGINT" />
+    <result column="sum_balance_used" property="sumBalanceUsed" jdbcType="DECIMAL" />
+    <result column="max_vender_remark" property="maxVenderRemark" jdbcType="BIGINT" />
+    <result column="min_vender_remark" property="minVenderRemark" jdbcType="BIGINT" />
+    <result column="avg_vender_remark" property="avgVenderRemark" jdbcType="BIGINT" />
+    <result column="count_vender_remark" property="countVenderRemark" jdbcType="BIGINT" />
+    <result column="sum_vender_remark" property="sumVenderRemark" jdbcType="VARCHAR" />
+    <result column="max_order_end_time" property="maxOrderEndTime" jdbcType="BIGINT" />
+    <result column="min_order_end_time" property="minOrderEndTime" jdbcType="BIGINT" />
+    <result column="avg_order_end_time" property="avgOrderEndTime" jdbcType="BIGINT" />
+    <result column="count_order_end_time" property="countOrderEndTime" jdbcType="BIGINT" />
+    <result column="sum_order_end_time" property="sumOrderEndTime" jdbcType="TIMESTAMP" />
+    <result column="max_order_start_time" property="maxOrderStartTime" jdbcType="BIGINT" />
+    <result column="min_order_start_time" property="minOrderStartTime" jdbcType="BIGINT" />
+    <result column="avg_order_start_time" property="avgOrderStartTime" jdbcType="BIGINT" />
+    <result column="count_order_start_time" property="countOrderStartTime" jdbcType="BIGINT" />
+    <result column="sum_order_start_time" property="sumOrderStartTime" jdbcType="TIMESTAMP" />
+    <result column="max_order_remark" property="maxOrderRemark" jdbcType="BIGINT" />
+    <result column="min_order_remark" property="minOrderRemark" jdbcType="BIGINT" />
+    <result column="avg_order_remark" property="avgOrderRemark" jdbcType="BIGINT" />
+    <result column="count_order_remark" property="countOrderRemark" jdbcType="BIGINT" />
+    <result column="sum_order_remark" property="sumOrderRemark" jdbcType="VARCHAR" />
+    <result column="max_invoice_info" property="maxInvoiceInfo" jdbcType="BIGINT" />
+    <result column="min_invoice_info" property="minInvoiceInfo" jdbcType="BIGINT" />
+    <result column="avg_invoice_info" property="avgInvoiceInfo" jdbcType="BIGINT" />
+    <result column="count_invoice_info" property="countInvoiceInfo" jdbcType="BIGINT" />
+    <result column="sum_invoice_info" property="sumInvoiceInfo" jdbcType="VARCHAR" />
+    <result column="max_delivery_type" property="maxDeliveryType" jdbcType="BIGINT" />
+    <result column="min_delivery_type" property="minDeliveryType" jdbcType="BIGINT" />
+    <result column="avg_delivery_type" property="avgDeliveryType" jdbcType="BIGINT" />
+    <result column="count_delivery_type" property="countDeliveryType" jdbcType="BIGINT" />
+    <result column="sum_delivery_type" property="sumDeliveryType" jdbcType="VARCHAR" />
+    <result column="max_order_state_remark" property="maxOrderStateRemark" jdbcType="BIGINT" />
+    <result column="min_order_state_remark" property="minOrderStateRemark" jdbcType="BIGINT" />
+    <result column="avg_order_state_remark" property="avgOrderStateRemark" jdbcType="BIGINT" />
+    <result column="count_order_state_remark" property="countOrderStateRemark" jdbcType="BIGINT" />
+    <result column="sum_order_state_remark" property="sumOrderStateRemark" jdbcType="VARCHAR" />
+    <result column="max_order_state" property="maxOrderState" jdbcType="BIGINT" />
+    <result column="min_order_state" property="minOrderState" jdbcType="BIGINT" />
+    <result column="avg_order_state" property="avgOrderState" jdbcType="BIGINT" />
+    <result column="count_order_state" property="countOrderState" jdbcType="BIGINT" />
+    <result column="sum_order_state" property="sumOrderState" jdbcType="VARCHAR" />
+    <result column="max_seller_discount" property="maxSellerDiscount" jdbcType="BIGINT" />
+    <result column="min_seller_discount" property="minSellerDiscount" jdbcType="BIGINT" />
+    <result column="avg_seller_discount" property="avgSellerDiscount" jdbcType="BIGINT" />
+    <result column="count_seller_discount" property="countSellerDiscount" jdbcType="BIGINT" />
+    <result column="sum_seller_discount" property="sumSellerDiscount" jdbcType="DECIMAL" />
+    <result column="max_freight_price" property="maxFreightPrice" jdbcType="BIGINT" />
+    <result column="min_freight_price" property="minFreightPrice" jdbcType="BIGINT" />
+    <result column="avg_freight_price" property="avgFreightPrice" jdbcType="BIGINT" />
+    <result column="count_freight_price" property="countFreightPrice" jdbcType="BIGINT" />
+    <result column="sum_freight_price" property="sumFreightPrice" jdbcType="DECIMAL" />
+    <result column="max_order_payment" property="maxOrderPayment" jdbcType="BIGINT" />
+    <result column="min_order_payment" property="minOrderPayment" jdbcType="BIGINT" />
+    <result column="avg_order_payment" property="avgOrderPayment" jdbcType="BIGINT" />
+    <result column="count_order_payment" property="countOrderPayment" jdbcType="BIGINT" />
+    <result column="sum_order_payment" property="sumOrderPayment" jdbcType="DECIMAL" />
+    <result column="max_order_seller_price" property="maxOrderSellerPrice" jdbcType="BIGINT" />
+    <result column="min_order_seller_price" property="minOrderSellerPrice" jdbcType="BIGINT" />
+    <result column="avg_order_seller_price" property="avgOrderSellerPrice" jdbcType="BIGINT" />
+    <result column="count_order_seller_price" property="countOrderSellerPrice" jdbcType="BIGINT" />
+    <result column="sum_order_seller_price" property="sumOrderSellerPrice" jdbcType="DECIMAL" />
+    <result column="max_order_total_price" property="maxOrderTotalPrice" jdbcType="BIGINT" />
+    <result column="min_order_total_price" property="minOrderTotalPrice" jdbcType="BIGINT" />
+    <result column="avg_order_total_price" property="avgOrderTotalPrice" jdbcType="BIGINT" />
+    <result column="count_order_total_price" property="countOrderTotalPrice" jdbcType="BIGINT" />
+    <result column="sum_order_total_price" property="sumOrderTotalPrice" jdbcType="DECIMAL" />
+    <result column="max_pay_type" property="maxPayType" jdbcType="BIGINT" />
+    <result column="min_pay_type" property="minPayType" jdbcType="BIGINT" />
+    <result column="avg_pay_type" property="avgPayType" jdbcType="BIGINT" />
+    <result column="count_pay_type" property="countPayType" jdbcType="BIGINT" />
+    <result column="sum_pay_type" property="sumPayType" jdbcType="VARCHAR" />
+    <result column="max_vender_id" property="maxVenderId" jdbcType="BIGINT" />
+    <result column="min_vender_id" property="minVenderId" jdbcType="BIGINT" />
+    <result column="avg_vender_id" property="avgVenderId" jdbcType="BIGINT" />
+    <result column="count_vender_id" property="countVenderId" jdbcType="BIGINT" />
+    <result column="sum_vender_id" property="sumVenderId" jdbcType="VARCHAR" />
+    <result column="max_receiver_id_jd" property="maxReceiverIdJd" jdbcType="BIGINT" />
+    <result column="min_receiver_id_jd" property="minReceiverIdJd" jdbcType="BIGINT" />
+    <result column="avg_receiver_id_jd" property="avgReceiverIdJd" jdbcType="BIGINT" />
+    <result column="count_receiver_id_jd" property="countReceiverIdJd" jdbcType="BIGINT" />
+    <result column="sum_receiver_id_jd" property="sumReceiverIdJd" jdbcType="BIGINT" />
+    <result column="max_user_id_jd" property="maxUserIdJd" jdbcType="BIGINT" />
+    <result column="min_user_id_jd" property="minUserIdJd" jdbcType="BIGINT" />
+    <result column="avg_user_id_jd" property="avgUserIdJd" jdbcType="BIGINT" />
+    <result column="count_user_id_jd" property="countUserIdJd" jdbcType="BIGINT" />
+    <result column="sum_user_id_jd" property="sumUserIdJd" jdbcType="BIGINT" />
+    <result column="max_order_source" property="maxOrderSource" jdbcType="BIGINT" />
+    <result column="min_order_source" property="minOrderSource" jdbcType="BIGINT" />
+    <result column="avg_order_source" property="avgOrderSource" jdbcType="BIGINT" />
+    <result column="count_order_source" property="countOrderSource" jdbcType="BIGINT" />
+    <result column="sum_order_source" property="sumOrderSource" jdbcType="VARCHAR" />
+    <result column="max_shop_id" property="maxShopId" jdbcType="BIGINT" />
+    <result column="min_shop_id" property="minShopId" jdbcType="BIGINT" />
+    <result column="avg_shop_id" property="avgShopId" jdbcType="BIGINT" />
+    <result column="count_shop_id" property="countShopId" jdbcType="BIGINT" />
+    <result column="sum_shop_id" property="sumShopId" jdbcType="BIGINT" />
+    <result column="max_order_id" property="maxOrderId" jdbcType="BIGINT" />
+    <result column="min_order_id" property="minOrderId" jdbcType="BIGINT" />
+    <result column="avg_order_id" property="avgOrderId" jdbcType="BIGINT" />
+    <result column="count_order_id" property="countOrderId" jdbcType="BIGINT" />
+    <result column="sum_order_id" property="sumOrderId" jdbcType="VARCHAR" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="order_id" property="orderId" jdbcType="VARCHAR" />
+    <result column="shop_id" property="shopId" jdbcType="BIGINT" />
+    <result column="order_source" property="orderSource" jdbcType="VARCHAR" />
+    <result column="user_id_jd" property="userIdJd" jdbcType="BIGINT" />
+    <result column="receiver_id_jd" property="receiverIdJd" jdbcType="BIGINT" />
+    <result column="vender_id" property="venderId" jdbcType="VARCHAR" />
+    <result column="pay_type" property="payType" jdbcType="VARCHAR" />
+    <result column="order_total_price" property="orderTotalPrice" jdbcType="DECIMAL" />
+    <result column="order_seller_price" property="orderSellerPrice" jdbcType="DECIMAL" />
+    <result column="order_payment" property="orderPayment" jdbcType="DECIMAL" />
+    <result column="freight_price" property="freightPrice" jdbcType="DECIMAL" />
+    <result column="seller_discount" property="sellerDiscount" jdbcType="DECIMAL" />
+    <result column="order_state" property="orderState" jdbcType="VARCHAR" />
+    <result column="order_state_remark" property="orderStateRemark" jdbcType="VARCHAR" />
+    <result column="delivery_type" property="deliveryType" jdbcType="VARCHAR" />
+    <result column="invoice_info" property="invoiceInfo" jdbcType="VARCHAR" />
+    <result column="order_remark" property="orderRemark" jdbcType="VARCHAR" />
+    <result column="order_start_time" property="orderStartTime" jdbcType="TIMESTAMP" />
+    <result column="order_end_time" property="orderEndTime" jdbcType="TIMESTAMP" />
+    <result column="vender_remark" property="venderRemark" jdbcType="VARCHAR" />
+    <result column="balance_used" property="balanceUsed" jdbcType="DECIMAL" />
+    <result column="pull_comment" property="pullComment" jdbcType="BIT" />
+    <result column="pin" property="pin" jdbcType="VARCHAR" />
+    <result column="return_order" property="returnOrder" jdbcType="VARCHAR" />
+    <result column="payment_confirm_time" property="paymentConfirmTime" jdbcType="TIMESTAMP" />
+    <result column="waybill" property="waybill" jdbcType="VARCHAR" />
+    <result column="logistics_name" property="logisticsName" jdbcType="VARCHAR" />
+    <result column="logistics_id" property="logisticsId" jdbcType="VARCHAR" />
+    <result column="modified" property="modified" jdbcType="TIMESTAMP" />
+    <result column="parent_order_id" property="parentOrderId" jdbcType="VARCHAR" />
+    <result column="order_type" property="orderType" jdbcType="VARCHAR" />
+    <result column="store_order" property="storeOrder" jdbcType="VARCHAR" />
+    <result column="is_excel_import" property="isExcelImport" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, is_deleted, order_id, shop_id, order_source, user_id_jd, 
+    receiver_id_jd, vender_id, pay_type, order_total_price, order_seller_price, order_payment, 
+    freight_price, seller_discount, order_state, order_state_remark, delivery_type, invoice_info, 
+    order_remark, order_start_time, order_end_time, vender_remark, balance_used, pull_comment, 
+    pin, return_order, payment_confirm_time, waybill, logistics_name, logistics_id, modified, 
+    parent_order_id, order_type, store_order, is_excel_import, seller_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.trade.OrderJDExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from order_jd
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from order_jd
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update order_jd
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.trade.OrderJDExample" >
+    update order_jd
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.trade.OrderJD" useGeneratedKeys="true" keyProperty="id" >
+    insert into order_jd (id, gmt_created, gmt_modified, 
+      is_deleted, order_id, shop_id, 
+      order_source, user_id_jd, receiver_id_jd, 
+      vender_id, pay_type, order_total_price, 
+      order_seller_price, order_payment, freight_price, 
+      seller_discount, order_state, order_state_remark, 
+      delivery_type, invoice_info, order_remark, 
+      order_start_time, order_end_time, vender_remark, 
+      balance_used, pull_comment, pin, 
+      return_order, payment_confirm_time, waybill, 
+      logistics_name, logistics_id, modified, 
+      parent_order_id, order_type, store_order, 
+      is_excel_import, seller_id)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{isDeleted,jdbcType=VARCHAR}, #{orderId,jdbcType=VARCHAR}, #{shopId,jdbcType=BIGINT}, 
+      #{orderSource,jdbcType=VARCHAR}, #{userIdJd,jdbcType=BIGINT}, #{receiverIdJd,jdbcType=BIGINT}, 
+      #{venderId,jdbcType=VARCHAR}, #{payType,jdbcType=VARCHAR}, #{orderTotalPrice,jdbcType=DECIMAL}, 
+      #{orderSellerPrice,jdbcType=DECIMAL}, #{orderPayment,jdbcType=DECIMAL}, #{freightPrice,jdbcType=DECIMAL}, 
+      #{sellerDiscount,jdbcType=DECIMAL}, #{orderState,jdbcType=VARCHAR}, #{orderStateRemark,jdbcType=VARCHAR}, 
+      #{deliveryType,jdbcType=VARCHAR}, #{invoiceInfo,jdbcType=VARCHAR}, #{orderRemark,jdbcType=VARCHAR}, 
+      #{orderStartTime,jdbcType=TIMESTAMP}, #{orderEndTime,jdbcType=TIMESTAMP}, #{venderRemark,jdbcType=VARCHAR}, 
+      #{balanceUsed,jdbcType=DECIMAL}, #{pullComment,jdbcType=BIT}, #{pin,jdbcType=VARCHAR}, 
+      #{returnOrder,jdbcType=VARCHAR}, #{paymentConfirmTime,jdbcType=TIMESTAMP}, #{waybill,jdbcType=VARCHAR}, 
+      #{logisticsName,jdbcType=VARCHAR}, #{logisticsId,jdbcType=VARCHAR}, #{modified,jdbcType=TIMESTAMP}, 
+      #{parentOrderId,jdbcType=VARCHAR}, #{orderType,jdbcType=VARCHAR}, #{storeOrder,jdbcType=VARCHAR}, 
+      #{isExcelImport,jdbcType=VARCHAR}, #{sellerId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.trade.OrderJD" useGeneratedKeys="true" keyProperty="id" >
+    insert into order_jd
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="shopId != null" >
+        shop_id,
+      </if>
+      <if test="orderSource != null" >
+        order_source,
+      </if>
+      <if test="userIdJd != null" >
+        user_id_jd,
+      </if>
+      <if test="receiverIdJd != null" >
+        receiver_id_jd,
+      </if>
+      <if test="venderId != null" >
+        vender_id,
+      </if>
+      <if test="payType != null" >
+        pay_type,
+      </if>
+      <if test="orderTotalPrice != null" >
+        order_total_price,
+      </if>
+      <if test="orderSellerPrice != null" >
+        order_seller_price,
+      </if>
+      <if test="orderPayment != null" >
+        order_payment,
+      </if>
+      <if test="freightPrice != null" >
+        freight_price,
+      </if>
+      <if test="sellerDiscount != null" >
+        seller_discount,
+      </if>
+      <if test="orderState != null" >
+        order_state,
+      </if>
+      <if test="orderStateRemark != null" >
+        order_state_remark,
+      </if>
+      <if test="deliveryType != null" >
+        delivery_type,
+      </if>
+      <if test="invoiceInfo != null" >
+        invoice_info,
+      </if>
+      <if test="orderRemark != null" >
+        order_remark,
+      </if>
+      <if test="orderStartTime != null" >
+        order_start_time,
+      </if>
+      <if test="orderEndTime != null" >
+        order_end_time,
+      </if>
+      <if test="venderRemark != null" >
+        vender_remark,
+      </if>
+      <if test="balanceUsed != null" >
+        balance_used,
+      </if>
+      <if test="pullComment != null" >
+        pull_comment,
+      </if>
+      <if test="pin != null" >
+        pin,
+      </if>
+      <if test="returnOrder != null" >
+        return_order,
+      </if>
+      <if test="paymentConfirmTime != null" >
+        payment_confirm_time,
+      </if>
+      <if test="waybill != null" >
+        waybill,
+      </if>
+      <if test="logisticsName != null" >
+        logistics_name,
+      </if>
+      <if test="logisticsId != null" >
+        logistics_id,
+      </if>
+      <if test="modified != null" >
+        modified,
+      </if>
+      <if test="parentOrderId != null" >
+        parent_order_id,
+      </if>
+      <if test="orderType != null" >
+        order_type,
+      </if>
+      <if test="storeOrder != null" >
+        store_order,
+      </if>
+      <if test="isExcelImport != null" >
+        is_excel_import,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null" >
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="shopId != null" >
+        #{shopId,jdbcType=BIGINT},
+      </if>
+      <if test="orderSource != null" >
+        #{orderSource,jdbcType=VARCHAR},
+      </if>
+      <if test="userIdJd != null" >
+        #{userIdJd,jdbcType=BIGINT},
+      </if>
+      <if test="receiverIdJd != null" >
+        #{receiverIdJd,jdbcType=BIGINT},
+      </if>
+      <if test="venderId != null" >
+        #{venderId,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null" >
+        #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="orderTotalPrice != null" >
+        #{orderTotalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderSellerPrice != null" >
+        #{orderSellerPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderPayment != null" >
+        #{orderPayment,jdbcType=DECIMAL},
+      </if>
+      <if test="freightPrice != null" >
+        #{freightPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="sellerDiscount != null" >
+        #{sellerDiscount,jdbcType=DECIMAL},
+      </if>
+      <if test="orderState != null" >
+        #{orderState,jdbcType=VARCHAR},
+      </if>
+      <if test="orderStateRemark != null" >
+        #{orderStateRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryType != null" >
+        #{deliveryType,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceInfo != null" >
+        #{invoiceInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderRemark != null" >
+        #{orderRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="orderStartTime != null" >
+        #{orderStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderEndTime != null" >
+        #{orderEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="venderRemark != null" >
+        #{venderRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="balanceUsed != null" >
+        #{balanceUsed,jdbcType=DECIMAL},
+      </if>
+      <if test="pullComment != null" >
+        #{pullComment,jdbcType=BIT},
+      </if>
+      <if test="pin != null" >
+        #{pin,jdbcType=VARCHAR},
+      </if>
+      <if test="returnOrder != null" >
+        #{returnOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentConfirmTime != null" >
+        #{paymentConfirmTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="waybill != null" >
+        #{waybill,jdbcType=VARCHAR},
+      </if>
+      <if test="logisticsName != null" >
+        #{logisticsName,jdbcType=VARCHAR},
+      </if>
+      <if test="logisticsId != null" >
+        #{logisticsId,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null" >
+        #{modified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="parentOrderId != null" >
+        #{parentOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderType != null" >
+        #{orderType,jdbcType=VARCHAR},
+      </if>
+      <if test="storeOrder != null" >
+        #{storeOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="isExcelImport != null" >
+        #{isExcelImport,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.trade.OrderJDExample" resultType="java.lang.Integer" >
+    select count(*) from order_jd
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update order_jd
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.orderId!=null and record.orderIdExpression==null" >
+          order_id = #{record.orderId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.orderIdExpression!=null" >
+          order_id = ${record.orderIdExpression},
+        </if>
+        <if test="record.shopId!=null and record.shopIdExpression==null" >
+          shop_id = #{record.shopId,jdbcType=BIGINT},
+        </if>
+        <if test="record.shopIdExpression!=null" >
+          shop_id = ${record.shopIdExpression},
+        </if>
+        <if test="record.orderSource!=null and record.orderSourceExpression==null" >
+          order_source = #{record.orderSource,jdbcType=VARCHAR},
+        </if>
+        <if test="record.orderSourceExpression!=null" >
+          order_source = ${record.orderSourceExpression},
+        </if>
+        <if test="record.userIdJd!=null and record.userIdJdExpression==null" >
+          user_id_jd = #{record.userIdJd,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdJdExpression!=null" >
+          user_id_jd = ${record.userIdJdExpression},
+        </if>
+        <if test="record.receiverIdJd!=null and record.receiverIdJdExpression==null" >
+          receiver_id_jd = #{record.receiverIdJd,jdbcType=BIGINT},
+        </if>
+        <if test="record.receiverIdJdExpression!=null" >
+          receiver_id_jd = ${record.receiverIdJdExpression},
+        </if>
+        <if test="record.venderId!=null and record.venderIdExpression==null" >
+          vender_id = #{record.venderId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.venderIdExpression!=null" >
+          vender_id = ${record.venderIdExpression},
+        </if>
+        <if test="record.payType!=null and record.payTypeExpression==null" >
+          pay_type = #{record.payType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.payTypeExpression!=null" >
+          pay_type = ${record.payTypeExpression},
+        </if>
+        <if test="record.orderTotalPrice!=null and record.orderTotalPriceExpression==null" >
+          order_total_price = #{record.orderTotalPrice,jdbcType=DECIMAL},
+        </if>
+        <if test="record.orderTotalPriceExpression!=null" >
+          order_total_price = ${record.orderTotalPriceExpression},
+        </if>
+        <if test="record.orderSellerPrice!=null and record.orderSellerPriceExpression==null" >
+          order_seller_price = #{record.orderSellerPrice,jdbcType=DECIMAL},
+        </if>
+        <if test="record.orderSellerPriceExpression!=null" >
+          order_seller_price = ${record.orderSellerPriceExpression},
+        </if>
+        <if test="record.orderPayment!=null and record.orderPaymentExpression==null" >
+          order_payment = #{record.orderPayment,jdbcType=DECIMAL},
+        </if>
+        <if test="record.orderPaymentExpression!=null" >
+          order_payment = ${record.orderPaymentExpression},
+        </if>
+        <if test="record.freightPrice!=null and record.freightPriceExpression==null" >
+          freight_price = #{record.freightPrice,jdbcType=DECIMAL},
+        </if>
+        <if test="record.freightPriceExpression!=null" >
+          freight_price = ${record.freightPriceExpression},
+        </if>
+        <if test="record.sellerDiscount!=null and record.sellerDiscountExpression==null" >
+          seller_discount = #{record.sellerDiscount,jdbcType=DECIMAL},
+        </if>
+        <if test="record.sellerDiscountExpression!=null" >
+          seller_discount = ${record.sellerDiscountExpression},
+        </if>
+        <if test="record.orderState!=null and record.orderStateExpression==null" >
+          order_state = #{record.orderState,jdbcType=VARCHAR},
+        </if>
+        <if test="record.orderStateExpression!=null" >
+          order_state = ${record.orderStateExpression},
+        </if>
+        <if test="record.orderStateRemark!=null and record.orderStateRemarkExpression==null" >
+          order_state_remark = #{record.orderStateRemark,jdbcType=VARCHAR},
+        </if>
+        <if test="record.orderStateRemarkExpression!=null" >
+          order_state_remark = ${record.orderStateRemarkExpression},
+        </if>
+        <if test="record.deliveryType!=null and record.deliveryTypeExpression==null" >
+          delivery_type = #{record.deliveryType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.deliveryTypeExpression!=null" >
+          delivery_type = ${record.deliveryTypeExpression},
+        </if>
+        <if test="record.invoiceInfo!=null and record.invoiceInfoExpression==null" >
+          invoice_info = #{record.invoiceInfo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.invoiceInfoExpression!=null" >
+          invoice_info = ${record.invoiceInfoExpression},
+        </if>
+        <if test="record.orderRemark!=null and record.orderRemarkExpression==null" >
+          order_remark = #{record.orderRemark,jdbcType=VARCHAR},
+        </if>
+        <if test="record.orderRemarkExpression!=null" >
+          order_remark = ${record.orderRemarkExpression},
+        </if>
+        <if test="record.orderStartTime!=null and record.orderStartTimeExpression==null" >
+          order_start_time = #{record.orderStartTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.orderStartTimeExpression!=null" >
+          order_start_time = ${record.orderStartTimeExpression},
+        </if>
+        <if test="record.orderEndTime!=null and record.orderEndTimeExpression==null" >
+          order_end_time = #{record.orderEndTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.orderEndTimeExpression!=null" >
+          order_end_time = ${record.orderEndTimeExpression},
+        </if>
+        <if test="record.venderRemark!=null and record.venderRemarkExpression==null" >
+          vender_remark = #{record.venderRemark,jdbcType=VARCHAR},
+        </if>
+        <if test="record.venderRemarkExpression!=null" >
+          vender_remark = ${record.venderRemarkExpression},
+        </if>
+        <if test="record.balanceUsed!=null and record.balanceUsedExpression==null" >
+          balance_used = #{record.balanceUsed,jdbcType=DECIMAL},
+        </if>
+        <if test="record.balanceUsedExpression!=null" >
+          balance_used = ${record.balanceUsedExpression},
+        </if>
+        <if test="record.pullComment!=null and record.pullCommentExpression==null" >
+          pull_comment = #{record.pullComment,jdbcType=BIT},
+        </if>
+        <if test="record.pullCommentExpression!=null" >
+          pull_comment = ${record.pullCommentExpression},
+        </if>
+        <if test="record.pin!=null and record.pinExpression==null" >
+          pin = #{record.pin,jdbcType=VARCHAR},
+        </if>
+        <if test="record.pinExpression!=null" >
+          pin = ${record.pinExpression},
+        </if>
+        <if test="record.returnOrder!=null and record.returnOrderExpression==null" >
+          return_order = #{record.returnOrder,jdbcType=VARCHAR},
+        </if>
+        <if test="record.returnOrderExpression!=null" >
+          return_order = ${record.returnOrderExpression},
+        </if>
+        <if test="record.paymentConfirmTime!=null and record.paymentConfirmTimeExpression==null" >
+          payment_confirm_time = #{record.paymentConfirmTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.paymentConfirmTimeExpression!=null" >
+          payment_confirm_time = ${record.paymentConfirmTimeExpression},
+        </if>
+        <if test="record.waybill!=null and record.waybillExpression==null" >
+          waybill = #{record.waybill,jdbcType=VARCHAR},
+        </if>
+        <if test="record.waybillExpression!=null" >
+          waybill = ${record.waybillExpression},
+        </if>
+        <if test="record.logisticsName!=null and record.logisticsNameExpression==null" >
+          logistics_name = #{record.logisticsName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.logisticsNameExpression!=null" >
+          logistics_name = ${record.logisticsNameExpression},
+        </if>
+        <if test="record.logisticsId!=null and record.logisticsIdExpression==null" >
+          logistics_id = #{record.logisticsId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.logisticsIdExpression!=null" >
+          logistics_id = ${record.logisticsIdExpression},
+        </if>
+        <if test="record.modified!=null and record.modifiedExpression==null" >
+          modified = #{record.modified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.modifiedExpression!=null" >
+          modified = ${record.modifiedExpression},
+        </if>
+        <if test="record.parentOrderId!=null and record.parentOrderIdExpression==null" >
+          parent_order_id = #{record.parentOrderId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.parentOrderIdExpression!=null" >
+          parent_order_id = ${record.parentOrderIdExpression},
+        </if>
+        <if test="record.orderType!=null and record.orderTypeExpression==null" >
+          order_type = #{record.orderType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.orderTypeExpression!=null" >
+          order_type = ${record.orderTypeExpression},
+        </if>
+        <if test="record.storeOrder!=null and record.storeOrderExpression==null" >
+          store_order = #{record.storeOrder,jdbcType=VARCHAR},
+        </if>
+        <if test="record.storeOrderExpression!=null" >
+          store_order = ${record.storeOrderExpression},
+        </if>
+        <if test="record.isExcelImport!=null and record.isExcelImportExpression==null" >
+          is_excel_import = #{record.isExcelImport,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isExcelImportExpression!=null" >
+          is_excel_import = ${record.isExcelImportExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update order_jd
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      order_id = #{record.orderId,jdbcType=VARCHAR},
+      shop_id = #{record.shopId,jdbcType=BIGINT},
+      order_source = #{record.orderSource,jdbcType=VARCHAR},
+      user_id_jd = #{record.userIdJd,jdbcType=BIGINT},
+      receiver_id_jd = #{record.receiverIdJd,jdbcType=BIGINT},
+      vender_id = #{record.venderId,jdbcType=VARCHAR},
+      pay_type = #{record.payType,jdbcType=VARCHAR},
+      order_total_price = #{record.orderTotalPrice,jdbcType=DECIMAL},
+      order_seller_price = #{record.orderSellerPrice,jdbcType=DECIMAL},
+      order_payment = #{record.orderPayment,jdbcType=DECIMAL},
+      freight_price = #{record.freightPrice,jdbcType=DECIMAL},
+      seller_discount = #{record.sellerDiscount,jdbcType=DECIMAL},
+      order_state = #{record.orderState,jdbcType=VARCHAR},
+      order_state_remark = #{record.orderStateRemark,jdbcType=VARCHAR},
+      delivery_type = #{record.deliveryType,jdbcType=VARCHAR},
+      invoice_info = #{record.invoiceInfo,jdbcType=VARCHAR},
+      order_remark = #{record.orderRemark,jdbcType=VARCHAR},
+      order_start_time = #{record.orderStartTime,jdbcType=TIMESTAMP},
+      order_end_time = #{record.orderEndTime,jdbcType=TIMESTAMP},
+      vender_remark = #{record.venderRemark,jdbcType=VARCHAR},
+      balance_used = #{record.balanceUsed,jdbcType=DECIMAL},
+      pull_comment = #{record.pullComment,jdbcType=BIT},
+      pin = #{record.pin,jdbcType=VARCHAR},
+      return_order = #{record.returnOrder,jdbcType=VARCHAR},
+      payment_confirm_time = #{record.paymentConfirmTime,jdbcType=TIMESTAMP},
+      waybill = #{record.waybill,jdbcType=VARCHAR},
+      logistics_name = #{record.logisticsName,jdbcType=VARCHAR},
+      logistics_id = #{record.logisticsId,jdbcType=VARCHAR},
+      modified = #{record.modified,jdbcType=TIMESTAMP},
+      parent_order_id = #{record.parentOrderId,jdbcType=VARCHAR},
+      order_type = #{record.orderType,jdbcType=VARCHAR},
+      store_order = #{record.storeOrder,jdbcType=VARCHAR},
+      is_excel_import = #{record.isExcelImport,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.trade.OrderJD" >
+    update order_jd
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.orderId!=null and record.orderIdExpression==null" >
+          order_id = #{record.orderId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.orderIdExpression!=null" >
+          order_id = ${record.orderIdExpression},
+        </if>
+        <if test="record.shopId!=null and record.shopIdExpression==null" >
+          shop_id = #{record.shopId,jdbcType=BIGINT},
+        </if>
+        <if test="record.shopIdExpression!=null" >
+          shop_id = ${record.shopIdExpression},
+        </if>
+        <if test="record.orderSource!=null and record.orderSourceExpression==null" >
+          order_source = #{record.orderSource,jdbcType=VARCHAR},
+        </if>
+        <if test="record.orderSourceExpression!=null" >
+          order_source = ${record.orderSourceExpression},
+        </if>
+        <if test="record.userIdJd!=null and record.userIdJdExpression==null" >
+          user_id_jd = #{record.userIdJd,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdJdExpression!=null" >
+          user_id_jd = ${record.userIdJdExpression},
+        </if>
+        <if test="record.receiverIdJd!=null and record.receiverIdJdExpression==null" >
+          receiver_id_jd = #{record.receiverIdJd,jdbcType=BIGINT},
+        </if>
+        <if test="record.receiverIdJdExpression!=null" >
+          receiver_id_jd = ${record.receiverIdJdExpression},
+        </if>
+        <if test="record.venderId!=null and record.venderIdExpression==null" >
+          vender_id = #{record.venderId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.venderIdExpression!=null" >
+          vender_id = ${record.venderIdExpression},
+        </if>
+        <if test="record.payType!=null and record.payTypeExpression==null" >
+          pay_type = #{record.payType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.payTypeExpression!=null" >
+          pay_type = ${record.payTypeExpression},
+        </if>
+        <if test="record.orderTotalPrice!=null and record.orderTotalPriceExpression==null" >
+          order_total_price = #{record.orderTotalPrice,jdbcType=DECIMAL},
+        </if>
+        <if test="record.orderTotalPriceExpression!=null" >
+          order_total_price = ${record.orderTotalPriceExpression},
+        </if>
+        <if test="record.orderSellerPrice!=null and record.orderSellerPriceExpression==null" >
+          order_seller_price = #{record.orderSellerPrice,jdbcType=DECIMAL},
+        </if>
+        <if test="record.orderSellerPriceExpression!=null" >
+          order_seller_price = ${record.orderSellerPriceExpression},
+        </if>
+        <if test="record.orderPayment!=null and record.orderPaymentExpression==null" >
+          order_payment = #{record.orderPayment,jdbcType=DECIMAL},
+        </if>
+        <if test="record.orderPaymentExpression!=null" >
+          order_payment = ${record.orderPaymentExpression},
+        </if>
+        <if test="record.freightPrice!=null and record.freightPriceExpression==null" >
+          freight_price = #{record.freightPrice,jdbcType=DECIMAL},
+        </if>
+        <if test="record.freightPriceExpression!=null" >
+          freight_price = ${record.freightPriceExpression},
+        </if>
+        <if test="record.sellerDiscount!=null and record.sellerDiscountExpression==null" >
+          seller_discount = #{record.sellerDiscount,jdbcType=DECIMAL},
+        </if>
+        <if test="record.sellerDiscountExpression!=null" >
+          seller_discount = ${record.sellerDiscountExpression},
+        </if>
+        <if test="record.orderState!=null and record.orderStateExpression==null" >
+          order_state = #{record.orderState,jdbcType=VARCHAR},
+        </if>
+        <if test="record.orderStateExpression!=null" >
+          order_state = ${record.orderStateExpression},
+        </if>
+        <if test="record.orderStateRemark!=null and record.orderStateRemarkExpression==null" >
+          order_state_remark = #{record.orderStateRemark,jdbcType=VARCHAR},
+        </if>
+        <if test="record.orderStateRemarkExpression!=null" >
+          order_state_remark = ${record.orderStateRemarkExpression},
+        </if>
+        <if test="record.deliveryType!=null and record.deliveryTypeExpression==null" >
+          delivery_type = #{record.deliveryType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.deliveryTypeExpression!=null" >
+          delivery_type = ${record.deliveryTypeExpression},
+        </if>
+        <if test="record.invoiceInfo!=null and record.invoiceInfoExpression==null" >
+          invoice_info = #{record.invoiceInfo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.invoiceInfoExpression!=null" >
+          invoice_info = ${record.invoiceInfoExpression},
+        </if>
+        <if test="record.orderRemark!=null and record.orderRemarkExpression==null" >
+          order_remark = #{record.orderRemark,jdbcType=VARCHAR},
+        </if>
+        <if test="record.orderRemarkExpression!=null" >
+          order_remark = ${record.orderRemarkExpression},
+        </if>
+        <if test="record.orderStartTime!=null and record.orderStartTimeExpression==null" >
+          order_start_time = #{record.orderStartTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.orderStartTimeExpression!=null" >
+          order_start_time = ${record.orderStartTimeExpression},
+        </if>
+        <if test="record.orderEndTime!=null and record.orderEndTimeExpression==null" >
+          order_end_time = #{record.orderEndTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.orderEndTimeExpression!=null" >
+          order_end_time = ${record.orderEndTimeExpression},
+        </if>
+        <if test="record.venderRemark!=null and record.venderRemarkExpression==null" >
+          vender_remark = #{record.venderRemark,jdbcType=VARCHAR},
+        </if>
+        <if test="record.venderRemarkExpression!=null" >
+          vender_remark = ${record.venderRemarkExpression},
+        </if>
+        <if test="record.balanceUsed!=null and record.balanceUsedExpression==null" >
+          balance_used = #{record.balanceUsed,jdbcType=DECIMAL},
+        </if>
+        <if test="record.balanceUsedExpression!=null" >
+          balance_used = ${record.balanceUsedExpression},
+        </if>
+        <if test="record.pullComment!=null and record.pullCommentExpression==null" >
+          pull_comment = #{record.pullComment,jdbcType=BIT},
+        </if>
+        <if test="record.pullCommentExpression!=null" >
+          pull_comment = ${record.pullCommentExpression},
+        </if>
+        <if test="record.pin!=null and record.pinExpression==null" >
+          pin = #{record.pin,jdbcType=VARCHAR},
+        </if>
+        <if test="record.pinExpression!=null" >
+          pin = ${record.pinExpression},
+        </if>
+        <if test="record.returnOrder!=null and record.returnOrderExpression==null" >
+          return_order = #{record.returnOrder,jdbcType=VARCHAR},
+        </if>
+        <if test="record.returnOrderExpression!=null" >
+          return_order = ${record.returnOrderExpression},
+        </if>
+        <if test="record.paymentConfirmTime!=null and record.paymentConfirmTimeExpression==null" >
+          payment_confirm_time = #{record.paymentConfirmTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.paymentConfirmTimeExpression!=null" >
+          payment_confirm_time = ${record.paymentConfirmTimeExpression},
+        </if>
+        <if test="record.waybill!=null and record.waybillExpression==null" >
+          waybill = #{record.waybill,jdbcType=VARCHAR},
+        </if>
+        <if test="record.waybillExpression!=null" >
+          waybill = ${record.waybillExpression},
+        </if>
+        <if test="record.logisticsName!=null and record.logisticsNameExpression==null" >
+          logistics_name = #{record.logisticsName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.logisticsNameExpression!=null" >
+          logistics_name = ${record.logisticsNameExpression},
+        </if>
+        <if test="record.logisticsId!=null and record.logisticsIdExpression==null" >
+          logistics_id = #{record.logisticsId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.logisticsIdExpression!=null" >
+          logistics_id = ${record.logisticsIdExpression},
+        </if>
+        <if test="record.modified!=null and record.modifiedExpression==null" >
+          modified = #{record.modified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.modifiedExpression!=null" >
+          modified = ${record.modifiedExpression},
+        </if>
+        <if test="record.parentOrderId!=null and record.parentOrderIdExpression==null" >
+          parent_order_id = #{record.parentOrderId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.parentOrderIdExpression!=null" >
+          parent_order_id = ${record.parentOrderIdExpression},
+        </if>
+        <if test="record.orderType!=null and record.orderTypeExpression==null" >
+          order_type = #{record.orderType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.orderTypeExpression!=null" >
+          order_type = ${record.orderTypeExpression},
+        </if>
+        <if test="record.storeOrder!=null and record.storeOrderExpression==null" >
+          store_order = #{record.storeOrder,jdbcType=VARCHAR},
+        </if>
+        <if test="record.storeOrderExpression!=null" >
+          store_order = ${record.storeOrderExpression},
+        </if>
+        <if test="record.isExcelImport!=null and record.isExcelImportExpression==null" >
+          is_excel_import = #{record.isExcelImport,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isExcelImportExpression!=null" >
+          is_excel_import = ${record.isExcelImportExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.trade.OrderJD" >
+    update order_jd
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      order_id = #{orderId,jdbcType=VARCHAR},
+      shop_id = #{shopId,jdbcType=BIGINT},
+      order_source = #{orderSource,jdbcType=VARCHAR},
+      user_id_jd = #{userIdJd,jdbcType=BIGINT},
+      receiver_id_jd = #{receiverIdJd,jdbcType=BIGINT},
+      vender_id = #{venderId,jdbcType=VARCHAR},
+      pay_type = #{payType,jdbcType=VARCHAR},
+      order_total_price = #{orderTotalPrice,jdbcType=DECIMAL},
+      order_seller_price = #{orderSellerPrice,jdbcType=DECIMAL},
+      order_payment = #{orderPayment,jdbcType=DECIMAL},
+      freight_price = #{freightPrice,jdbcType=DECIMAL},
+      seller_discount = #{sellerDiscount,jdbcType=DECIMAL},
+      order_state = #{orderState,jdbcType=VARCHAR},
+      order_state_remark = #{orderStateRemark,jdbcType=VARCHAR},
+      delivery_type = #{deliveryType,jdbcType=VARCHAR},
+      invoice_info = #{invoiceInfo,jdbcType=VARCHAR},
+      order_remark = #{orderRemark,jdbcType=VARCHAR},
+      order_start_time = #{orderStartTime,jdbcType=TIMESTAMP},
+      order_end_time = #{orderEndTime,jdbcType=TIMESTAMP},
+      vender_remark = #{venderRemark,jdbcType=VARCHAR},
+      balance_used = #{balanceUsed,jdbcType=DECIMAL},
+      pull_comment = #{pullComment,jdbcType=BIT},
+      pin = #{pin,jdbcType=VARCHAR},
+      return_order = #{returnOrder,jdbcType=VARCHAR},
+      payment_confirm_time = #{paymentConfirmTime,jdbcType=TIMESTAMP},
+      waybill = #{waybill,jdbcType=VARCHAR},
+      logistics_name = #{logisticsName,jdbcType=VARCHAR},
+      logistics_id = #{logisticsId,jdbcType=VARCHAR},
+      modified = #{modified,jdbcType=TIMESTAMP},
+      parent_order_id = #{parentOrderId,jdbcType=VARCHAR},
+      order_type = #{orderType,jdbcType=VARCHAR},
+      store_order = #{storeOrder,jdbcType=VARCHAR},
+      is_excel_import = #{isExcelImport,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

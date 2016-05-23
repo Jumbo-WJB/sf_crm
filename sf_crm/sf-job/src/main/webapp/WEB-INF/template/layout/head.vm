@@ -1,0 +1,303 @@
+<div class="navbar navbar-default" id="navbar">
+<script type="text/javascript">
+    try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+</script>
+
+<style type="text/css">
+    .dropdown-submenu {
+        position: relative;
+    }
+
+    .dropdown-submenu > .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -6px;
+        margin-left: -1px;
+        -webkit-border-radius: 0 6px 6px 6px;
+        -moz-border-radius: 0 6px 6px;
+        border-radius: 0 6px 6px 6px;
+    }
+    .dropdown-submenu:hover > .dropdown-menu {
+        display: block;
+    }
+    .dropdown-submenu > a:after {
+        display: block;
+        content: " ";
+        float: right;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+        border-width: 5px 0 5px 5px;
+        border-left-color: #ccc;
+        margin-top: 5px;
+        margin-right: -10px;
+    }
+    .dropdown-submenu:hover > a:after {
+        border-left-color: #fff;
+    }
+    .dropdown-submenu.pull-left {
+        float: none;
+    }
+    .dropdown-submenu.pull-left > .dropdown-menu {
+        left: -100%;
+        margin-left: 10px;
+        -webkit-border-radius: 6px 0 6px 6px;
+        -moz-border-radius: 6px 0 6px 6px;
+        border-radius: 6px 0 6px 6px;
+    }
+
+    .ace-nav>li>a{
+      width: 140px;
+      font-weight:bold;
+      font-size: 20;
+    }
+   .dropdown-toggle-welcome{
+       width:150px!important;
+   }
+    .dropdown-menu.dropdown-close.pull-right {
+        width: 140px;
+        left: auto;
+        right: -5px;
+    }
+    .dropdown-navbar>li:last-child>a {
+        border-bottom: 0 solid #DDD;
+        border-top: 1px dotted transparent;
+        color: #000000!important;
+        text-align: left;
+        font-size: 13px;
+      ##  font-weight: bold;
+        width: 140px;
+    }
+
+    .light-blue{
+      margin-right: 0px;
+    }
+
+</style>
+
+<div class="navbar-container" id="navbar-container">
+<div class="navbar-header pull-left">
+    <a href="#" class="navbar-brand">
+        <small>
+            <i class="icon-leaf"></i>
+            关系链-企业智能营销平台
+        </small>
+    </a><!-- /.brand -->
+</div><!-- /.navbar-header -->
+
+<div class="navbar-header pull-right" role="navigation">
+    <ul class="nav ace-nav">
+        <li class="red">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <span class="top-menu">&nbsp&nbsp认识客户&nbsp&nbsp</span>
+            </a>
+
+            <ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+
+                <li class="dropdown-submenu">
+                    <a tabindex="-1"  href="javascript:;">客户列表</a>
+                    <ul class="dropdown-menu">
+                        <li><a tabindex="-1" href="javascript:;">用户计算</a></li>
+                        <li class="divider"></li>
+                        <li><a tabindex="-1" href="javascript:;">客户画像</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+
+        <li class="green">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <span class="top-menu">与客户联系</span>
+            </a>
+
+            <ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
+                <li class="dropdown-submenu">
+                 <a tabindex="-1" href="javascript:;">新建营销活动-微信</a>
+                    <ul class="dropdown-menu">
+                        <li><a tabindex="-1" href="javascript:;">选择粉丝</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:;">微信营销-单条图文选择</a></li>
+                    </ul>
+                </li>
+                <li><a tabindex="-1" href="javascript:;">新建营销活动-邮件</a> </li>
+                <li><a tabindex="-1" href="javascript:;">新建营销活动-短信</a> </li>
+                <li><a tabindex="-1" href="javascript:;">素材管理</a></li>
+                <li><a tabindex="-1" href="javascript:;">营销方案查询</a></li>
+
+
+            </ul>
+        </li>
+
+        <li class="light-blue">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                与客户互动
+            </a>
+
+            <ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+                <li><a tabindex="-1" href="javascript:;">快速查询服务</a> </li>
+
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="javascript:;">设置动态回复内容</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:;">回复关键字领取红包</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:;">积分兑换红包规则</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:;">回复关键字领取红包-选择红包池</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:;">动态回复-签到</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:;">场景回复明细</a></li>
+                    </ul>
+                </li>
+
+                <li><a tabindex="-1" href="javascript:;">客户验证明细</a></li>
+
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="javascript:;">红包</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:;">新建红包池</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:;">红包查询</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:;">红包领取明细</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="javascript:;">积分</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:;">客户互动-分享送积分</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:;">客户互动-签到送积分</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:;">积分兑换红包设置</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:;">积分兑换礼物设置</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:;">积分查询服务</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:;">获得积分明细</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:;">积分新建规则</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:;">积分转赠送统计</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="javascript:;">摇一摇</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:;">新建摇一摇</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:;">分享摇一摇</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </li>
+
+
+        <li class="grey">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                行动效果
+            </a>
+
+            <ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+                <li><a tabindex="-1" href="javascript:;">效果分析-短信营销</a> </li>
+                <li><a tabindex="-1" href="javascript:;">效果分析-邮件营销</a> </li>
+                <li><a tabindex="-1" href="javascript:;">效果分析-微信营销</a></li>
+                <li><a tabindex="-1" href="javascript:;">活动明细分析</a></li>
+            </ul>
+        </li>
+
+        <li class="purple">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                老板结账
+            </a>
+
+            <ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="javascript:;">平台红包打赏</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:;">红包冻结记录</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:;">红包打赏-粉丝</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="javascript:;">合作伙伴</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:;">合作伙伴明细</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:;">新建合作伙伴</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-submenu">
+                            <a href="javascript:;">合作伙伴账户</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:;">合作伙伴账单充值</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="javascript:;">老板</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:;">红包打赏-粉丝</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:;">红包冻结</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:;">账单充值</a></li>
+                    </ul>
+                </li>
+                <li><a tabindex="-1" href="javascript:;">佣金规则</a></li>
+            </ul>
+        </li>
+        <li class="orange">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                个性化定制
+            </a>
+        </li>
+          <li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</li>
+        <li class="light-blue">
+            <a data-toggle="dropdown" href="#" class="dropdown-toggle-welcome">
+                <img class="nav-user-photo" src="${rc.contextPath}/media/avatars/user.jpg" alt="Jason's Photo" />
+								<span class="user-info">
+									<small>欢迎光临,</small>
+									Jason
+								</span>
+
+                <i class="icon-caret-down"></i>
+            </a>
+
+            <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                <li>
+                    <a href="#">
+                        <i class="icon-cog"></i>
+                        设置
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="icon-user"></i>
+                        个人资料
+                    </a>
+                </li>
+
+                <li class="divider"></li>
+
+                <li>
+                    <a href="#">
+                        <i class="icon-off"></i>
+                        退出
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul><!-- /.ace-nav -->
+</div><!-- /.navbar-header -->
+</div><!-- /.container -->
+</div>

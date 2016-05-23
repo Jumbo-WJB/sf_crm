@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.pointMall.PointObtainStaticsDao" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.pointMall.PointObtainStaticsDo" >
+    <result column="sid" property="sellerId" jdbcType="BIGINT" />
+    <result column="ut" property="userTotal" jdbcType="BIGINT" />
+    <result column="pt" property="pointTotal" jdbcType="BIGINT" />
+  </resultMap>
+    <select id="findPointObtainStaticsDosBySellerId" resultMap="BaseResultMap" parameterType="long">
+        SELECT seller_id sid,COUNT(DISTINCT user_id) ut, SUM(amount) pt FROM point_obtain where seller_id = #{sellerId} and status = 'y';
+    </select>
+</mapper>

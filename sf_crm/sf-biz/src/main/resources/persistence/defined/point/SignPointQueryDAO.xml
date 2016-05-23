@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.point.SignPointQueryDAO" >
+
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.point.SignInPointQueryDO" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="wx_nick_name" property="wxNickName" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="is_old_user" property="isOldUser" jdbcType="VARCHAR" />
+    <result column="point_amount_total" property="pointAmountTotal" jdbcType="BIGINT" />
+    <result column="amount" property="amount" jdbcType="INTEGER" />
+    <result column="total_purchase_times" property="totalPurchaseTimes" jdbcType="INTEGER" />
+    <result column="sign_in_times" property="signInTimes" jdbcType="BIGINT" />
+    <result column="last_sign_in_date" property="lastSignInDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+
+    <select id="selectSignPointDetail" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.defined.point.SignInPointQueryDO">
+
+        select
+            u.wx_nick_name,
+            sum(o.amount) as amount,
+            u.sex,
+            u.name,
+            u.mobile,
+            u.is_old_user,
+            a.point_amount_total,
+            p.total_purchase_times,
+            p.sign_in_times,
+            p.last_sign_in_date
+        from
+            user u,
+            user_account a,
+            user_portrait p,
+            point_obtain o
+        <where>
+
+
+
+            <trim prefixOverrides="and">
+                u.user_id = a.user_id
+                and u.user_portrait_id = p.user_portrait_id
+                and u.user_id = o.user_id
+                and o.obtain_method = 'sign_in'
+                <if test="sellerId!=null">
+                    and u.seller_id = #{sellerId}
+                </if>
+                group by u.user_id
+                <if test="orderBy!=null and orderBy=='amount'">
+                    order by o.amount desc
+                </if>
+
+                <if test="orderBy!=null and orderBy=='gmtTransfer'">
+                    order by o.gmt_transfer desc
+                </if>
+            </trim>
+
+        </where>
+    </select>
+</mapper>

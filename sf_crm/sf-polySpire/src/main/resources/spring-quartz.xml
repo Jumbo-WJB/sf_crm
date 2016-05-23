@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 定时任务配置-->
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="taoBaoTradeRateSyncTrigger"/>
+            </list>
+        </property>
+        <property name="autoStartup" value="true"/>
+    </bean>
+
+    <!--交易同步job-->
+    <bean id="taoBaoTradeRateSyncJob" class="com.shufensoft.crm.polySpire.job.comment.TaoBaoTradeRateSyncJob"/>
+    <bean id="taoBaoTradeRateSyncJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="taoBaoTradeRateSyncJob"/>
+        <property name="targetMethod" value="start"/>
+        <!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 -->
+        <property name="concurrent" value="false"/>
+    </bean>
+    <bean id="taoBaoTradeRateSyncTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="taoBaoTradeRateSyncJobDetail"/>
+        <!-- 每隔30秒触发一次 -->
+        <property name="cronExpression" value="0/30 * * * * ?"/>
+    </bean>
+
+</beans>

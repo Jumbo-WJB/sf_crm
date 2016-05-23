@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.point.PointObtainDetailDAO" >
+
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.point.PointDetailDO" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="wx_nick_name" property="wxNickName" jdbcType="VARCHAR" />
+    <result column="obtain_method" property="obtainMethod" jdbcType="VARCHAR" />
+    <result column="exchange_method" property="exchangMethod" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="obtainDate" property="obtainDate" jdbcType="VARCHAR" />
+    <result column="point_amount" property="pointAmount" jdbcType="VARCHAR" />
+
+
+
+  </resultMap>
+
+    <resultMap id="exchangeResultMap" type="com.shufensoft.crm.biz.domain.defined.point.PointDetailDO" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+        <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+        <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+        <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+        <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+        <result column="user_id" property="userId" jdbcType="BIGINT" />
+        <result column="wx_nick_name" property="wxNickName" jdbcType="VARCHAR" />
+        <result column="exchange_method" property="exchangMethod" jdbcType="VARCHAR" />
+        <result column="gmt_created" property="obtainDate" jdbcType="VARCHAR" />
+        <result column="point_amount" property="amount" jdbcType="VARCHAR" />
+
+
+
+    </resultMap>
+
+
+    <select id="selectPointObtainDetails" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.defined.point.PointDetailDO">
+
+        select
+            u.user_id,
+            u.wx_nick_name,
+            o.obtain_method,
+            o.amount,
+            o.gmt_created
+        from
+          user u,
+          point_obtain o
+        <where>
+
+            <trim prefixOverrides="and">
+                <if test="userId!=null">
+                    and u.user_id = #{userId}
+                </if>
+                <if test="sellerId!=null">
+                    and u.seller_id = #{sellerId}
+                </if>
+                and u.user_id = o.user_id
+            </trim>
+            order by o.gmt_created desc
+        </where>
+    </select>
+
+
+    <select id="selectPointExchangeDetails" resultMap="exchangeResultMap" parameterType="com.shufensoft.crm.biz.domain.defined.point.PointDetailDO">
+
+        select
+            u.user_id,
+            u.wx_nick_name,
+            e.exchange_method,
+            e.point_amount,
+            e.gmt_created
+        from
+            user u,
+            point_exchange e
+        <where>
+
+            <trim prefixOverrides="and">
+                <if test="userId!=null">
+                    and u.user_id = #{userId}
+                </if>
+                <if test="sellerId!=null">
+                    and u.seller_id = #{sellerId}
+                </if>
+                and u.user_id = e.user_id
+            </trim>
+            order by e.gmt_created desc
+        </where>
+    </select>
+
+    <select id="findPointObtainDetails" resultMap="BaseResultMap" parameterType="map">
+        SELECT po.gmt_created,po.obtain_method,po.amount,po.status,DATE_FORMAT(gmt_created,'%Y-%m-%d %H:%i:%s') obtainDate
+        FROM point_obtain po
+        <where>
+            <trim prefixOverrides="and">
+                <if test="sellerId!=null">
+                    and po.seller_id = #{sellerId}
+                </if>
+                <if test="userId!=null">
+                    and po.user_id = #{userId}
+                </if>
+                order by po.gmt_created desc
+            </trim>
+        </where>
+
+    </select>
+
+</mapper>

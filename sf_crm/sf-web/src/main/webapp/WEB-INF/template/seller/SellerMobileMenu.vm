@@ -1,0 +1,168 @@
+#set($layout = "/layout/blank.vm")
+<style type="text/css">
+    h2
+    {
+        text-shadow: 5px 5px 5px #ffab3e;
+    }
+</style>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <div class="BoxStyleA">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <i class="modal-logo config"></i>
+                    <ul class="breadcrumb" style="margin-left: 2px;">
+                        <li></li>
+                        <li>手机端设置</li>
+                        <li class="active">菜单配置</li>
+                    </ul>
+                </div>
+                <div class="widget-body">
+                    <div class="widget-main">
+                        <form class="form-horizontal markAct"  id="menuForm" >
+                            <input type="hidden" name="id"/>
+                            <input type="hidden" name="sellerId"  value="$!sellerId">
+                            <label><h2>菜单模块选择</h2></label>
+                            <div class="form-group"  style="margin: 0 10%">
+                                <div class="col-sm-3">
+                                    <img  name="hongbao"  src="${rc.contextPath}/upload/mobileIndex/hongbao.png" />
+                                    </br>
+                                    <label>
+                                        <input type="hidden" name="hongbao"/>
+                                        <input name="hongbao" type="checkbox" class="ace" value="hongbao"/>
+                                        <span class="lbl"> 我的红包</span>
+                                    </label>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <img  name="point"  src="${rc.contextPath}/upload/mobileIndex/point.png" />
+                                    </br>
+                                    <label>
+                                        <input type="hidden" name="point"/>
+                                        <input name="point" type="checkbox" class="ace" value="point" checked="checked" />
+                                        <span class="lbl"> 我的积分</span>
+                                    </label>
+                                </div>
+
+                            ##                                <div class="col-sm-3" >
+                            ##                                    <img  name="share"  src="${rc.contextPath}/upload/mobileIndex/share.png" />
+                            ##                                    </br>
+                            ##                                    <label>
+                            ##                                        <input type="hidden" name="share"/>
+                            ##                                        <input name="share" type="checkbox" class="ace" value="share" checked="checked" />
+                            ##                                        <span class="lbl"> 我的分享</span>
+                            ##                                    </label>
+                            ##                                </div>
+
+                                <div class="col-sm-3" >
+                                    <img  name="signIn"  src="${rc.contextPath}/upload/mobileIndex/sighIn.png" />
+                                    </br>
+                                    <label>
+                                        <input type="hidden" name="signIn"/>
+                                        <input name="signIn" type="checkbox" class="ace" value="signIn" checked="checked" />
+                                        <span class="lbl" > 我的签到</span>
+                                    </label>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <img  name="pointmall"  src="${rc.contextPath}/upload/mobileIndex/pointmall.png" />
+                                    </br>
+                                    <label>
+                                        <input type="hidden" name="pointmall"/>
+                                        <input name="pointmall" type="checkbox" class="ace" value="pointmall" checked="checked" />
+                                        <span class="lbl" style="margin-left: 20px"> 我的积分商城</span>
+                                    </label>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group"  style="margin: 0 10%">
+                            ##                                <div class="col-sm-3">
+                            ##                                    <img  name="activity"  src="${rc.contextPath}/upload/mobileIndex/activity.png" />
+                            ##                                    </br>
+                            ##                                    <label>
+                            ##                                        <input type="hidden" name="activity"/>
+                            ##                                        <input name="activity" type="checkbox" class="ace" value="activity"/>
+                            ##                                        <span class="lbl"> 我的活动</span>
+                            ##                                    </label>
+                            ##                                </div>
+
+                                <div class="col-sm-3">
+                                    <img  name="evaluate"  src="${rc.contextPath}/upload/mobileIndex/evaluate.png"/>
+                                    </br>
+                                    <label>
+                                        <input type="hidden" name="evaluate"/>
+                                        <input name="evaluate" type="checkbox" class="ace" value="evaluate" checked="checked" />
+                                        <span class="lbl"> 我的评价</span>
+                                    </label>
+                                </div>
+
+                                <div class="col-sm-3" >
+                                    <img  name="grow"  src="${rc.contextPath}/upload/mobileIndex/grow.png" />
+                                    </br>
+                                    <label>
+                                        <input type="hidden" name="grow"/>
+                                        <input name="grow" type="checkbox" class="ace" value="grow" checked="checked" />
+                                        <span class="lbl"> 我的成长</span>
+                                    </label>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <img  name="shake"  src="${rc.contextPath}/upload/mobileIndex/shake.png" />
+                                    </br>
+                                    <label>
+                                        <input type="hidden" name="shake"/>
+                                        <input name="shake" type="checkbox" class="ace" value="shake" />
+                                        <span class="lbl"> 我的摇一摇</span>
+                                    </label>
+                                </div>
+
+
+                                <div class="col-sm-3">
+                                    <img  name="express"  src="${rc.contextPath}/upload/mobileIndex/express.png" />
+                                    </br>
+                                    <label>
+                                        <input type="hidden" name="express"/>
+                                        <input name="express" type="checkbox" class="ace" value="express" checked="checked"  />
+                                        <span class="lbl"> 我的快递</span>
+                                    </label>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group"  style="margin: 0 10%">
+
+
+                                <div class="col-sm-3">
+                                    <img  name="birthday"  src="${rc.contextPath}/upload/mobileIndex/birthday.png" />
+                                    </br>
+                                    <label>
+                                        <input type="hidden" name="birthday"/>
+                                        <input name="birthday" type="checkbox" class="ace" value="birthday" checked="checked" />
+                                        <span class="lbl"> 我的生日</span>
+                                    </label>
+                                </div>
+
+                                <div class="col-sm-3" >
+                                    <img  name="identify"  src="${rc.contextPath}/upload/mobileIndex/identify.png" />
+                                    </br>
+                                    <label>
+                                        <input type="hidden" name="identify"/>
+                                        <input name="identify" type="checkbox" class="ace" value="identify" checked="checked" />
+                                        <span class="lbl"> 我的认证</span>
+                                    </label>
+                                </div>
+
+                            </div>
+
+                            <div class="modal-footer  sn-footer">
+                                <center><input class="sure" type="submit" id="saveOrUpdate" value="保存设置" ></center>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="${rc.contextPath}/media/js/admin/seller/sellerMobileMenu.js"></script>

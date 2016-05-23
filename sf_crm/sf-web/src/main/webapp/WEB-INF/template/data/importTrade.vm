@@ -1,0 +1,467 @@
+#set($layout = "/layout/blank.vm")
+<style>
+    #centerbg{
+        width: 100%;
+        height: auto;
+        min-height: 500px;
+        margin: 0 auto;
+        padding: 80px 0;
+        background: url(${rc.contextPath}/media/images/data-bg.jpg) no-repeat;
+        background-size: 100%;;
+    }
+    #centerbg .main-body{
+        width: 900px;
+        height: 400px;
+        margin-left: 200px;
+        border: 1px solid #fff;
+        border-radius: 20px;
+        background: url(${rc.contextPath}/media/images/excel.jpg) no-repeat;
+        position: relative;
+        filter:alpha(opacity=95);
+        -moz-opacity:0.95;
+        -khtml-opacity: 0.95;
+        opacity: 0.95;
+    }
+    #centerbg  .content{
+        position: absolute;
+        top:30px;
+        right: 20px;
+        width: 400px;
+        height: 330px;
+    }
+    #centerbg .content table{
+        border: none;
+    }
+    #centerbg .content table .right-td{
+        font-size: 16px;
+        font-weight: bold;
+    }
+    #centerbg .content table td{
+        padding: 20px 0;
+        color: #000;
+        text-align: left;
+    }
+    #centerbg .content table select{
+        width: 180px;
+        color: #181818;
+    }
+    #addShop a:hover{
+        text-decoration: none;
+    }
+    .fileDiv:hover{
+        cursor: pointer;
+    }
+</style>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <div class="BoxStyleA">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <i class="modal-logo index"></i>
+                    <ul class="breadcrumb" style="margin-left: 2px;">
+                        <li></li>
+                        <li class="active">数据导入</li>
+                    </ul>
+                </div>
+                <div class="widget-body">
+                    <div id="centerbg">
+                        <div class="main-body">
+                            <div class="content">
+                                <form class="form-horizontal" role="form" id="importForm"  method="post"  enctype="multipart/form-data">
+                                    <table class="table table-striped  table-hover">
+                                        <tr>
+                                            <td>店铺</td>
+                                            <td>
+                                                <select id="shopId" name="shopId" style="position: absolute;top:20px;width:230px;left: 90px;">
+                                                    <option value="">请选择...</option>
+                                                    #if($shopList)
+                                                        #foreach($shop in $shopList)
+                                                            #set($type = "")
+                                                            #if($shop.shopType == "TB")
+                                                                #set($type = "淘宝")
+                                                            #end
+                                                            #if($shop.shopType == "TMALL")
+                                                                #set($type = "天猫")
+                                                            #end
+                                                            #if($shop.shopType == "JD")
+                                                                #set($type = "京东")
+                                                            #end
+                                                            #if ($shop.shopType != "YZ")
+                                                                <option value="$shop.shopId">${shop.shopName}(${type})</option>
+                                                            #end
+                                                        #end
+                                                    #end
+                                                </select>
+                                                <span style="position: absolute;top:20px;left: 325px;" id="addShop"><a href="javascript:void(0);" style="width: 70px;height: 30px;background:#44B549;display:
+                                                        block;color: #fff;font-size: 14px;line-height: 30px;text-align: center;border-radius: 4px">新增</a> </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>订单文件</td>
+                                            <td>
+                                                <input type='text' name='file' id='file' readonly="true"  style="
+                                                        width:230px;position: absolute;top:79px;left:90px;color: #000;"/>
+                                                <div style="position: relative;margin-left: 275px;float: left;width: 70px;height: 30px;text-align: center;border-radius: 4px;background-color: #44B549;">
+                                                    <a id="uploadAudio" style="color: #fff;font-size: 14px;line-height: 30px;">选择</a>
+                                                    <div style="position: absolute;top:0;left:0;">
+                                                        <input type="file" class="fileDiv" name="uploadFile" id="uploadFile" style="width: 100px; height: 30px;background: rgb(255, 255, 255);filter:alpha(opacity:0);opacity: 0;"
+                                                               onchange="getName(this);" />
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <input type="submit" onclick="importTrade();return false;" class="btn btn-primary btn-lg btn-block" name="submit" value="导入数据"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!----------新增店铺------------>
+<div class="modal fade" id="shopModal" tabindex="-1" role="dialog" aria-labelledby="shopModal" aria-hidden="true" >
+    <div class="modal-dialog" style="width: 800px;margin-top: 50px;">
+        <div class="modal-content" >
+            <div class="tiptop"><span>店铺信息</span><a data-dismiss="modal" aria-hidden="true"></a></div>
+            <div class="row" style="padding-bottom: 20px;">
+                <form class="form-horizontal" role="form" id="addForm">
+                    <input name="id" type="hidden"  />
+                    <div class="form-group" style="margin-top: 10px;">
+                        <label class="col-sm-4 control-label no-padding-right" for="form-field-1">
+                            店铺名称: </label>
+                        <div class="col-sm-7">
+                            <input type="text" id="form-field-1" class="col-xs-10 col-sm-7" name="shopName"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" for="form-field-1">
+                            店铺类型: </label>
+                        <div class="col-sm-7">
+                            <div style="float: left;margin-top: 5px;">
+                                <input name="shopType" type="radio" class="ace" value="TB" checked="checked"/>
+                                <span class="lbl">淘宝</span>
+                            </div>
+                            <div style="float: left;margin-left: 15px;margin-top: 5px;">
+                                <input name="shopType" type="radio" class="ace" value="TMALL"/>
+                                <span class="lbl">天猫</span>
+                            </div>
+                            <div style="float: left;margin-left: 15px;margin-top: 5px;">
+                                <input name="shopType" type="radio" class="ace" value="JD"/>
+                                <span class="lbl">京东</span>
+                            </div>
+                            <div style="float: left;margin-left: 15px;margin-top: 5px;">
+                                <input name="shopType" type="radio" class="ace" value="YZ"/>
+                                <span class="lbl">有赞</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" for="form-field-1">
+                            接入方式: </label>
+                        <div class="col-sm-7">
+                            <div style="float: left;margin-top: 5px;display: none" class="general">
+                                <input name="accessType" type="radio" class="ace" value="general"/>
+                                <span class="lbl">通用</span>
+                            </div>
+                            <div style="float: left;margin-left: 5px;margin-top: 5px;" class="self">
+                                <input name="accessType" type="radio" class="ace" value="self_development"/>
+                                <span class="lbl">卖家自研</span>
+                            </div>
+                            <div style="float: left;margin-left: 5px;margin-top: 5px;" class="plugin">
+                                <input name="accessType" type="radio" class="ace" value="plugin"/>
+                                <span class="lbl">浏览器插件</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group notBrowser" style="margin-top: 10px;">
+                        <label class="col-sm-4 control-label no-padding-right" for="form-field-1">
+                            店铺AppId: </label>
+                        <div class="col-sm-7">
+                            <input type="text" id="form-field-1" class="col-xs-10 col-sm-7" name="shopAppId"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group notBrowser" style="margin-top: 10px;">
+                        <label class="col-sm-4 control-label no-padding-right" for="form-field-1">
+                            店铺AppSecret: </label>
+                        <div class="col-sm-7">
+                            <input type="text" id="form-field-1" class="col-xs-10 col-sm-7" name="shopAppSecret"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group polySpireDIV notBrowser" style="margin-top: 10px;">
+                        <label class="col-sm-4 control-label no-padding-right" for="form-field-1">
+                            聚石塔url: </label>
+                        <div class="col-sm-7">
+                            <input type="text" id="form-field-1" class="col-xs-10 col-sm-7" name="polySpireUrl"/>
+                            <input type="button" id="urlVerify" class="btn_searchA" style="margin-left: 0;background: #428bca;" value="验证" />
+                        </div>
+                    </div>
+
+                    <div class="form-group browserDIV" style="margin-top: 10px;display: none;">
+                        <label class="col-sm-4 control-label no-padding-right" for="form-field-1">
+                            插件下载: </label>
+                        <div class="col-sm-7">
+                            <span class="col-xs-10 col-sm-7" style="text-align: left;margin-top:5px;font-size: 14px;"><a href="http://www.suniusoft.com">点击下载</a></span>
+                        </div>
+                    </div>
+
+                    <center class="saveBut">
+                        <input class="btn btn-primary" type="button" value="保存设置" id="save">
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    //ajax提交form表单的方式
+    function importTrade() {
+        var imgId = [];
+        var fileNames = '';
+        $.each($('input[type="file"]'), function(index,obj){
+            var fn = $('input[type="file"]').eq(index).attr("name");
+            fileNames += fn;
+            if(index < $('input[type="file"]').length -1){
+                fileNames += '|';
+            }
+            imgId.push($('input[type="file"]').eq(index).attr("id"));
+        });
+        if(!$('#uploadFile').val()){
+            alert("请上传csv格式的订单文件!");
+            return;
+        }
+
+        var data = {"shopId":$('#shopId').val(),"uploadFile":fileNames};
+
+        $.ajaxFileUpload({
+            type: "POST",
+            url:baseUrl+"data/import",
+            secureuri:false,
+            fileElementId: imgId,
+            dataType: 'json',
+            data: data,
+            success: function (data) {
+                var errorCode = data.errorCode;
+
+               if(errorCode == '0'){
+                   $('#file').val(" ");
+                   alert("导入成功!")
+
+               }else{
+                   alert(data.errorMessage);
+                   $('#file').val(" ");
+               }
+
+            },
+            error: function(data) {
+                alert(data.responseText);
+            }
+        });
+    }
+
+    function getName(name){
+        var name = name.value;
+        var pos = name.lastIndexOf("\\");
+        var str = name.substring(pos+1);
+        $('#file').val(str);
+    }
+
+    $('#addShop').click(function(){
+        $('#addForm')[0].reset();
+        $(".general").hide();
+        $(".self").show();
+        $(".plugin").show();
+        $('.notBrowser').show();
+        $(".polySpireDIV").show();
+        $(".browserDIV").hide();
+        $('#shopModal').modal('show');
+        $("#addForm input[name='shopAppId']").removeAttr('readonly');
+        $("#addForm input[name='shopAppSecret']").removeAttr('readonly');
+        createToken('addForm');
+    })
+
+    $("#addForm input[name='shopType']").click(function(){
+        var type = $(this).val();
+        var accessType = $("#addForm input[name='accessType']:checked").val();
+
+        $('.notBrowser').show();
+        $(".browserDIV").hide();
+        if (type == 'TB' || type == 'TMALL'){
+            $(".general").hide();
+            $(".self").show();
+            $(".plugin").show();
+            $(".polySpireDIV").show();
+        }else if (type == 'JD'){
+            $(".general").show();
+            $(".self").show();
+            $(".plugin").hide();
+            $(".polySpireDIV").hide();
+            $("#addForm input[name='polySpireUrl']").val('');
+        }else {
+            $(".general").show();
+            $(".self").hide();
+            $(".plugin").hide();
+            $(".polySpireDIV").hide();
+            $("#addForm input[name='polySpireUrl']").val('');
+        }
+
+        if (type == 'JD' && accessType == 'general'){
+            $("#addForm input[name='shopAppId']").val(jdAppKey).attr('readonly','readonly');
+            $("#addForm input[name='shopAppSecret']").val(jdAppSecret).attr('readonly','readonly');
+        }else{
+            $("#addForm input[name='shopAppId']").val('').removeAttr('readonly');
+            $("#addForm input[name='shopAppSecret']").val('').removeAttr('readonly');
+        }
+
+    })
+
+    $("#addForm input[name='accessType']").click(function(){
+        var type = $(this).val();
+        var sellerType = $("#addForm input[name='shopType']:checked").val();
+
+        if (type == 'plugin'){
+            $('.notBrowser').hide();
+            $(".browserDIV").show();
+        }else{
+            $('.notBrowser').show();
+            $(".browserDIV").hide();
+            if (sellerType == 'TB' || sellerType == 'TMALL'){
+                $(".polySpireDIV").show();
+            }else{
+                $(".polySpireDIV").hide();
+            }
+        }
+
+        if (sellerType == 'JD' && type == 'general'){
+            $("#addForm input[name='shopAppId']").val(jdAppKey).attr('readonly','readonly');
+            $("#addForm input[name='shopAppSecret']").val(jdAppSecret).attr('readonly','readonly');
+        }else{
+            $("#addForm input[name='shopAppId']").val('').removeAttr('readonly');
+            $("#addForm input[name='shopAppSecret']").val('').removeAttr('readonly');
+        }
+    })
+
+    //保存店铺信息设置
+    $('#save').click(function(){
+        if (check() > 0) {
+            return false;
+        }
+
+        var accessType = $('#addForm input[name="accessType"]:checked').val();
+        if (accessType == null || accessType == '' || accessType == undefined){
+            alert('接入方式不能为空');
+            return false;
+        }
+
+        var sellerType = $("#addForm input[name='shopType']:checked").val();
+        if (sellerType == 'TB' || sellerType == 'TMALL'){
+            if (accessType == 'self_development'){
+                if (!checkPolyUrl()){
+                    return false;
+                }
+            }
+        }
+
+        var data = $('#addForm').serialize();
+        $.ajax({
+            type : "post",
+            url : baseUrl+"sellerConfig/saveShopConfig",
+            data : data,
+            dataType : "json",
+            success : function(data){
+                if (data.errorCode == 0){
+                    alert(data.errorMessage);
+                    window.location.reload();
+                }else{
+                    alert(data.errorMessage);
+                }
+            },
+            error : function(){
+                alert("系统异常，请稍后重试！");
+            }
+        })
+    })
+
+    //提交前验证表单
+    function check() {
+        var flag = 0;
+        var $shopName = $("#addForm input[name='shopName']");
+        var $shopAppId = $("#addForm input[name='shopAppId']");
+        var $shopAppSecret = $("#addForm input[name='shopAppSecret']");
+
+        var accessType = $('#addForm input[name="accessType"]:checked').val();
+
+        if ($shopName.val() == ''){
+            $('.noName').remove();
+                $shopName.parent().append('<span class="noName">店铺名不能为空</span>');
+            $('.noName').css({'color':'#d16e6c','font-size':'15px'});
+            flag++ ;
+        }
+
+        if (accessType != 'plugin'){
+            if ($shopAppId.val() == ''){
+                $('.noAppId').remove();
+                    $shopAppId.parent().append('<span class="noAppId">shopAppId不能为空</span>');
+                $('.noAppId').css({'color':'#d16e6c','font-size':'15px'});
+                flag++ ;
+            }
+            if ($shopAppSecret.val() == ''){
+                $('.noSecretId').remove();
+                    $shopAppSecret.parent().append('<span class="noSecretId">shopAppSecret不能为空</span>');
+                $('.noSecretId').css({'color':'#d16e6c','font-size':'15px'});
+                flag++ ;
+            }
+        }
+
+        return flag;
+    }
+
+    $('#urlVerify').click(function(){
+        if (checkPolyUrl()){
+            alert('测试成功，该聚石塔url有效');
+        }
+    })
+
+    //聚石塔url正确性验证
+    function checkPolyUrl(){
+        var flag;
+        var polyUrl = $("#addForm input[name='polySpireUrl']").val();
+        if (polyUrl ==  null || polyUrl == ''){
+            alert('请填写聚石塔url');
+            flag = false;
+            return flag;
+        }
+
+        $.ajax({
+            type : "post",
+            url : baseUrl+'sellerConfig/urlVerify',
+            data : {url:polyUrl},
+            dataType : "json",
+            async: false,
+            success : function(data){
+                if (data.errorCode == 0){
+                    flag = true;
+                }else{
+                    alert(data.errorMessage);
+                    flag = false;
+                }
+            }
+        })
+
+        return flag;
+    }
+</script>

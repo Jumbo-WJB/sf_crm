@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.activity.ActivityGoodsMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.activity.ActivityGoods" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_release_time" property="maxReleaseTime" jdbcType="BIGINT" />
+    <result column="min_release_time" property="minReleaseTime" jdbcType="BIGINT" />
+    <result column="avg_release_time" property="avgReleaseTime" jdbcType="BIGINT" />
+    <result column="count_release_time" property="countReleaseTime" jdbcType="BIGINT" />
+    <result column="sum_release_time" property="sumReleaseTime" jdbcType="INTEGER" />
+    <result column="count_distinct_release_time" property="countDistinctReleaseTime" jdbcType="BIGINT" />
+    <result column="max_apply_range" property="maxApplyRange" jdbcType="BIGINT" />
+    <result column="min_apply_range" property="minApplyRange" jdbcType="BIGINT" />
+    <result column="avg_apply_range" property="avgApplyRange" jdbcType="BIGINT" />
+    <result column="count_apply_range" property="countApplyRange" jdbcType="BIGINT" />
+    <result column="sum_apply_range" property="sumApplyRange" jdbcType="VARCHAR" />
+    <result column="count_distinct_apply_range" property="countDistinctApplyRange" jdbcType="BIGINT" />
+    <result column="max_hbcash_amount" property="maxHbcashAmount" jdbcType="BIGINT" />
+    <result column="min_hbcash_amount" property="minHbcashAmount" jdbcType="BIGINT" />
+    <result column="avg_hbcash_amount" property="avgHbcashAmount" jdbcType="BIGINT" />
+    <result column="count_hbcash_amount" property="countHbcashAmount" jdbcType="BIGINT" />
+    <result column="sum_hbcash_amount" property="sumHbcashAmount" jdbcType="INTEGER" />
+    <result column="count_distinct_hbcash_amount" property="countDistinctHbcashAmount" jdbcType="BIGINT" />
+    <result column="max_hb_pool_id" property="maxHbPoolId" jdbcType="BIGINT" />
+    <result column="min_hb_pool_id" property="minHbPoolId" jdbcType="BIGINT" />
+    <result column="avg_hb_pool_id" property="avgHbPoolId" jdbcType="BIGINT" />
+    <result column="count_hb_pool_id" property="countHbPoolId" jdbcType="BIGINT" />
+    <result column="sum_hb_pool_id" property="sumHbPoolId" jdbcType="VARCHAR" />
+    <result column="count_distinct_hb_pool_id" property="countDistinctHbPoolId" jdbcType="BIGINT" />
+    <result column="max_cashback_type" property="maxCashbackType" jdbcType="BIGINT" />
+    <result column="min_cashback_type" property="minCashbackType" jdbcType="BIGINT" />
+    <result column="avg_cashback_type" property="avgCashbackType" jdbcType="BIGINT" />
+    <result column="count_cashback_type" property="countCashbackType" jdbcType="BIGINT" />
+    <result column="sum_cashback_type" property="sumCashbackType" jdbcType="VARCHAR" />
+    <result column="count_distinct_cashback_type" property="countDistinctCashbackType" jdbcType="BIGINT" />
+    <result column="max_shop_name" property="maxShopName" jdbcType="BIGINT" />
+    <result column="min_shop_name" property="minShopName" jdbcType="BIGINT" />
+    <result column="avg_shop_name" property="avgShopName" jdbcType="BIGINT" />
+    <result column="count_shop_name" property="countShopName" jdbcType="BIGINT" />
+    <result column="sum_shop_name" property="sumShopName" jdbcType="VARCHAR" />
+    <result column="count_distinct_shop_name" property="countDistinctShopName" jdbcType="BIGINT" />
+    <result column="max_goods_source" property="maxGoodsSource" jdbcType="BIGINT" />
+    <result column="min_goods_source" property="minGoodsSource" jdbcType="BIGINT" />
+    <result column="avg_goods_source" property="avgGoodsSource" jdbcType="BIGINT" />
+    <result column="count_goods_source" property="countGoodsSource" jdbcType="BIGINT" />
+    <result column="sum_goods_source" property="sumGoodsSource" jdbcType="VARCHAR" />
+    <result column="count_distinct_goods_source" property="countDistinctGoodsSource" jdbcType="BIGINT" />
+    <result column="max_goods_quantity" property="maxGoodsQuantity" jdbcType="BIGINT" />
+    <result column="min_goods_quantity" property="minGoodsQuantity" jdbcType="BIGINT" />
+    <result column="avg_goods_quantity" property="avgGoodsQuantity" jdbcType="BIGINT" />
+    <result column="count_goods_quantity" property="countGoodsQuantity" jdbcType="BIGINT" />
+    <result column="sum_goods_quantity" property="sumGoodsQuantity" jdbcType="INTEGER" />
+    <result column="count_distinct_goods_quantity" property="countDistinctGoodsQuantity" jdbcType="BIGINT" />
+    <result column="max_goods_price" property="maxGoodsPrice" jdbcType="BIGINT" />
+    <result column="min_goods_price" property="minGoodsPrice" jdbcType="BIGINT" />
+    <result column="avg_goods_price" property="avgGoodsPrice" jdbcType="BIGINT" />
+    <result column="count_goods_price" property="countGoodsPrice" jdbcType="BIGINT" />
+    <result column="sum_goods_price" property="sumGoodsPrice" jdbcType="INTEGER" />
+    <result column="count_distinct_goods_price" property="countDistinctGoodsPrice" jdbcType="BIGINT" />
+    <result column="max_goods_link" property="maxGoodsLink" jdbcType="BIGINT" />
+    <result column="min_goods_link" property="minGoodsLink" jdbcType="BIGINT" />
+    <result column="avg_goods_link" property="avgGoodsLink" jdbcType="BIGINT" />
+    <result column="count_goods_link" property="countGoodsLink" jdbcType="BIGINT" />
+    <result column="sum_goods_link" property="sumGoodsLink" jdbcType="VARCHAR" />
+    <result column="count_distinct_goods_link" property="countDistinctGoodsLink" jdbcType="BIGINT" />
+    <result column="max_goods_url" property="maxGoodsUrl" jdbcType="BIGINT" />
+    <result column="min_goods_url" property="minGoodsUrl" jdbcType="BIGINT" />
+    <result column="avg_goods_url" property="avgGoodsUrl" jdbcType="BIGINT" />
+    <result column="count_goods_url" property="countGoodsUrl" jdbcType="BIGINT" />
+    <result column="sum_goods_url" property="sumGoodsUrl" jdbcType="VARCHAR" />
+    <result column="count_distinct_goods_url" property="countDistinctGoodsUrl" jdbcType="BIGINT" />
+    <result column="max_goods_name" property="maxGoodsName" jdbcType="BIGINT" />
+    <result column="min_goods_name" property="minGoodsName" jdbcType="BIGINT" />
+    <result column="avg_goods_name" property="avgGoodsName" jdbcType="BIGINT" />
+    <result column="count_goods_name" property="countGoodsName" jdbcType="BIGINT" />
+    <result column="sum_goods_name" property="sumGoodsName" jdbcType="VARCHAR" />
+    <result column="count_distinct_goods_name" property="countDistinctGoodsName" jdbcType="BIGINT" />
+    <result column="max_goods_id" property="maxGoodsId" jdbcType="BIGINT" />
+    <result column="min_goods_id" property="minGoodsId" jdbcType="BIGINT" />
+    <result column="avg_goods_id" property="avgGoodsId" jdbcType="BIGINT" />
+    <result column="count_goods_id" property="countGoodsId" jdbcType="BIGINT" />
+    <result column="sum_goods_id" property="sumGoodsId" jdbcType="VARCHAR" />
+    <result column="count_distinct_goods_id" property="countDistinctGoodsId" jdbcType="BIGINT" />
+    <result column="max_activity_goods_id" property="maxActivityGoodsId" jdbcType="BIGINT" />
+    <result column="min_activity_goods_id" property="minActivityGoodsId" jdbcType="BIGINT" />
+    <result column="avg_activity_goods_id" property="avgActivityGoodsId" jdbcType="BIGINT" />
+    <result column="count_activity_goods_id" property="countActivityGoodsId" jdbcType="BIGINT" />
+    <result column="sum_activity_goods_id" property="sumActivityGoodsId" jdbcType="BIGINT" />
+    <result column="count_distinct_activity_goods_id" property="countDistinctActivityGoodsId" jdbcType="BIGINT" />
+    <result column="max_activity_id" property="maxActivityId" jdbcType="BIGINT" />
+    <result column="min_activity_id" property="minActivityId" jdbcType="BIGINT" />
+    <result column="avg_activity_id" property="avgActivityId" jdbcType="BIGINT" />
+    <result column="count_activity_id" property="countActivityId" jdbcType="BIGINT" />
+    <result column="sum_activity_id" property="sumActivityId" jdbcType="BIGINT" />
+    <result column="count_distinct_activity_id" property="countDistinctActivityId" jdbcType="BIGINT" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="count_distinct_seller_id" property="countDistinctSellerId" jdbcType="BIGINT" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="count_distinct_is_deleted" property="countDistinctIsDeleted" jdbcType="BIGINT" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="count_distinct_modified_by" property="countDistinctModifiedBy" jdbcType="BIGINT" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="count_distinct_created_by" property="countDistinctCreatedBy" jdbcType="BIGINT" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_gmt_modified" property="countDistinctGmtModified" jdbcType="BIGINT" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_gmt_created" property="countDistinctGmtCreated" jdbcType="BIGINT" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="count_distinct_id" property="countDistinctId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+    <result column="activity_id" property="activityId" jdbcType="BIGINT" />
+    <result column="activity_goods_id" property="activityGoodsId" jdbcType="BIGINT" />
+    <result column="goods_id" property="goodsId" jdbcType="VARCHAR" />
+    <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+    <result column="goods_url" property="goodsUrl" jdbcType="VARCHAR" />
+    <result column="goods_link" property="goodsLink" jdbcType="VARCHAR" />
+    <result column="goods_price" property="goodsPrice" jdbcType="INTEGER" />
+    <result column="goods_quantity" property="goodsQuantity" jdbcType="INTEGER" />
+    <result column="goods_source" property="goodsSource" jdbcType="VARCHAR" />
+    <result column="shop_name" property="shopName" jdbcType="VARCHAR" />
+    <result column="cashback_type" property="cashbackType" jdbcType="VARCHAR" />
+    <result column="hb_pool_id" property="hbPoolId" jdbcType="VARCHAR" />
+    <result column="hbcash_amount" property="hbcashAmount" jdbcType="INTEGER" />
+    <result column="apply_range" property="applyRange" jdbcType="VARCHAR" />
+    <result column="release_time" property="releaseTime" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, created_by, modified_by, is_deleted, seller_id, activity_id, 
+    activity_goods_id, goods_id, goods_name, goods_url, goods_link, goods_price, goods_quantity, 
+    goods_source, shop_name, cashback_type, hb_pool_id, hbcash_amount, apply_range, release_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.activity.ActivityGoodsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from activity_goods
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from activity_goods
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update activity_goods
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.activity.ActivityGoodsExample" >
+    update activity_goods
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.activity.ActivityGoods" useGeneratedKeys="true" keyProperty="id" >
+    insert into activity_goods (id, gmt_created, gmt_modified, 
+      created_by, modified_by, is_deleted, 
+      seller_id, activity_id, activity_goods_id, 
+      goods_id, goods_name, goods_url, 
+      goods_link, goods_price, goods_quantity, 
+      goods_source, shop_name, cashback_type, 
+      hb_pool_id, hbcash_amount, apply_range, 
+      release_time)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{sellerId,jdbcType=BIGINT}, #{activityId,jdbcType=BIGINT}, #{activityGoodsId,jdbcType=BIGINT}, 
+      #{goodsId,jdbcType=VARCHAR}, #{goodsName,jdbcType=VARCHAR}, #{goodsUrl,jdbcType=VARCHAR}, 
+      #{goodsLink,jdbcType=VARCHAR}, #{goodsPrice,jdbcType=INTEGER}, #{goodsQuantity,jdbcType=INTEGER}, 
+      #{goodsSource,jdbcType=VARCHAR}, #{shopName,jdbcType=VARCHAR}, #{cashbackType,jdbcType=VARCHAR}, 
+      #{hbPoolId,jdbcType=VARCHAR}, #{hbcashAmount,jdbcType=INTEGER}, #{applyRange,jdbcType=VARCHAR}, 
+      #{releaseTime,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.activity.ActivityGoods" useGeneratedKeys="true" keyProperty="id" >
+    insert into activity_goods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="activityId != null" >
+        activity_id,
+      </if>
+      <if test="activityGoodsId != null" >
+        activity_goods_id,
+      </if>
+      <if test="goodsId != null" >
+        goods_id,
+      </if>
+      <if test="goodsName != null" >
+        goods_name,
+      </if>
+      <if test="goodsUrl != null" >
+        goods_url,
+      </if>
+      <if test="goodsLink != null" >
+        goods_link,
+      </if>
+      <if test="goodsPrice != null" >
+        goods_price,
+      </if>
+      <if test="goodsQuantity != null" >
+        goods_quantity,
+      </if>
+      <if test="goodsSource != null" >
+        goods_source,
+      </if>
+      <if test="shopName != null" >
+        shop_name,
+      </if>
+      <if test="cashbackType != null" >
+        cashback_type,
+      </if>
+      <if test="hbPoolId != null" >
+        hb_pool_id,
+      </if>
+      <if test="hbcashAmount != null" >
+        hbcash_amount,
+      </if>
+      <if test="applyRange != null" >
+        apply_range,
+      </if>
+      <if test="releaseTime != null" >
+        release_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+      <if test="activityId != null" >
+        #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="activityGoodsId != null" >
+        #{activityGoodsId,jdbcType=BIGINT},
+      </if>
+      <if test="goodsId != null" >
+        #{goodsId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsName != null" >
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsUrl != null" >
+        #{goodsUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsLink != null" >
+        #{goodsLink,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsPrice != null" >
+        #{goodsPrice,jdbcType=INTEGER},
+      </if>
+      <if test="goodsQuantity != null" >
+        #{goodsQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="goodsSource != null" >
+        #{goodsSource,jdbcType=VARCHAR},
+      </if>
+      <if test="shopName != null" >
+        #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="cashbackType != null" >
+        #{cashbackType,jdbcType=VARCHAR},
+      </if>
+      <if test="hbPoolId != null" >
+        #{hbPoolId,jdbcType=VARCHAR},
+      </if>
+      <if test="hbcashAmount != null" >
+        #{hbcashAmount,jdbcType=INTEGER},
+      </if>
+      <if test="applyRange != null" >
+        #{applyRange,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseTime != null" >
+        #{releaseTime,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.activity.ActivityGoodsExample" resultType="java.lang.Integer" >
+    select count(*) from activity_goods
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update activity_goods
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.activityId!=null and record.activityIdExpression==null" >
+          activity_id = #{record.activityId,jdbcType=BIGINT},
+        </if>
+        <if test="record.activityIdExpression!=null" >
+          activity_id = ${record.activityIdExpression},
+        </if>
+        <if test="record.activityGoodsId!=null and record.activityGoodsIdExpression==null" >
+          activity_goods_id = #{record.activityGoodsId,jdbcType=BIGINT},
+        </if>
+        <if test="record.activityGoodsIdExpression!=null" >
+          activity_goods_id = ${record.activityGoodsIdExpression},
+        </if>
+        <if test="record.goodsId!=null and record.goodsIdExpression==null" >
+          goods_id = #{record.goodsId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.goodsIdExpression!=null" >
+          goods_id = ${record.goodsIdExpression},
+        </if>
+        <if test="record.goodsName!=null and record.goodsNameExpression==null" >
+          goods_name = #{record.goodsName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.goodsNameExpression!=null" >
+          goods_name = ${record.goodsNameExpression},
+        </if>
+        <if test="record.goodsUrl!=null and record.goodsUrlExpression==null" >
+          goods_url = #{record.goodsUrl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.goodsUrlExpression!=null" >
+          goods_url = ${record.goodsUrlExpression},
+        </if>
+        <if test="record.goodsLink!=null and record.goodsLinkExpression==null" >
+          goods_link = #{record.goodsLink,jdbcType=VARCHAR},
+        </if>
+        <if test="record.goodsLinkExpression!=null" >
+          goods_link = ${record.goodsLinkExpression},
+        </if>
+        <if test="record.goodsPrice!=null and record.goodsPriceExpression==null" >
+          goods_price = #{record.goodsPrice,jdbcType=INTEGER},
+        </if>
+        <if test="record.goodsPriceExpression!=null" >
+          goods_price = ${record.goodsPriceExpression},
+        </if>
+        <if test="record.goodsQuantity!=null and record.goodsQuantityExpression==null" >
+          goods_quantity = #{record.goodsQuantity,jdbcType=INTEGER},
+        </if>
+        <if test="record.goodsQuantityExpression!=null" >
+          goods_quantity = ${record.goodsQuantityExpression},
+        </if>
+        <if test="record.goodsSource!=null and record.goodsSourceExpression==null" >
+          goods_source = #{record.goodsSource,jdbcType=VARCHAR},
+        </if>
+        <if test="record.goodsSourceExpression!=null" >
+          goods_source = ${record.goodsSourceExpression},
+        </if>
+        <if test="record.shopName!=null and record.shopNameExpression==null" >
+          shop_name = #{record.shopName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shopNameExpression!=null" >
+          shop_name = ${record.shopNameExpression},
+        </if>
+        <if test="record.cashbackType!=null and record.cashbackTypeExpression==null" >
+          cashback_type = #{record.cashbackType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.cashbackTypeExpression!=null" >
+          cashback_type = ${record.cashbackTypeExpression},
+        </if>
+        <if test="record.hbPoolId!=null and record.hbPoolIdExpression==null" >
+          hb_pool_id = #{record.hbPoolId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.hbPoolIdExpression!=null" >
+          hb_pool_id = ${record.hbPoolIdExpression},
+        </if>
+        <if test="record.hbcashAmount!=null and record.hbcashAmountExpression==null" >
+          hbcash_amount = #{record.hbcashAmount,jdbcType=INTEGER},
+        </if>
+        <if test="record.hbcashAmountExpression!=null" >
+          hbcash_amount = ${record.hbcashAmountExpression},
+        </if>
+        <if test="record.applyRange!=null and record.applyRangeExpression==null" >
+          apply_range = #{record.applyRange,jdbcType=VARCHAR},
+        </if>
+        <if test="record.applyRangeExpression!=null" >
+          apply_range = ${record.applyRangeExpression},
+        </if>
+        <if test="record.releaseTime!=null and record.releaseTimeExpression==null" >
+          release_time = #{record.releaseTime,jdbcType=INTEGER},
+        </if>
+        <if test="record.releaseTimeExpression!=null" >
+          release_time = ${record.releaseTimeExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update activity_goods
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=BIGINT},
+      activity_id = #{record.activityId,jdbcType=BIGINT},
+      activity_goods_id = #{record.activityGoodsId,jdbcType=BIGINT},
+      goods_id = #{record.goodsId,jdbcType=VARCHAR},
+      goods_name = #{record.goodsName,jdbcType=VARCHAR},
+      goods_url = #{record.goodsUrl,jdbcType=VARCHAR},
+      goods_link = #{record.goodsLink,jdbcType=VARCHAR},
+      goods_price = #{record.goodsPrice,jdbcType=INTEGER},
+      goods_quantity = #{record.goodsQuantity,jdbcType=INTEGER},
+      goods_source = #{record.goodsSource,jdbcType=VARCHAR},
+      shop_name = #{record.shopName,jdbcType=VARCHAR},
+      cashback_type = #{record.cashbackType,jdbcType=VARCHAR},
+      hb_pool_id = #{record.hbPoolId,jdbcType=VARCHAR},
+      hbcash_amount = #{record.hbcashAmount,jdbcType=INTEGER},
+      apply_range = #{record.applyRange,jdbcType=VARCHAR},
+      release_time = #{record.releaseTime,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.activity.ActivityGoods" >
+    update activity_goods
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.activityId!=null and record.activityIdExpression==null" >
+          activity_id = #{record.activityId,jdbcType=BIGINT},
+        </if>
+        <if test="record.activityIdExpression!=null" >
+          activity_id = ${record.activityIdExpression},
+        </if>
+        <if test="record.activityGoodsId!=null and record.activityGoodsIdExpression==null" >
+          activity_goods_id = #{record.activityGoodsId,jdbcType=BIGINT},
+        </if>
+        <if test="record.activityGoodsIdExpression!=null" >
+          activity_goods_id = ${record.activityGoodsIdExpression},
+        </if>
+        <if test="record.goodsId!=null and record.goodsIdExpression==null" >
+          goods_id = #{record.goodsId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.goodsIdExpression!=null" >
+          goods_id = ${record.goodsIdExpression},
+        </if>
+        <if test="record.goodsName!=null and record.goodsNameExpression==null" >
+          goods_name = #{record.goodsName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.goodsNameExpression!=null" >
+          goods_name = ${record.goodsNameExpression},
+        </if>
+        <if test="record.goodsUrl!=null and record.goodsUrlExpression==null" >
+          goods_url = #{record.goodsUrl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.goodsUrlExpression!=null" >
+          goods_url = ${record.goodsUrlExpression},
+        </if>
+        <if test="record.goodsLink!=null and record.goodsLinkExpression==null" >
+          goods_link = #{record.goodsLink,jdbcType=VARCHAR},
+        </if>
+        <if test="record.goodsLinkExpression!=null" >
+          goods_link = ${record.goodsLinkExpression},
+        </if>
+        <if test="record.goodsPrice!=null and record.goodsPriceExpression==null" >
+          goods_price = #{record.goodsPrice,jdbcType=INTEGER},
+        </if>
+        <if test="record.goodsPriceExpression!=null" >
+          goods_price = ${record.goodsPriceExpression},
+        </if>
+        <if test="record.goodsQuantity!=null and record.goodsQuantityExpression==null" >
+          goods_quantity = #{record.goodsQuantity,jdbcType=INTEGER},
+        </if>
+        <if test="record.goodsQuantityExpression!=null" >
+          goods_quantity = ${record.goodsQuantityExpression},
+        </if>
+        <if test="record.goodsSource!=null and record.goodsSourceExpression==null" >
+          goods_source = #{record.goodsSource,jdbcType=VARCHAR},
+        </if>
+        <if test="record.goodsSourceExpression!=null" >
+          goods_source = ${record.goodsSourceExpression},
+        </if>
+        <if test="record.shopName!=null and record.shopNameExpression==null" >
+          shop_name = #{record.shopName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shopNameExpression!=null" >
+          shop_name = ${record.shopNameExpression},
+        </if>
+        <if test="record.cashbackType!=null and record.cashbackTypeExpression==null" >
+          cashback_type = #{record.cashbackType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.cashbackTypeExpression!=null" >
+          cashback_type = ${record.cashbackTypeExpression},
+        </if>
+        <if test="record.hbPoolId!=null and record.hbPoolIdExpression==null" >
+          hb_pool_id = #{record.hbPoolId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.hbPoolIdExpression!=null" >
+          hb_pool_id = ${record.hbPoolIdExpression},
+        </if>
+        <if test="record.hbcashAmount!=null and record.hbcashAmountExpression==null" >
+          hbcash_amount = #{record.hbcashAmount,jdbcType=INTEGER},
+        </if>
+        <if test="record.hbcashAmountExpression!=null" >
+          hbcash_amount = ${record.hbcashAmountExpression},
+        </if>
+        <if test="record.applyRange!=null and record.applyRangeExpression==null" >
+          apply_range = #{record.applyRange,jdbcType=VARCHAR},
+        </if>
+        <if test="record.applyRangeExpression!=null" >
+          apply_range = ${record.applyRangeExpression},
+        </if>
+        <if test="record.releaseTime!=null and record.releaseTimeExpression==null" >
+          release_time = #{record.releaseTime,jdbcType=INTEGER},
+        </if>
+        <if test="record.releaseTimeExpression!=null" >
+          release_time = ${record.releaseTimeExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.activity.ActivityGoods" >
+    update activity_goods
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=BIGINT},
+      activity_id = #{activityId,jdbcType=BIGINT},
+      activity_goods_id = #{activityGoodsId,jdbcType=BIGINT},
+      goods_id = #{goodsId,jdbcType=VARCHAR},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      goods_url = #{goodsUrl,jdbcType=VARCHAR},
+      goods_link = #{goodsLink,jdbcType=VARCHAR},
+      goods_price = #{goodsPrice,jdbcType=INTEGER},
+      goods_quantity = #{goodsQuantity,jdbcType=INTEGER},
+      goods_source = #{goodsSource,jdbcType=VARCHAR},
+      shop_name = #{shopName,jdbcType=VARCHAR},
+      cashback_type = #{cashbackType,jdbcType=VARCHAR},
+      hb_pool_id = #{hbPoolId,jdbcType=VARCHAR},
+      hbcash_amount = #{hbcashAmount,jdbcType=INTEGER},
+      apply_range = #{applyRange,jdbcType=VARCHAR},
+      release_time = #{releaseTime,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,1036 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.user.UserPortraitMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.user.UserPortrait" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_contribution_yz" property="maxContributionYz" jdbcType="BIGINT" />
+    <result column="min_contribution_yz" property="minContributionYz" jdbcType="BIGINT" />
+    <result column="avg_contribution_yz" property="avgContributionYz" jdbcType="BIGINT" />
+    <result column="count_contribution_yz" property="countContributionYz" jdbcType="BIGINT" />
+    <result column="sum_contribution_yz" property="sumContributionYz" jdbcType="DECIMAL" />
+    <result column="count_distinct_contribution_yz" property="countDistinctContributionYz" jdbcType="BIGINT" />
+    <result column="max_contribution_jd" property="maxContributionJd" jdbcType="BIGINT" />
+    <result column="min_contribution_jd" property="minContributionJd" jdbcType="BIGINT" />
+    <result column="avg_contribution_jd" property="avgContributionJd" jdbcType="BIGINT" />
+    <result column="count_contribution_jd" property="countContributionJd" jdbcType="BIGINT" />
+    <result column="sum_contribution_jd" property="sumContributionJd" jdbcType="DECIMAL" />
+    <result column="count_distinct_contribution_jd" property="countDistinctContributionJd" jdbcType="BIGINT" />
+    <result column="max_contribution_tb" property="maxContributionTb" jdbcType="BIGINT" />
+    <result column="min_contribution_tb" property="minContributionTb" jdbcType="BIGINT" />
+    <result column="avg_contribution_tb" property="avgContributionTb" jdbcType="BIGINT" />
+    <result column="count_contribution_tb" property="countContributionTb" jdbcType="BIGINT" />
+    <result column="sum_contribution_tb" property="sumContributionTb" jdbcType="DECIMAL" />
+    <result column="count_distinct_contribution_tb" property="countDistinctContributionTb" jdbcType="BIGINT" />
+    <result column="max_contribution_tmall" property="maxContributionTmall" jdbcType="BIGINT" />
+    <result column="min_contribution_tmall" property="minContributionTmall" jdbcType="BIGINT" />
+    <result column="avg_contribution_tmall" property="avgContributionTmall" jdbcType="BIGINT" />
+    <result column="count_contribution_tmall" property="countContributionTmall" jdbcType="BIGINT" />
+    <result column="sum_contribution_tmall" property="sumContributionTmall" jdbcType="DECIMAL" />
+    <result column="count_distinct_contribution_tmall" property="countDistinctContributionTmall" jdbcType="BIGINT" />
+    <result column="max_goods_rate" property="maxGoodsRate" jdbcType="BIGINT" />
+    <result column="min_goods_rate" property="minGoodsRate" jdbcType="BIGINT" />
+    <result column="avg_goods_rate" property="avgGoodsRate" jdbcType="BIGINT" />
+    <result column="count_goods_rate" property="countGoodsRate" jdbcType="BIGINT" />
+    <result column="sum_goods_rate" property="sumGoodsRate" jdbcType="DECIMAL" />
+    <result column="count_distinct_goods_rate" property="countDistinctGoodsRate" jdbcType="BIGINT" />
+    <result column="max_fancy" property="maxFancy" jdbcType="BIGINT" />
+    <result column="min_fancy" property="minFancy" jdbcType="BIGINT" />
+    <result column="avg_fancy" property="avgFancy" jdbcType="BIGINT" />
+    <result column="count_fancy" property="countFancy" jdbcType="BIGINT" />
+    <result column="sum_fancy" property="sumFancy" jdbcType="VARCHAR" />
+    <result column="count_distinct_fancy" property="countDistinctFancy" jdbcType="BIGINT" />
+    <result column="max_email_accept_circle" property="maxEmailAcceptCircle" jdbcType="BIGINT" />
+    <result column="min_email_accept_circle" property="minEmailAcceptCircle" jdbcType="BIGINT" />
+    <result column="avg_email_accept_circle" property="avgEmailAcceptCircle" jdbcType="BIGINT" />
+    <result column="count_email_accept_circle" property="countEmailAcceptCircle" jdbcType="BIGINT" />
+    <result column="sum_email_accept_circle" property="sumEmailAcceptCircle" jdbcType="INTEGER" />
+    <result column="count_distinct_email_accept_circle" property="countDistinctEmailAcceptCircle" jdbcType="BIGINT" />
+    <result column="max_email_accept_number" property="maxEmailAcceptNumber" jdbcType="BIGINT" />
+    <result column="min_email_accept_number" property="minEmailAcceptNumber" jdbcType="BIGINT" />
+    <result column="avg_email_accept_number" property="avgEmailAcceptNumber" jdbcType="BIGINT" />
+    <result column="count_email_accept_number" property="countEmailAcceptNumber" jdbcType="BIGINT" />
+    <result column="sum_email_accept_number" property="sumEmailAcceptNumber" jdbcType="INTEGER" />
+    <result column="count_distinct_email_accept_number" property="countDistinctEmailAcceptNumber" jdbcType="BIGINT" />
+    <result column="max_sms_accept_circle" property="maxSmsAcceptCircle" jdbcType="BIGINT" />
+    <result column="min_sms_accept_circle" property="minSmsAcceptCircle" jdbcType="BIGINT" />
+    <result column="avg_sms_accept_circle" property="avgSmsAcceptCircle" jdbcType="BIGINT" />
+    <result column="count_sms_accept_circle" property="countSmsAcceptCircle" jdbcType="BIGINT" />
+    <result column="sum_sms_accept_circle" property="sumSmsAcceptCircle" jdbcType="INTEGER" />
+    <result column="count_distinct_sms_accept_circle" property="countDistinctSmsAcceptCircle" jdbcType="BIGINT" />
+    <result column="max_sms_accept_number" property="maxSmsAcceptNumber" jdbcType="BIGINT" />
+    <result column="min_sms_accept_number" property="minSmsAcceptNumber" jdbcType="BIGINT" />
+    <result column="avg_sms_accept_number" property="avgSmsAcceptNumber" jdbcType="BIGINT" />
+    <result column="count_sms_accept_number" property="countSmsAcceptNumber" jdbcType="BIGINT" />
+    <result column="sum_sms_accept_number" property="sumSmsAcceptNumber" jdbcType="INTEGER" />
+    <result column="count_distinct_sms_accept_number" property="countDistinctSmsAcceptNumber" jdbcType="BIGINT" />
+    <result column="max_wx_purchase_average_amount" property="maxWxPurchaseAverageAmount" jdbcType="BIGINT" />
+    <result column="min_wx_purchase_average_amount" property="minWxPurchaseAverageAmount" jdbcType="BIGINT" />
+    <result column="avg_wx_purchase_average_amount" property="avgWxPurchaseAverageAmount" jdbcType="BIGINT" />
+    <result column="count_wx_purchase_average_amount" property="countWxPurchaseAverageAmount" jdbcType="BIGINT" />
+    <result column="sum_wx_purchase_average_amount" property="sumWxPurchaseAverageAmount" jdbcType="BIGINT" />
+    <result column="count_distinct_wx_purchase_average_amount" property="countDistinctWxPurchaseAverageAmount" jdbcType="BIGINT" />
+    <result column="max_purchase_average_amount" property="maxPurchaseAverageAmount" jdbcType="BIGINT" />
+    <result column="min_purchase_average_amount" property="minPurchaseAverageAmount" jdbcType="BIGINT" />
+    <result column="avg_purchase_average_amount" property="avgPurchaseAverageAmount" jdbcType="BIGINT" />
+    <result column="count_purchase_average_amount" property="countPurchaseAverageAmount" jdbcType="BIGINT" />
+    <result column="sum_purchase_average_amount" property="sumPurchaseAverageAmount" jdbcType="BIGINT" />
+    <result column="count_distinct_purchase_average_amount" property="countDistinctPurchaseAverageAmount" jdbcType="BIGINT" />
+    <result column="max_purchase_average_cycle" property="maxPurchaseAverageCycle" jdbcType="BIGINT" />
+    <result column="min_purchase_average_cycle" property="minPurchaseAverageCycle" jdbcType="BIGINT" />
+    <result column="avg_purchase_average_cycle" property="avgPurchaseAverageCycle" jdbcType="BIGINT" />
+    <result column="count_purchase_average_cycle" property="countPurchaseAverageCycle" jdbcType="BIGINT" />
+    <result column="sum_purchase_average_cycle" property="sumPurchaseAverageCycle" jdbcType="DECIMAL" />
+    <result column="count_distinct_purchase_average_cycle" property="countDistinctPurchaseAverageCycle" jdbcType="BIGINT" />
+    <result column="max_mobile_purchase_rate" property="maxMobilePurchaseRate" jdbcType="BIGINT" />
+    <result column="min_mobile_purchase_rate" property="minMobilePurchaseRate" jdbcType="BIGINT" />
+    <result column="avg_mobile_purchase_rate" property="avgMobilePurchaseRate" jdbcType="BIGINT" />
+    <result column="count_mobile_purchase_rate" property="countMobilePurchaseRate" jdbcType="BIGINT" />
+    <result column="sum_mobile_purchase_rate" property="sumMobilePurchaseRate" jdbcType="DECIMAL" />
+    <result column="count_distinct_mobile_purchase_rate" property="countDistinctMobilePurchaseRate" jdbcType="BIGINT" />
+    <result column="max_last_purchase_amount" property="maxLastPurchaseAmount" jdbcType="BIGINT" />
+    <result column="min_last_purchase_amount" property="minLastPurchaseAmount" jdbcType="BIGINT" />
+    <result column="avg_last_purchase_amount" property="avgLastPurchaseAmount" jdbcType="BIGINT" />
+    <result column="count_last_purchase_amount" property="countLastPurchaseAmount" jdbcType="BIGINT" />
+    <result column="sum_last_purchase_amount" property="sumLastPurchaseAmount" jdbcType="BIGINT" />
+    <result column="count_distinct_last_purchase_amount" property="countDistinctLastPurchaseAmount" jdbcType="BIGINT" />
+    <result column="max_first_purchase_date" property="maxFirstPurchaseDate" jdbcType="BIGINT" />
+    <result column="min_first_purchase_date" property="minFirstPurchaseDate" jdbcType="BIGINT" />
+    <result column="avg_first_purchase_date" property="avgFirstPurchaseDate" jdbcType="BIGINT" />
+    <result column="count_first_purchase_date" property="countFirstPurchaseDate" jdbcType="BIGINT" />
+    <result column="sum_first_purchase_date" property="sumFirstPurchaseDate" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_first_purchase_date" property="countDistinctFirstPurchaseDate" jdbcType="BIGINT" />
+    <result column="max_last_purchase_date" property="maxLastPurchaseDate" jdbcType="BIGINT" />
+    <result column="min_last_purchase_date" property="minLastPurchaseDate" jdbcType="BIGINT" />
+    <result column="avg_last_purchase_date" property="avgLastPurchaseDate" jdbcType="BIGINT" />
+    <result column="count_last_purchase_date" property="countLastPurchaseDate" jdbcType="BIGINT" />
+    <result column="sum_last_purchase_date" property="sumLastPurchaseDate" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_last_purchase_date" property="countDistinctLastPurchaseDate" jdbcType="BIGINT" />
+    <result column="max_last_sign_in_date" property="maxLastSignInDate" jdbcType="BIGINT" />
+    <result column="min_last_sign_in_date" property="minLastSignInDate" jdbcType="BIGINT" />
+    <result column="avg_last_sign_in_date" property="avgLastSignInDate" jdbcType="BIGINT" />
+    <result column="count_last_sign_in_date" property="countLastSignInDate" jdbcType="BIGINT" />
+    <result column="sum_last_sign_in_date" property="sumLastSignInDate" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_last_sign_in_date" property="countDistinctLastSignInDate" jdbcType="BIGINT" />
+    <result column="max_sign_in_times" property="maxSignInTimes" jdbcType="BIGINT" />
+    <result column="min_sign_in_times" property="minSignInTimes" jdbcType="BIGINT" />
+    <result column="avg_sign_in_times" property="avgSignInTimes" jdbcType="BIGINT" />
+    <result column="count_sign_in_times" property="countSignInTimes" jdbcType="BIGINT" />
+    <result column="sum_sign_in_times" property="sumSignInTimes" jdbcType="INTEGER" />
+    <result column="count_distinct_sign_in_times" property="countDistinctSignInTimes" jdbcType="BIGINT" />
+    <result column="max_interactions_times" property="maxInteractionsTimes" jdbcType="BIGINT" />
+    <result column="min_interactions_times" property="minInteractionsTimes" jdbcType="BIGINT" />
+    <result column="avg_interactions_times" property="avgInteractionsTimes" jdbcType="BIGINT" />
+    <result column="count_interactions_times" property="countInteractionsTimes" jdbcType="BIGINT" />
+    <result column="sum_interactions_times" property="sumInteractionsTimes" jdbcType="INTEGER" />
+    <result column="count_distinct_interactions_times" property="countDistinctInteractionsTimes" jdbcType="BIGINT" />
+    <result column="max_total_purchase_times" property="maxTotalPurchaseTimes" jdbcType="BIGINT" />
+    <result column="min_total_purchase_times" property="minTotalPurchaseTimes" jdbcType="BIGINT" />
+    <result column="avg_total_purchase_times" property="avgTotalPurchaseTimes" jdbcType="BIGINT" />
+    <result column="count_total_purchase_times" property="countTotalPurchaseTimes" jdbcType="BIGINT" />
+    <result column="sum_total_purchase_times" property="sumTotalPurchaseTimes" jdbcType="INTEGER" />
+    <result column="count_distinct_total_purchase_times" property="countDistinctTotalPurchaseTimes" jdbcType="BIGINT" />
+    <result column="max_total_purchase_amount" property="maxTotalPurchaseAmount" jdbcType="BIGINT" />
+    <result column="min_total_purchase_amount" property="minTotalPurchaseAmount" jdbcType="BIGINT" />
+    <result column="avg_total_purchase_amount" property="avgTotalPurchaseAmount" jdbcType="BIGINT" />
+    <result column="count_total_purchase_amount" property="countTotalPurchaseAmount" jdbcType="BIGINT" />
+    <result column="sum_total_purchase_amount" property="sumTotalPurchaseAmount" jdbcType="BIGINT" />
+    <result column="count_distinct_total_purchase_amount" property="countDistinctTotalPurchaseAmount" jdbcType="BIGINT" />
+    <result column="max_contribution" property="maxContribution" jdbcType="BIGINT" />
+    <result column="min_contribution" property="minContribution" jdbcType="BIGINT" />
+    <result column="avg_contribution" property="avgContribution" jdbcType="BIGINT" />
+    <result column="count_contribution" property="countContribution" jdbcType="BIGINT" />
+    <result column="sum_contribution" property="sumContribution" jdbcType="DECIMAL" />
+    <result column="count_distinct_contribution" property="countDistinctContribution" jdbcType="BIGINT" />
+    <result column="max_liveness" property="maxLiveness" jdbcType="BIGINT" />
+    <result column="min_liveness" property="minLiveness" jdbcType="BIGINT" />
+    <result column="avg_liveness" property="avgLiveness" jdbcType="BIGINT" />
+    <result column="count_liveness" property="countLiveness" jdbcType="BIGINT" />
+    <result column="sum_liveness" property="sumLiveness" jdbcType="INTEGER" />
+    <result column="count_distinct_liveness" property="countDistinctLiveness" jdbcType="BIGINT" />
+    <result column="max_user_portrait_id" property="maxUserPortraitId" jdbcType="BIGINT" />
+    <result column="min_user_portrait_id" property="minUserPortraitId" jdbcType="BIGINT" />
+    <result column="avg_user_portrait_id" property="avgUserPortraitId" jdbcType="BIGINT" />
+    <result column="count_user_portrait_id" property="countUserPortraitId" jdbcType="BIGINT" />
+    <result column="sum_user_portrait_id" property="sumUserPortraitId" jdbcType="BIGINT" />
+    <result column="count_distinct_user_portrait_id" property="countDistinctUserPortraitId" jdbcType="BIGINT" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="count_distinct_seller_id" property="countDistinctSellerId" jdbcType="BIGINT" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="count_distinct_is_deleted" property="countDistinctIsDeleted" jdbcType="BIGINT" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="count_distinct_modified_by" property="countDistinctModifiedBy" jdbcType="BIGINT" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_gmt_modified" property="countDistinctGmtModified" jdbcType="BIGINT" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="count_distinct_created_by" property="countDistinctCreatedBy" jdbcType="BIGINT" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_gmt_created" property="countDistinctGmtCreated" jdbcType="BIGINT" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="count_distinct_id" property="countDistinctId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+    <result column="user_portrait_id" property="userPortraitId" jdbcType="BIGINT" />
+    <result column="liveness" property="liveness" jdbcType="INTEGER" />
+    <result column="contribution" property="contribution" jdbcType="DECIMAL" />
+    <result column="total_purchase_amount" property="totalPurchaseAmount" jdbcType="BIGINT" />
+    <result column="total_purchase_times" property="totalPurchaseTimes" jdbcType="INTEGER" />
+    <result column="interactions_times" property="interactionsTimes" jdbcType="INTEGER" />
+    <result column="sign_in_times" property="signInTimes" jdbcType="INTEGER" />
+    <result column="last_sign_in_date" property="lastSignInDate" jdbcType="TIMESTAMP" />
+    <result column="last_purchase_date" property="lastPurchaseDate" jdbcType="TIMESTAMP" />
+    <result column="first_purchase_date" property="firstPurchaseDate" jdbcType="TIMESTAMP" />
+    <result column="last_purchase_amount" property="lastPurchaseAmount" jdbcType="BIGINT" />
+    <result column="mobile_purchase_rate" property="mobilePurchaseRate" jdbcType="DECIMAL" />
+    <result column="purchase_average_cycle" property="purchaseAverageCycle" jdbcType="DECIMAL" />
+    <result column="purchase_average_amount" property="purchaseAverageAmount" jdbcType="BIGINT" />
+    <result column="wx_purchase_average_amount" property="wxPurchaseAverageAmount" jdbcType="BIGINT" />
+    <result column="sms_accept_number" property="smsAcceptNumber" jdbcType="INTEGER" />
+    <result column="sms_accept_circle" property="smsAcceptCircle" jdbcType="INTEGER" />
+    <result column="email_accept_number" property="emailAcceptNumber" jdbcType="INTEGER" />
+    <result column="email_accept_circle" property="emailAcceptCircle" jdbcType="INTEGER" />
+    <result column="fancy" property="fancy" jdbcType="VARCHAR" />
+    <result column="goods_rate" property="goodsRate" jdbcType="DECIMAL" />
+    <result column="contribution_tmall" property="contributionTmall" jdbcType="DECIMAL" />
+    <result column="contribution_tb" property="contributionTb" jdbcType="DECIMAL" />
+    <result column="contribution_jd" property="contributionJd" jdbcType="DECIMAL" />
+    <result column="contribution_yz" property="contributionYz" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, created_by, gmt_modified, modified_by, is_deleted, seller_id, user_portrait_id, 
+    liveness, contribution, total_purchase_amount, total_purchase_times, interactions_times, 
+    sign_in_times, last_sign_in_date, last_purchase_date, first_purchase_date, last_purchase_amount, 
+    mobile_purchase_rate, purchase_average_cycle, purchase_average_amount, wx_purchase_average_amount, 
+    sms_accept_number, sms_accept_circle, email_accept_number, email_accept_circle, fancy, 
+    goods_rate, contribution_tmall, contribution_tb, contribution_jd, contribution_yz
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserPortraitExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from user_portrait
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_portrait
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update user_portrait
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserPortraitExample" >
+    update user_portrait
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserPortrait" useGeneratedKeys="true" keyProperty="id" >
+    insert into user_portrait (id, gmt_created, created_by, 
+      gmt_modified, modified_by, is_deleted, 
+      seller_id, user_portrait_id, liveness, 
+      contribution, total_purchase_amount, total_purchase_times, 
+      interactions_times, sign_in_times, last_sign_in_date, 
+      last_purchase_date, first_purchase_date, 
+      last_purchase_amount, mobile_purchase_rate, 
+      purchase_average_cycle, purchase_average_amount, 
+      wx_purchase_average_amount, sms_accept_number, 
+      sms_accept_circle, email_accept_number, email_accept_circle, 
+      fancy, goods_rate, contribution_tmall, 
+      contribution_tb, contribution_jd, contribution_yz
+      )
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{createdBy,jdbcType=VARCHAR}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{sellerId,jdbcType=BIGINT}, #{userPortraitId,jdbcType=BIGINT}, #{liveness,jdbcType=INTEGER}, 
+      #{contribution,jdbcType=DECIMAL}, #{totalPurchaseAmount,jdbcType=BIGINT}, #{totalPurchaseTimes,jdbcType=INTEGER}, 
+      #{interactionsTimes,jdbcType=INTEGER}, #{signInTimes,jdbcType=INTEGER}, #{lastSignInDate,jdbcType=TIMESTAMP}, 
+      #{lastPurchaseDate,jdbcType=TIMESTAMP}, #{firstPurchaseDate,jdbcType=TIMESTAMP}, 
+      #{lastPurchaseAmount,jdbcType=BIGINT}, #{mobilePurchaseRate,jdbcType=DECIMAL}, 
+      #{purchaseAverageCycle,jdbcType=DECIMAL}, #{purchaseAverageAmount,jdbcType=BIGINT}, 
+      #{wxPurchaseAverageAmount,jdbcType=BIGINT}, #{smsAcceptNumber,jdbcType=INTEGER}, 
+      #{smsAcceptCircle,jdbcType=INTEGER}, #{emailAcceptNumber,jdbcType=INTEGER}, #{emailAcceptCircle,jdbcType=INTEGER}, 
+      #{fancy,jdbcType=VARCHAR}, #{goodsRate,jdbcType=DECIMAL}, #{contributionTmall,jdbcType=DECIMAL}, 
+      #{contributionTb,jdbcType=DECIMAL}, #{contributionJd,jdbcType=DECIMAL}, #{contributionYz,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserPortrait" useGeneratedKeys="true" keyProperty="id" >
+    insert into user_portrait
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="userPortraitId != null" >
+        user_portrait_id,
+      </if>
+      <if test="liveness != null" >
+        liveness,
+      </if>
+      <if test="contribution != null" >
+        contribution,
+      </if>
+      <if test="totalPurchaseAmount != null" >
+        total_purchase_amount,
+      </if>
+      <if test="totalPurchaseTimes != null" >
+        total_purchase_times,
+      </if>
+      <if test="interactionsTimes != null" >
+        interactions_times,
+      </if>
+      <if test="signInTimes != null" >
+        sign_in_times,
+      </if>
+      <if test="lastSignInDate != null" >
+        last_sign_in_date,
+      </if>
+      <if test="lastPurchaseDate != null" >
+        last_purchase_date,
+      </if>
+      <if test="firstPurchaseDate != null" >
+        first_purchase_date,
+      </if>
+      <if test="lastPurchaseAmount != null" >
+        last_purchase_amount,
+      </if>
+      <if test="mobilePurchaseRate != null" >
+        mobile_purchase_rate,
+      </if>
+      <if test="purchaseAverageCycle != null" >
+        purchase_average_cycle,
+      </if>
+      <if test="purchaseAverageAmount != null" >
+        purchase_average_amount,
+      </if>
+      <if test="wxPurchaseAverageAmount != null" >
+        wx_purchase_average_amount,
+      </if>
+      <if test="smsAcceptNumber != null" >
+        sms_accept_number,
+      </if>
+      <if test="smsAcceptCircle != null" >
+        sms_accept_circle,
+      </if>
+      <if test="emailAcceptNumber != null" >
+        email_accept_number,
+      </if>
+      <if test="emailAcceptCircle != null" >
+        email_accept_circle,
+      </if>
+      <if test="fancy != null" >
+        fancy,
+      </if>
+      <if test="goodsRate != null" >
+        goods_rate,
+      </if>
+      <if test="contributionTmall != null" >
+        contribution_tmall,
+      </if>
+      <if test="contributionTb != null" >
+        contribution_tb,
+      </if>
+      <if test="contributionJd != null" >
+        contribution_jd,
+      </if>
+      <if test="contributionYz != null" >
+        contribution_yz,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+      <if test="userPortraitId != null" >
+        #{userPortraitId,jdbcType=BIGINT},
+      </if>
+      <if test="liveness != null" >
+        #{liveness,jdbcType=INTEGER},
+      </if>
+      <if test="contribution != null" >
+        #{contribution,jdbcType=DECIMAL},
+      </if>
+      <if test="totalPurchaseAmount != null" >
+        #{totalPurchaseAmount,jdbcType=BIGINT},
+      </if>
+      <if test="totalPurchaseTimes != null" >
+        #{totalPurchaseTimes,jdbcType=INTEGER},
+      </if>
+      <if test="interactionsTimes != null" >
+        #{interactionsTimes,jdbcType=INTEGER},
+      </if>
+      <if test="signInTimes != null" >
+        #{signInTimes,jdbcType=INTEGER},
+      </if>
+      <if test="lastSignInDate != null" >
+        #{lastSignInDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastPurchaseDate != null" >
+        #{lastPurchaseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstPurchaseDate != null" >
+        #{firstPurchaseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastPurchaseAmount != null" >
+        #{lastPurchaseAmount,jdbcType=BIGINT},
+      </if>
+      <if test="mobilePurchaseRate != null" >
+        #{mobilePurchaseRate,jdbcType=DECIMAL},
+      </if>
+      <if test="purchaseAverageCycle != null" >
+        #{purchaseAverageCycle,jdbcType=DECIMAL},
+      </if>
+      <if test="purchaseAverageAmount != null" >
+        #{purchaseAverageAmount,jdbcType=BIGINT},
+      </if>
+      <if test="wxPurchaseAverageAmount != null" >
+        #{wxPurchaseAverageAmount,jdbcType=BIGINT},
+      </if>
+      <if test="smsAcceptNumber != null" >
+        #{smsAcceptNumber,jdbcType=INTEGER},
+      </if>
+      <if test="smsAcceptCircle != null" >
+        #{smsAcceptCircle,jdbcType=INTEGER},
+      </if>
+      <if test="emailAcceptNumber != null" >
+        #{emailAcceptNumber,jdbcType=INTEGER},
+      </if>
+      <if test="emailAcceptCircle != null" >
+        #{emailAcceptCircle,jdbcType=INTEGER},
+      </if>
+      <if test="fancy != null" >
+        #{fancy,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsRate != null" >
+        #{goodsRate,jdbcType=DECIMAL},
+      </if>
+      <if test="contributionTmall != null" >
+        #{contributionTmall,jdbcType=DECIMAL},
+      </if>
+      <if test="contributionTb != null" >
+        #{contributionTb,jdbcType=DECIMAL},
+      </if>
+      <if test="contributionJd != null" >
+        #{contributionJd,jdbcType=DECIMAL},
+      </if>
+      <if test="contributionYz != null" >
+        #{contributionYz,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserPortraitExample" resultType="java.lang.Integer" >
+    select count(*) from user_portrait
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update user_portrait
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.userPortraitId!=null and record.userPortraitIdExpression==null" >
+          user_portrait_id = #{record.userPortraitId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userPortraitIdExpression!=null" >
+          user_portrait_id = ${record.userPortraitIdExpression},
+        </if>
+        <if test="record.liveness!=null and record.livenessExpression==null" >
+          liveness = #{record.liveness,jdbcType=INTEGER},
+        </if>
+        <if test="record.livenessExpression!=null" >
+          liveness = ${record.livenessExpression},
+        </if>
+        <if test="record.contribution!=null and record.contributionExpression==null" >
+          contribution = #{record.contribution,jdbcType=DECIMAL},
+        </if>
+        <if test="record.contributionExpression!=null" >
+          contribution = ${record.contributionExpression},
+        </if>
+        <if test="record.totalPurchaseAmount!=null and record.totalPurchaseAmountExpression==null" >
+          total_purchase_amount = #{record.totalPurchaseAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.totalPurchaseAmountExpression!=null" >
+          total_purchase_amount = ${record.totalPurchaseAmountExpression},
+        </if>
+        <if test="record.totalPurchaseTimes!=null and record.totalPurchaseTimesExpression==null" >
+          total_purchase_times = #{record.totalPurchaseTimes,jdbcType=INTEGER},
+        </if>
+        <if test="record.totalPurchaseTimesExpression!=null" >
+          total_purchase_times = ${record.totalPurchaseTimesExpression},
+        </if>
+        <if test="record.interactionsTimes!=null and record.interactionsTimesExpression==null" >
+          interactions_times = #{record.interactionsTimes,jdbcType=INTEGER},
+        </if>
+        <if test="record.interactionsTimesExpression!=null" >
+          interactions_times = ${record.interactionsTimesExpression},
+        </if>
+        <if test="record.signInTimes!=null and record.signInTimesExpression==null" >
+          sign_in_times = #{record.signInTimes,jdbcType=INTEGER},
+        </if>
+        <if test="record.signInTimesExpression!=null" >
+          sign_in_times = ${record.signInTimesExpression},
+        </if>
+        <if test="record.lastSignInDate!=null and record.lastSignInDateExpression==null" >
+          last_sign_in_date = #{record.lastSignInDate,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.lastSignInDateExpression!=null" >
+          last_sign_in_date = ${record.lastSignInDateExpression},
+        </if>
+        <if test="record.lastPurchaseDate!=null and record.lastPurchaseDateExpression==null" >
+          last_purchase_date = #{record.lastPurchaseDate,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.lastPurchaseDateExpression!=null" >
+          last_purchase_date = ${record.lastPurchaseDateExpression},
+        </if>
+        <if test="record.firstPurchaseDate!=null and record.firstPurchaseDateExpression==null" >
+          first_purchase_date = #{record.firstPurchaseDate,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.firstPurchaseDateExpression!=null" >
+          first_purchase_date = ${record.firstPurchaseDateExpression},
+        </if>
+        <if test="record.lastPurchaseAmount!=null and record.lastPurchaseAmountExpression==null" >
+          last_purchase_amount = #{record.lastPurchaseAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.lastPurchaseAmountExpression!=null" >
+          last_purchase_amount = ${record.lastPurchaseAmountExpression},
+        </if>
+        <if test="record.mobilePurchaseRate!=null and record.mobilePurchaseRateExpression==null" >
+          mobile_purchase_rate = #{record.mobilePurchaseRate,jdbcType=DECIMAL},
+        </if>
+        <if test="record.mobilePurchaseRateExpression!=null" >
+          mobile_purchase_rate = ${record.mobilePurchaseRateExpression},
+        </if>
+        <if test="record.purchaseAverageCycle!=null and record.purchaseAverageCycleExpression==null" >
+          purchase_average_cycle = #{record.purchaseAverageCycle,jdbcType=DECIMAL},
+        </if>
+        <if test="record.purchaseAverageCycleExpression!=null" >
+          purchase_average_cycle = ${record.purchaseAverageCycleExpression},
+        </if>
+        <if test="record.purchaseAverageAmount!=null and record.purchaseAverageAmountExpression==null" >
+          purchase_average_amount = #{record.purchaseAverageAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.purchaseAverageAmountExpression!=null" >
+          purchase_average_amount = ${record.purchaseAverageAmountExpression},
+        </if>
+        <if test="record.wxPurchaseAverageAmount!=null and record.wxPurchaseAverageAmountExpression==null" >
+          wx_purchase_average_amount = #{record.wxPurchaseAverageAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.wxPurchaseAverageAmountExpression!=null" >
+          wx_purchase_average_amount = ${record.wxPurchaseAverageAmountExpression},
+        </if>
+        <if test="record.smsAcceptNumber!=null and record.smsAcceptNumberExpression==null" >
+          sms_accept_number = #{record.smsAcceptNumber,jdbcType=INTEGER},
+        </if>
+        <if test="record.smsAcceptNumberExpression!=null" >
+          sms_accept_number = ${record.smsAcceptNumberExpression},
+        </if>
+        <if test="record.smsAcceptCircle!=null and record.smsAcceptCircleExpression==null" >
+          sms_accept_circle = #{record.smsAcceptCircle,jdbcType=INTEGER},
+        </if>
+        <if test="record.smsAcceptCircleExpression!=null" >
+          sms_accept_circle = ${record.smsAcceptCircleExpression},
+        </if>
+        <if test="record.emailAcceptNumber!=null and record.emailAcceptNumberExpression==null" >
+          email_accept_number = #{record.emailAcceptNumber,jdbcType=INTEGER},
+        </if>
+        <if test="record.emailAcceptNumberExpression!=null" >
+          email_accept_number = ${record.emailAcceptNumberExpression},
+        </if>
+        <if test="record.emailAcceptCircle!=null and record.emailAcceptCircleExpression==null" >
+          email_accept_circle = #{record.emailAcceptCircle,jdbcType=INTEGER},
+        </if>
+        <if test="record.emailAcceptCircleExpression!=null" >
+          email_accept_circle = ${record.emailAcceptCircleExpression},
+        </if>
+        <if test="record.fancy!=null and record.fancyExpression==null" >
+          fancy = #{record.fancy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.fancyExpression!=null" >
+          fancy = ${record.fancyExpression},
+        </if>
+        <if test="record.goodsRate!=null and record.goodsRateExpression==null" >
+          goods_rate = #{record.goodsRate,jdbcType=DECIMAL},
+        </if>
+        <if test="record.goodsRateExpression!=null" >
+          goods_rate = ${record.goodsRateExpression},
+        </if>
+        <if test="record.contributionTmall!=null and record.contributionTmallExpression==null" >
+          contribution_tmall = #{record.contributionTmall,jdbcType=DECIMAL},
+        </if>
+        <if test="record.contributionTmallExpression!=null" >
+          contribution_tmall = ${record.contributionTmallExpression},
+        </if>
+        <if test="record.contributionTb!=null and record.contributionTbExpression==null" >
+          contribution_tb = #{record.contributionTb,jdbcType=DECIMAL},
+        </if>
+        <if test="record.contributionTbExpression!=null" >
+          contribution_tb = ${record.contributionTbExpression},
+        </if>
+        <if test="record.contributionJd!=null and record.contributionJdExpression==null" >
+          contribution_jd = #{record.contributionJd,jdbcType=DECIMAL},
+        </if>
+        <if test="record.contributionJdExpression!=null" >
+          contribution_jd = ${record.contributionJdExpression},
+        </if>
+        <if test="record.contributionYz!=null and record.contributionYzExpression==null" >
+          contribution_yz = #{record.contributionYz,jdbcType=DECIMAL},
+        </if>
+        <if test="record.contributionYzExpression!=null" >
+          contribution_yz = ${record.contributionYzExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update user_portrait
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=BIGINT},
+      user_portrait_id = #{record.userPortraitId,jdbcType=BIGINT},
+      liveness = #{record.liveness,jdbcType=INTEGER},
+      contribution = #{record.contribution,jdbcType=DECIMAL},
+      total_purchase_amount = #{record.totalPurchaseAmount,jdbcType=BIGINT},
+      total_purchase_times = #{record.totalPurchaseTimes,jdbcType=INTEGER},
+      interactions_times = #{record.interactionsTimes,jdbcType=INTEGER},
+      sign_in_times = #{record.signInTimes,jdbcType=INTEGER},
+      last_sign_in_date = #{record.lastSignInDate,jdbcType=TIMESTAMP},
+      last_purchase_date = #{record.lastPurchaseDate,jdbcType=TIMESTAMP},
+      first_purchase_date = #{record.firstPurchaseDate,jdbcType=TIMESTAMP},
+      last_purchase_amount = #{record.lastPurchaseAmount,jdbcType=BIGINT},
+      mobile_purchase_rate = #{record.mobilePurchaseRate,jdbcType=DECIMAL},
+      purchase_average_cycle = #{record.purchaseAverageCycle,jdbcType=DECIMAL},
+      purchase_average_amount = #{record.purchaseAverageAmount,jdbcType=BIGINT},
+      wx_purchase_average_amount = #{record.wxPurchaseAverageAmount,jdbcType=BIGINT},
+      sms_accept_number = #{record.smsAcceptNumber,jdbcType=INTEGER},
+      sms_accept_circle = #{record.smsAcceptCircle,jdbcType=INTEGER},
+      email_accept_number = #{record.emailAcceptNumber,jdbcType=INTEGER},
+      email_accept_circle = #{record.emailAcceptCircle,jdbcType=INTEGER},
+      fancy = #{record.fancy,jdbcType=VARCHAR},
+      goods_rate = #{record.goodsRate,jdbcType=DECIMAL},
+      contribution_tmall = #{record.contributionTmall,jdbcType=DECIMAL},
+      contribution_tb = #{record.contributionTb,jdbcType=DECIMAL},
+      contribution_jd = #{record.contributionJd,jdbcType=DECIMAL},
+      contribution_yz = #{record.contributionYz,jdbcType=DECIMAL}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserPortrait" >
+    update user_portrait
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.userPortraitId!=null and record.userPortraitIdExpression==null" >
+          user_portrait_id = #{record.userPortraitId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userPortraitIdExpression!=null" >
+          user_portrait_id = ${record.userPortraitIdExpression},
+        </if>
+        <if test="record.liveness!=null and record.livenessExpression==null" >
+          liveness = #{record.liveness,jdbcType=INTEGER},
+        </if>
+        <if test="record.livenessExpression!=null" >
+          liveness = ${record.livenessExpression},
+        </if>
+        <if test="record.contribution!=null and record.contributionExpression==null" >
+          contribution = #{record.contribution,jdbcType=DECIMAL},
+        </if>
+        <if test="record.contributionExpression!=null" >
+          contribution = ${record.contributionExpression},
+        </if>
+        <if test="record.totalPurchaseAmount!=null and record.totalPurchaseAmountExpression==null" >
+          total_purchase_amount = #{record.totalPurchaseAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.totalPurchaseAmountExpression!=null" >
+          total_purchase_amount = ${record.totalPurchaseAmountExpression},
+        </if>
+        <if test="record.totalPurchaseTimes!=null and record.totalPurchaseTimesExpression==null" >
+          total_purchase_times = #{record.totalPurchaseTimes,jdbcType=INTEGER},
+        </if>
+        <if test="record.totalPurchaseTimesExpression!=null" >
+          total_purchase_times = ${record.totalPurchaseTimesExpression},
+        </if>
+        <if test="record.interactionsTimes!=null and record.interactionsTimesExpression==null" >
+          interactions_times = #{record.interactionsTimes,jdbcType=INTEGER},
+        </if>
+        <if test="record.interactionsTimesExpression!=null" >
+          interactions_times = ${record.interactionsTimesExpression},
+        </if>
+        <if test="record.signInTimes!=null and record.signInTimesExpression==null" >
+          sign_in_times = #{record.signInTimes,jdbcType=INTEGER},
+        </if>
+        <if test="record.signInTimesExpression!=null" >
+          sign_in_times = ${record.signInTimesExpression},
+        </if>
+        <if test="record.lastSignInDate!=null and record.lastSignInDateExpression==null" >
+          last_sign_in_date = #{record.lastSignInDate,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.lastSignInDateExpression!=null" >
+          last_sign_in_date = ${record.lastSignInDateExpression},
+        </if>
+        <if test="record.lastPurchaseDate!=null and record.lastPurchaseDateExpression==null" >
+          last_purchase_date = #{record.lastPurchaseDate,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.lastPurchaseDateExpression!=null" >
+          last_purchase_date = ${record.lastPurchaseDateExpression},
+        </if>
+        <if test="record.firstPurchaseDate!=null and record.firstPurchaseDateExpression==null" >
+          first_purchase_date = #{record.firstPurchaseDate,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.firstPurchaseDateExpression!=null" >
+          first_purchase_date = ${record.firstPurchaseDateExpression},
+        </if>
+        <if test="record.lastPurchaseAmount!=null and record.lastPurchaseAmountExpression==null" >
+          last_purchase_amount = #{record.lastPurchaseAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.lastPurchaseAmountExpression!=null" >
+          last_purchase_amount = ${record.lastPurchaseAmountExpression},
+        </if>
+        <if test="record.mobilePurchaseRate!=null and record.mobilePurchaseRateExpression==null" >
+          mobile_purchase_rate = #{record.mobilePurchaseRate,jdbcType=DECIMAL},
+        </if>
+        <if test="record.mobilePurchaseRateExpression!=null" >
+          mobile_purchase_rate = ${record.mobilePurchaseRateExpression},
+        </if>
+        <if test="record.purchaseAverageCycle!=null and record.purchaseAverageCycleExpression==null" >
+          purchase_average_cycle = #{record.purchaseAverageCycle,jdbcType=DECIMAL},
+        </if>
+        <if test="record.purchaseAverageCycleExpression!=null" >
+          purchase_average_cycle = ${record.purchaseAverageCycleExpression},
+        </if>
+        <if test="record.purchaseAverageAmount!=null and record.purchaseAverageAmountExpression==null" >
+          purchase_average_amount = #{record.purchaseAverageAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.purchaseAverageAmountExpression!=null" >
+          purchase_average_amount = ${record.purchaseAverageAmountExpression},
+        </if>
+        <if test="record.wxPurchaseAverageAmount!=null and record.wxPurchaseAverageAmountExpression==null" >
+          wx_purchase_average_amount = #{record.wxPurchaseAverageAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.wxPurchaseAverageAmountExpression!=null" >
+          wx_purchase_average_amount = ${record.wxPurchaseAverageAmountExpression},
+        </if>
+        <if test="record.smsAcceptNumber!=null and record.smsAcceptNumberExpression==null" >
+          sms_accept_number = #{record.smsAcceptNumber,jdbcType=INTEGER},
+        </if>
+        <if test="record.smsAcceptNumberExpression!=null" >
+          sms_accept_number = ${record.smsAcceptNumberExpression},
+        </if>
+        <if test="record.smsAcceptCircle!=null and record.smsAcceptCircleExpression==null" >
+          sms_accept_circle = #{record.smsAcceptCircle,jdbcType=INTEGER},
+        </if>
+        <if test="record.smsAcceptCircleExpression!=null" >
+          sms_accept_circle = ${record.smsAcceptCircleExpression},
+        </if>
+        <if test="record.emailAcceptNumber!=null and record.emailAcceptNumberExpression==null" >
+          email_accept_number = #{record.emailAcceptNumber,jdbcType=INTEGER},
+        </if>
+        <if test="record.emailAcceptNumberExpression!=null" >
+          email_accept_number = ${record.emailAcceptNumberExpression},
+        </if>
+        <if test="record.emailAcceptCircle!=null and record.emailAcceptCircleExpression==null" >
+          email_accept_circle = #{record.emailAcceptCircle,jdbcType=INTEGER},
+        </if>
+        <if test="record.emailAcceptCircleExpression!=null" >
+          email_accept_circle = ${record.emailAcceptCircleExpression},
+        </if>
+        <if test="record.fancy!=null and record.fancyExpression==null" >
+          fancy = #{record.fancy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.fancyExpression!=null" >
+          fancy = ${record.fancyExpression},
+        </if>
+        <if test="record.goodsRate!=null and record.goodsRateExpression==null" >
+          goods_rate = #{record.goodsRate,jdbcType=DECIMAL},
+        </if>
+        <if test="record.goodsRateExpression!=null" >
+          goods_rate = ${record.goodsRateExpression},
+        </if>
+        <if test="record.contributionTmall!=null and record.contributionTmallExpression==null" >
+          contribution_tmall = #{record.contributionTmall,jdbcType=DECIMAL},
+        </if>
+        <if test="record.contributionTmallExpression!=null" >
+          contribution_tmall = ${record.contributionTmallExpression},
+        </if>
+        <if test="record.contributionTb!=null and record.contributionTbExpression==null" >
+          contribution_tb = #{record.contributionTb,jdbcType=DECIMAL},
+        </if>
+        <if test="record.contributionTbExpression!=null" >
+          contribution_tb = ${record.contributionTbExpression},
+        </if>
+        <if test="record.contributionJd!=null and record.contributionJdExpression==null" >
+          contribution_jd = #{record.contributionJd,jdbcType=DECIMAL},
+        </if>
+        <if test="record.contributionJdExpression!=null" >
+          contribution_jd = ${record.contributionJdExpression},
+        </if>
+        <if test="record.contributionYz!=null and record.contributionYzExpression==null" >
+          contribution_yz = #{record.contributionYz,jdbcType=DECIMAL},
+        </if>
+        <if test="record.contributionYzExpression!=null" >
+          contribution_yz = ${record.contributionYzExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserPortrait" >
+    update user_portrait
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=BIGINT},
+      user_portrait_id = #{userPortraitId,jdbcType=BIGINT},
+      liveness = #{liveness,jdbcType=INTEGER},
+      contribution = #{contribution,jdbcType=DECIMAL},
+      total_purchase_amount = #{totalPurchaseAmount,jdbcType=BIGINT},
+      total_purchase_times = #{totalPurchaseTimes,jdbcType=INTEGER},
+      interactions_times = #{interactionsTimes,jdbcType=INTEGER},
+      sign_in_times = #{signInTimes,jdbcType=INTEGER},
+      last_sign_in_date = #{lastSignInDate,jdbcType=TIMESTAMP},
+      last_purchase_date = #{lastPurchaseDate,jdbcType=TIMESTAMP},
+      first_purchase_date = #{firstPurchaseDate,jdbcType=TIMESTAMP},
+      last_purchase_amount = #{lastPurchaseAmount,jdbcType=BIGINT},
+      mobile_purchase_rate = #{mobilePurchaseRate,jdbcType=DECIMAL},
+      purchase_average_cycle = #{purchaseAverageCycle,jdbcType=DECIMAL},
+      purchase_average_amount = #{purchaseAverageAmount,jdbcType=BIGINT},
+      wx_purchase_average_amount = #{wxPurchaseAverageAmount,jdbcType=BIGINT},
+      sms_accept_number = #{smsAcceptNumber,jdbcType=INTEGER},
+      sms_accept_circle = #{smsAcceptCircle,jdbcType=INTEGER},
+      email_accept_number = #{emailAcceptNumber,jdbcType=INTEGER},
+      email_accept_circle = #{emailAcceptCircle,jdbcType=INTEGER},
+      fancy = #{fancy,jdbcType=VARCHAR},
+      goods_rate = #{goodsRate,jdbcType=DECIMAL},
+      contribution_tmall = #{contributionTmall,jdbcType=DECIMAL},
+      contribution_tb = #{contributionTb,jdbcType=DECIMAL},
+      contribution_jd = #{contributionJd,jdbcType=DECIMAL},
+      contribution_yz = #{contributionYz,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

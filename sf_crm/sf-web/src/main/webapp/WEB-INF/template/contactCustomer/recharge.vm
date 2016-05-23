@@ -1,0 +1,102 @@
+#set($layout = "/layout/blank.vm")
+<div id="web">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="table-responsive">
+                <div class="BoxStyleA">
+                    <div class="breadcrumbs" id="breadcrumbs">
+                        <i class="modal-logo contact"></i>
+                        <ul class="breadcrumb" style="margin-left: 2px">
+                            <li></li>
+                            <li>联系客户</li>
+                            <li class="active">充值页面</li>
+                        </ul><!-- .breadcrumb -->
+                    </div>
+
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <form class="form-horizontal markAct" id="searchForm" role="form">
+                                <div class="row">
+                                    <div class="form-group" style="margin-bottom: 5px;">
+                                        <label class="col-sm-4 control-label no-padding-right"> 账户余额：</label>
+                                        <label class="col-sm-4">
+                                            <p class="smsP" style="text-align: left;font-size: 13px;">剩余短信<span style="padding: 0 5px;color:#ff5d5d;font-size: 15px;">#if ($smsAccount.sellerPackageRemain) $!smsAccount.sellerPackageRemain #else 0 #end</span>条</p>
+                                            <p class="emailP" style="text-align: left;display: none;font-size: 13px;">剩余邮件<span style="padding: 0 5px;color:#ff5d5d;font-size: 15px;">#if ($emailAccount.sellerPackageRemain) $!emailAccount.sellerPackageRemain #else 0 #end</span>封</p>
+                                        </label>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom: 5px;">
+                                        <label class="col-sm-4 control-label no-padding-right"> 使用情况：</label>
+                                        <label class="col-sm-4">
+                                            <p class="smsP" style="text-align: left;font-size: 13px;">累计发送短信：<span style="padding: 0 5px;color:#ff5d5d;font-size: 15px;">#if ($smsAccount.sendTimes) $!smsAccount.sendTimes #else 0 #end</span>条，成功率：
+                                                <span style="padding: 0 5px;color:#ff5d5d;font-size: 15px;">#if ($smsAccount.sendSucRate) $!smsAccount.sendSucRate% #else 100% #end</span></p>
+                                            <p class="emailP" style="text-align: left;display: none;font-size: 13px;">累计发送邮件：<span style="padding: 0 5px;color:#ff5d5d;font-size: 15px;">#if ($emailAccount.sellerPackageUsed) $!emailAccount.sellerPackageUsed #else 0 #end</span>封，成功率：
+                                                <span style="padding: 0 5px;color:#ff5d5d;font-size: 15px;">#if ($emailAccount.sendSucRate) $!emailAccount.sendSucRate% #else 100% #end</span>，打开率：<span style="padding: 0 5px;color:#ff5d5d;font-size: 15px;">#if ($emailAccount.emailOpenRate) $!emailAccount.emailOpenRate% #else 100% #end</span></p>
+                                        </label>
+                                    </div>
+                                    <div class="form-group" >
+                                        <label class="col-sm-4 control-label no-padding-right"> 马上充值：</label>
+                                        <div class="col-sm-4">
+                                            <label style="margin-left: -1px;float: left;">
+                                                <input name="chargeType" type="radio" class="ace" value="sms" checked/>
+                                                <span class="lbl"> 短信充值</span>
+                                            </label>
+                                            <label style="float: left;margin-left: 15px;">
+                                                <input name="chargeType" type="radio" class="ace" value="email"/>
+                                                <span class="lbl"> 邮件充值</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div>&nbsp</div>
+                <div class="BoxStyleA">
+                    <div class="BoxStyleATop">
+                        <span class="fl">充值明细</span>
+                    </div>
+                    <div>
+                        <table id="rechargeTable" class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <td>选择</td>
+                                    <td>充值数量</td>
+                                    <td>充值金额</td>
+                                    <td>赠送</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row" style="padding: 35px 0;">
+                        <label>
+                            <a href="javascript:void(0)" id="concact-service" class="btn btn-success">充值联系客服</a>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="serviceModal" tabindex="-1" role="dialog" aria-labelledby="serviceModal" aria-hidden="true" >
+    <div class="modal-dialog" style="width: 400px;margin-top: 200px;">
+        <div class="modal-content" >
+            <div class="tiptop"><span>充值联系客服</span><a data-dismiss="modal" aria-hidden="true"></a></div>
+            <div class="row">
+                <div class="col-xs-12" style="padding:25px;">
+                    <div class="col-sm-8" style="margin-top: 5px;text-align: left;font-weight: bold;letter-spacing: 2px">
+                        <p><label>联系电话：15158106009</label></p>
+                        <p><label>联系QQ：&nbsp;2924409341</label></p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="${rc.contextPath}/media/js/admin/concactCustomer/recharge.js"></script>

@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.seller.SellerMobileMenuMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.seller.SellerMobileMenu" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="max_is_select" property="maxIsSelect" jdbcType="BIGINT" />
+    <result column="min_is_select" property="minIsSelect" jdbcType="BIGINT" />
+    <result column="avg_is_select" property="avgIsSelect" jdbcType="BIGINT" />
+    <result column="count_is_select" property="countIsSelect" jdbcType="BIGINT" />
+    <result column="sum_is_select" property="sumIsSelect" jdbcType="VARCHAR" />
+    <result column="max_is_show_other" property="maxIsShowOther" jdbcType="BIGINT" />
+    <result column="min_is_show_other" property="minIsShowOther" jdbcType="BIGINT" />
+    <result column="avg_is_show_other" property="avgIsShowOther" jdbcType="BIGINT" />
+    <result column="count_is_show_other" property="countIsShowOther" jdbcType="BIGINT" />
+    <result column="sum_is_show_other" property="sumIsShowOther" jdbcType="VARCHAR" />
+    <result column="max_description" property="maxDescription" jdbcType="BIGINT" />
+    <result column="min_description" property="minDescription" jdbcType="BIGINT" />
+    <result column="avg_description" property="avgDescription" jdbcType="BIGINT" />
+    <result column="count_description" property="countDescription" jdbcType="BIGINT" />
+    <result column="sum_description" property="sumDescription" jdbcType="VARCHAR" />
+    <result column="max_priority" property="maxPriority" jdbcType="BIGINT" />
+    <result column="min_priority" property="minPriority" jdbcType="BIGINT" />
+    <result column="avg_priority" property="avgPriority" jdbcType="BIGINT" />
+    <result column="count_priority" property="countPriority" jdbcType="BIGINT" />
+    <result column="sum_priority" property="sumPriority" jdbcType="INTEGER" />
+    <result column="max_oauth" property="maxOauth" jdbcType="BIGINT" />
+    <result column="min_oauth" property="minOauth" jdbcType="BIGINT" />
+    <result column="avg_oauth" property="avgOauth" jdbcType="BIGINT" />
+    <result column="count_oauth" property="countOauth" jdbcType="BIGINT" />
+    <result column="sum_oauth" property="sumOauth" jdbcType="BIT" />
+    <result column="max_validate" property="maxValidate" jdbcType="BIGINT" />
+    <result column="min_validate" property="minValidate" jdbcType="BIGINT" />
+    <result column="avg_validate" property="avgValidate" jdbcType="BIGINT" />
+    <result column="count_validate" property="countValidate" jdbcType="BIGINT" />
+    <result column="sum_validate" property="sumValidate" jdbcType="BIT" />
+    <result column="max_link" property="maxLink" jdbcType="BIGINT" />
+    <result column="min_link" property="minLink" jdbcType="BIGINT" />
+    <result column="avg_link" property="avgLink" jdbcType="BIGINT" />
+    <result column="count_link" property="countLink" jdbcType="BIGINT" />
+    <result column="sum_link" property="sumLink" jdbcType="VARCHAR" />
+    <result column="max_url" property="maxUrl" jdbcType="BIGINT" />
+    <result column="min_url" property="minUrl" jdbcType="BIGINT" />
+    <result column="avg_url" property="avgUrl" jdbcType="BIGINT" />
+    <result column="count_url" property="countUrl" jdbcType="BIGINT" />
+    <result column="sum_url" property="sumUrl" jdbcType="VARCHAR" />
+    <result column="max_name" property="maxName" jdbcType="BIGINT" />
+    <result column="min_name" property="minName" jdbcType="BIGINT" />
+    <result column="avg_name" property="avgName" jdbcType="BIGINT" />
+    <result column="count_name" property="countName" jdbcType="BIGINT" />
+    <result column="sum_name" property="sumName" jdbcType="VARCHAR" />
+    <result column="max_type" property="maxType" jdbcType="BIGINT" />
+    <result column="min_type" property="minType" jdbcType="BIGINT" />
+    <result column="avg_type" property="avgType" jdbcType="BIGINT" />
+    <result column="count_type" property="countType" jdbcType="BIGINT" />
+    <result column="sum_type" property="sumType" jdbcType="VARCHAR" />
+    <result column="max_function_type" property="maxFunctionType" jdbcType="BIGINT" />
+    <result column="min_function_type" property="minFunctionType" jdbcType="BIGINT" />
+    <result column="avg_function_type" property="avgFunctionType" jdbcType="BIGINT" />
+    <result column="count_function_type" property="countFunctionType" jdbcType="BIGINT" />
+    <result column="sum_function_type" property="sumFunctionType" jdbcType="VARCHAR" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="function_type" property="functionType" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="link" property="link" jdbcType="VARCHAR" />
+    <result column="validate" property="validate" jdbcType="BIT" />
+    <result column="oauth" property="oauth" jdbcType="BIT" />
+    <result column="priority" property="priority" jdbcType="INTEGER" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="is_show_other" property="isShowOther" jdbcType="VARCHAR" />
+    <result column="is_select" property="isSelect" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, created_by, modified_by, is_deleted, function_type, 
+    type, name, url, link, validate, oauth, priority, description, is_show_other, is_select, 
+    seller_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerMobileMenuExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from seller_mobile_menu
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from seller_mobile_menu
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update seller_mobile_menu
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerMobileMenuExample" >
+    update seller_mobile_menu
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerMobileMenu" useGeneratedKeys="true" keyProperty="id" >
+    insert into seller_mobile_menu (id, gmt_created, gmt_modified, 
+      created_by, modified_by, is_deleted, 
+      function_type, type, name, 
+      url, link, validate, oauth, 
+      priority, description, is_show_other, 
+      is_select, seller_id)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{functionType,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{link,jdbcType=VARCHAR}, #{validate,jdbcType=BIT}, #{oauth,jdbcType=BIT}, 
+      #{priority,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, #{isShowOther,jdbcType=VARCHAR}, 
+      #{isSelect,jdbcType=VARCHAR}, #{sellerId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerMobileMenu" useGeneratedKeys="true" keyProperty="id" >
+    insert into seller_mobile_menu
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="functionType != null" >
+        function_type,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="link != null" >
+        link,
+      </if>
+      <if test="validate != null" >
+        validate,
+      </if>
+      <if test="oauth != null" >
+        oauth,
+      </if>
+      <if test="priority != null" >
+        priority,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="isShowOther != null" >
+        is_show_other,
+      </if>
+      <if test="isSelect != null" >
+        is_select,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="functionType != null" >
+        #{functionType,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="link != null" >
+        #{link,jdbcType=VARCHAR},
+      </if>
+      <if test="validate != null" >
+        #{validate,jdbcType=BIT},
+      </if>
+      <if test="oauth != null" >
+        #{oauth,jdbcType=BIT},
+      </if>
+      <if test="priority != null" >
+        #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="isShowOther != null" >
+        #{isShowOther,jdbcType=VARCHAR},
+      </if>
+      <if test="isSelect != null" >
+        #{isSelect,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerMobileMenuExample" resultType="java.lang.Integer" >
+    select count(*) from seller_mobile_menu
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update seller_mobile_menu
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.functionType!=null and record.functionTypeExpression==null" >
+          function_type = #{record.functionType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.functionTypeExpression!=null" >
+          function_type = ${record.functionTypeExpression},
+        </if>
+        <if test="record.type!=null and record.typeExpression==null" >
+          type = #{record.type,jdbcType=VARCHAR},
+        </if>
+        <if test="record.typeExpression!=null" >
+          type = ${record.typeExpression},
+        </if>
+        <if test="record.name!=null and record.nameExpression==null" >
+          name = #{record.name,jdbcType=VARCHAR},
+        </if>
+        <if test="record.nameExpression!=null" >
+          name = ${record.nameExpression},
+        </if>
+        <if test="record.url!=null and record.urlExpression==null" >
+          url = #{record.url,jdbcType=VARCHAR},
+        </if>
+        <if test="record.urlExpression!=null" >
+          url = ${record.urlExpression},
+        </if>
+        <if test="record.link!=null and record.linkExpression==null" >
+          link = #{record.link,jdbcType=VARCHAR},
+        </if>
+        <if test="record.linkExpression!=null" >
+          link = ${record.linkExpression},
+        </if>
+        <if test="record.validate!=null and record.validateExpression==null" >
+          validate = #{record.validate,jdbcType=BIT},
+        </if>
+        <if test="record.validateExpression!=null" >
+          validate = ${record.validateExpression},
+        </if>
+        <if test="record.oauth!=null and record.oauthExpression==null" >
+          oauth = #{record.oauth,jdbcType=BIT},
+        </if>
+        <if test="record.oauthExpression!=null" >
+          oauth = ${record.oauthExpression},
+        </if>
+        <if test="record.priority!=null and record.priorityExpression==null" >
+          priority = #{record.priority,jdbcType=INTEGER},
+        </if>
+        <if test="record.priorityExpression!=null" >
+          priority = ${record.priorityExpression},
+        </if>
+        <if test="record.description!=null and record.descriptionExpression==null" >
+          description = #{record.description,jdbcType=VARCHAR},
+        </if>
+        <if test="record.descriptionExpression!=null" >
+          description = ${record.descriptionExpression},
+        </if>
+        <if test="record.isShowOther!=null and record.isShowOtherExpression==null" >
+          is_show_other = #{record.isShowOther,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isShowOtherExpression!=null" >
+          is_show_other = ${record.isShowOtherExpression},
+        </if>
+        <if test="record.isSelect!=null and record.isSelectExpression==null" >
+          is_select = #{record.isSelect,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isSelectExpression!=null" >
+          is_select = ${record.isSelectExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update seller_mobile_menu
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      function_type = #{record.functionType,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      url = #{record.url,jdbcType=VARCHAR},
+      link = #{record.link,jdbcType=VARCHAR},
+      validate = #{record.validate,jdbcType=BIT},
+      oauth = #{record.oauth,jdbcType=BIT},
+      priority = #{record.priority,jdbcType=INTEGER},
+      description = #{record.description,jdbcType=VARCHAR},
+      is_show_other = #{record.isShowOther,jdbcType=VARCHAR},
+      is_select = #{record.isSelect,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerMobileMenu" >
+    update seller_mobile_menu
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.functionType!=null and record.functionTypeExpression==null" >
+          function_type = #{record.functionType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.functionTypeExpression!=null" >
+          function_type = ${record.functionTypeExpression},
+        </if>
+        <if test="record.type!=null and record.typeExpression==null" >
+          type = #{record.type,jdbcType=VARCHAR},
+        </if>
+        <if test="record.typeExpression!=null" >
+          type = ${record.typeExpression},
+        </if>
+        <if test="record.name!=null and record.nameExpression==null" >
+          name = #{record.name,jdbcType=VARCHAR},
+        </if>
+        <if test="record.nameExpression!=null" >
+          name = ${record.nameExpression},
+        </if>
+        <if test="record.url!=null and record.urlExpression==null" >
+          url = #{record.url,jdbcType=VARCHAR},
+        </if>
+        <if test="record.urlExpression!=null" >
+          url = ${record.urlExpression},
+        </if>
+        <if test="record.link!=null and record.linkExpression==null" >
+          link = #{record.link,jdbcType=VARCHAR},
+        </if>
+        <if test="record.linkExpression!=null" >
+          link = ${record.linkExpression},
+        </if>
+        <if test="record.validate!=null and record.validateExpression==null" >
+          validate = #{record.validate,jdbcType=BIT},
+        </if>
+        <if test="record.validateExpression!=null" >
+          validate = ${record.validateExpression},
+        </if>
+        <if test="record.oauth!=null and record.oauthExpression==null" >
+          oauth = #{record.oauth,jdbcType=BIT},
+        </if>
+        <if test="record.oauthExpression!=null" >
+          oauth = ${record.oauthExpression},
+        </if>
+        <if test="record.priority!=null and record.priorityExpression==null" >
+          priority = #{record.priority,jdbcType=INTEGER},
+        </if>
+        <if test="record.priorityExpression!=null" >
+          priority = ${record.priorityExpression},
+        </if>
+        <if test="record.description!=null and record.descriptionExpression==null" >
+          description = #{record.description,jdbcType=VARCHAR},
+        </if>
+        <if test="record.descriptionExpression!=null" >
+          description = ${record.descriptionExpression},
+        </if>
+        <if test="record.isShowOther!=null and record.isShowOtherExpression==null" >
+          is_show_other = #{record.isShowOther,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isShowOtherExpression!=null" >
+          is_show_other = ${record.isShowOtherExpression},
+        </if>
+        <if test="record.isSelect!=null and record.isSelectExpression==null" >
+          is_select = #{record.isSelect,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isSelectExpression!=null" >
+          is_select = ${record.isSelectExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerMobileMenu" >
+    update seller_mobile_menu
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      function_type = #{functionType,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      link = #{link,jdbcType=VARCHAR},
+      validate = #{validate,jdbcType=BIT},
+      oauth = #{oauth,jdbcType=BIT},
+      priority = #{priority,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
+      is_show_other = #{isShowOther,jdbcType=VARCHAR},
+      is_select = #{isSelect,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

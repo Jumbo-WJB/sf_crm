@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.permission.AdminResourceMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.permission.AdminResource" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="resource_id" property="resourceId" jdbcType="BIGINT" />
+    <result column="parent_resource_id" property="parentResourceId" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="style" property="style" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="priority" property="priority" jdbcType="INTEGER" />
+      <collection property="childAdminResources" ofType="com.shufensoft.crm.biz.domain.generation.permission.AdminResource"
+                  javaType="ArrayList" column="resource_id" select="getChildAdminResourcesByParentResourceId"/>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+    <select id="getChildAdminResourcesByParentResourceId"
+            resultMap="BaseResultMap" parameterType="long">
+        select child.*
+        from admin_resource child,admin_resource parent
+        where child.parent_resource_id = parent.resource_id
+        and child.parent_resource_id=#{resource_id}
+        and child.is_deleted='0'
+        and parent.is_deleted='0'
+        order by child.priority asc
+    </select>
+    <select id="getAdminResourcesByAdminRoleId"
+            resultMap="BaseResultMap" parameterType="long">
+        select ares.*
+        from admin_role ar,admin_resource ares, admin_resource_role arr
+        where ar.role_id = arr.role_id
+        and arr.resource_id = ares.resource_id
+        and ar.id=#{id}
+        order by ares.priority asc
+    </select>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, created_by, modified_by, is_deleted, resource_id, 
+    parent_resource_id, name, type, style, url, description, priority
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.permission.AdminResourceExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from admin_resource
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from admin_resource
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update admin_resource
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.permission.AdminResourceExample" >
+    update admin_resource
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.permission.AdminResource" useGeneratedKeys="true" keyProperty="id" >
+    insert into admin_resource (id, gmt_created, gmt_modified, 
+      created_by, modified_by, is_deleted, 
+      resource_id, parent_resource_id, name, 
+      type, style, url, description, 
+      priority)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{resourceId,jdbcType=BIGINT}, #{parentResourceId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{style,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{priority,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.permission.AdminResource" useGeneratedKeys="true" keyProperty="id" >
+    insert into admin_resource
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="resourceId != null" >
+        resource_id,
+      </if>
+      <if test="parentResourceId != null" >
+        parent_resource_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="style != null" >
+        style,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="priority != null" >
+        priority,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceId != null" >
+        #{resourceId,jdbcType=BIGINT},
+      </if>
+      <if test="parentResourceId != null" >
+        #{parentResourceId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="style != null" >
+        #{style,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null" >
+        #{priority,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.permission.AdminResourceExample" resultType="java.lang.Integer" >
+    select count(*) from admin_resource
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update admin_resource
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.resourceId!=null and record.resourceIdExpression==null" >
+          resource_id = #{record.resourceId,jdbcType=BIGINT},
+        </if>
+        <if test="record.resourceIdExpression!=null" >
+          resource_id = ${record.resourceIdExpression},
+        </if>
+        <if test="record.parentResourceId!=null and record.parentResourceIdExpression==null" >
+          parent_resource_id = #{record.parentResourceId,jdbcType=BIGINT},
+        </if>
+        <if test="record.parentResourceIdExpression!=null" >
+          parent_resource_id = ${record.parentResourceIdExpression},
+        </if>
+        <if test="record.name!=null and record.nameExpression==null" >
+          name = #{record.name,jdbcType=VARCHAR},
+        </if>
+        <if test="record.nameExpression!=null" >
+          name = ${record.nameExpression},
+        </if>
+        <if test="record.type!=null and record.typeExpression==null" >
+          type = #{record.type,jdbcType=VARCHAR},
+        </if>
+        <if test="record.typeExpression!=null" >
+          type = ${record.typeExpression},
+        </if>
+        <if test="record.style!=null and record.styleExpression==null" >
+          style = #{record.style,jdbcType=VARCHAR},
+        </if>
+        <if test="record.styleExpression!=null" >
+          style = ${record.styleExpression},
+        </if>
+        <if test="record.url!=null and record.urlExpression==null" >
+          url = #{record.url,jdbcType=VARCHAR},
+        </if>
+        <if test="record.urlExpression!=null" >
+          url = ${record.urlExpression},
+        </if>
+        <if test="record.description!=null and record.descriptionExpression==null" >
+          description = #{record.description,jdbcType=VARCHAR},
+        </if>
+        <if test="record.descriptionExpression!=null" >
+          description = ${record.descriptionExpression},
+        </if>
+        <if test="record.priority!=null and record.priorityExpression==null" >
+          priority = #{record.priority,jdbcType=INTEGER},
+        </if>
+        <if test="record.priorityExpression!=null" >
+          priority = ${record.priorityExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update admin_resource
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      resource_id = #{record.resourceId,jdbcType=BIGINT},
+      parent_resource_id = #{record.parentResourceId,jdbcType=BIGINT},
+      name = #{record.name,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=VARCHAR},
+      style = #{record.style,jdbcType=VARCHAR},
+      url = #{record.url,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR},
+      priority = #{record.priority,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.permission.AdminResource" >
+    update admin_resource
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.resourceId!=null and record.resourceIdExpression==null" >
+          resource_id = #{record.resourceId,jdbcType=BIGINT},
+        </if>
+        <if test="record.resourceIdExpression!=null" >
+          resource_id = ${record.resourceIdExpression},
+        </if>
+        <if test="record.parentResourceId!=null and record.parentResourceIdExpression==null" >
+          parent_resource_id = #{record.parentResourceId,jdbcType=BIGINT},
+        </if>
+        <if test="record.parentResourceIdExpression!=null" >
+          parent_resource_id = ${record.parentResourceIdExpression},
+        </if>
+        <if test="record.name!=null and record.nameExpression==null" >
+          name = #{record.name,jdbcType=VARCHAR},
+        </if>
+        <if test="record.nameExpression!=null" >
+          name = ${record.nameExpression},
+        </if>
+        <if test="record.type!=null and record.typeExpression==null" >
+          type = #{record.type,jdbcType=VARCHAR},
+        </if>
+        <if test="record.typeExpression!=null" >
+          type = ${record.typeExpression},
+        </if>
+        <if test="record.style!=null and record.styleExpression==null" >
+          style = #{record.style,jdbcType=VARCHAR},
+        </if>
+        <if test="record.styleExpression!=null" >
+          style = ${record.styleExpression},
+        </if>
+        <if test="record.url!=null and record.urlExpression==null" >
+          url = #{record.url,jdbcType=VARCHAR},
+        </if>
+        <if test="record.urlExpression!=null" >
+          url = ${record.urlExpression},
+        </if>
+        <if test="record.description!=null and record.descriptionExpression==null" >
+          description = #{record.description,jdbcType=VARCHAR},
+        </if>
+        <if test="record.descriptionExpression!=null" >
+          description = ${record.descriptionExpression},
+        </if>
+        <if test="record.priority!=null and record.priorityExpression==null" >
+          priority = #{record.priority,jdbcType=INTEGER},
+        </if>
+        <if test="record.priorityExpression!=null" >
+          priority = ${record.priorityExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.permission.AdminResource" >
+    update admin_resource
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      resource_id = #{resourceId,jdbcType=BIGINT},
+      parent_resource_id = #{parentResourceId,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      style = #{style,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      priority = #{priority,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

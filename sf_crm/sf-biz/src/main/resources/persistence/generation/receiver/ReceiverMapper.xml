@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.receiver.ReceiverMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.receiver.Receiver" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="GMT_CREATED" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="GMT_MODIFIED" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="CREATED_BY" property="createdBy" jdbcType="VARCHAR" />
+    <result column="MODIFIED_BY" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="IS_DELETED" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="RECEIVER_ID" property="receiverId" jdbcType="DECIMAL" />
+    <result column="USER_ID" property="userId" jdbcType="DECIMAL" />
+    <result column="IS_MAIN" property="isMain" jdbcType="VARCHAR" />
+    <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="STATE" property="state" jdbcType="VARCHAR" />
+    <result column="ADDRESS" property="address" jdbcType="VARCHAR" />
+    <result column="ZIP" property="zip" jdbcType="VARCHAR" />
+    <result column="MOBILE" property="mobile" jdbcType="VARCHAR" />
+    <result column="PHONE" property="phone" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, GMT_CREATED, GMT_MODIFIED, CREATED_BY, MODIFIED_BY, IS_DELETED, RECEIVER_ID, 
+    USER_ID, IS_MAIN, EMAIL, NAME, STATE, ADDRESS, ZIP, MOBILE, PHONE
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.receiver.ReceiverExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from RECEIVER
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from RECEIVER
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from RECEIVER
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.receiver.ReceiverExample" >
+    delete from RECEIVER
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.receiver.Receiver" >
+    insert into RECEIVER (ID, GMT_CREATED, GMT_MODIFIED, 
+      CREATED_BY, MODIFIED_BY, IS_DELETED, 
+      RECEIVER_ID, USER_ID, IS_MAIN, 
+      EMAIL, NAME, STATE, 
+      ADDRESS, ZIP, MOBILE, 
+      PHONE)
+    values (#{id,jdbcType=DECIMAL}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{receiverId,jdbcType=DECIMAL}, #{userId,jdbcType=DECIMAL}, #{isMain,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{zip,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.receiver.Receiver" >
+    insert into RECEIVER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="gmtCreated != null" >
+        GMT_CREATED,
+      </if>
+      <if test="gmtModified != null" >
+        GMT_MODIFIED,
+      </if>
+      <if test="createdBy != null" >
+        CREATED_BY,
+      </if>
+      <if test="modifiedBy != null" >
+        MODIFIED_BY,
+      </if>
+      <if test="isDeleted != null" >
+        IS_DELETED,
+      </if>
+      <if test="receiverId != null" >
+        RECEIVER_ID,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="isMain != null" >
+        IS_MAIN,
+      </if>
+      <if test="email != null" >
+        EMAIL,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="state != null" >
+        STATE,
+      </if>
+      <if test="address != null" >
+        ADDRESS,
+      </if>
+      <if test="zip != null" >
+        ZIP,
+      </if>
+      <if test="mobile != null" >
+        MOBILE,
+      </if>
+      <if test="phone != null" >
+        PHONE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverId != null" >
+        #{receiverId,jdbcType=DECIMAL},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="isMain != null" >
+        #{isMain,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="zip != null" >
+        #{zip,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.receiver.ReceiverExample" resultType="java.lang.Integer" >
+    select count(*) from RECEIVER
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update RECEIVER
+    <set >
+      <if test="record.gmtCreated!=null and record.gmtCreatedExepression==null" >
+        GMT_CREATED = #{record.gmtCreated,jdbcType=TIMESTAMP}
+      </if>
+      <if test="record.gmtCreatedExepression!=null" >
+        GMT_CREATED = ${record.gmtCreatedExepression}
+      </if>
+      <if test="record.gmtModified!=null and record.gmtModifiedExepression==null" >
+        GMT_MODIFIED = #{record.gmtModified,jdbcType=TIMESTAMP}
+      </if>
+      <if test="record.gmtModifiedExepression!=null" >
+        GMT_MODIFIED = ${record.gmtModifiedExepression}
+      </if>
+      <if test="record.createdBy!=null and record.createdByExepression==null" >
+        CREATED_BY = #{record.createdBy,jdbcType=VARCHAR}
+      </if>
+      <if test="record.createdByExepression!=null" >
+        CREATED_BY = ${record.createdByExepression}
+      </if>
+      <if test="record.modifiedBy!=null and record.modifiedByExepression==null" >
+        MODIFIED_BY = #{record.modifiedBy,jdbcType=VARCHAR}
+      </if>
+      <if test="record.modifiedByExepression!=null" >
+        MODIFIED_BY = ${record.modifiedByExepression}
+      </if>
+      <if test="record.isDeleted!=null and record.isDeletedExepression==null" >
+        IS_DELETED = #{record.isDeleted,jdbcType=VARCHAR}
+      </if>
+      <if test="record.isDeletedExepression!=null" >
+        IS_DELETED = ${record.isDeletedExepression}
+      </if>
+      <if test="record.receiverId!=null and record.receiverIdExepression==null" >
+        RECEIVER_ID = #{record.receiverId,jdbcType=DECIMAL}
+      </if>
+      <if test="record.receiverIdExepression!=null" >
+        RECEIVER_ID = ${record.receiverIdExepression}
+      </if>
+      <if test="record.userId!=null and record.userIdExepression==null" >
+        USER_ID = #{record.userId,jdbcType=DECIMAL}
+      </if>
+      <if test="record.userIdExepression!=null" >
+        USER_ID = ${record.userIdExepression}
+      </if>
+      <if test="record.isMain!=null and record.isMainExepression==null" >
+        IS_MAIN = #{record.isMain,jdbcType=VARCHAR}
+      </if>
+      <if test="record.isMainExepression!=null" >
+        IS_MAIN = ${record.isMainExepression}
+      </if>
+      <if test="record.email!=null and record.emailExepression==null" >
+        EMAIL = #{record.email,jdbcType=VARCHAR}
+      </if>
+      <if test="record.emailExepression!=null" >
+        EMAIL = ${record.emailExepression}
+      </if>
+      <if test="record.name!=null and record.nameExepression==null" >
+        NAME = #{record.name,jdbcType=VARCHAR}
+      </if>
+      <if test="record.nameExepression!=null" >
+        NAME = ${record.nameExepression}
+      </if>
+      <if test="record.state!=null and record.stateExepression==null" >
+        STATE = #{record.state,jdbcType=VARCHAR}
+      </if>
+      <if test="record.stateExepression!=null" >
+        STATE = ${record.stateExepression}
+      </if>
+      <if test="record.address!=null and record.addressExepression==null" >
+        ADDRESS = #{record.address,jdbcType=VARCHAR}
+      </if>
+      <if test="record.addressExepression!=null" >
+        ADDRESS = ${record.addressExepression}
+      </if>
+      <if test="record.zip!=null and record.zipExepression==null" >
+        ZIP = #{record.zip,jdbcType=VARCHAR}
+      </if>
+      <if test="record.zipExepression!=null" >
+        ZIP = ${record.zipExepression}
+      </if>
+      <if test="record.mobile!=null and record.mobileExepression==null" >
+        MOBILE = #{record.mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="record.mobileExepression!=null" >
+        MOBILE = ${record.mobileExepression}
+      </if>
+      <if test="record.phone!=null and record.phoneExepression==null" >
+        PHONE = #{record.phone,jdbcType=VARCHAR}
+      </if>
+      <if test="record.phoneExepression!=null" >
+        PHONE = ${record.phoneExepression}
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update RECEIVER
+    set ID = #{record.id,jdbcType=DECIMAL},
+      GMT_CREATED = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      GMT_MODIFIED = #{record.gmtModified,jdbcType=TIMESTAMP},
+      CREATED_BY = #{record.createdBy,jdbcType=VARCHAR},
+      MODIFIED_BY = #{record.modifiedBy,jdbcType=VARCHAR},
+      IS_DELETED = #{record.isDeleted,jdbcType=VARCHAR},
+      RECEIVER_ID = #{record.receiverId,jdbcType=DECIMAL},
+      USER_ID = #{record.userId,jdbcType=DECIMAL},
+      IS_MAIN = #{record.isMain,jdbcType=VARCHAR},
+      EMAIL = #{record.email,jdbcType=VARCHAR},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      STATE = #{record.state,jdbcType=VARCHAR},
+      ADDRESS = #{record.address,jdbcType=VARCHAR},
+      ZIP = #{record.zip,jdbcType=VARCHAR},
+      MOBILE = #{record.mobile,jdbcType=VARCHAR},
+      PHONE = #{record.phone,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.receiver.Receiver" >
+    update RECEIVER
+    <set >
+      <if test="record.gmtCreated!=null and record.gmtCreatedExepression==null" >
+        GMT_CREATED = #{record.gmtCreated,jdbcType=TIMESTAMP}
+      </if>
+      <if test="record.gmtCreatedExepression!=null" >
+        GMT_CREATED = ${record.gmtCreatedExepression}
+      </if>
+      <if test="record.gmtModified!=null and record.gmtModifiedExepression==null" >
+        GMT_MODIFIED = #{record.gmtModified,jdbcType=TIMESTAMP}
+      </if>
+      <if test="record.gmtModifiedExepression!=null" >
+        GMT_MODIFIED = ${record.gmtModifiedExepression}
+      </if>
+      <if test="record.createdBy!=null and record.createdByExepression==null" >
+        CREATED_BY = #{record.createdBy,jdbcType=VARCHAR}
+      </if>
+      <if test="record.createdByExepression!=null" >
+        CREATED_BY = ${record.createdByExepression}
+      </if>
+      <if test="record.modifiedBy!=null and record.modifiedByExepression==null" >
+        MODIFIED_BY = #{record.modifiedBy,jdbcType=VARCHAR}
+      </if>
+      <if test="record.modifiedByExepression!=null" >
+        MODIFIED_BY = ${record.modifiedByExepression}
+      </if>
+      <if test="record.isDeleted!=null and record.isDeletedExepression==null" >
+        IS_DELETED = #{record.isDeleted,jdbcType=VARCHAR}
+      </if>
+      <if test="record.isDeletedExepression!=null" >
+        IS_DELETED = ${record.isDeletedExepression}
+      </if>
+      <if test="record.receiverId!=null and record.receiverIdExepression==null" >
+        RECEIVER_ID = #{record.receiverId,jdbcType=DECIMAL}
+      </if>
+      <if test="record.receiverIdExepression!=null" >
+        RECEIVER_ID = ${record.receiverIdExepression}
+      </if>
+      <if test="record.userId!=null and record.userIdExepression==null" >
+        USER_ID = #{record.userId,jdbcType=DECIMAL}
+      </if>
+      <if test="record.userIdExepression!=null" >
+        USER_ID = ${record.userIdExepression}
+      </if>
+      <if test="record.isMain!=null and record.isMainExepression==null" >
+        IS_MAIN = #{record.isMain,jdbcType=VARCHAR}
+      </if>
+      <if test="record.isMainExepression!=null" >
+        IS_MAIN = ${record.isMainExepression}
+      </if>
+      <if test="record.email!=null and record.emailExepression==null" >
+        EMAIL = #{record.email,jdbcType=VARCHAR}
+      </if>
+      <if test="record.emailExepression!=null" >
+        EMAIL = ${record.emailExepression}
+      </if>
+      <if test="record.name!=null and record.nameExepression==null" >
+        NAME = #{record.name,jdbcType=VARCHAR}
+      </if>
+      <if test="record.nameExepression!=null" >
+        NAME = ${record.nameExepression}
+      </if>
+      <if test="record.state!=null and record.stateExepression==null" >
+        STATE = #{record.state,jdbcType=VARCHAR}
+      </if>
+      <if test="record.stateExepression!=null" >
+        STATE = ${record.stateExepression}
+      </if>
+      <if test="record.address!=null and record.addressExepression==null" >
+        ADDRESS = #{record.address,jdbcType=VARCHAR}
+      </if>
+      <if test="record.addressExepression!=null" >
+        ADDRESS = ${record.addressExepression}
+      </if>
+      <if test="record.zip!=null and record.zipExepression==null" >
+        ZIP = #{record.zip,jdbcType=VARCHAR}
+      </if>
+      <if test="record.zipExepression!=null" >
+        ZIP = ${record.zipExepression}
+      </if>
+      <if test="record.mobile!=null and record.mobileExepression==null" >
+        MOBILE = #{record.mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="record.mobileExepression!=null" >
+        MOBILE = ${record.mobileExepression}
+      </if>
+      <if test="record.phone!=null and record.phoneExepression==null" >
+        PHONE = #{record.phone,jdbcType=VARCHAR}
+      </if>
+      <if test="record.phoneExepression!=null" >
+        PHONE = ${record.phoneExepression}
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.receiver.Receiver" >
+    update RECEIVER
+    set GMT_CREATED = #{gmtCreated,jdbcType=TIMESTAMP},
+      GMT_MODIFIED = #{gmtModified,jdbcType=TIMESTAMP},
+      CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      MODIFIED_BY = #{modifiedBy,jdbcType=VARCHAR},
+      IS_DELETED = #{isDeleted,jdbcType=VARCHAR},
+      RECEIVER_ID = #{receiverId,jdbcType=DECIMAL},
+      USER_ID = #{userId,jdbcType=DECIMAL},
+      IS_MAIN = #{isMain,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      ZIP = #{zip,jdbcType=VARCHAR},
+      MOBILE = #{mobile,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

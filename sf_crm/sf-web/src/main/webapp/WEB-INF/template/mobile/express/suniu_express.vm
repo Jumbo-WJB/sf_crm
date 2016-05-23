@@ -1,0 +1,257 @@
+#set($layout = "/layout/mobileBlank.vm")
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <title>我的快递</title>
+    <style>
+        *{font-family:"Microsoft YaHei";}
+        .t_center{text-align: center;margin: 0 6px;}
+        .t_left{text-align: left;}
+        .pm_list{font-size: 13px;}
+        .pm_list tr{border-bottom:1px solid #efefef;line-height:10px;vertical-align:middle;}
+        .pm_list th{color:#888; font-weight:normal;line-height:28px;}
+        .pm_list tbody tr{background-color:#fff;}
+        .pm_num{overflow:hidden;}
+        .pm_name{width:70px;}
+        .pm_day{width:50px;}
+        .pm_time{width:50px;}
+        .pm_state{width:70px;}
+        .pm_no{width:70px;}
+        .pm_4{width:25%;}
+        .pm_28{width:28%;}
+        .pm_18{width:18%;}
+        .col_title{padding: 4px 5px;overflow: hidden}
+        .col_title span{margin: 0 4px;}
+        .col_title img{width:50px;height:50px;vertical-align: middle;border-radius: 50%;float:left;margin-top:5px;}
+        .myscore-li .li-choose ul li.li-all-column{width: 100%;}
+        .text-right{width:140px;float:left;text-align: left;}
+        .text-right p{font-size: 14px;line-height: 30px;color:#4e4e4e;width:200px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;}
+        .text-right p a{font-size: 16px;}
+    </style>
+
+</head>
+
+<body>
+<div class="container">
+    <div class="u-body" style="padding-bottom:50px;">
+        <div class="user bg_white">
+            <div class="user_back"></div>
+            <table class="user_table">
+                <tr>
+                    <td class="user_tleft">
+                        <div class="user_img rAll">
+                            <img class="rAll" id="wxHeadImgUrl" src="$!user.wxHeadimgurl"
+                                 onerror="this.src='${rc.contextPath}/media/mobile/assets/images/signIn/helpbuy-icon.jpg'"/>
+                        </div>
+                    </td>
+                    <td class="user_tright">
+                        <p class="user_name " id="wxNickName">
+                            #if($user.wxNickName) ${user.wxNickName}
+                            #else 游客
+                            #end
+                        </p>
+                        <p class="user_leve red">
+                            $!user.mobile
+                        </p>
+                    </td>
+                <tr/>
+            </table>
+        </div>
+        <!--<div class="goodsPanle myscoreTop">
+            <div class="itemLi">
+                #if($user.wxHeadimgurl)
+                    <img src="${user.wxHeadimgurl}">
+                #else
+                    <img src="${rc.contextPath}/media/mobile/assets/images/signIn/helpbuy-icon.jpg">
+                #end
+
+                <div class="info">
+                    <div class="name">
+                        #if($user.wxNickName) <span>${user.wxNickName}</span>
+                        #else <span>无名</span>
+                        #end
+                    </div>
+                    $!user.mobile
+                </div>
+            </div>
+        </div>-->
+
+        <div class="u-block u-myscore">
+            <div class="form-grounp" style="padding: 0;height: 30px;">
+                <p style="text-align: center;line-height: 35px;">您在 <span style="font-size: 15px;font-weight: bold;">$!expressMap.seller_name</span> 购物的情况</p>
+            </div>
+            <div class="form-grounp">
+                <div class="itemDetail rightBorder">累计购物订单<span class="orange">${expressMap.OrderNums}</span></div>
+
+                <div class="itemDetail rightBorder">在途订单<span class="orange">${expressMap.on_road}</span></div>
+            </div>
+            <div class="form-grounp">
+
+                <div class="itemDetail rightBorder">购物金额排名
+                    <span class="orange">
+                        #if($expressMap.rank) ${expressMap.rank}
+                        #else 暂无排名
+                        #end
+                    </span>
+                </div>
+                <div class="itemDetail rightBorder">常用快递
+                    <span class="orange">
+                        #if($expressMap.often_express)
+                            ${expressMap.often_express.logisticsCompany}
+                        #else 无
+                        #end
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="myscore-li">
+            <div class="li-choose">
+                <ul>
+                    <li class="li-all-column"><a href="javascript:void(0)" style="background: #41B61A;"><span style="font-size: 16px;color:#fff; ">查看快递信息</span></a></li>
+                </ul>
+            </div>
+            <div class="goodsPanle tab_1">
+                <table class="bg_gray pm_list">
+                    <thead>
+                    <tr>
+                        <th class="t_left"><span style="margin-left:40px;">商品信息</span></th>
+                        <th class="t_center pm_state">交易状态</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        #foreach( $list in $expressList)
+
+                            <tr style="border-bottom: 1px solid #ccc;">
+                                <td class="t_left col_title word-hidden">
+                                    <a href="javascript:toexpressDetails($!user.sellerId,$!list.userId,'$!list.tradeId',$!list.orderNumber,'$!list.orderFrom','$!list.invoiceNo','$!list.logisticsCompany','$list.title','$list.shopId')">
+
+                                    #if($list.orderFrom=='TB')
+                                        <img src="${rc.contextPath}/media/mobile/assets/images/public/tb.jpg" />
+                                    #end
+                                    #if($list.orderFrom=='JD')
+                                        <img src="${rc.contextPath}/media/mobile/assets/images/public/jd.jpg" />
+                                    #end
+                                    #if($list.orderFrom=='YZ')
+                                        <img src="${rc.contextPath}/media/mobile/assets/images/public/yz.jpg" />
+                                    #end
+                                    <div class="text-right">
+                                        <p style="color: #72ACE3;padding-left: 8px;">
+                                                #if($list.orderFrom=='TB') 淘宝购物
+                                                #elseif($list.orderFrom=='JD') 京东购物
+                                                #elseif($list.orderFrom=='YZ') 有赞
+                                                #else
+                                                #end
+                                        </p>
+                                        <p style="padding-left: 7px;">$!list.title</p>
+                                    </div>
+                                    </a>
+                                </td>
+                                <td class="t_center pm_state">
+                                    #if($list.status=='TRADE_NO_CREATE_PAY') <span>无交易</span>
+                                    #elseif($list.status=='WAIT_BUYER_PAY') <span>等待付款</span>
+                                    #elseif($list.status=='SELLER_CONSIGNED_PART') <span>部分发货</span>
+                                    #elseif($list.status=='WAIT_SELLER_SEND_GOODS') <span>待发货</span>
+                                    #elseif($list.status=='WAIT_BUYER_CONFIRM_GOODS') <span>已发货</span>
+                                    #elseif($list.status=='TRADE_BUYER_SIGNED') <span>已签收</span>
+                                    #elseif($list.status=='TRADE_FINISHED') <span>交易成功</span>
+                                    #elseif($list.status=='TRADE_CLOSED') <span>交易关闭</span>
+                                    #elseif($list.status=='FINISHED_L') <span>完成</span>
+                                    #elseif($list.status=='TRADE_CANCELED') <span>取消</span>
+                                    #elseif($list.status=='WAIT_GOODS_RECEIVE_CONFIRM') <span>等待确认收货</span>
+                                    #else ${list.status}
+                                    #end
+                                </td>
+                            </tr>
+                        #end
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="u-footer">
+        <p>
+            <img src="${rc.contextPath}/media/mobile/assets/images/public/suniu_logo_grey.jpg">
+            <span>技术支持·速牛科技</span>
+        </p>
+    </div>
+</div>
+<script>
+    function toexpressDetails(sellerId, userId, tradeId, orderNumber, orderFrom, invoiceNo, logisticsCompany, title, shopId) {
+        /*   $.post("expressDetail",
+                   {
+                       sellerId:sellerId,
+                       userId:userId,
+                       orderNumber:orderNumber,
+                       orderFrom:orderFrom,
+                       invoiceNo:invoiceNo,
+                       logisticsCompany:logisticsCompany
+                   },
+                   function(data,status){
+
+                   });*/
+        /*href.location=
+                "expressDetail?sellerId="+sellerId+
+                "&userId="+userId+"&orderNumber="+orderNumber+
+                "&orderFrom="+orderFrom+"&invoiceNo="+invoiceNo+
+                "&logisticsCompany="+logisticsCompany+"";*/
+        var form = $("<form method='post' action='expressDetail'></form>");
+
+        var inputSellerId = $("<input type='text'>");
+        inputSellerId.attr({"name":"sellerId"});
+        inputSellerId.val(sellerId);
+        form.append(inputSellerId);
+
+        var inputUserId = $("<input type='text'>");
+        inputUserId.attr({"name":"userId"});
+        inputUserId.val(userId);
+        form.append(inputUserId);
+
+        var inputTradeId = $("<input type='text'>");
+        inputTradeId.attr({"name":"tradeId"});
+        inputTradeId.val(tradeId);
+        form.append(inputTradeId);
+
+        var inputOrderNumber = $("<input type='text'>");
+        inputOrderNumber.attr({"name":"orderNumber"});
+        inputOrderNumber.val(orderNumber);
+        form.append(inputOrderNumber);
+
+        var inputOrderFrom = $("<input type='text'>");
+        inputOrderFrom.attr({"name":"orderFrom"});
+        inputOrderFrom.val(orderFrom);
+        form.append(inputOrderFrom);
+
+        var inputInvoiceNo = $("<input type='text'>");
+        inputInvoiceNo.attr({"name":"invoiceNo"});
+        inputInvoiceNo.val(invoiceNo);
+        form.append(inputInvoiceNo);
+
+        var inputLc = $("<input type='text'>");
+        inputLc.attr({"name":"logisticsCompany"});
+        inputLc.val(logisticsCompany);
+        form.append(inputLc);
+
+        var inputTitle = $("<input type='text'>");
+        inputTitle.attr({"name":"title"});
+        inputTitle.val(title);
+        form.append(inputTitle);
+
+        var inputShopId = $("<input type='text'>");
+        inputShopId.attr({"name":"shopId"});
+        inputShopId.val(shopId);
+        form.append(inputShopId);
+
+        form.submit();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+#set($layout = "/layout/blank.vm")
+<div class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <div class="BoxStyleA">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <i class="modal-logo contact"></i>
+                    <ul class="breadcrumb" style="margin-left: 2px">
+                        <li></li>
+                        <li>联系客户</li>
+                        <li class="active">新建短信营销活动</li>
+                    </ul>
+                </div>
+                <div class="widget-body">
+                    <div class="widget-main">
+                        <form class="form-horizontal markAct" id="markActForm" role="form" style="">
+                            <input type="hidden" name="source" value="$!{userVO.source}" /><input type="hidden" name="startContribution" value="$!{userVO.startContribution}" />
+                            <input type="hidden" name="endContribution" value="$!{userVO.endContribution}" /><input type="hidden" name="name" value="$!{userVO.name}" />
+                            <input type="hidden" name="keyword" value="$!{userVO.keyword}" /><input type="hidden" name="time" value="$!{userVO.time}" />
+                            <input type="hidden" name="minPrice" value="$!{userVO.minPrice}" /><input type="hidden" name="maxPrice" value="$!{userVO.maxPrice}" />
+                            <input type="hidden" name="purchaseNum" value="$!{userVO.purchaseNum}" /><input type="hidden" name="userParams" value="$!{userVO.userParams}" />
+                            <input type="hidden" name="isSelectAll" value="$!{userVO.isSelectAll}" /><input type="hidden" name="isSuccessCustom" value="$!{userVO.isSuccessCustom}" />
+                            <input type="hidden" name="hasMobile" value="$!{userVO.hasMobile}" />
+                            <div class="form-group" >
+                                <label class="col-sm-4 control-label no-padding-right" > 营销方式：</label>
+                                <div class="col-sm-4">
+                                    <label style="float: left;margin-left: 10px;">
+                                        <input name="type" type="radio" class="ace" value="sms" checked/>
+                                        <span class="lbl"> 短信</span>
+                                    </label>
+                                    <label  style="float: left;margin-left: 20px;">
+                                        <input name="type" type="radio" class="ace" value="email"/>
+                                        <span class="lbl"> 邮件</span>
+                                    </label>
+                                    <!--  微信  -->
+                                    <label  style="float: left;margin-left: 20px;">
+                                        <input name="type" type="radio" class="ace" value="wx"/>
+                                        <span class="lbl"> 微信</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group" >
+                                <label class="col-sm-4 control-label no-padding-right"> 营销主题：</label>
+                                <div class="col-sm-6" style="padding-left: 25px">
+                                    <input type="text" name="title" placeholder="营销主题" class="col-xs-10 col-sm-5"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group" >
+                                <label class="col-sm-4 control-label no-padding-right"> 营销目的：</label>
+                                <div class="col-sm-4">
+                                    <label style="float: left;margin-left: 10px;">
+                                        <input name="target" type="radio" class="ace" value="sale"/>
+                                        <span class="lbl"> 销售</span>
+                                    </label>
+                                    <label style="float: left;margin-left: 10px;">
+                                        <input name="target" type="radio" class="ace" value="increase_fans"/>
+                                        <span class="lbl"> 粉丝</span>
+                                    </label>
+                                    <label style="float: left;margin-left: 10px;">
+                                        <input name="target" type="radio" class="ace" value="spread"/>
+                                        <span class="lbl"> 传播</span>
+                                    </label>
+                                    <label style="float: left;margin-left: 10px;">
+                                        <input name="target" type="radio" class="ace" value="other"/>
+                                        <span class="lbl"> 其他</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group" >
+                                <label class="col-sm-4 control-label no-padding-right" > 目标客户：</label>
+                                <div class="col-sm-6" style="padding-left: 25px;">
+                                    <span style="line-height: 30px;padding-right:20px;">已选择客户共有：<span class="userNum">$!smsUserCount</span>人</span>
+                                    <button id="selectAgain"  class="btn btn-xs btn-success"  data-toggle="modal">重新选择</button>
+                                    <span class="smsContent" style="line-height: 30px;padding-left:20px;">账户共有<span id="remainCount" style="padding:0 3px;color:#000;font-weight:bold;">$!remainCount</span>条短信<!--，<a href="javascript:void(0);">充值</a>--></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group" >
+                                <label class="col-sm-4 control-label no-padding-right" > 短信签名：</label>
+                                <div class="col-sm-6" style="padding-left: 25px;">
+                                    <input type="text" name="smsSign" style="color:#333;"  class="col-xs-10 col-sm-5" value="$!{signName}" readonly/>
+                                </div>
+                            </div>
+
+                            <div class="form-group" >
+                                <label class="col-sm-4 control-label no-padding-right" > 营销内容：</label>
+                                <div class="col-sm-7">
+                                    <div id="showBox">
+                                        <div class="col-sm-5" style="margin:5px 0 0 2px;height: 558px">
+                                            <p style="text-align:left;display:none;" id="left-p"></p>
+                                            <textarea class="form-control" name="content" rows="23" onkeydown="verifyResidueMsg()" onkeyup="verifyResidueMsg()"></textarea>
+                                            <p class="noticeContent" style="text-align: left;color: #ff2516;">注意事项：营销内容请不要超过70字(包括短信签名和符号),且内容不要出现“测试”或其他非法词汇</p>
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <a href="javascript:preview();" style="display: block;margin-top: 150px;">预览</a>
+                                            <p>——<span style="">></span></p>
+                                        </div>
+                                        <div class="col-sm-5" style="width:273px;height:500px;margin-top:15px;position: relative;" >
+                                            <img src="${rc.contextPath}/media/images/iphone.jpg" width="273" height="500">
+                                            <div  style="width: 200px;height: auto;min-height: 80px;top: 170px;left: 49px;position: absolute;background: #d5d5d5;border-radius: 3px;">
+                                                <p class="textContent" style="text-align: left;padding: 8px;font-size: 14px;font-weight: bold;word-wrap:break-word;word-break:break-all;">
+                                                    请在左边填写要短信内容,然后点击预览
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" >执行时间：</label>
+
+                                <div class="col-sm-6" style="padding-left: 25px">
+                                    <label>
+                                        <input type="radio" name="exeTimeType" class="ace" value="0"/>
+                                        <span class="lbl">立即执行</span>
+                                    </label>
+                                    <label style="margin-left: 10px;">
+                                        <input type="radio" name="exeTimeType" class="ace" value="1"/>
+                                        <span class="lbl">定时执行</span>
+                                        <input id="time1" name="executeTime"
+                                               class="Wdate" type="text"
+                                               onfocus="WdatePicker({startDate:'%y-%M-%d 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss'})"
+                                               style="width: 200px;height: 30px"/>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" ></label>
+                                <div class="col-sm-6" style="padding-left: 25px">
+                                    <!--<button class="btn btn-info" type="button">
+                                        <i class="icon-ok bigger-110"></i>
+                                        预览
+                                    </button>-->
+
+                                    &nbsp; &nbsp; &nbsp;
+                                    <button class="btn btn-success" id="testBut">
+                                        <i class="icon-undo bigger-110"></i>
+                                        测试一下
+                                    </button>
+
+                                    &nbsp; &nbsp; &nbsp;
+                                    <button class="btn btn-primary" type="button" id="sendActBut">
+                                        <i class="icon-ok bigger-110"></i>
+                                        发送&nbsp;&nbsp;
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--短信用户选择 Modal -->
+<div class="modal fade" id="smsClientSelectedModal" tabindex="-1" role="dialog" aria-labelledby="smsClientSelectedModal" aria-hidden="true" >
+    <div class="modal-dialog" style="width: 1300px">
+        <div class="modal-content" >
+            <div class="tiptop"><span>短信营销客户选择</span><a data-dismiss="modal" aria-hidden="true"></a></div>
+                <div class="row">
+                    <div class="col-xs-12" style="padding-top:15px;">
+                        <form class="form-horizontal" role="form" id="smsClientSelectedForm">
+                            <input type="hidden" id="status" value="SUCCESS_PURCHASE" />
+                            <div class="form-group" >
+                                <label class="col-sm-2 control-label no-padding-right" > 关键词：</label>
+
+                                <div class="col-sm-6" style="padding-left: 25px">
+                                    <input type="text" name="keyword" placeholder="用户名，微信、京东、淘宝昵称" class="col-xs-10 col-sm-5"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group" >
+                                <label class="col-sm-2 control-label no-padding-right" > 客户类别：</label>
+
+                                <div class="col-sm-6" style="padding-left: 15px;padding-top: 4px;">
+                                    <label>
+                                        <input name="source" type="radio" class="ace" value=""/>
+                                        <span class="lbl"> 不限</span>
+                                    </label>
+                                    <label>
+                                        <input name="source" type="radio" class="ace" value="TB"/>
+                                        <span class="lbl"> 淘宝</span>
+                                    </label>
+                                    <label>
+                                        <input name="source" type="radio" class="ace" value="TMALL"/>
+                                        <span class="lbl"> 天猫</span>
+                                    </label>
+                                    <label>
+                                        <input name="source" type="radio" class="ace" value="JD"/>
+                                        <span class="lbl"> 京东</span>
+                                    </label>
+                                    <label class="wxLabel">
+                                        <input name="source" type="radio" class="ace" value="WX"/>
+                                        <span class="lbl"> 微信</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group" >
+                                <label class="col-sm-2 control-label no-padding-right" > 购买金额：</label>
+
+                                <div class="col-sm-6" style="padding-left: 25px;">
+                                    <label style="margin-left: 0;">
+                                        <input name="purchasePrice" type="radio" class="ace" value=""/>
+                                        <span class="lbl"> 不限</span>
+                                    </label>
+                                    <label style="margin-left: 10px;">
+                                        <input name="purchasePrice" type="radio" class="ace" value=""/>
+                                        <span class="lbl"> 定额</span>
+                                    </label>
+                                    <label><input type="text" name="minPrice" style="width:100px;" /></label>
+                                    <span>至</span>
+                                    <label><input type="text" name="maxPrice" style="width:100px;" /></label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-6 buy-times">
+                                    <label class="col-sm-4 control-label no-padding-right" >客户购买次数：</label>
+
+                                    <div class="col-sm-7 no-padding-left" style="padding-top: 4px;">
+                                        <label style="float: left;margin-left: 20px;">
+                                            <input name="purchaseNum" type="radio" class="ace" value=""/>
+                                            <span class="lbl"> 不限</span>
+                                        </label>
+                                        <label style="float: left;margin-left: 14px;">
+                                            <input name="purchaseNum" type="radio" class="ace" value="0-1"/>
+                                            <span class="lbl"> 0-1次</span>
+                                        </label>
+                                        <label style="float: left;margin-left: 14px;">
+                                            <input name="purchaseNum" type="radio" class="ace" value="2-3"/>
+                                            <span class="lbl"> 2-3次</span>
+                                        </label>
+                                        <label style="float: left;margin-left: 14px;">
+                                            <input name="purchaseNum" type="radio" class="ace" value="4-"/>
+                                            <span class="lbl"> 3次以上</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 blank-padding" style="display: none;"></div>
+                                <span class="input-group-btn" style="float: left;margin-left: 35px;">
+                                    <button class="btn_searchA" type="button" id="SearchBut">
+                                        查询
+                                    </button>
+                                    <button class="btn_searchA" style="background: #44B549" type="button" id="selectAllBut">
+                                        全选
+                                    </button>
+                                    <button class="btn_searchA" style="background: #ff6869" type="button" id="cancelAllBut">
+                                        取消
+                                    </button>
+                                    <button class="btn_searchA" style="background: #23aaff" onclick="submitsmsUser()"  aria-hidden="true" data-dismiss="modal">
+                                        确定
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                        <div class="userTable" style="margin-top: 25px;">
+                            <ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4">
+                                <li id="successLi" class="active">
+                                    <a data-toggle="tab" id="purchase_tab" href="#purchase_customer_table">成功购买的客户</a>
+                                </li>
+
+                                <li>
+                                    <a data-toggle="tab" id="potential_tab" href="#potential_customer_table">潜在购买的客户</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div id="purchase_customer_table" class="tab-pane in active">
+                                    <table id="userListTable" class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <td style="width:34px;">
+                                                <label>
+                                                    <input type="checkbox" class="ace box-head" />
+                                                    <span class="lbl"></span>
+                                                </label>
+                                            </td>
+                                            <th>用户姓名</th>
+                                            <th>微信昵称</th>
+                                            <th>淘宝昵称</th>
+                                            <th>京东账号</th>
+                                            <th>电话</th>
+                                            <th>城市</th>
+                                            <th>平均购买周期</th>
+                                            <th>平均购买金额</th>
+                                            <th>累计购买次数</th>
+                                            <th>最近一次购买日期</th>
+                                            <th>第一次来源</th>
+                                            <th>来源</th>
+                                            <th>综合贡献价值</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="potential_customer_table" class="tab-pane">
+                                    <table id="potentialUserTable" class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <td>
+                                                <label>
+                                                    <input  type="checkbox" class="ace box-head" />
+                                                    <span class="lbl"></span>
+                                                </label>
+                                            </td>
+                                            <th>订单编号</th>
+                                            <th>用户姓名</th>
+                                            <th>昵称</th>
+                                            <th>状态</th>
+                                            <th>城市</th>
+                                            <th>电话</th>
+                                            <th>下单时间</th>
+                                            <th>订单金额</th>
+                                            <th>购买平台</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!----------短信测试------------>
+<div class="modal fade" id="smsTestModal" tabindex="-1" role="dialog" aria-labelledby="smsTestModal" aria-hidden="true" >
+    <div class="modal-dialog" style="width: 600px;margin-top: 200px;">
+        <div class="modal-content" >
+            <div class="tiptop"><span>短信测试</span><a data-dismiss="modal" aria-hidden="true"></a></div>
+            <div class="row">
+                <div class="col-xs-12" style="padding:25px;">
+                    <div class="col-sm-8" style="margin-top: 5px;">
+                        <label>手机号：</label>
+                        <input type="text" name="testMobile" style="width: 210px;" placeholder="请输入要测试的手机号"/>
+                    </div>
+                    <div class="col-sm-4 no-padding-left">
+                        <input type="button" class="btn btn-danger" value="测试一下" id="smsTest" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="${rc.contextPath}/media/js/admin/concactCustomer/smsMarketing.js"></script>

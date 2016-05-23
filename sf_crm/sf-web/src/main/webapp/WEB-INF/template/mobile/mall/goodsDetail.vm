@@ -1,0 +1,243 @@
+#set($layout = "/layout/blank.vm")
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <title>商品详情</title>
+    <link rel="stylesheet" type="text/css" href="${rc.contextPath}/media/mobile/assets/css/style.css">
+    <script type="text/javascript" src="${rc.contextPath}/media/mobile/assets/js/jquery.min.js"></script>
+    <!--  cmb  -->
+    <script src="${rc.contextPath}/media/mobile/assets/js/index/hammer.js"></script>
+    <script src="${rc.contextPath}/media/mobile/assets/js/index/Fx.js"></script>
+    <script src="${rc.contextPath}/media/mobile/assets/js/index/app_zd.js"></script>
+    <script src="${rc.contextPath}/media/mobile/assets/js/index/js.js"></script>
+
+    <link href="${rc.contextPath}/media/mobile/assets/css/home/index.css" rel="stylesheet" type="text/css">
+    <link href="${rc.contextPath}/media/mobile/assets/css/home/animations.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        *,body,html{
+            font-family: 'Microsoft YaHei';
+        }
+        .form-grounp .label-info ul{
+            overflow: hidden;
+            /*margin: 10px 0;*/
+        }
+        .form-grounp .label-info ul li{
+            float: left;
+            /*width: 25%;*/
+            text-align: center;
+            /*height: 50px;*/
+        }
+        .form-grounp .label-info ul li a{
+            background: #ececec;
+            display: block;
+            width: 40px;
+            height: 20px;
+            line-height: 20px;
+            border-radius: 3px;
+            color: #333;
+            margin: 0 5px 0 0;
+        }
+
+        .form-grounp .label-info ul li input{
+            background: #ffffff;
+            min-width: 40px;
+            min-height: 30px;
+            color: #000;
+            margin: 0 5px 0 0;
+            padding :0;
+            font-size:13px;
+            border: 1px solid #dfe0e0;
+            outline: none;
+            cursor: pointer;
+            padding: 2px;;
+        }
+
+        .form-grounp .label-info ul li input.invalid{
+            background: #dfe0e0;
+            min-width: 40px;
+            min-height: 30px;
+            color: #000;
+            margin: 0 5px 0 0;
+            padding :0;
+            font-size:13px;
+            border: 1px solid #dfe0e0;
+            outline: none;
+            cursor: not-allowed;
+            padding: 2px;
+        }
+
+        .form-grounp .label-info ul li.checked input{
+            background: #6600cc;
+            color: #fff;
+        }
+
+        .form-grounp .label-info ul li.checked a{
+            background: #01b961;
+            color: #fff;
+        }
+
+        .index_scroll{
+            height: 180px;
+        }
+
+        .form-grounp .label-info ul li label{
+            background: #ececec;
+            display: block;
+            width: 40px;
+            height: 20px;
+            line-height: 20px;
+            border-radius: 3px;
+            color: #333;
+            margin: 0 5px 0 0;
+        }
+
+        .u-footer{
+            overflow: hidden;
+            height: 3em;
+            position: relative;
+            bottom:0px;
+            right:0px;
+            left:0px;
+            border-top:none;
+            z-index: 999;
+            background: white;
+            border-top: 1px solid #f3f3f3 !important;
+        }
+    </style>
+</head>
+<body>
+
+<div id="show-div" class="u-block detail"  style="width: 100%;display: none;position: relative">
+    <div style="position: fixed;top: 0;left: 0;width: 100%;background: #fff;z-index: 999;border-bottom: 1px solid #e5e5e5;">
+    <div class="form-grounp noBorder detailScore" style="font-size: 14px;">
+        #set($pri = $math.div($mallGoods.price , 100))
+        ￥<span id="sku_price" >$numTool.format($pri)</span>
+        &nbsp;&nbsp;
+        积分
+        <span class="u-fontAtv">$!mallGoods.point</span>
+        #if($giftSource)
+            <a href="javascript:void(0)" onclick="exchange('$sellerId',$userId,'$goodsId','$!obtainId','$!giftSource'); return false;"><span class="pull-right" style="padding: 4px 8px;background: #ff6701;border-radius: 5px;color: #fff;">立即领取</span></a>
+        #else
+            <a href="javascript:void(0)" onclick="exchange('$sellerId',$userId,'$goodsId','$!obtainId','$!giftSource'); return false;"><span class="pull-right" style="padding: 4px 8px;background: #ff6701;border-radius: 5px;color: #fff;">立即兑换</span></a>
+        #end
+    </div>
+    </div>
+</div>
+<div class="u-body">
+    #set($char = '/')
+    <div class="points-img" style="margin: 0;height: 180px">
+        <div id="hengping"></div>
+        <section>
+            <div class="box index_scroll" style="-webkit-user-select: none; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 100%;">
+                #if( $mallGoods.imgUrlList)
+                    #set ($i=1)
+                    #foreach($url in $mallGoods.imgUrlList)
+                        <div class="liuliang_pages
+                            #if($i==1)
+                            pages_current
+                             #end
+                              " style="-webkit-user-select: none; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><a href="#"><img src="${rc.contextPath}$char$!url" style="  height: 180px; "></a></div>
+                        #set($i=$i+1)
+                    #end
+                #end
+                <!--按钮-->
+                <div class="dot" style="width: 100%;bottom: 10px;"> <span class="hover" style="height: 8px;width: 8px;"></span> <span class="" style="height: 8px;width: 8px;"></span> <span class="" style="height: 8px;width: 8px;"></span></div>
+            </div>
+        </section>
+        <div style="width:0; height:0; overflow:hidden;">
+            <script>
+                window.app.index();
+            </script>
+        </div>
+    </div>
+
+    <div class="u-block detail">
+##        <img src="${rc.contextPath}/media/mobile/assets/images/public/PIC.png">
+        <div class="form-grounp noBorder">
+            <span style="color: #333;font-size: 16px">$!mallGoods.title</span>
+            #if($giftSource)
+                <a href="javascript:void(0)" onclick="exchange('$sellerId',$userId,'$goodsId','$!obtainId','$!giftSource'); return false;"><span class="pull-right" style="padding: 4px 8px;background: #ff6701;border-radius: 5px;color: #fff;">立即领取</span></a>
+            #else
+                <a href="javascript:void(0)" onclick="exchange('$sellerId',$userId,'$goodsId','$!obtainId','$!giftSource'); return false;"><span class="pull-right" style="padding: 4px 8px;background: #ff6701;border-radius: 5px;color: #fff;">立即兑换</span></a>
+            #end
+        </div>
+        <div class="form-grounp noBorder detailScore" style="font-size: 14px">
+            #set($pri = $math.div($mallGoods.price , 100))
+            <!--￥<span id="sku_price" >$numTool.format($pri)</span>
+            &nbsp;&nbsp;-->
+            积分
+            <span class="u-fontAtv" style="font-size: 13px;">$!mallGoods.point</span>
+        </div>
+    </div>
+    <div class="u-block parameter" id="goodsSpec">
+        <div class="form-grounp title">
+            <div class="label-info">
+                商品参数
+            </div>
+        </div>
+    </div>
+    <div class="u-block parameter detail-box">
+        <div class="form-grounp title">
+            <div class="label-info">商品介绍</div>
+        </div>
+    </div>
+    #set($char = '/')
+    <div class="detail-info" style="height: auto; position: relative">
+##        <img src="${rc.contextPath}/media/mobile/assets/images/public/detail.png">
+        <iframe id="detailInfo" src="${rc.contextPath}$char$!mallGoods.detailUrl" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="no" style="margin: 5px 5px"></iframe>
+    </div>
+    <!--<div>
+        #if($giftSource)
+            <a href="javascript:void(0)"  class="u-submit" onclick="exchange('$sellerId',$userId,'$goodsId','$!obtainId','$!giftSource'); return false;">我要领取</a>
+        #else
+            <a href="javascript:void(0)"  class="u-submit" onclick="exchange('$sellerId',$userId,'$goodsId','$!obtainId','$!giftSource'); return false;">我要兑换</a>
+        #end
+    </div>-->
+    <div class="u-footer">
+        <p>
+            <img src="${rc.contextPath}/media/mobile/assets/images/public/suniu_logo_grey.jpg">
+            <span>技术支持·速牛科技</span>
+        </p>
+    </div>
+
+</body>
+</html>
+<script type="text/javascript" src="${rc.contextPath}/media/mobile/assets/js/mall/mall.js"></script>
+<script type="text/javascript">
+    try {
+        createGoodsSkuInfo('$sellerId', '$goodsId', '$!giftSource');
+    }catch(e) {
+        console.dir(e);
+    }
+    try {
+        //商品详情区域的高度自适应
+        $("#detailInfo").load(function () {
+            var mainheight = $(this).contents().find("body").height() + 30;
+            $(this).height(mainheight);
+        });
+    }catch(e){
+        console.dir(e);
+    }
+
+    $(window).scroll(function() {
+        // 当滚动到最底部以上100像素时， 加载新内容
+        if ($(this).scrollTop() >= 246) {
+            $('#show-div').show();
+        }else{
+            $('#show-div').hide();
+        }
+    });
+
+
+//    $('.form-grounp .label-info ul li input').click(function(){
+//        $(this).parent().parent().find('.checked').removeClass('checked');
+//        $(this).parent().addClass('checked');
+//
+//    });
+
+
+</script>

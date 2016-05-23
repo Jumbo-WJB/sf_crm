@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.present.PresentMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.present.Present" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_expire_date" property="maxExpireDate" jdbcType="BIGINT" />
+    <result column="min_expire_date" property="minExpireDate" jdbcType="BIGINT" />
+    <result column="avg_expire_date" property="avgExpireDate" jdbcType="BIGINT" />
+    <result column="count_expire_date" property="countExpireDate" jdbcType="BIGINT" />
+    <result column="sum_expire_date" property="sumExpireDate" jdbcType="TIMESTAMP" />
+    <result column="max_is_receive" property="maxIsReceive" jdbcType="BIGINT" />
+    <result column="min_is_receive" property="minIsReceive" jdbcType="BIGINT" />
+    <result column="avg_is_receive" property="avgIsReceive" jdbcType="BIGINT" />
+    <result column="count_is_receive" property="countIsReceive" jdbcType="BIGINT" />
+    <result column="sum_is_receive" property="sumIsReceive" jdbcType="BIT" />
+    <result column="max_amount" property="maxAmount" jdbcType="BIGINT" />
+    <result column="min_amount" property="minAmount" jdbcType="BIGINT" />
+    <result column="avg_amount" property="avgAmount" jdbcType="BIGINT" />
+    <result column="count_amount" property="countAmount" jdbcType="BIGINT" />
+    <result column="sum_amount" property="sumAmount" jdbcType="BIGINT" />
+    <result column="max_hb_pool_id" property="maxHbPoolId" jdbcType="BIGINT" />
+    <result column="min_hb_pool_id" property="minHbPoolId" jdbcType="BIGINT" />
+    <result column="avg_hb_pool_id" property="avgHbPoolId" jdbcType="BIGINT" />
+    <result column="count_hb_pool_id" property="countHbPoolId" jdbcType="BIGINT" />
+    <result column="sum_hb_pool_id" property="sumHbPoolId" jdbcType="BIGINT" />
+    <result column="max_goods_id" property="maxGoodsId" jdbcType="BIGINT" />
+    <result column="min_goods_id" property="minGoodsId" jdbcType="BIGINT" />
+    <result column="avg_goods_id" property="avgGoodsId" jdbcType="BIGINT" />
+    <result column="count_goods_id" property="countGoodsId" jdbcType="BIGINT" />
+    <result column="sum_goods_id" property="sumGoodsId" jdbcType="BIGINT" />
+    <result column="max_present_password" property="maxPresentPassword" jdbcType="BIGINT" />
+    <result column="min_present_password" property="minPresentPassword" jdbcType="BIGINT" />
+    <result column="avg_present_password" property="avgPresentPassword" jdbcType="BIGINT" />
+    <result column="count_present_password" property="countPresentPassword" jdbcType="BIGINT" />
+    <result column="sum_present_password" property="sumPresentPassword" jdbcType="VARCHAR" />
+    <result column="max_discount" property="maxDiscount" jdbcType="BIGINT" />
+    <result column="min_discount" property="minDiscount" jdbcType="BIGINT" />
+    <result column="avg_discount" property="avgDiscount" jdbcType="BIGINT" />
+    <result column="count_discount" property="countDiscount" jdbcType="BIGINT" />
+    <result column="sum_discount" property="sumDiscount" jdbcType="DOUBLE" />
+    <result column="max_present_source" property="maxPresentSource" jdbcType="BIGINT" />
+    <result column="min_present_source" property="minPresentSource" jdbcType="BIGINT" />
+    <result column="avg_present_source" property="avgPresentSource" jdbcType="BIGINT" />
+    <result column="count_present_source" property="countPresentSource" jdbcType="BIGINT" />
+    <result column="sum_present_source" property="sumPresentSource" jdbcType="VARCHAR" />
+    <result column="max_present_name" property="maxPresentName" jdbcType="BIGINT" />
+    <result column="min_present_name" property="minPresentName" jdbcType="BIGINT" />
+    <result column="avg_present_name" property="avgPresentName" jdbcType="BIGINT" />
+    <result column="count_present_name" property="countPresentName" jdbcType="BIGINT" />
+    <result column="sum_present_name" property="sumPresentName" jdbcType="VARCHAR" />
+    <result column="max_present_type" property="maxPresentType" jdbcType="BIGINT" />
+    <result column="min_present_type" property="minPresentType" jdbcType="BIGINT" />
+    <result column="avg_present_type" property="avgPresentType" jdbcType="BIGINT" />
+    <result column="count_present_type" property="countPresentType" jdbcType="BIGINT" />
+    <result column="sum_present_type" property="sumPresentType" jdbcType="VARCHAR" />
+    <result column="max_birthday_acivity_id" property="maxBirthdayAcivityId" jdbcType="BIGINT" />
+    <result column="min_birthday_acivity_id" property="minBirthdayAcivityId" jdbcType="BIGINT" />
+    <result column="avg_birthday_acivity_id" property="avgBirthdayAcivityId" jdbcType="BIGINT" />
+    <result column="count_birthday_acivity_id" property="countBirthdayAcivityId" jdbcType="BIGINT" />
+    <result column="sum_birthday_acivity_id" property="sumBirthdayAcivityId" jdbcType="BIGINT" />
+    <result column="max_user_id" property="maxUserId" jdbcType="BIGINT" />
+    <result column="min_user_id" property="minUserId" jdbcType="BIGINT" />
+    <result column="avg_user_id" property="avgUserId" jdbcType="BIGINT" />
+    <result column="count_user_id" property="countUserId" jdbcType="BIGINT" />
+    <result column="sum_user_id" property="sumUserId" jdbcType="BIGINT" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="max_present_id" property="maxPresentId" jdbcType="BIGINT" />
+    <result column="min_present_id" property="minPresentId" jdbcType="BIGINT" />
+    <result column="avg_present_id" property="avgPresentId" jdbcType="BIGINT" />
+    <result column="count_present_id" property="countPresentId" jdbcType="BIGINT" />
+    <result column="sum_present_id" property="sumPresentId" jdbcType="BIGINT" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="present_id" property="presentId" jdbcType="BIGINT" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="birthday_acivity_id" property="birthdayAcivityId" jdbcType="BIGINT" />
+    <result column="present_type" property="presentType" jdbcType="VARCHAR" />
+    <result column="present_name" property="presentName" jdbcType="VARCHAR" />
+    <result column="present_source" property="presentSource" jdbcType="VARCHAR" />
+    <result column="discount" property="discount" jdbcType="DOUBLE" />
+    <result column="present_password" property="presentPassword" jdbcType="VARCHAR" />
+    <result column="goods_id" property="goodsId" jdbcType="BIGINT" />
+    <result column="hb_pool_id" property="hbPoolId" jdbcType="BIGINT" />
+    <result column="amount" property="amount" jdbcType="BIGINT" />
+    <result column="is_receive" property="isReceive" jdbcType="BIT" />
+    <result column="expire_date" property="expireDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, created_by, modified_by, is_deleted, present_id, seller_id, 
+    user_id, birthday_acivity_id, present_type, present_name, present_source, discount, 
+    present_password, goods_id, hb_pool_id, amount, is_receive, expire_date
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.present.PresentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from present
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from present
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update present
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.present.PresentExample" >
+    update present
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.present.Present" useGeneratedKeys="true" keyProperty="id" >
+    insert into present (id, gmt_created, gmt_modified, 
+      created_by, modified_by, is_deleted, 
+      present_id, seller_id, user_id, 
+      birthday_acivity_id, present_type, present_name, 
+      present_source, discount, present_password, 
+      goods_id, hb_pool_id, amount, 
+      is_receive, expire_date)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{presentId,jdbcType=BIGINT}, #{sellerId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
+      #{birthdayAcivityId,jdbcType=BIGINT}, #{presentType,jdbcType=VARCHAR}, #{presentName,jdbcType=VARCHAR}, 
+      #{presentSource,jdbcType=VARCHAR}, #{discount,jdbcType=DOUBLE}, #{presentPassword,jdbcType=VARCHAR}, 
+      #{goodsId,jdbcType=BIGINT}, #{hbPoolId,jdbcType=BIGINT}, #{amount,jdbcType=BIGINT}, 
+      #{isReceive,jdbcType=BIT}, #{expireDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.present.Present" useGeneratedKeys="true" keyProperty="id" >
+    insert into present
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="presentId != null" >
+        present_id,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="birthdayAcivityId != null" >
+        birthday_acivity_id,
+      </if>
+      <if test="presentType != null" >
+        present_type,
+      </if>
+      <if test="presentName != null" >
+        present_name,
+      </if>
+      <if test="presentSource != null" >
+        present_source,
+      </if>
+      <if test="discount != null" >
+        discount,
+      </if>
+      <if test="presentPassword != null" >
+        present_password,
+      </if>
+      <if test="goodsId != null" >
+        goods_id,
+      </if>
+      <if test="hbPoolId != null" >
+        hb_pool_id,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+      <if test="isReceive != null" >
+        is_receive,
+      </if>
+      <if test="expireDate != null" >
+        expire_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="presentId != null" >
+        #{presentId,jdbcType=BIGINT},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="birthdayAcivityId != null" >
+        #{birthdayAcivityId,jdbcType=BIGINT},
+      </if>
+      <if test="presentType != null" >
+        #{presentType,jdbcType=VARCHAR},
+      </if>
+      <if test="presentName != null" >
+        #{presentName,jdbcType=VARCHAR},
+      </if>
+      <if test="presentSource != null" >
+        #{presentSource,jdbcType=VARCHAR},
+      </if>
+      <if test="discount != null" >
+        #{discount,jdbcType=DOUBLE},
+      </if>
+      <if test="presentPassword != null" >
+        #{presentPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsId != null" >
+        #{goodsId,jdbcType=BIGINT},
+      </if>
+      <if test="hbPoolId != null" >
+        #{hbPoolId,jdbcType=BIGINT},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=BIGINT},
+      </if>
+      <if test="isReceive != null" >
+        #{isReceive,jdbcType=BIT},
+      </if>
+      <if test="expireDate != null" >
+        #{expireDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.present.PresentExample" resultType="java.lang.Integer" >
+    select count(*) from present
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update present
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.presentId!=null and record.presentIdExpression==null" >
+          present_id = #{record.presentId,jdbcType=BIGINT},
+        </if>
+        <if test="record.presentIdExpression!=null" >
+          present_id = ${record.presentIdExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.userId!=null and record.userIdExpression==null" >
+          user_id = #{record.userId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdExpression!=null" >
+          user_id = ${record.userIdExpression},
+        </if>
+        <if test="record.birthdayAcivityId!=null and record.birthdayAcivityIdExpression==null" >
+          birthday_acivity_id = #{record.birthdayAcivityId,jdbcType=BIGINT},
+        </if>
+        <if test="record.birthdayAcivityIdExpression!=null" >
+          birthday_acivity_id = ${record.birthdayAcivityIdExpression},
+        </if>
+        <if test="record.presentType!=null and record.presentTypeExpression==null" >
+          present_type = #{record.presentType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.presentTypeExpression!=null" >
+          present_type = ${record.presentTypeExpression},
+        </if>
+        <if test="record.presentName!=null and record.presentNameExpression==null" >
+          present_name = #{record.presentName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.presentNameExpression!=null" >
+          present_name = ${record.presentNameExpression},
+        </if>
+        <if test="record.presentSource!=null and record.presentSourceExpression==null" >
+          present_source = #{record.presentSource,jdbcType=VARCHAR},
+        </if>
+        <if test="record.presentSourceExpression!=null" >
+          present_source = ${record.presentSourceExpression},
+        </if>
+        <if test="record.discount!=null and record.discountExpression==null" >
+          discount = #{record.discount,jdbcType=DOUBLE},
+        </if>
+        <if test="record.discountExpression!=null" >
+          discount = ${record.discountExpression},
+        </if>
+        <if test="record.presentPassword!=null and record.presentPasswordExpression==null" >
+          present_password = #{record.presentPassword,jdbcType=VARCHAR},
+        </if>
+        <if test="record.presentPasswordExpression!=null" >
+          present_password = ${record.presentPasswordExpression},
+        </if>
+        <if test="record.goodsId!=null and record.goodsIdExpression==null" >
+          goods_id = #{record.goodsId,jdbcType=BIGINT},
+        </if>
+        <if test="record.goodsIdExpression!=null" >
+          goods_id = ${record.goodsIdExpression},
+        </if>
+        <if test="record.hbPoolId!=null and record.hbPoolIdExpression==null" >
+          hb_pool_id = #{record.hbPoolId,jdbcType=BIGINT},
+        </if>
+        <if test="record.hbPoolIdExpression!=null" >
+          hb_pool_id = ${record.hbPoolIdExpression},
+        </if>
+        <if test="record.amount!=null and record.amountExpression==null" >
+          amount = #{record.amount,jdbcType=BIGINT},
+        </if>
+        <if test="record.amountExpression!=null" >
+          amount = ${record.amountExpression},
+        </if>
+        <if test="record.isReceive!=null and record.isReceiveExpression==null" >
+          is_receive = #{record.isReceive,jdbcType=BIT},
+        </if>
+        <if test="record.isReceiveExpression!=null" >
+          is_receive = ${record.isReceiveExpression},
+        </if>
+        <if test="record.expireDate!=null and record.expireDateExpression==null" >
+          expire_date = #{record.expireDate,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.expireDateExpression!=null" >
+          expire_date = ${record.expireDateExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update present
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      present_id = #{record.presentId,jdbcType=BIGINT},
+      seller_id = #{record.sellerId,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      birthday_acivity_id = #{record.birthdayAcivityId,jdbcType=BIGINT},
+      present_type = #{record.presentType,jdbcType=VARCHAR},
+      present_name = #{record.presentName,jdbcType=VARCHAR},
+      present_source = #{record.presentSource,jdbcType=VARCHAR},
+      discount = #{record.discount,jdbcType=DOUBLE},
+      present_password = #{record.presentPassword,jdbcType=VARCHAR},
+      goods_id = #{record.goodsId,jdbcType=BIGINT},
+      hb_pool_id = #{record.hbPoolId,jdbcType=BIGINT},
+      amount = #{record.amount,jdbcType=BIGINT},
+      is_receive = #{record.isReceive,jdbcType=BIT},
+      expire_date = #{record.expireDate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.present.Present" >
+    update present
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.presentId!=null and record.presentIdExpression==null" >
+          present_id = #{record.presentId,jdbcType=BIGINT},
+        </if>
+        <if test="record.presentIdExpression!=null" >
+          present_id = ${record.presentIdExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.userId!=null and record.userIdExpression==null" >
+          user_id = #{record.userId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdExpression!=null" >
+          user_id = ${record.userIdExpression},
+        </if>
+        <if test="record.birthdayAcivityId!=null and record.birthdayAcivityIdExpression==null" >
+          birthday_acivity_id = #{record.birthdayAcivityId,jdbcType=BIGINT},
+        </if>
+        <if test="record.birthdayAcivityIdExpression!=null" >
+          birthday_acivity_id = ${record.birthdayAcivityIdExpression},
+        </if>
+        <if test="record.presentType!=null and record.presentTypeExpression==null" >
+          present_type = #{record.presentType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.presentTypeExpression!=null" >
+          present_type = ${record.presentTypeExpression},
+        </if>
+        <if test="record.presentName!=null and record.presentNameExpression==null" >
+          present_name = #{record.presentName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.presentNameExpression!=null" >
+          present_name = ${record.presentNameExpression},
+        </if>
+        <if test="record.presentSource!=null and record.presentSourceExpression==null" >
+          present_source = #{record.presentSource,jdbcType=VARCHAR},
+        </if>
+        <if test="record.presentSourceExpression!=null" >
+          present_source = ${record.presentSourceExpression},
+        </if>
+        <if test="record.discount!=null and record.discountExpression==null" >
+          discount = #{record.discount,jdbcType=DOUBLE},
+        </if>
+        <if test="record.discountExpression!=null" >
+          discount = ${record.discountExpression},
+        </if>
+        <if test="record.presentPassword!=null and record.presentPasswordExpression==null" >
+          present_password = #{record.presentPassword,jdbcType=VARCHAR},
+        </if>
+        <if test="record.presentPasswordExpression!=null" >
+          present_password = ${record.presentPasswordExpression},
+        </if>
+        <if test="record.goodsId!=null and record.goodsIdExpression==null" >
+          goods_id = #{record.goodsId,jdbcType=BIGINT},
+        </if>
+        <if test="record.goodsIdExpression!=null" >
+          goods_id = ${record.goodsIdExpression},
+        </if>
+        <if test="record.hbPoolId!=null and record.hbPoolIdExpression==null" >
+          hb_pool_id = #{record.hbPoolId,jdbcType=BIGINT},
+        </if>
+        <if test="record.hbPoolIdExpression!=null" >
+          hb_pool_id = ${record.hbPoolIdExpression},
+        </if>
+        <if test="record.amount!=null and record.amountExpression==null" >
+          amount = #{record.amount,jdbcType=BIGINT},
+        </if>
+        <if test="record.amountExpression!=null" >
+          amount = ${record.amountExpression},
+        </if>
+        <if test="record.isReceive!=null and record.isReceiveExpression==null" >
+          is_receive = #{record.isReceive,jdbcType=BIT},
+        </if>
+        <if test="record.isReceiveExpression!=null" >
+          is_receive = ${record.isReceiveExpression},
+        </if>
+        <if test="record.expireDate!=null and record.expireDateExpression==null" >
+          expire_date = #{record.expireDate,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.expireDateExpression!=null" >
+          expire_date = ${record.expireDateExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.present.Present" >
+    update present
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      present_id = #{presentId,jdbcType=BIGINT},
+      seller_id = #{sellerId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      birthday_acivity_id = #{birthdayAcivityId,jdbcType=BIGINT},
+      present_type = #{presentType,jdbcType=VARCHAR},
+      present_name = #{presentName,jdbcType=VARCHAR},
+      present_source = #{presentSource,jdbcType=VARCHAR},
+      discount = #{discount,jdbcType=DOUBLE},
+      present_password = #{presentPassword,jdbcType=VARCHAR},
+      goods_id = #{goodsId,jdbcType=BIGINT},
+      hb_pool_id = #{hbPoolId,jdbcType=BIGINT},
+      amount = #{amount,jdbcType=BIGINT},
+      is_receive = #{isReceive,jdbcType=BIT},
+      expire_date = #{expireDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

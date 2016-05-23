@@ -1,0 +1,260 @@
+#set($layout = "/layout/mobileBlank.vm")
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <title>我的认证</title>
+</head>
+
+<script src="${rc.contextPath}/media/mobile/assets/vendor/jqueryDateBox/js/jquery.js"></script>
+<script src="${rc.contextPath}/media/mobile/assets/vendor/jqueryDateBox/js/jqueryMobile.js"></script>
+<script src="${rc.contextPath}/media/mobile/assets/vendor/jqueryDateBox/js/mobiscroll.js"></script>
+<script type="text/javascript">
+    var opt = {
+        preset: 'date', //日期
+        theme: 'default', //皮肤样式
+        display: 'modal', //显示方式
+        mode: 'scroller', //日期选择模式
+        dateFormat: 'yy-mm-dd', // 日期格式
+        setText: '确定', //确认按钮名称
+        cancelText: '取消',//取消按钮名籍我
+        dateOrder: 'yymmdd', //面板中日期排列格式
+        dayText: '日', monthText: '月', yearText: '年', //面板中年月日文字
+        endYear: 2020 //结束年份
+    };
+    // 使用定义插件
+
+    $(document).on("pageinit", "#pageone", function () {
+        $("#birthday").mobiscroll(opt);
+    });
+</script>
+
+<body>
+<div data-role="page" id="pageone">
+<div class="u-body">
+    <div class="u-info" style="padding: 5px 0;margin:20px 0;">
+        <div class="form-grounp" style="background: #fff;padding: 5px 10px 5px 15px;">
+            <img class="wx-img" style="width:60px;height: 60px;vertical-align: middle;" src="$!wxHeadImgUrl"/>
+            <span style="padding: 0 10px;font-size: 16px;">$!wxNickName</span>
+            <span class="pull-right" style="font-size: 16px;color:red;padding: 15px 0;" id="isVerify"></span>
+        </div>
+    </div>
+    <div class="u-block" >
+        <form id="myForm" role="form" style="line-height: 80px">
+            <input type="hidden" name="userId" value="$!userId"/>
+            <input type="hidden" name="isVerified" value="$!isVerified"/>
+            <input type="hidden" id="isMobile" value="$!isMobile"/>
+            <input type="hidden" id="birthDay" value="$!birthDay"/>
+            <div class="form-grounp">
+                <label class="label">手机号 <img height="40px" width="18px" style="vertical-align: middle" src="${rc.contextPath}/media/mobile/assets/images/public/phone.png"></img></label>
+
+                <div class="label-info">
+                    <div class="yzm"><input type="text" id="phonenumber" name="mobile" class="inputtext"
+                                            placeholder="输入手机号码"></div>
+                    <a id="getCode" href="javascript:getCode();"
+                       class="get-yzm">验证码</a><span id="timer"
+                                                    style="position: absolute;right: 4px;top: -2px;background: #aca5a5;width:58px;height: 26px;text-align:center;color:#f4f4f4;display: none;line-height: 28px;border-radius: 3px;">
+                    <b id="timeCount" style="padding: 0 2px;">120</b>秒</span></div>
+            </div>
+            <div class="form-grounp" id="codeDiv">
+                <label class="label">验证码<img height="40px" style="margin-left: 4px;vertical-align: middle;" width="18px" src="${rc.contextPath}/media/mobile/assets/images/public/yzm.png"></img></label>
+
+                <div class="label-info"><input type="text" name="code" class="inputtext" placeholder="输入验证码"></div>
+            </div>
+            <div class="form-grounp">
+
+                <label class="label">您的生日</label>
+                <div class="label-info"><input type="text" name="birthday"  data-role="datebox" id="birthday" class="inputtext Wdate" placeholder="填写后，生日当天会有惊喜"></div>
+
+            </div>
+            <div class="form-grounp" id="moreConfig" style="padding: 5px;background: #F0F2F5;line-height: 15px;">
+                <p style="text-align: center;font-size: 13px;">
+                    <label style="background:#15C9FF;border-radius: 3px;border-top-left-radius: 3px;border-top-right-radius: 3px;border-bottom-right-radius: 3px;
+                    border-bottom-left-radius: 3px; color: #fff;padding: 3px 8px;">高级验证(准确度高)>></label>
+                </p>
+            </div>
+            <div class="form-grounp high-config" style="display: none;">
+                <label class="label">淘宝账号</label>
+
+                <div class="label-info"><input type="text" name="tbBuyerNick" class="inputtext" placeholder="输入淘宝账号" value="$!tbBuyerNick">
+                </div>
+            </div>
+            <div class="form-grounp noBorder high-config" style="display: none;">
+                <label class="label">京东账号</label>
+
+                <div class="label-info"><input name="jdPin" type="text" class="inputtext" placeholder="输入京东账号" value="$!jdPin"></div>
+            </div>
+        </form>
+    </div>
+    <div>
+        <a id="submit" href="javascript:" class="u-submit">开始验证</a>
+    </div>
+</div>
+
+<div id="yzmWindow">
+    <div class="box">
+        <div class="window">
+            <h2 id="yzTitle">验证失败<i>!</i></h2>
+
+            <p style="font-size: 15px;text-align: center;padding: 0 50px;" id="yzContent"></p>
+            <a href="javascript:" id="content">确定</a>
+        </div>
+    </div>
+</div>
+<div class="u-footer" style="position: relative;margin-top: 40px;">
+    <p>
+        <img src="${rc.contextPath}/media/mobile/assets/images/public/suniu_logo_grey.jpg">
+        <span>技术支持·速牛科技</span>
+    </p>
+</div>
+
+<script type="text/javascript">
+    //布局切换
+    $('#moreConfig').click(function () {
+        $('.high-config').toggle("normarl");
+    });
+
+    //判断用户是否已验证
+    var isVerified = $("#myForm input[name='isVerified']").val();
+    var isMobile = $("#isMobile").val();
+    var birthDay = $("#birthDay").val();
+    if (isVerified != '' && isVerified == '1') {
+        //该用户已验证
+        $('#codeDiv').hide();
+        $('#getCode').hide();
+        if (isMobile != '') {
+            $("#myForm input[name='mobile']").val(isMobile);
+            $("#myForm input[name='mobile']").attr("readOnly", "true");
+        }
+        if (birthDay != ''){
+            $("#myForm input[name='birthday']").val(birthDay);
+            $("#myForm input[name='birthday']").attr("readOnly", "true");
+            $("#myForm input[name='birthday']").removeAttr("id");
+            $("#moreConfig").click();
+        }
+        $('#isVerify').html('已验证');
+    }
+
+    //用户认证
+    $('#submit').click(function () {
+        var mobile = $("#myForm input[name='mobile']").val();
+        if (mobile == '' || mobile == null) {
+            alert('手机号为空');
+            return;
+        }else if (!(/^1\d{10}$/).test(mobile)){
+            alert('手机号码格式错误');
+            return;
+        }
+
+        var isVerified = $("#myForm input[name='isVerified']").val();
+        var birth = $("#myForm input[name='birthday']").val();
+        var tbname = $("#myForm input[name='tbBuyerNick']").val();
+        var jdname = $("#myForm input[name='jdPin']").val();
+        var yzname = $("#myForm input[name='yzBuyerNick']").val();
+         if (isVerified != '' && mobile != ''){
+            if (birth == '' && tbname == '' && jdname == '' && yzname == ''){
+                alert('您还未填写任何信息');
+                return false;
+            }
+         }
+
+        var data = $("#myForm").serialize();
+        var sellerId = getArgs().sellerId;
+        var redirectUrl = getArgs().redirectUrl;
+        data = data + "&sellerId=" + sellerId;
+        if (redirectUrl) {
+            data = data + "&" + redirectUrl;
+        }
+
+        $.ajax({
+            type: "post",
+            url: baseUrl + "/mobile/validateUser",
+            data: data,
+            dataType: "json",
+            success: function (data) {
+                if (data != null) {
+                    if (data.errCode == '0') {
+
+                        $("#yzTitle").html('认证成功');
+                        $("#yzContent").html(data.errMsg);
+
+                        var redirectUrl = "$!{redirectUrl}";
+
+                        if(redirectUrl && redirectUrl!=''){
+                            window.location.href = redirectUrl;
+                        }
+
+                    } else {
+                        $("#yzTitle").html("认证失败");
+                        $("#content").html("返回重新输入");
+                        $("#yzContent").html(data.errMsg);
+                    }
+                }
+                $('#yzmWindow').fadeIn();
+            }
+        });
+    });
+    $('#yzmWindow .box .window a').click(function () {
+        $(this).parent().parent().parent().hide();
+        $('#phonenumber').focus();
+        $('#phonenumber').select();
+    });
+
+    //获取验证码
+    var timer;//定时器
+    function getCode() {
+        var mobile = $("#myForm input[name='mobile']").val();
+        var userId = $("#myForm input[name='userId']").val();
+        if (mobile == '' || mobile == null) {
+            alert('手机号为空');
+            return;
+        }else if (!(/^1\d{10}$/).test(mobile)){
+            alert('手机号码格式错误');
+            return;
+        }
+        var sellerId = getArgs().sellerId;
+        $('#getCode').hide();
+        $('#timer').show();
+        timer = window.setInterval("run();", 1000);
+        $.ajax({
+            type: "post",
+            url: baseUrl + "mobile/getSecurityCode",
+            data:　{mobile:mobile, userId:userId, sellerId:sellerId},
+            dataType : "json",
+            success:function (data) {
+            if (data.codeSend == '0') {
+                alert('验证码已发送，请注意查收');
+            } else {
+                alert('获取验证码失败');
+            }
+        },error : function () {
+            alert("系统异常");
+        }
+    }
+    )
+    ;
+    }
+
+    //倒计时
+    function run() {
+        var s = document.getElementById("timeCount");
+        if (s.innerHTML == 0) {
+            $('#getCode').show();
+            $('#timer').hide();
+            $('#timeCount').html(120);
+            window.clearInterval(timer);
+            return false;
+        }
+        s.innerHTML = s.innerHTML * 1 - 1;
+    }
+</script>
+    </div>
+</body>
+</html>

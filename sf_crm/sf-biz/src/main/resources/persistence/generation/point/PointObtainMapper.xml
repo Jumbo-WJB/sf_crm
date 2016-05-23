@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.point.PointObtainMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.point.PointObtain" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_point_obtain_version" property="maxPointObtainVersion" jdbcType="BIGINT" />
+    <result column="min_point_obtain_version" property="minPointObtainVersion" jdbcType="BIGINT" />
+    <result column="avg_point_obtain_version" property="avgPointObtainVersion" jdbcType="BIGINT" />
+    <result column="count_point_obtain_version" property="countPointObtainVersion" jdbcType="BIGINT" />
+    <result column="sum_point_obtain_version" property="sumPointObtainVersion" jdbcType="BIGINT" />
+    <result column="max_obtain_method_id" property="maxObtainMethodId" jdbcType="BIGINT" />
+    <result column="min_obtain_method_id" property="minObtainMethodId" jdbcType="BIGINT" />
+    <result column="avg_obtain_method_id" property="avgObtainMethodId" jdbcType="BIGINT" />
+    <result column="count_obtain_method_id" property="countObtainMethodId" jdbcType="BIGINT" />
+    <result column="sum_obtain_method_id" property="sumObtainMethodId" jdbcType="BIGINT" />
+    <result column="max_obtain_method" property="maxObtainMethod" jdbcType="BIGINT" />
+    <result column="min_obtain_method" property="minObtainMethod" jdbcType="BIGINT" />
+    <result column="avg_obtain_method" property="avgObtainMethod" jdbcType="BIGINT" />
+    <result column="count_obtain_method" property="countObtainMethod" jdbcType="BIGINT" />
+    <result column="sum_obtain_method" property="sumObtainMethod" jdbcType="VARCHAR" />
+    <result column="max_status" property="maxStatus" jdbcType="BIGINT" />
+    <result column="min_status" property="minStatus" jdbcType="BIGINT" />
+    <result column="avg_status" property="avgStatus" jdbcType="BIGINT" />
+    <result column="count_status" property="countStatus" jdbcType="BIGINT" />
+    <result column="sum_status" property="sumStatus" jdbcType="VARCHAR" />
+    <result column="max_gmt_expired" property="maxGmtExpired" jdbcType="BIGINT" />
+    <result column="min_gmt_expired" property="minGmtExpired" jdbcType="BIGINT" />
+    <result column="avg_gmt_expired" property="avgGmtExpired" jdbcType="BIGINT" />
+    <result column="count_gmt_expired" property="countGmtExpired" jdbcType="BIGINT" />
+    <result column="sum_gmt_expired" property="sumGmtExpired" jdbcType="TIMESTAMP" />
+    <result column="max_amount_consumed" property="maxAmountConsumed" jdbcType="BIGINT" />
+    <result column="min_amount_consumed" property="minAmountConsumed" jdbcType="BIGINT" />
+    <result column="avg_amount_consumed" property="avgAmountConsumed" jdbcType="BIGINT" />
+    <result column="count_amount_consumed" property="countAmountConsumed" jdbcType="BIGINT" />
+    <result column="sum_amount_consumed" property="sumAmountConsumed" jdbcType="BIGINT" />
+    <result column="max_amount" property="maxAmount" jdbcType="BIGINT" />
+    <result column="min_amount" property="minAmount" jdbcType="BIGINT" />
+    <result column="avg_amount" property="avgAmount" jdbcType="BIGINT" />
+    <result column="count_amount" property="countAmount" jdbcType="BIGINT" />
+    <result column="sum_amount" property="sumAmount" jdbcType="BIGINT" />
+    <result column="max_gmt_transfer" property="maxGmtTransfer" jdbcType="BIGINT" />
+    <result column="min_gmt_transfer" property="minGmtTransfer" jdbcType="BIGINT" />
+    <result column="avg_gmt_transfer" property="avgGmtTransfer" jdbcType="BIGINT" />
+    <result column="count_gmt_transfer" property="countGmtTransfer" jdbcType="BIGINT" />
+    <result column="sum_gmt_transfer" property="sumGmtTransfer" jdbcType="TIMESTAMP" />
+    <result column="max_transferer_id" property="maxTransfererId" jdbcType="BIGINT" />
+    <result column="min_transferer_id" property="minTransfererId" jdbcType="BIGINT" />
+    <result column="avg_transferer_id" property="avgTransfererId" jdbcType="BIGINT" />
+    <result column="count_transferer_id" property="countTransfererId" jdbcType="BIGINT" />
+    <result column="sum_transferer_id" property="sumTransfererId" jdbcType="BIGINT" />
+    <result column="max_user_id" property="maxUserId" jdbcType="BIGINT" />
+    <result column="min_user_id" property="minUserId" jdbcType="BIGINT" />
+    <result column="avg_user_id" property="avgUserId" jdbcType="BIGINT" />
+    <result column="count_user_id" property="countUserId" jdbcType="BIGINT" />
+    <result column="sum_user_id" property="sumUserId" jdbcType="BIGINT" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="transferer_id" property="transfererId" jdbcType="BIGINT" />
+    <result column="gmt_transfer" property="gmtTransfer" jdbcType="TIMESTAMP" />
+    <result column="amount" property="amount" jdbcType="BIGINT" />
+    <result column="amount_consumed" property="amountConsumed" jdbcType="BIGINT" />
+    <result column="gmt_expired" property="gmtExpired" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="obtain_method" property="obtainMethod" jdbcType="VARCHAR" />
+    <result column="obtain_method_id" property="obtainMethodId" jdbcType="BIGINT" />
+    <result column="point_obtain_version" property="pointObtainVersion" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, created_by, modified_by, is_deleted, seller_id, user_id, 
+    transferer_id, gmt_transfer, amount, amount_consumed, gmt_expired, status, obtain_method, 
+    obtain_method_id, point_obtain_version
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.point.PointObtainExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from point_obtain
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from point_obtain
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update point_obtain
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.point.PointObtainExample" >
+    update point_obtain
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.point.PointObtain" useGeneratedKeys="true" keyProperty="id" >
+    insert into point_obtain (id, gmt_created, gmt_modified, 
+      created_by, modified_by, is_deleted, 
+      seller_id, user_id, transferer_id, 
+      gmt_transfer, amount, amount_consumed, 
+      gmt_expired, status, obtain_method, 
+      obtain_method_id, point_obtain_version)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{sellerId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{transfererId,jdbcType=BIGINT}, 
+      #{gmtTransfer,jdbcType=TIMESTAMP}, #{amount,jdbcType=BIGINT}, #{amountConsumed,jdbcType=BIGINT}, 
+      #{gmtExpired,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{obtainMethod,jdbcType=VARCHAR}, 
+      #{obtainMethodId,jdbcType=BIGINT}, #{pointObtainVersion,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.point.PointObtain" useGeneratedKeys="true" keyProperty="id" >
+    insert into point_obtain
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="transfererId != null" >
+        transferer_id,
+      </if>
+      <if test="gmtTransfer != null" >
+        gmt_transfer,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+      <if test="amountConsumed != null" >
+        amount_consumed,
+      </if>
+      <if test="gmtExpired != null" >
+        gmt_expired,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="obtainMethod != null" >
+        obtain_method,
+      </if>
+      <if test="obtainMethodId != null" >
+        obtain_method_id,
+      </if>
+      <if test="pointObtainVersion != null" >
+        point_obtain_version,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="transfererId != null" >
+        #{transfererId,jdbcType=BIGINT},
+      </if>
+      <if test="gmtTransfer != null" >
+        #{gmtTransfer,jdbcType=TIMESTAMP},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=BIGINT},
+      </if>
+      <if test="amountConsumed != null" >
+        #{amountConsumed,jdbcType=BIGINT},
+      </if>
+      <if test="gmtExpired != null" >
+        #{gmtExpired,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="obtainMethod != null" >
+        #{obtainMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="obtainMethodId != null" >
+        #{obtainMethodId,jdbcType=BIGINT},
+      </if>
+      <if test="pointObtainVersion != null" >
+        #{pointObtainVersion,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.point.PointObtainExample" resultType="java.lang.Integer" >
+    select count(*) from point_obtain
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update point_obtain
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.userId!=null and record.userIdExpression==null" >
+          user_id = #{record.userId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdExpression!=null" >
+          user_id = ${record.userIdExpression},
+        </if>
+        <if test="record.transfererId!=null and record.transfererIdExpression==null" >
+          transferer_id = #{record.transfererId,jdbcType=BIGINT},
+        </if>
+        <if test="record.transfererIdExpression!=null" >
+          transferer_id = ${record.transfererIdExpression},
+        </if>
+        <if test="record.gmtTransfer!=null and record.gmtTransferExpression==null" >
+          gmt_transfer = #{record.gmtTransfer,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtTransferExpression!=null" >
+          gmt_transfer = ${record.gmtTransferExpression},
+        </if>
+        <if test="record.amount!=null and record.amountExpression==null" >
+          amount = #{record.amount,jdbcType=BIGINT},
+        </if>
+        <if test="record.amountExpression!=null" >
+          amount = ${record.amountExpression},
+        </if>
+        <if test="record.amountConsumed!=null and record.amountConsumedExpression==null" >
+          amount_consumed = #{record.amountConsumed,jdbcType=BIGINT},
+        </if>
+        <if test="record.amountConsumedExpression!=null" >
+          amount_consumed = ${record.amountConsumedExpression},
+        </if>
+        <if test="record.gmtExpired!=null and record.gmtExpiredExpression==null" >
+          gmt_expired = #{record.gmtExpired,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtExpiredExpression!=null" >
+          gmt_expired = ${record.gmtExpiredExpression},
+        </if>
+        <if test="record.status!=null and record.statusExpression==null" >
+          status = #{record.status,jdbcType=VARCHAR},
+        </if>
+        <if test="record.statusExpression!=null" >
+          status = ${record.statusExpression},
+        </if>
+        <if test="record.obtainMethod!=null and record.obtainMethodExpression==null" >
+          obtain_method = #{record.obtainMethod,jdbcType=VARCHAR},
+        </if>
+        <if test="record.obtainMethodExpression!=null" >
+          obtain_method = ${record.obtainMethodExpression},
+        </if>
+        <if test="record.obtainMethodId!=null and record.obtainMethodIdExpression==null" >
+          obtain_method_id = #{record.obtainMethodId,jdbcType=BIGINT},
+        </if>
+        <if test="record.obtainMethodIdExpression!=null" >
+          obtain_method_id = ${record.obtainMethodIdExpression},
+        </if>
+        <if test="record.pointObtainVersion!=null and record.pointObtainVersionExpression==null" >
+          point_obtain_version = #{record.pointObtainVersion,jdbcType=BIGINT},
+        </if>
+        <if test="record.pointObtainVersionExpression!=null" >
+          point_obtain_version = ${record.pointObtainVersionExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update point_obtain
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      transferer_id = #{record.transfererId,jdbcType=BIGINT},
+      gmt_transfer = #{record.gmtTransfer,jdbcType=TIMESTAMP},
+      amount = #{record.amount,jdbcType=BIGINT},
+      amount_consumed = #{record.amountConsumed,jdbcType=BIGINT},
+      gmt_expired = #{record.gmtExpired,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=VARCHAR},
+      obtain_method = #{record.obtainMethod,jdbcType=VARCHAR},
+      obtain_method_id = #{record.obtainMethodId,jdbcType=BIGINT},
+      point_obtain_version = #{record.pointObtainVersion,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.point.PointObtain" >
+    update point_obtain
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.userId!=null and record.userIdExpression==null" >
+          user_id = #{record.userId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdExpression!=null" >
+          user_id = ${record.userIdExpression},
+        </if>
+        <if test="record.transfererId!=null and record.transfererIdExpression==null" >
+          transferer_id = #{record.transfererId,jdbcType=BIGINT},
+        </if>
+        <if test="record.transfererIdExpression!=null" >
+          transferer_id = ${record.transfererIdExpression},
+        </if>
+        <if test="record.gmtTransfer!=null and record.gmtTransferExpression==null" >
+          gmt_transfer = #{record.gmtTransfer,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtTransferExpression!=null" >
+          gmt_transfer = ${record.gmtTransferExpression},
+        </if>
+        <if test="record.amount!=null and record.amountExpression==null" >
+          amount = #{record.amount,jdbcType=BIGINT},
+        </if>
+        <if test="record.amountExpression!=null" >
+          amount = ${record.amountExpression},
+        </if>
+        <if test="record.amountConsumed!=null and record.amountConsumedExpression==null" >
+          amount_consumed = #{record.amountConsumed,jdbcType=BIGINT},
+        </if>
+        <if test="record.amountConsumedExpression!=null" >
+          amount_consumed = ${record.amountConsumedExpression},
+        </if>
+        <if test="record.gmtExpired!=null and record.gmtExpiredExpression==null" >
+          gmt_expired = #{record.gmtExpired,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtExpiredExpression!=null" >
+          gmt_expired = ${record.gmtExpiredExpression},
+        </if>
+        <if test="record.status!=null and record.statusExpression==null" >
+          status = #{record.status,jdbcType=VARCHAR},
+        </if>
+        <if test="record.statusExpression!=null" >
+          status = ${record.statusExpression},
+        </if>
+        <if test="record.obtainMethod!=null and record.obtainMethodExpression==null" >
+          obtain_method = #{record.obtainMethod,jdbcType=VARCHAR},
+        </if>
+        <if test="record.obtainMethodExpression!=null" >
+          obtain_method = ${record.obtainMethodExpression},
+        </if>
+        <if test="record.obtainMethodId!=null and record.obtainMethodIdExpression==null" >
+          obtain_method_id = #{record.obtainMethodId,jdbcType=BIGINT},
+        </if>
+        <if test="record.obtainMethodIdExpression!=null" >
+          obtain_method_id = ${record.obtainMethodIdExpression},
+        </if>
+        <if test="record.pointObtainVersion!=null and record.pointObtainVersionExpression==null" >
+          point_obtain_version = #{record.pointObtainVersion,jdbcType=BIGINT},
+        </if>
+        <if test="record.pointObtainVersionExpression!=null" >
+          point_obtain_version = ${record.pointObtainVersionExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.point.PointObtain" >
+    update point_obtain
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      transferer_id = #{transfererId,jdbcType=BIGINT},
+      gmt_transfer = #{gmtTransfer,jdbcType=TIMESTAMP},
+      amount = #{amount,jdbcType=BIGINT},
+      amount_consumed = #{amountConsumed,jdbcType=BIGINT},
+      gmt_expired = #{gmtExpired,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR},
+      obtain_method = #{obtainMethod,jdbcType=VARCHAR},
+      obtain_method_id = #{obtainMethodId,jdbcType=BIGINT},
+      point_obtain_version = #{pointObtainVersion,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

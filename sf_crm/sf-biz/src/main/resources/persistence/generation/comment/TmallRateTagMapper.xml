@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.comment.TmallRateTagMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.comment.TmallRateTag" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_posi" property="maxPosi" jdbcType="BIGINT" />
+    <result column="min_posi" property="minPosi" jdbcType="BIGINT" />
+    <result column="avg_posi" property="avgPosi" jdbcType="BIGINT" />
+    <result column="count_posi" property="countPosi" jdbcType="BIGINT" />
+    <result column="max_tag_name" property="maxTag_name" jdbcType="BIGINT" />
+    <result column="min_tag_name" property="minTag_name" jdbcType="BIGINT" />
+    <result column="avg_tag_name" property="avgTag_name" jdbcType="BIGINT" />
+    <result column="count_tag_name" property="countTag_name" jdbcType="BIGINT" />
+    <result column="max_append_tags" property="maxAppend_tags" jdbcType="BIGINT" />
+    <result column="min_append_tags" property="minAppend_tags" jdbcType="BIGINT" />
+    <result column="avg_append_tags" property="avgAppend_tags" jdbcType="BIGINT" />
+    <result column="count_append_tags" property="countAppend_tags" jdbcType="BIGINT" />
+    <result column="max_comment_id_tb" property="maxComment_id_tb" jdbcType="BIGINT" />
+    <result column="min_comment_id_tb" property="minComment_id_tb" jdbcType="BIGINT" />
+    <result column="avg_comment_id_tb" property="avgComment_id_tb" jdbcType="BIGINT" />
+    <result column="count_comment_id_tb" property="countComment_id_tb" jdbcType="BIGINT" />
+    <result column="max_tag_id" property="maxTag_id" jdbcType="BIGINT" />
+    <result column="min_tag_id" property="minTag_id" jdbcType="BIGINT" />
+    <result column="avg_tag_id" property="avgTag_id" jdbcType="BIGINT" />
+    <result column="count_tag_id" property="countTag_id" jdbcType="BIGINT" />
+    <result column="max_is_deleted" property="maxIs_deleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIs_deleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIs_deleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIs_deleted" jdbcType="BIGINT" />
+    <result column="max_gmt_modified" property="maxGmt_modified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmt_modified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmt_modified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmt_modified" jdbcType="BIGINT" />
+    <result column="max_gmt_created" property="maxGmt_created" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmt_created" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmt_created" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmt_created" jdbcType="BIGINT" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="tag_id" property="tagId" jdbcType="BIGINT" />
+    <result column="comment_id_tb" property="commentIdTb" jdbcType="BIGINT" />
+    <result column="append_tags" property="appendTags" jdbcType="BIT" />
+    <result column="tag_name" property="tagName" jdbcType="VARCHAR" />
+    <result column="posi" property="posi" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, is_deleted, tag_id, comment_id_tb, append_tags, tag_name, 
+    posi
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.comment.TmallRateTagExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from tmall_rate_tag
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tmall_rate_tag
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update tmall_rate_tag
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.comment.TmallRateTagExample" >
+    update tmall_rate_tag
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.comment.TmallRateTag" useGeneratedKeys="true" keyProperty="id" >
+    insert into tmall_rate_tag (id, gmt_created, gmt_modified, 
+      is_deleted, tag_id, comment_id_tb, 
+      append_tags, tag_name, posi)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{isDeleted,jdbcType=VARCHAR}, #{tagId,jdbcType=BIGINT}, #{commentIdTb,jdbcType=BIGINT}, 
+      #{appendTags,jdbcType=BIT}, #{tagName,jdbcType=VARCHAR}, #{posi,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.comment.TmallRateTag" useGeneratedKeys="true" keyProperty="id" >
+    insert into tmall_rate_tag
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="tagId != null" >
+        tag_id,
+      </if>
+      <if test="commentIdTb != null" >
+        comment_id_tb,
+      </if>
+      <if test="appendTags != null" >
+        append_tags,
+      </if>
+      <if test="tagName != null" >
+        tag_name,
+      </if>
+      <if test="posi != null" >
+        posi,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="tagId != null" >
+        #{tagId,jdbcType=BIGINT},
+      </if>
+      <if test="commentIdTb != null" >
+        #{commentIdTb,jdbcType=BIGINT},
+      </if>
+      <if test="appendTags != null" >
+        #{appendTags,jdbcType=BIT},
+      </if>
+      <if test="tagName != null" >
+        #{tagName,jdbcType=VARCHAR},
+      </if>
+      <if test="posi != null" >
+        #{posi,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.comment.TmallRateTagExample" resultType="java.lang.Integer" >
+    select count(*) from tmall_rate_tag
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tmall_rate_tag
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.tagId!=null and record.tagIdExpression==null" >
+          tag_id = #{record.tagId,jdbcType=BIGINT},
+        </if>
+        <if test="record.tagIdExpression!=null" >
+          tag_id = ${record.tagIdExpression},
+        </if>
+        <if test="record.commentIdTb!=null and record.commentIdTbExpression==null" >
+          comment_id_tb = #{record.commentIdTb,jdbcType=BIGINT},
+        </if>
+        <if test="record.commentIdTbExpression!=null" >
+          comment_id_tb = ${record.commentIdTbExpression},
+        </if>
+        <if test="record.appendTags!=null and record.appendTagsExpression==null" >
+          append_tags = #{record.appendTags,jdbcType=BIT},
+        </if>
+        <if test="record.appendTagsExpression!=null" >
+          append_tags = ${record.appendTagsExpression},
+        </if>
+        <if test="record.tagName!=null and record.tagNameExpression==null" >
+          tag_name = #{record.tagName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.tagNameExpression!=null" >
+          tag_name = ${record.tagNameExpression},
+        </if>
+        <if test="record.posi!=null and record.posiExpression==null" >
+          posi = #{record.posi,jdbcType=BIT},
+        </if>
+        <if test="record.posiExpression!=null" >
+          posi = ${record.posiExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tmall_rate_tag
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      tag_id = #{record.tagId,jdbcType=BIGINT},
+      comment_id_tb = #{record.commentIdTb,jdbcType=BIGINT},
+      append_tags = #{record.appendTags,jdbcType=BIT},
+      tag_name = #{record.tagName,jdbcType=VARCHAR},
+      posi = #{record.posi,jdbcType=BIT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.comment.TmallRateTag" >
+    update tmall_rate_tag
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.tagId!=null and record.tagIdExpression==null" >
+          tag_id = #{record.tagId,jdbcType=BIGINT},
+        </if>
+        <if test="record.tagIdExpression!=null" >
+          tag_id = ${record.tagIdExpression},
+        </if>
+        <if test="record.commentIdTb!=null and record.commentIdTbExpression==null" >
+          comment_id_tb = #{record.commentIdTb,jdbcType=BIGINT},
+        </if>
+        <if test="record.commentIdTbExpression!=null" >
+          comment_id_tb = ${record.commentIdTbExpression},
+        </if>
+        <if test="record.appendTags!=null and record.appendTagsExpression==null" >
+          append_tags = #{record.appendTags,jdbcType=BIT},
+        </if>
+        <if test="record.appendTagsExpression!=null" >
+          append_tags = ${record.appendTagsExpression},
+        </if>
+        <if test="record.tagName!=null and record.tagNameExpression==null" >
+          tag_name = #{record.tagName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.tagNameExpression!=null" >
+          tag_name = ${record.tagNameExpression},
+        </if>
+        <if test="record.posi!=null and record.posiExpression==null" >
+          posi = #{record.posi,jdbcType=BIT},
+        </if>
+        <if test="record.posiExpression!=null" >
+          posi = ${record.posiExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.comment.TmallRateTag" >
+    update tmall_rate_tag
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      tag_id = #{tagId,jdbcType=BIGINT},
+      comment_id_tb = #{commentIdTb,jdbcType=BIGINT},
+      append_tags = #{appendTags,jdbcType=BIT},
+      tag_name = #{tagName,jdbcType=VARCHAR},
+      posi = #{posi,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

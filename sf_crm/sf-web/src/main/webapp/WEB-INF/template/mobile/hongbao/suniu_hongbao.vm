@@ -1,0 +1,330 @@
+#set($layout = "/layout/mobileBlank.vm")
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="renderer" content="webkit">
+    <title>我的红包</title>
+</head>
+<style type="text/css">
+    .user-list-rank {
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.6);
+        padding: 0 0px;
+    }
+
+    .user-list-rank .user-list-li {
+        overflow: hidden;
+        zoom: 1;
+        padding: 10px 0;
+        clear: both;
+    }
+
+    .user-list-rank .user-photo {
+        float: left;
+        width: 50px;
+        margin-right: 10px;
+    }
+
+    .user-list-rank .user-photo img {
+        border-radius: 200px;
+        overflow: hidden;
+        border: 1px solid #c4c4c4;
+        display: block;
+    }
+
+    .user-list-rank .user-photo .user-name {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .user-list-rank .info {
+        overflow: hidden;
+        zoom: 1;
+    }
+
+    .user-list-rank .support-text {
+        margin-bottom: 15px;
+        font-size: 12px;
+        text-indent: 10px;
+        margin-top: 10px;
+    }
+
+    .user-list-rank .support-icon-btn {
+        font-size: 12px;
+        width: 90%;
+    }
+
+    .user-list-rank .rank-num {
+        float: left;
+        margin-top: 16px;
+        width: 30px;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .user-list-rank .zan-btn {
+        float: right;
+        background: url(${rc.contextPath}/media/images/icon_heart.png) center bottom no-repeat;
+        padding: 0 10px 20px 10px;
+        background-size: 20px;
+        margin: 5px 5px 0 5px;
+        color: #999;
+        font-size: 14px;
+    }
+
+    .user-list-rank .zan-btn.active {
+        background-image: url(${rc.contextPath}/media/images/icon_heart_active.png);
+    }
+
+    /*进度条*/
+    .progress {
+        height: 10px;
+        margin-top: 10px;
+        overflow: hidden;
+        background-color: #EFEEEC;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+        position: relative;
+    }
+
+    .progress-bar {
+        float: left;
+        width: 0;
+        height: 100%;
+        font-size: 12px;
+        line-height: 40px;
+        color: #fff;
+        text-indent: 10px;
+        background-color: #3FB752;
+        -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+        -webkit-transition: width .6s ease;
+        -o-transition: width .6s ease;
+        transition: width .6s ease;
+    }
+
+    .sr-only {
+        color: #999;
+        width: 120px!important;
+        overflow: hidden;
+         white-space: nowrap;
+        text-overflow: ellipsis;
+        display: inline-block;
+    }
+
+    .num {
+        margin-left: 10px;
+        float: right;
+    }
+
+    .progress-text {
+        font-size: 14px;
+        margin-top: 8px;
+        color: #999;
+    }
+
+    .user-list-rank .zan-btn{
+        width:10%;
+        text-align: center;
+    }
+
+</style>
+
+<script src="${rc.contextPath}/media/js/zepto.min.js"></script>
+<body>
+<div class="container " id="J_content">
+    <div class="u-body">
+        <div class="user bg_white">
+            <div class="user_back"></div>
+            <table class="user_table">
+                <tr>
+                    <td class="user_tleft">
+                        <div class="user_img rAll">
+                            <img class="rAll" id="wxHeadImgUrl" src="$!user.wxHeadimgurl"
+                                 onerror="this.src='${rc.contextPath}/media/mobile/assets/images/signIn/helpbuy-icon.jpg'"/>
+                        </div>
+                    </td>
+                    <td class="user_tright">
+                        <p class="user_name " id="wxNickName">$!user.wxNickName</p>
+
+                        <p class="user_leve red">$!user.mobile <span class="j_user_credit" id="totalPoint"></span>
+                        </p>
+                    </td>
+                <tr/>
+            </table>
+        </div>
+
+        <div class="u-block u-myscore">
+            <div class="form-grounp">
+                <div class="itemDetail rightBorder">
+                    账户余额<span
+                        class="orange">#set($hongbaoAmount=$!userAccount.hongbaoAmount/100.00)$!hongbaoAmount</span>元
+                </div>
+                <div class="itemDetail">
+                    累计抢到<span
+                        class="orange">#set($hbobtainAmount=$!userAccount.hbobtainAmount/100.00)$!hbobtainAmount</span>元
+                </div>
+            </div>
+            <div class="form-grounp">
+                <div class="itemDetail rightBorder">
+                    累计提现<span class="orange">#set($hbcashAmount=$!userAccount.hbcashAmount/100.00)$!hbcashAmount</span>元
+                </div>
+                <div class="itemDetail">粉丝排名<span class="orange">$!userAccount.hongbaoRank</span></div>
+            </div>
+
+            <div class="form-grounp">
+                <div class="itemDetail rightBorder">
+                    参与人数<span class="orange">$!hbPool.sumNumberObtain</span>人
+                </div>
+                <div class="itemDetail">累计发放<span
+                        class="orange">#if($!hbPool.sumTotalAmount<1000000)#set($sumTotalAmount=$!hbPool.sumTotalAmount/100.00)$numTool.format("#0.00", $!sumTotalAmount)</span>元
+                #else#set($sumTotalAmount=$!hbPool.sumTotalAmount/1000000.00)$numTool.format("#0.00", $!sumTotalAmount)</span>万元
+                #end
+                </div>
+            </div>
+        </div>
+
+        <div class="bg_gray btn_wap" id="onClickHongbaoCash">
+            <a class="btn btn_big b_green r6 j_sign_act_false"
+               href="${rc.contextPath}/mobile/hongbao/getCash?userId=$!userId&sellerId=$sellerId"> 申请提现 </a>
+        </div>
+
+
+        <table class="bg_white border_t taps tab_a">
+            <tr>
+                <td class="t_center">
+                    <div class="infor_item">
+                        <a class="tap_link f16 j_sign_list active" name="rank" href="javascript:void(0);">红包排行版</a>
+                    </div>
+                </td>
+                <td class="t_center">
+                    <div class="infor_item">
+                        <a class="tap_link f16 j_sign_list" name="records" href="javascript:void(0);">领取记录</a>
+                    </div>
+                </td>
+            <tr/>
+        </table>
+
+        <div class="pm_list list_cont tab_1" id="J_pm_list_1">
+            <ul class="user-list-rank">
+                #set($percent=100)
+                #foreach( $!userAccount in $!userAccountDOs)
+
+                    #if($maxAmount!='')
+                        #set($percent=($userAccount.hbobtainAmount*100.00/$!maxAmount))
+                    #end
+
+                    #if($userAccount.hbobtainAmount==0)
+                        #set($percent=0)
+                    #end
+
+                    <div class="user-list-li"  #if($!{velocityCount}==1&&$!userId==$!userAccount.userId)style="background-color:FFCB31;"#end >
+                        <span class="rank-num">$!userAccount.hongbaoRank </span>
+                        <a href="javascript:;"
+                           class="zan-btn #if($!{velocityCount}==1&&$!userId==$!userAccount.userId)active #end"
+                           data-buid="$!userAccount.userId" #if($!{velocityCount}==1&&$!userId==$!userAccount.userId)style="color:#000000;"#end>$!userAccount.interactionCount  </a>
+                        <span class="user-photo"><img src="$!userAccount.wxHeadImgUrl"></span>
+
+                        <div class="progress-text"><span class="sr-only" #if($!{velocityCount}==1&&$!userId==$!userAccount.userId)style="color:#000000;"#end>$!userAccount.wxNickName</span><span
+                                class="num" #if($!{velocityCount}==1&&$!userId==$!userAccount.userId)style="color:#000000;"#end>#set($hbobtainAmount=$!userAccount.hbobtainAmount/100.00) $!hbobtainAmount元</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar"
+                                 style="width:$!percent%;"></div>
+                        </div>
+                    </div>
+                #end
+            </ul>
+            <br>
+        </div>
+
+
+        <div class="pm_list list_cont tab_2" id="J_pm_list_2" style="display: none;">
+            <div class="myscore-li" style="margin-top: 0px">
+                <div class="goodsPanle">
+                    #foreach( $hbObtain in $hbObtains)
+                        <div class="itemLi"  #if($!{velocityCount}==1) style="border-top: 1px solid #e5e5e5" #end>
+                            <img src="${rc.contextPath}/$!sellerConfigInfo.wxImgUrl">
+
+                            <div class="info">
+                                <div class="name"> $!sellerConfigInfo.sellerName</div>
+                                $!sellerConfigInfo.sellerName
+                            </div>
+                            <div class="pull-right"
+                                 style="width: 80px">$dateTool.format('yyyy-MM-dd', $!hbObtain.obtainDatatime)<br><span
+                                    class="u-fontAtv">+ #set($amount=$hbObtain.amount/100.00) $!amount 元</span></div>
+                        </div>
+                    #end
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="u-footer">
+        <p>
+            <img src="${rc.contextPath}/media/mobile/assets/images/public/suniu_logo_grey.jpg">
+            <span>技术支持·速牛科技</span>
+        </p>
+    </div>
+</div>
+<script type="text/javascript">
+
+
+    wx.config({
+        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: '$wxJsConfig.appId',  // 必填，公众号的唯一标识
+        timestamp: '$wxJsConfig.timestamp', // 必填，生成签名的时间戳
+        nonceStr: '$wxJsConfig.nonceStr', // 必填，生成签名的随机串
+        signature: '$wxJsConfig.signature',// 必填，签名，见附录1
+        jsApiList: ['hideOptionMenu'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+
+    wx.ready(function(){
+        wx.hideOptionMenu();
+    });
+
+    $('.tap_link').click(function () {
+        var ref = $(this).attr("name");
+        $(this).addClass("active").parent().parent().siblings().find("a").removeClass("active");
+        if (ref == "rank") {
+            $(".tab_1").show();
+            $(".tab_2").hide();
+        } else if (ref == "records") {
+            $(".tab_1").hide();
+            $(".tab_2").show();
+        }
+    });
+
+    $('.myscore-li .li-choose ul li a').click(function () {
+        $(this).parent().parent().find('.checked').removeClass('checked');
+        $(this).parent().addClass('checked');
+    });
+
+    Zepto(function ($) {
+        $('.zan-btn').bind('click', function (event) {
+            var target = $(this);
+            if (!target.hasClass('active')) {
+                var buid = target.data('buid');
+                $.post('${rc.contextPath}/mobile/dianzan?sellerId=$sellerId', {buid: buid, uid:$!userId, interactionEntry: 'hongbao_receive_rank'}, function (data) {
+                    if (data.errorCode == 0) {
+                        target.text(parseInt(target.text()) + 1);
+                        target.addClass('active')
+                        var countNode = target.siblings('.progress-text').find('.num');
+                    } else {
+                        alert(data.errorMessage);
+                    }
+                }, 'json');
+            }
+        });
+    })
+
+</script>
+</body>
+</html>

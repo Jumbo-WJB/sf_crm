@@ -1,0 +1,268 @@
+#set($layout = "/layout/blank.vm")
+<div id="web">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="table-responsive">
+                <div class="BoxStyleA">
+                    <div class="breadcrumbs" id="breadcrumbs">
+                        <i class="modal-logo interact"></i>
+                        <ul class="breadcrumb" style="margin-left: 2px">
+                            <li></li>
+                            <li>客户互动</li>
+                            <li>红包活动</li>
+                            <li class="active">购物红包活动商品列表</li>
+                        </ul>
+                        <!-- .breadcrumb -->
+                    </div>
+
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <form class="form-search" id="searchForm">
+
+                                <div class="row">
+                                    <div class="col-xs-16 col-sm-8" style="width:100%; text-align: center">
+                                        <div class="input-group" style="width:100%">
+                                            <span>
+                                                商品名称：
+                                                <input class="input-sm" type="text" id="form-field-4" placeholder="" name="goodsName"/>
+                                            </span>
+                                            &nbsp;&nbsp;
+                                            <span>
+                                                商品来源：
+                                                <select name="goodsSource">
+                                                    <option value="">不限</option>
+                                                    <option value="JD">京东</option>
+                                                    <option value="TMALL">天猫</option>
+                                                    <option value="TB">淘宝</option>
+                                                </select>
+                                            </span>
+##                                            &nbsp;&nbsp;
+##                                            <span>兑换日期：<input type="text" name="startDate"
+##                                                              onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"/></span>
+##                                            &nbsp;&nbsp;
+##                                            <span>至：<input type="text" name="endDate"
+##                                                           onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"/></span>
+                                            &nbsp;&nbsp;
+                                            <span>
+                                                <input class="btn_searchA" type="submit" value="搜索"/>
+                                            </span>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div>&nbsp;</div>
+                <!-- 右边 -->
+                <div class="BoxStyleA">
+                    <div class="BoxStyleATop">
+                        <span class="fl">购物红包商品列表</span>
+                    </div>
+                    <br/>
+
+                    <div class="table-responsive" style="width:100%; margin: 0px;">
+                        <table id="activityGoodsList" class="table table-striped table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th class="hidden-480">活动名称</th>
+                                <th class="hidden-480" style="width: 160px">商品名称</th>
+                                <th class="hidden-480">商品价格(元)</th>
+                                <th class="hidden-480">商品数量</th>
+                                <th class="hidden-480">已领取红包数量</th>
+                                <th class="hidden-480">发布时间</th>
+                                <th class="hidden-480">状态</th>
+                                <th class="hidden-480">来源</th>
+                                <th class="hidden-480">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="modal-footer no-margin-top" style=" border: 0; text-align: center">
+                        <button class="btn btn-info" type="button" onclick="">
+                            导 出
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("#activityGoodsList").dataTable({
+        "language": {
+            "paginate": {
+                "first": "首页",
+                "last": "末页",
+                "next": "下一页",
+                "previous": "上一页"
+            },
+            "lengthMenu": "每页 _MENU_ 条记录",
+            "zeroRecords": "没有数据",
+            "info": "共 _TOTAL_ 条记录， 当前第 _PAGE_ 页",
+            "sInfoEmpty": "0条记录",
+            "sProcessing": "加载中,请稍后...",
+            "infoFiltered": ""
+        },
+        "pagingType": "full_numbers",
+        "processing": true,
+        "searching": false,
+        "serverSide": true,
+        "bInfo": true,
+        "ajax": {
+            "url": baseUrl + 'shophb/shophbActList/datas',
+            "data": function (d) {
+                var goodsName = $("#searchForm :input[name='goodsName']").val();
+                var goodsSource = $("#searchForm :input[name='goodsSource']").val();
+                if (!isNullOrEmpty(goodsName)) {
+                    d.goodsName = goodsName;
+                }
+                if (!isNullOrEmpty(goodsSource)) {
+                    d.goodsSource = goodsSource;
+                }
+            }
+        },
+        "columnDefs": [
+
+            {
+                "render": function (data, type, row) {
+                    return  data;
+                },
+                "targets": 0
+            },
+            {
+                "render": function (data, type, row) {
+                    return  data;
+                },
+                "targets": 1
+            },
+            {
+                "render": function (data, type, row) {
+                    var num = new Number(data / 100)
+                    return num.toFixed(2);
+                },
+                "targets": 2
+            },
+            {
+                "render": function (data, type, row) {
+                    return data;
+                },
+                "targets": 3
+            },
+            {
+                "render": function (data, type, row) {
+                    return data;
+                },
+                "targets": 4
+            },
+            {
+                "render": function (data, type, row) {
+                    return new Date(data).format('yyyy-MM-dd hh:mm:ss');
+                },
+                "targets": 5
+            },
+            {
+                "render": function (data, type, row) {
+                    if (data == 'stop') {
+                        return '暂停';
+                    } else if (data == 'progressing') {
+                        return '进行中';
+                    } else if (data == 'end') {
+                        return '结束';
+                    } else if (data == 'start') {
+                        return '开启';
+                    }
+                    return '未知';
+                },
+                "targets": 6
+            },
+            {
+                "render": function (data, type, row) {
+                    if (data == 'JD') {
+                        return '京东';
+                    } else if (data == 'TMALL') {
+                        return '天猫';
+                    } else if (data == 'TB') {
+                        return '淘宝';
+                    } else if (data == 'YOUZAN') {
+                        return '有赞';
+                    }
+                    return '未知';
+                },
+                "targets": 7
+            },
+            {
+                "render": function (data, type, row) {
+                    //开启, 暂停, 编辑, 删除, 购物明细
+                    var content = '<a href="javascript:void(0))" onclick="freshUrl(\'' + baseUrl + 'shophb/toEditor?activityGoodsId=' + data.activityGoodsId + '\')">编辑</a>';
+                    var sta = data.status;
+                    content += ' | ';
+                    content += '<a href="javascript:void(0))" onclick="deleteActivity(' + data.activityGoodsId + ')">删除</a>';
+                    content += ' | ';
+                    content += '<a href="javascript:void(0))" onclick="goPortriat(' + row.userId + ')">购物明细</a>';
+                    content += ' | ';
+                    if(sta == 'start'){
+                        content += '<a href="javascript:void(0))" onclick="status(' + data.activityGoodsId + ')">暂停</a>';
+                    }else if(sta == 'stop'){
+                        content += '<a href="javascript:void(0))" onclick="status(' + data.activityGoodsId + ')">开启</a>';
+                    }
+                    return content;
+                },
+                "targets": 8
+            }
+        ],
+        "sort": false,
+        "columns": [
+            {"data": "activityName"},
+            {"data": "goodsName"},
+            {"data": "goodsPrice"},
+            {"data": "goodsQuantity"},
+            {"data": "hbObtainAmount"},
+            {"data": "gmtCreated"},
+            {"data": "status"},
+            {"data": "goodsSource"},
+            {"data": null},
+        ]
+    });
+
+    //查询
+    $("#searchForm").submit(function () {
+        $('#activityGoodsList').DataTable().draw();
+        return false; //阻止表单默认提交
+    });
+
+    function exp() {
+        var wxname = $("#searchFansForm :input[name='wxnm']").val();
+        var type = $("#searchFansForm :input[name='type']").val();
+        var startDate = $("#searchFansForm :input[name='startDate']").val();
+        var endDate = $("#searchFansForm :input[name='endDate']").val();
+        window.location.href = '${rc.contextPath}/mall/fans/exportExcel?wxName=' + wxname + '&status=' + type + '&startDate=' + startDate + '&endDate=' + endDate;
+    }
+
+    /**
+     * 删除一个购物红包活动
+     * */
+    function deleteActivity(value){
+        var url = baseUrl + "shophb/delete?activityGoodsId=" + value;
+        var toUrl = baseUrl + "shophb/shophbActList";
+        if(confirm("确定删除该活动吗?")){
+            $.get(url,function(obj){
+                if(obj.errorCode == 0){
+                    alert(obj.errorMessage);
+                    freshUrl(toUrl);
+                }else{
+                    alert(obj.errorMessage);
+                }
+            });
+        }
+    }
+
+
+</script>

@@ -1,0 +1,143 @@
+#set($layout = "/layout/blank.vm")
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <title>积分兑换排行榜</title>
+    <link rel="stylesheet" type="text/css" href="${rc.contextPath}/media/mobile/assets/css/style.css"/>
+    <script type="text/javascript" src="${rc.contextPath}/media/mobile/assets/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="${rc.contextPath}/media/mobile/assets/css/shake/shakeHB.css" />
+    <script src="${rc.contextPath}/media/js/zepto.min.js"></script>
+
+    <style type="text/css">
+        .sr-only{
+            color: #999;
+            width: 70px!important;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+##<div class="u-header">
+##    <a href="javascript:history.go(-1);"  class="back"><span> < </span> 返回</a>
+##    积分兑换排行榜
+##</div>
+
+<div class="u-body" style="margin: 0 0 3em 0">
+
+    <div class="wap rank-page">
+##        <div class="handle-row">
+##            <a href="javascirpt:;">积分兑换排行版</a>
+##        </div>
+        <ul class="user-list" style="padding: 0">
+            #if($myRank)
+                #set($rank = $myRank)
+                #set($percent = 0)
+                #if($maxExchangePoint != 0)
+                    #set($percent = ($!rank.pointExchangeTotal * 100) / $maxExchangePoint)
+                #end
+                <li>
+                    <span class="rank-num" >$!rank.rank </span>
+                    <a href="javascript:;" class="zan-btn" data-buid="$!rank.userId">$rank.zanTotal</a>
+                    #if($rank.wxImgUrl)
+                        <span class="user-photo"><img src="$!rank.wxImgUrl" style="border-radius: 50%; width: 50px; height: 50px"></span>
+                    #else
+                        <span class="user-photo"><img src="${rc.contextPath}/media/images/photo.jpg" style="border-radius: 50%; width: 50px; height: 50px"></span>
+                    #end
+                    <div class="progress-text"><span class="sr-only">$!rank.wxNickName</span><span class="num">$!rank.pointExchangeTotal积分</span></div>
+                    <div class="progress">
+
+                        <div class="progress-bar" style="width: $percent%"></div>
+                    </div>
+                </li>
+            #end
+            #foreach($rank in $!pointRankList)
+                #set($percent = 0)
+                #if($maxExchangePoint != 0)
+                    #set($percent = ($!rank.pointExchangeTotal * 100) / $maxExchangePoint)
+                #end
+                <li>
+                    <span class="rank-num" >$!rank.rank </span>
+                    <a href="javascript:;" class="zan-btn" data-buid="$!rank.userId">$rank.zanTotal</a>
+                    #if($rank.wxImgUrl)
+                        <span class="user-photo"><img src="$!rank.wxImgUrl"  style="border-radius: 50%; width: 50px; height: 50px"></span>
+                    #else
+                        <span class="user-photo"><img src="${rc.contextPath}/media/images/photo.jpg" style="border-radius: 50%; width: 50px; height: 50px"></span>
+                    #end
+                    <div class="progress-text"><span class="sr-only">$!rank.wxNickName</span><span class="num">$!rank.pointExchangeTotal积分</span></div>
+                    <div class="progress">
+
+                        <div class="progress-bar" style="width: $percent%"></div>
+                    </div>
+                </li>
+            #end
+        </ul>
+    </div>
+
+</div>
+
+
+<div class="u-footer">
+    <p>
+        <img src="${rc.contextPath}/media/mobile/assets/images/public/suniu_logo_grey.jpg">
+        <span>技术支持·速牛科技</span>
+    </p>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    /**
+     * 点赞
+     * @param buid 被点赞的人
+     * @param uid 点赞的人
+     * */
+    function dz(buid,uid,num,obj){
+        $.ajax({
+            type : "POST",
+            url : '${rc.contextPath}/mobile/dianzan?sellerId=$sellerId',
+            data: {'buid':buid, 'uid':uid,'interactionEntry':'MALL_DIANZAN'},
+            dataType : "json",
+            success : function(d){
+                if(d.errorCode == 0){
+                    num += 1;
+                    var text = num + '赞';
+//                    alert(text);
+                    obj.innerHTML = text;
+                }else{
+                    alert(d.errorMessage);
+                }
+            }
+        });
+    }
+
+    Zepto(function($){
+        $('.zan-btn').bind('click', function(event) {
+            var target = $(this);
+            var buid = target.data('buid');
+            if(buid == '$!userId'){
+                alert('不能对自己点赞');
+                return ;
+            }
+            if(!target.hasClass('active')){
+//                var buid = target.data('buid');
+                $.post('${rc.contextPath}/mobile/dianzan?sellerId=$sellerId',{buid :buid,uid:'$!userId',interactionEntry:'point_exchange_rank'} , function(data) {
+                    if(data.errorCode == 0){
+                        target.text(parseInt(target.text())+1);
+                        target.addClass('active')
+                        var countNode = target.siblings('.progress-text').find('.num');
+                    }else{
+                        alert(data.errorMessage);
+                    }
+                },'json');
+            }
+        });
+    })
+
+</script>

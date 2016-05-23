@@ -1,0 +1,187 @@
+#set($layout = "/layout/mobileBlank.vm")
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <title>我的生日</title>
+    <script type="text/javascript" src="${rc.contextPath}/media/mobile/assets/js/birthday/birthday.js"></script>
+    <style>
+        *{font-family:"Microsoft YaHei";}
+        .t_center{text-align: center;margin: 0 6px;}
+        .t_left{text-align: left;}
+        .pm_list{font-size: 13px;}
+        .pm_list tr{border-bottom:1px solid #efefef;line-height:42px;vertical-align:middle;}
+        .pm_list th{color:#888; font-weight:normal;line-height:28px;}
+        .pm_list tbody tr{background-color:#fff;}
+        .pm_num{overflow:hidden;}
+        .pm_name{width:70px;}
+        .pm_day{width:50px;}
+        .pm_time{width:50px;}
+        .pm_state{width:70px;}
+        .pm_no{width:70px;}
+        .pm_4{width:25%;}
+        .col_title{padding: 4px 5px;overflow: hidden}
+        .col_title span{margin: 0 4px;}
+        .col_title img{width:60px;height:60px;vertical-align: middle;border-radius: 50%;float:left;}
+        .col_title a{width:150px;overflow: hidden;margin-left: 10px;text-overflow:ellipsis;}
+        .myscore-li .li-choose ul li.li-all-column{width: 100%;}
+        .word-hidden p{width:110px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;float:left;padding: 18px 0 0 10px;}
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="u-body">
+        <div class="user bg_white">
+            <div class="user_back"></div>
+            <table class="user_table">
+                <tr>
+                    <td class="user_tleft">
+                        <div class="user_img rAll">
+                            <img class="rAll" id="wxHeadImgUrl" src="$!uv.wxHeadimgurl"
+                                 onerror="this.src='${rc.contextPath}/media/mobile/assets/images/signIn/helpbuy-icon.jpg'"/>
+                        </div>
+                    </td>
+                    <td class="user_tright">
+                        <p class="user_name " id="wxNickName">
+                            #if($uv.wxNickName) ${uv.wxNickName}
+                            #else 游客
+                            #end
+                        </p>
+                        <p class="user_leve red">
+                            #if($uv.mobile)
+                                ${uv.mobile}
+                            #else
+                                未认证
+                            #end
+                        </p>
+                    </td>
+                <tr/>
+            </table>
+        </div>
+        <div class="u-block u-myscore">
+            <div class="form-grounp">
+                <div>
+                    <p style="text-align: center;line-height: 35px;">您在 <span style="font-size: 15px;font-weight: bold;!important;">$!seller_name</span> 享有的生日特权</p>
+                    <input type="hidden" name="sellerId" value="${uv.sellerId}"/>
+                </div>
+            </div>
+        </div>
+        <!--<div class="goodsPanle myscoreTop">
+            <div class="itemLi">
+                #if($uv.wxHeadimgurl)
+                    <img src="$uv.wxHeadimgurl">
+                #else
+                    <img src="${rc.contextPath}/media/mobile/assets/images/signIn/helpbuy-icon.jpg">
+                #end
+                <div class="info">
+                    <div class="name">
+                        #if($uv.wxNickName) ${uv.wxNickName}
+                        #else 游客
+                        #end
+                    </div>
+                    #if($uv.mobile)
+                        ${uv.mobile}
+                    #else
+                        未认证
+                    #end
+
+                    <p style="font-size: 12px;color: #000">公众号回复“生日”信息可以直接查看</p>
+                    <input type="hidden" name="sellerId" value="$!uv.sellerId"/>
+                </div>
+            </div>
+        </div>-->
+
+        <div class="myscore-li">
+            <div class="li-choose">
+                <ul>
+                    <li class="li-all-column"><a href="javascript:void(0)" style="background: #41B61A;color: #fff;font-size: 16px;">生日特权</a></li>
+                </ul>
+            </div>
+            <div class="goodsPanle tab_1">
+                <table class="bg_gray pm_list">
+                    <thead>
+                    <tr>
+                        <th class="t_center pm_num">名称</th>
+                        <th class="t_center pm_state">状态</th>
+                        <th class="t_center pm_no">是否领取</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        #foreach($list in ${result})
+                            #if($list.status=="unstart")
+
+                            #else
+                            <tr>
+                                <td class="t_left col_title">
+                                    #if($list.presentType=='birthday_red_packet') <img src="${rc.contextPath}/media/mobile/assets/images/public/hb-pic.jpg" />
+                                    #elseif($list.presentType=='birthday_gifts') <img src="${rc.contextPath}/media/mobile/assets/images/public/lw-pic.jpg" />
+                                    #elseif($list.presentType=='birthday_points') <img src="${rc.contextPath}/media/mobile/assets/images/public/jf-pic.jpg" />
+                                    #elseif($list.presentType=='birthday_discount') <img src="${rc.contextPath}/media/mobile/assets/images/public/zk-pic.png" />
+                                    #else
+                                    #end
+                                    &nbsp;&nbsp;<font style="color:deepskyblue">${list.title}</font>
+                                </td>
+                                <td class="t_center">
+                                    #if($list.status=="start") 进行中
+                                    #end
+                                    #if($list.status=="stop") 暂停
+                                    #end
+                                    #if($list.status=="over") 结束
+                                    #end
+                                </td>
+                                <td class="t_center">
+                                    #if($list.status=="over")
+                                        #if($list.isReceive==1)
+                                            已领取
+                                        #else
+                                            未领取
+                                        #end
+                                    #elseif($list.status=="stop")
+                                        #if($list.isReceive==1)
+                                            已领取
+                                        #else
+                                            未领取
+                                        #end
+                                    #else
+                                        #if($list.isReceive==1)
+                                            已领取
+                                        #else
+                                            #if($list.presentType=='birthday_red_packet')
+                                                <a href="javascript:acceptPrizeHb(${list.poolId},${list.userId},${uv.sellerId});"><font style="color:#FF7E01">未领取</font></a>
+                                            #end
+                                            #if($list.presentType=='birthday_gifts')
+                                                <a href="javascript:acceptPrizeGifts(${uv.sellerId},${list.userId},${list.goodsId},${list.birthdayActivityId});"><font style="color:#FF7E01">未领取</font></a>
+                                            #end
+                                            #if(($list.presentType=='birthday_points') || ($list.presentType=='birthday_discount'))
+                                                <a id="apoints" href="javascript:acceptPrizepd(1,${list.userId},${list.birthdayActivityId},'${list.presentType}');"><font style="color:#FF7E01">未领取</font></a>
+                                            #end
+
+                                        #end
+                                    #end
+                                </td>
+                            </tr>
+                            #end
+                        #end
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="u-footer">
+        <p>
+            <img src="${rc.contextPath}/media/mobile/assets/images/public/suniu_logo_grey.jpg">
+            <span>技术支持·速牛科技</span>
+        </p>
+    </div>
+</div>
+
+</body>
+</html>

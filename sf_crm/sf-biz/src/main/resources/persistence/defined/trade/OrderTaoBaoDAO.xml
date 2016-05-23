@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.trade.OrderTaoBaoDAO" >
+    <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.trade.OrderTaoBaoDO" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+        <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+        <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+        <result column="user_id_tb" property="userIdTb" jdbcType="BIGINT" />
+        <result column="tid" property="tid" jdbcType="BIGINT" />
+        <result column="oid" property="oid" jdbcType="BIGINT" />
+        <result column="item_meal_name" property="itemMealName" jdbcType="VARCHAR" />
+        <result column="seller_nick" property="sellerNick" jdbcType="VARCHAR" />
+        <result column="buyer_nick" property="buyerNick" jdbcType="VARCHAR" />
+        <result column="refund_status" property="refundStatus" jdbcType="VARCHAR" />
+        <result column="outer_iid" property="outerIid" jdbcType="VARCHAR" />
+        <result column="snapshot_url" property="snapshotUrl" jdbcType="VARCHAR" />
+        <result column="snapshot" property="snapshot" jdbcType="VARCHAR" />
+        <result column="timeout_action_time" property="timeoutActionTime" jdbcType="TIMESTAMP" />
+        <result column="buyer_rate" property="buyerRate" jdbcType="VARCHAR" />
+        <result column="cid" property="cid" jdbcType="BIGINT" />
+        <result column="status" property="status" jdbcType="VARCHAR" />
+        <result column="title" property="title" jdbcType="VARCHAR" />
+        <result column="price" property="price" jdbcType="DECIMAL" />
+        <result column="num_iid" property="numIid" jdbcType="BIGINT" />
+        <result column="item_meal_id" property="itemMealId" jdbcType="BIGINT" />
+        <result column="sku_id" property="skuId" jdbcType="VARCHAR" />
+        <result column="num" property="num" jdbcType="INTEGER" />
+        <result column="outer_sku_id" property="outerSkuId" jdbcType="VARCHAR" />
+        <result column="order_from" property="orderFrom" jdbcType="VARCHAR" />
+        <result column="total_fee" property="totalFee" jdbcType="DECIMAL" />
+        <result column="payment" property="payment" jdbcType="DECIMAL" />
+        <result column="discount_fee" property="discountFee" jdbcType="DECIMAL" />
+        <result column="adjust_fee" property="adjustFee" jdbcType="DECIMAL" />
+        <result column="modified" property="modified" jdbcType="TIMESTAMP" />
+        <result column="sku_properties_name" property="skuPropertiesName" jdbcType="VARCHAR" />
+        <result column="refund_id" property="refundId" jdbcType="BIGINT" />
+        <result column="is_oversold" property="isOversold" jdbcType="VARCHAR" />
+        <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+        <result column="consign_time" property="consignTime" jdbcType="VARCHAR" />
+        <result column="shipping_type" property="shippingType" jdbcType="VARCHAR" />
+        <result column="bind_oid" property="bindOid" jdbcType="BIGINT" />
+        <result column="logistics_company" property="logisticsCompany" jdbcType="VARCHAR" />
+        <result column="simple_name" property="sampleName" jdbcType="VARCHAR" />
+        <result column="invoice_no" property="invoiceNo" jdbcType="VARCHAR" />
+        <result column="is_daixiao" property="isDaixiao" jdbcType="VARCHAR" />
+        <result column="divide_order_fee" property="divideOrderFee" jdbcType="DECIMAL" />
+        <result column="part_mjz_discount" property="partMjzDiscount" jdbcType="VARCHAR" />
+        <result column="store_code" property="storeCode" jdbcType="VARCHAR" />
+        <result column="contentLength" property="contentLength" jdbcType="VARCHAR" />
+        <result column="startDate" property="startDate" jdbcType="TIMESTAMP" />
+        <result column="endDate" property="endDate" jdbcType="TIMESTAMP" />
+        <result column="isLimitPostTime" property="isLimitPostTime" jdbcType="VARCHAR" />
+        <result column="result" property="result" jdbcType="VARCHAR" />
+        <result column="groupByClause" property="groupByClause" jdbcType="VARCHAR" />
+        <result column="user_id" property="userId" jdbcType="BIGINT" />
+        <result column="status" property="status" jdbcType="VARCHAR" />
+        <result column="hbObainId" property="hbObainId" jdbcType="BIGINT" />
+    </resultMap>
+
+    <select id="selectOrderTaoBaoWithComment" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.defined.trade.OrderTaoBaoDO">
+        select
+        a.id, a.oid,a.seller_nick, a.buyer_nick,a.title,
+        a.invoice_no, u.user_id,a.payment
+        <if test="groupByClause!=null and userIdTb!=null">
+            ,COALESCE(MAX(CHAR_LENGTH(REPLACE(b.content,' ',''))),0) as contentLength
+        </if>
+        from order_taobao a
+        <if test="userIdTb!=null">
+        LEFT
+        </if>
+        JOIN   comment_taobao b ON a.oid=b.oid
+        <if test="sellerId != null">
+            and a.seller_id = #{sellerId}  and  b.seller_id = #{sellerId}
+        </if>
+        <if test="startDate!=null">
+            and  b.gmt_modified >= #{startDate}
+        </if>
+        <if test="endDate!=null">
+            and  #{endDate} >= b.gmt_modified
+        </if>
+        <if test="result!=null">
+            and b.result = #{result}
+        </if>
+        , user u
+        <where>
+            <trim prefixOverrides="and">
+                <if test="sellerId != null">
+                    and a.seller_id = #{sellerId} and u.seller_id = #{sellerId}
+                </if>
+                <if test="userIdTb!=null">
+                    and a.user_id_tb= #{userIdTb}
+                </if>
+                <if test="isLimitPostTime!=null">
+                    AND  a.invoice_no NOT IN  ( SELECT obtain_post_number FROM  hongbao_obtain b WHERE  obtain_post_number IS NOT NULL
+                    <if test="sellerId != null">
+                        and b.seller_id = #{sellerId} )
+                    </if>
+                </if>
+                    AND   a.user_id_tb=u.user_id_tb
+                <if test="groupByClause!=null and userIdTb!=null">
+                    GROUP BY a.invoice_no
+                </if>
+            </trim>
+        </where>
+    </select>
+
+
+    <select id="selectOrderTaoBaoWithUserIdTaoBao" resultMap="BaseResultMap" parameterType="Long">
+        SELECT logistics_company, invoice_no
+        FROM order_taobao
+        WHERE user_id_tb=#{userIdTaoBao}
+    </select>
+
+    <select id="selectOrderTaoBaoWithCommentAndUser" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.defined.trade.OrderTaoBaoDO">
+        select
+        a.id, a.oid,a.seller_nick, a.buyer_nick,a.title,
+        a.invoice_no, u.user_id,a.payment,hb.status,hb.id as hbObainId
+        from order_taobao a
+        LEFT   JOIN   comment_taobao b ON a.oid=b.oid
+        <if test="sellerId != null">
+            and a.seller_id = #{sellerId}  and  b.seller_id = #{sellerId}
+        </if>
+        <if test="startDate!=null">
+            and  b.gmt_modified >= #{startDate}
+        </if>
+        <if test="endDate!=null">
+            and  #{endDate} >= b.gmt_modified
+        </if>
+        <if test="result!=null">
+            and b.result = #{result}
+        </if>
+        , user u,hongbao_obtain hb
+        <where>
+            <trim prefixOverrides="and">
+                <if test="sellerId != null">
+                    and a.seller_id = #{sellerId} and u.seller_id = #{sellerId}
+                </if>
+                <if test="userIdTb!=null">
+                    and a.user_id_tb= #{userIdTb}
+                </if>
+                   AND  a.invoice_no=hb.obtain_post_number
+                    <if test="sellerId != null">
+                        and hb.seller_id = #{sellerId}
+                    </if>
+                    AND  hb.user_id=u.user_id
+                    AND   a.user_id_tb=u.user_id_tb
+                <if test="groupByClause!=null and userIdTb!=null">
+                    GROUP BY a.invoice_no
+                </if>
+            </trim>
+        </where>
+    </select>
+
+</mapper>

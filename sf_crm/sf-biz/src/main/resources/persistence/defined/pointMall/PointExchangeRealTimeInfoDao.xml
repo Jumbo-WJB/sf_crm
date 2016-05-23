@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.pointMall.PointExchangeRealTimeInfoDao" >
+    <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.pointMall.PointExchangeRealTimeInfoDo" >
+        <result column="sd" property="sellerId" jdbcType="BIGINT" />
+        <result column="ud" property="userId" jdbcType="BIGINT" />
+        <result column="di" property="dayInterval" jdbcType="BIGINT" />
+        <result column="si" property="secInterval" jdbcType="BIGINT" />
+        <result column="wximg" property="wxImgUrl" jdbcType="VARCHAR" />
+        <result column="unm" property="userName" jdbcType="VARCHAR" />
+        <result column="uinm" property="wxNickName" jdbcType="VARCHAR" />
+        <result column="pamount" property="amount" jdbcType="BIGINT" />
+    </resultMap>
+
+    <select id="findPointExchangeRealTimeDoBySellerId" resultMap="BaseResultMap" parameterType="long">
+        select pe.seller_id sd, pe.user_id ud, u.name unm, u.wx_nick_name uinm, pe.point_amount pamount,u.wx_headimgurl wximg,
+            DATEDIFF(NOW(),pe.gmt_created) di,UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(pe.gmt_created) si
+        from point_exchange pe left join user u on pe.user_id = u.user_id
+        where pe.seller_id = #{sellerId} and pe.exchange_method = 'goods' order by pe.gmt_created desc
+    </select>
+
+</mapper>

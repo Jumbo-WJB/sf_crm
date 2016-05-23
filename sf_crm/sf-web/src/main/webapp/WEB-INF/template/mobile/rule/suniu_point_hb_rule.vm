@@ -1,0 +1,187 @@
+#set($layout = "/layout/mobileBlank.vm")
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <title>积分红包规则说明</title>
+</head>
+<body>
+
+<div class="container " id="J_content">
+    <div class="u-body" style="margin-top: 0px;">
+        <div style="height: 110px">
+            <img src="${rc.contextPath}/media/mobile/assets/images/public/rule_view.png" style="height:120px"/>
+        </div>
+        <div class="myscore-li">
+            <div class="li-choose">
+                <ul>
+                    <li name="tab_1" class="checked li-two-column"><a href="javascript:void(0)" style="font-size: 16px">红包</a>
+                    </li>
+                    <li name="tab_2" class="li-two-column"><a href="javascript:void(0)" name="tab_2"
+                                                              style="font-size: 16px">积分</a></li>
+                </ul>
+            </div>
+            <div class="info-li tab_1">
+                <div class="u-goods-li" style="border-top:none;">
+                    <div class="u-panle">
+                        <div class="title">分享红包</div>
+                        <div class="item">
+
+                            <img src="${rc.contextPath}/media/mobile/assets/images/mall/icon1.png"/>分享活动到朋友圈得红包
+                        </div>
+                        <div class="item">
+                            <img src="${rc.contextPath}/media/mobile/assets/images/mall/icon1.png"/>分享商品到朋友圈得红包
+                        </div>
+
+                    </div>
+                </div>
+                <div class="u-goods-li">
+                    <div class="u-panle">
+                        <div class="title">购物红包</div>
+                        <div class="item">
+                            <img src="${rc.contextPath}/media/mobile/assets/images/mall/icon1.png"/>天猫指定单品红包
+                        </div>
+                        <div class="item">
+                            <img src="${rc.contextPath}/media/mobile/assets/images/mall/icon1.png"/>京东指定红包
+                        </div>
+                        <div class="item">
+                            <img src="${rc.contextPath}/media/mobile/assets/images/mall/icon1.png"/>唯品会指定红包
+                        </div>
+                    </div>
+                </div>
+                <div class="u-goods-li">
+                    <div class="u-panle">
+                        <div class="title">积分红包</div>
+                    </div>
+                </div>
+                <div class="packetSubmit">
+                    <a id="submit" href="${rc.contextPath}/mobile/pointmall?sellerId=$!sellerId" class="u-submit">前往积分商城</a>
+                </div>
+
+                <div class="u-block describej">
+                    <div class="u-panle">
+                        <div class="title">红包获取</div>
+                    </div>
+                    <div class="form-grounp noBorder">
+                        <div class="item">
+                            <span class="u-fontAtv">关注送红包：</span>回复关键词领取
+                        </div>
+                    </div>
+                    <div class="form-grounp noBorder">
+                        <div class="item">
+                            <span class="u-fontAtv">好评送红包：</span>各平台好评返现，可设置好评规则，20字即可或者晒单
+                        </div>
+                    </div>
+                    <div class="form-grounp noBorder">
+                        <div class="item">
+                            <span class="u-fontAtv">生日红包：</span>生日当天领取
+                        </div>
+                    </div>
+                    <div class="form-grounp noBorder">
+                        <div class="item">
+                            <span class="u-fontAtv">摇一摇红包：</span>每日红包，可设置摇到的几率和红包金额
+                        </div>
+                    </div>
+                    <div class="form-grounp noBorder">
+                        <div class="item">
+                            <span class="u-fontAtv">红包提现：</span>红包可提现
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="info-li tab_2">
+
+                <div class="u-goods-li" style="border-top:none;">
+                    <div class="u-panle">
+                        <div class="title">每日签到</div>
+                        <div class="item">
+                            <img src="${rc.contextPath}/media/mobile/assets/images/mall/icon1.png"/>第一天5积分
+                        </div>
+                        <div class="item">
+                            <img src="${rc.contextPath}/media/mobile/assets/images/mall/icon1.png"/>第二天6积分
+                        </div>
+                        <div class="item">
+                            <img src="${rc.contextPath}/media/mobile/assets/images/mall/icon1.png"/>第三天7积分
+                        </div>
+                    </div>
+                </div>
+
+                <div class="u-goods-li">
+                    <div class="u-panle">
+                        <div class="title">每日分享积分</div>
+                        <div class="item">
+                            <img src="${rc.contextPath}/media/mobile/assets/images/mall/icon1.png"/>购物分享得积分
+                        </div>
+                        <div class="item">
+                            <img src="${rc.contextPath}/media/mobile/assets/images/mall/icon1.png"/>公众号内容分享得积分
+                        </div>
+                        <div class="item">
+                            <img src="${rc.contextPath}/media/mobile/assets/images/mall/icon1.png"/>社区活动分享得积分
+                        </div>
+                    </div>
+                </div>
+                <div class="u-goods-li">
+                    <div class="u-panle">
+                        <div class="title">推荐积分</div>
+                        <div class="item">
+                            <img src="${rc.contextPath}/media/mobile/assets/images/mall/icon1.png"/>推广单品成交积分
+                        </div>
+                        <div class="item">
+                            <img src="${rc.contextPath}/media/mobile/assets/images/mall/icon1.png"/>推广单品成交积分
+                        </div>
+                        <div class="item">
+                            <img src="${rc.contextPath}/media/mobile/assets/images/mall/icon1.png"/>生成二微码进行推广
+                        </div>
+                    </div>
+                </div>
+                <div class="u-block describej">
+                    <div class="form-grounp noBorder">
+                        <div class="item">
+                            <span class="u-fontAtv">购物积分：</span>购物成功后获得积分
+                        </div>
+                    </div>
+                    <div class="form-grounp noBorder">
+                        <div class="item">
+                            <span class="u-fontAtv">摇一摇积分：</span>每日摇一摇 ，可设置摇到几率和红包金额
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="u-footer">
+        <p>
+            <img src="${rc.contextPath}/media/mobile/assets/images/public/suniu_logo_grey.jpg">
+            <span>技术支持·速牛科技</span>
+        </p>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    $(".tab_2").hide();
+    $('.myscore-li .li-choose ul li a').click(function () {
+
+        $(this).parent().parent().find('.checked').removeClass('checked');
+        $(this).parent().addClass('checked');
+        var name = $(this).parent().attr("name");
+        if (name == 'tab_1') {
+            $(".tab_1").show();
+            $(".tab_2").hide();
+        } else {
+            $(".tab_1").hide();
+            $(".tab_2").show();
+        }
+    });
+</script>
+
+</html>

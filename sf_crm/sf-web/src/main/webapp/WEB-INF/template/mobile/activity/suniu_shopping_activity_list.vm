@@ -1,0 +1,53 @@
+#set($layout = "/layout/blank.vm")
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <title>商品列表</title>
+    <link rel="stylesheet" type="text/css" href="${rc.contextPath}/media/mobile/assets/css/style.css"/>
+    <script type="text/javascript" src="${rc.contextPath}/media/mobile/assets/js/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="u-body">
+    <div class="myscore-li" style="margin: 5px 0">
+        <div class="goodsPanle" id="my_point_content">
+            #set($flag = "/")
+            #if($goodsExchangeInfoDoList)
+                #foreach($goods in $goodsExchangeInfoDoList)
+                    #set($firstImg = $goods.thumbnail)
+                    #set($pri = $goods.price / 100)
+                    <div class="itemLi">
+                        #if($firstImg)
+                            <img src="${rc.contextPath}$flag$!firstImg" title="" alt="$!goods.title">
+                        #else
+                            <img src="${rc.contextPath}/media/mobile/assets/images/public/pic_bg.png">
+                        #end
+                        <div class="info">
+                            <div class="name" style="line-height: 25px">$!goods.title</div>
+                            消耗积分: $!goods.point
+                            <br/>
+                            $!goods.exchangeCount人兑换
+                        </div>
+                        <div class="pull-right" style="top:40px"><a href="${rc.contextPath}/mobile/mall/goods/detail?sellerId=$sellerId&userId=$userId&gid=$goods.goodsId" class="u-btn-exchange">进行中</a></div>
+                    </div>
+                #end
+            #else
+                暂时没有兑换的商品,谢谢您的惠顾!!!
+            #end
+        </div>
+    </div>
+</div>
+
+
+<div class="u-footer">
+    <p>
+        <img src="${rc.contextPath}/media/mobile/assets/images/public/suniu_logo_grey.jpg">
+        <span>技术支持·速牛科技</span>
+    </p>
+</div>
+</body>
+</html>

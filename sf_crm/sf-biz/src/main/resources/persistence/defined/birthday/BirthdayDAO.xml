@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.birthday.BirthdayDAO">
+    <resultMap id="baseResultMap" type="com.shufensoft.crm.biz.domain.defined.birthday.BirthdayDO">
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+        <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+        <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+        <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+        <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+        <result column="birthday_activity_id" property="birthdayActivityId" jdbcType="BIGINT" />
+        <result column="goods_id" property="goodsId" jdbcType="BIGINT" />
+        <result column="pool_id" property="poolId" jdbcType="BIGINT" />
+        <result column="title" property="title" jdbcType="VARCHAR" />
+        <result column="care_type" property="careType" jdbcType="VARCHAR" />
+        <result column="status" property="status" jdbcType="INTEGER" />
+        <result column="send_target" property="sendTarget" jdbcType="VARCHAR" />
+        <result column="get_limit" property="getLimit" jdbcType="INTEGER" />
+        <result column="secret_password" property="secretPassword" jdbcType="VARCHAR" />
+        <result column="discount" property="discount" jdbcType="DOUBLE" />
+        <result column="remind_short_message" property="remindShortMessage" jdbcType="INTEGER" />
+        <result column="short_message_content" property="shortMessageContent" jdbcType="VARCHAR" />
+        <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+        <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+    <resultMap id="activityResultMap" type="com.shufensoft.crm.biz.domain.defined.birthday.BirthdayActivityDetailsDO">
+        <result column="wx_nick_name" property="wxNickName" jdbcType="VARCHAR" />
+        <result column="present_type" property="presentType" jdbcType="VARCHAR" />
+        <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+        <result column="receive_date" property="receiveDate" jdbcType="TIMESTAMP" />
+        <result column="present_name" property="presentName" jdbcType="VARCHAR" />
+    </resultMap>
+    <!--START-->
+    <resultMap id="JoinResultMap" type="com.shufensoft.crm.biz.domain.defined.birthday.BirthdayDO">
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="birthday_activity_id" property="birthdayActivityId" jdbcType="BIGINT" />
+        <result column="goods_id" property="goodsId" jdbcType="BIGINT"/>
+        <result column="pool_id" property="poolId"/>
+        <result column="title" property="title" jdbcType="VARCHAR" />
+        <result column="status" property="status" jdbcType="INTEGER" />
+        <result column="care_type" property="careType" jdbcType="VARCHAR"/>
+        <result column="start_time" property="startTime" jdbcType="TIMESTAMP"/>
+        <result column="end_time" property="endTime" jdbcType="TIMESTAMP"/>
+        <result column="user_id" property="userId" jdbcType="BIGINT"/>
+        <result column="is_receive" property="isReceive" jdbcType="VARCHAR"/>
+        <result column="present_type" property="presentType" jdbcType="VARCHAR"/>
+        <result column="present_source" property="presentSource" jdbcType="VARCHAR"/>
+    </resultMap>
+    <!-- 关联表需要的列 -->
+    <!--<resultMap type="com.shufensoft.crm.biz.domain.generation.present.Present" id="joinPresentResult">
+        <id property="id" column="id" />
+        <result property="birthdayActivityId" column="birthday_acivity_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="isReceive" column="is_receive" />
+        <result property="presentType" column="present_type"/>
+        <result property="presentSource" column="present_source"/>
+    </resultMap>-->
+    <!--END-->
+    <select id="selectFrontData" resultMap="JoinResultMap"  parameterType="java.lang.Long" >
+      SELECT p.user_id, ubc.title,ubc.status,ubc.birthday_activity_id,ubc.goods_id,ubc.pool_id,
+             ubc.care_type,ubc.start_time,ubc.end_time,p.user_id,p.is_receive,p.present_type,p.present_source
+      FROM user_birthday_config ubc,present p
+      WHERE p.user_id=#{userId}
+      AND ubc.birthday_activity_id = p.birthday_acivity_id
+      AND ubc.is_deleted='0'
+      AND p.seller_id=#{sellerId}
+      AND p.is_deleted='0'
+      AND p.present_source='birthday'
+    </select>
+    <select id="selectBirthdayActivityId" resultType="java.lang.Long">
+      SELECT birthday_activity_id
+      FROM user_birthday_config
+      WHERE id=#{id}
+    </select>
+
+    <update id="updateAllExpired">
+        UPDATE
+          user_birthday_config
+        SET
+          status="over"
+        WHERE
+          TO_DAYS(date_format(end_time,'%Y-%m-%d'))  <![CDATA[<]]> TO_DAYS(date_format(NOW(),'%y-%m-%d'))
+    </update>
+    <select id="selectMaxEndTime" resultMap="baseResultMap">
+      SELECT MAX(end_time) end_time FROM user_birthday_config
+    </select>
+    <select id="selectDetailsByBirthdayActivityId" resultMap="activityResultMap">
+        SELECT u.wx_nick_name,p.present_type,u.birthday,ar.receive_date,p.present_name
+        FROM present p
+        INNER JOIN user u
+        ON  p.user_id=u.user_id
+        INNER JOIN activity_records ar
+        ON p.user_id=ar.user_id
+        WHERE p.birthday_acivity_id=#{birthdayActivityId}
+        AND p.seller_id=#{sellerId}
+        AND p.is_deleted="0"
+        AND p.is_receive="1"
+    </select>
+    <select id="selectBirthdayActivityInfoByBirthdayActivityId" resultMap="baseResultMap">
+      SELECT birthday_activity_id, goods_id,points,pool_id,title,care_type,
+             status,send_target,get_limit,secret_password,discount,remind_short_message,
+             short_message_content,start_time,end_time
+      FROM user_birthday_config
+      WHERE birthday_activity_id=#{birthdayActivityId}
+      AND seller_id=#{sellerId}
+    </select>
+</mapper>

@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.user.PraiseRecordsMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.user.PraiseRecords" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_praise_entry" property="maxPraiseEntry" jdbcType="BIGINT" />
+    <result column="min_praise_entry" property="minPraiseEntry" jdbcType="BIGINT" />
+    <result column="avg_praise_entry" property="avgPraiseEntry" jdbcType="BIGINT" />
+    <result column="count_praise_entry" property="countPraiseEntry" jdbcType="BIGINT" />
+    <result column="sum_praise_entry" property="sumPraiseEntry" jdbcType="VARCHAR" />
+    <result column="max_praise_time" property="maxPraiseTime" jdbcType="BIGINT" />
+    <result column="min_praise_time" property="minPraiseTime" jdbcType="BIGINT" />
+    <result column="avg_praise_time" property="avgPraiseTime" jdbcType="BIGINT" />
+    <result column="count_praise_time" property="countPraiseTime" jdbcType="BIGINT" />
+    <result column="sum_praise_time" property="sumPraiseTime" jdbcType="TIMESTAMP" />
+    <result column="max_b_user_id" property="maxBUserId" jdbcType="BIGINT" />
+    <result column="min_b_user_id" property="minBUserId" jdbcType="BIGINT" />
+    <result column="avg_b_user_id" property="avgBUserId" jdbcType="BIGINT" />
+    <result column="count_b_user_id" property="countBUserId" jdbcType="BIGINT" />
+    <result column="sum_b_user_id" property="sumBUserId" jdbcType="BIGINT" />
+    <result column="max_user_id" property="maxUserId" jdbcType="BIGINT" />
+    <result column="min_user_id" property="minUserId" jdbcType="BIGINT" />
+    <result column="avg_user_id" property="avgUserId" jdbcType="BIGINT" />
+    <result column="count_user_id" property="countUserId" jdbcType="BIGINT" />
+    <result column="sum_user_id" property="sumUserId" jdbcType="BIGINT" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="max_praise_id" property="maxPraiseId" jdbcType="BIGINT" />
+    <result column="min_praise_id" property="minPraiseId" jdbcType="BIGINT" />
+    <result column="avg_praise_id" property="avgPraiseId" jdbcType="BIGINT" />
+    <result column="count_praise_id" property="countPraiseId" jdbcType="BIGINT" />
+    <result column="sum_praise_id" property="sumPraiseId" jdbcType="BIGINT" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="praise_id" property="praiseId" jdbcType="BIGINT" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="b_user_id" property="bUserId" jdbcType="BIGINT" />
+    <result column="praise_time" property="praiseTime" jdbcType="TIMESTAMP" />
+    <result column="praise_entry" property="praiseEntry" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, created_by, modified_by, is_deleted, praise_id, seller_id, 
+    user_id, b_user_id, praise_time, praise_entry
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.user.PraiseRecordsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from praise_records
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from praise_records
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update praise_records
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.user.PraiseRecordsExample" >
+    update praise_records
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.user.PraiseRecords" useGeneratedKeys="true" keyProperty="id" >
+    insert into praise_records (id, gmt_created, gmt_modified, 
+      created_by, modified_by, is_deleted, 
+      praise_id, seller_id, user_id, 
+      b_user_id, praise_time, praise_entry
+      )
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{praiseId,jdbcType=BIGINT}, #{sellerId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
+      #{bUserId,jdbcType=BIGINT}, #{praiseTime,jdbcType=TIMESTAMP}, #{praiseEntry,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.user.PraiseRecords" useGeneratedKeys="true" keyProperty="id" >
+    insert into praise_records
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="praiseId != null" >
+        praise_id,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="bUserId != null" >
+        b_user_id,
+      </if>
+      <if test="praiseTime != null" >
+        praise_time,
+      </if>
+      <if test="praiseEntry != null" >
+        praise_entry,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="praiseId != null" >
+        #{praiseId,jdbcType=BIGINT},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="bUserId != null" >
+        #{bUserId,jdbcType=BIGINT},
+      </if>
+      <if test="praiseTime != null" >
+        #{praiseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="praiseEntry != null" >
+        #{praiseEntry,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.user.PraiseRecordsExample" resultType="java.lang.Integer" >
+    select count(*) from praise_records
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update praise_records
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.praiseId!=null and record.praiseIdExpression==null" >
+          praise_id = #{record.praiseId,jdbcType=BIGINT},
+        </if>
+        <if test="record.praiseIdExpression!=null" >
+          praise_id = ${record.praiseIdExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.userId!=null and record.userIdExpression==null" >
+          user_id = #{record.userId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdExpression!=null" >
+          user_id = ${record.userIdExpression},
+        </if>
+        <if test="record.bUserId!=null and record.bUserIdExpression==null" >
+          b_user_id = #{record.bUserId,jdbcType=BIGINT},
+        </if>
+        <if test="record.bUserIdExpression!=null" >
+          b_user_id = ${record.bUserIdExpression},
+        </if>
+        <if test="record.praiseTime!=null and record.praiseTimeExpression==null" >
+          praise_time = #{record.praiseTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.praiseTimeExpression!=null" >
+          praise_time = ${record.praiseTimeExpression},
+        </if>
+        <if test="record.praiseEntry!=null and record.praiseEntryExpression==null" >
+          praise_entry = #{record.praiseEntry,jdbcType=VARCHAR},
+        </if>
+        <if test="record.praiseEntryExpression!=null" >
+          praise_entry = ${record.praiseEntryExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update praise_records
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      praise_id = #{record.praiseId,jdbcType=BIGINT},
+      seller_id = #{record.sellerId,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      b_user_id = #{record.bUserId,jdbcType=BIGINT},
+      praise_time = #{record.praiseTime,jdbcType=TIMESTAMP},
+      praise_entry = #{record.praiseEntry,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.user.PraiseRecords" >
+    update praise_records
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.praiseId!=null and record.praiseIdExpression==null" >
+          praise_id = #{record.praiseId,jdbcType=BIGINT},
+        </if>
+        <if test="record.praiseIdExpression!=null" >
+          praise_id = ${record.praiseIdExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.userId!=null and record.userIdExpression==null" >
+          user_id = #{record.userId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdExpression!=null" >
+          user_id = ${record.userIdExpression},
+        </if>
+        <if test="record.bUserId!=null and record.bUserIdExpression==null" >
+          b_user_id = #{record.bUserId,jdbcType=BIGINT},
+        </if>
+        <if test="record.bUserIdExpression!=null" >
+          b_user_id = ${record.bUserIdExpression},
+        </if>
+        <if test="record.praiseTime!=null and record.praiseTimeExpression==null" >
+          praise_time = #{record.praiseTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.praiseTimeExpression!=null" >
+          praise_time = ${record.praiseTimeExpression},
+        </if>
+        <if test="record.praiseEntry!=null and record.praiseEntryExpression==null" >
+          praise_entry = #{record.praiseEntry,jdbcType=VARCHAR},
+        </if>
+        <if test="record.praiseEntryExpression!=null" >
+          praise_entry = ${record.praiseEntryExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.user.PraiseRecords" >
+    update praise_records
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      praise_id = #{praiseId,jdbcType=BIGINT},
+      seller_id = #{sellerId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      b_user_id = #{bUserId,jdbcType=BIGINT},
+      praise_time = #{praiseTime,jdbcType=TIMESTAMP},
+      praise_entry = #{praiseEntry,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

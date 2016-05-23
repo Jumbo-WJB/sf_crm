@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.pointMall.PointExchangeDetailDao" >
+    <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.pointMall.PointExchangeDetailDo" >
+        <result column="uid" property="userId" jdbcType="BIGINT" />
+        <result column="sid" property="sellerId" jdbcType="BIGINT" />
+        <result column="am" property="point" jdbcType="BIGINT" />
+        <result column="pool_id" property="poolId" jdbcType="BIGINT" />
+        <result column="number" property="number" jdbcType="BIGINT" />
+        <result column="id" property="pointExchangeId" jdbcType="BIGINT" />
+        <result column="hbm" property="hbMoney" jdbcType="BIGINT" />
+
+        <result column="obid" property="hongbaoObtainId" jdbcType="BIGINT" />
+        <result column="url" property="imgsUrl" jdbcType="VARCHAR" />
+        <result column="tl" property="title" jdbcType="VARCHAR" />
+        <result column="sta" property="status" jdbcType="VARCHAR" />
+        <result column="em" property="exchangeMethod" jdbcType="VARCHAR" />
+
+        <result column="sd" property="startDate" jdbcType="TIMESTAMP" />
+        <result column="ed" property="endDate" jdbcType="TIMESTAMP" />
+        <result column="gc" property="gmtCreated" jdbcType="TIMESTAMP" />
+
+        <result column="obtainedNum" property="obtainedNum" jdbcType="BIGINT" />
+    </resultMap>
+
+    <select id="findPointExchangeDetails" resultMap="BaseResultMap" parameterType="map">
+        select a.sid sid,a.uid uid,a.am am,a.url url,a.tl tl,a.sta sta,a.em em,a.gc gc,a.pool_id,a.obid,a.hbm from
+        (
+        select pe.seller_id sid, pe.user_id uid, pe.point_amount am,mg.thumbnail url,mg.title tl,pe.status sta,pe.exchange_method em,pe.gmt_created gc,null pool_id,null obid,null hbm
+        from point_exchange pe left join mall_order mo on pe.exchange_id = mo.oid left join mall_goods mg on mo.goods_id = mg.goods_id
+        where pe.seller_id = #{sellerId} and pe.user_id = #{userId} and exchange_method = 'goods' order by pe.gmt_modified desc
+        ) a
+          union
+          select b.sid,b.uid,b.am,b.url,b.tl,b.sta,b.em,b.gc,b.pool_id,b.obid,b.hbm from
+          (
+        select pex.seller_id sid, pex.user_id uid,pex.point_amount am,null url,concat(cast(truncate(ho.amount/100,2) as char),'元红包') tl,pex.status sta, pex.exchange_method em,pex.gmt_created gc,ho.pool_id pool_id,ho.hongbao_obtain_id obid,ho.amount hbm
+        from point_exchange pex left join hongbao_obtain ho on pex.exchange_id=ho.hongbao_obtain_id
+        where pex.seller_id = #{sellerId} and pex.user_id = #{userId}
+        and pex.exchange_method = 'hongbao' order by pex.gmt_modified desc
+        ) b
+        order by gc desc
+    </select>
+
+    <select id="findNotFinishPointExchangeHongbao" resultMap="BaseResultMap" parameterType="map">
+        select pe.seller_id sid,pe.user_id uid, pe.point_amount am,ho.hongbao_obtain_id obid,hp.start_date sd,hp.end_date ed,
+            hp.number,hp.pool_id,pe.id,hp.NUMBER_OBTAIN obtainedNum, pe.status sta
+        from point_exchange pe left join hongbao_obtain ho on pe.exchange_id = ho.hongbao_obtain_id
+          left join hongbao_pool hp on ho.pool_id=hp.pool_id
+        <where>
+            <trim prefixOverrides="and">
+                <if test="sellerId != null">
+                    and pe.seller_id = #{sellerId}
+                </if>
+                <if test="userId != null">
+                    and pe.user_id = #{userId}
+                </if>
+                and pe.exchange_method = 'hongbao'
+            </trim>
+        </where>
+    </select>
+
+</mapper>

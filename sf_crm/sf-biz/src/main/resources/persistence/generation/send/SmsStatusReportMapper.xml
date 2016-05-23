@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.send.SmsStatusReportMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.send.SmsStatusReport" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_status" property="maxStatus" jdbcType="BIGINT" />
+    <result column="min_status" property="minStatus" jdbcType="BIGINT" />
+    <result column="avg_status" property="avgStatus" jdbcType="BIGINT" />
+    <result column="count_status" property="countStatus" jdbcType="BIGINT" />
+    <result column="sum_status" property="sumStatus" jdbcType="VARCHAR" />
+    <result column="count_distinct_status" property="countDistinctStatus" jdbcType="BIGINT" />
+    <result column="max_submit_data" property="maxSubmitData" jdbcType="BIGINT" />
+    <result column="min_submit_data" property="minSubmitData" jdbcType="BIGINT" />
+    <result column="avg_submit_data" property="avgSubmitData" jdbcType="BIGINT" />
+    <result column="count_submit_data" property="countSubmitData" jdbcType="BIGINT" />
+    <result column="sum_submit_data" property="sumSubmitData" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_submit_data" property="countDistinctSubmitData" jdbcType="BIGINT" />
+    <result column="max_service_code_add" property="maxServiceCodeAdd" jdbcType="BIGINT" />
+    <result column="min_service_code_add" property="minServiceCodeAdd" jdbcType="BIGINT" />
+    <result column="avg_service_code_add" property="avgServiceCodeAdd" jdbcType="BIGINT" />
+    <result column="count_service_code_add" property="countServiceCodeAdd" jdbcType="BIGINT" />
+    <result column="sum_service_code_add" property="sumServiceCodeAdd" jdbcType="VARCHAR" />
+    <result column="count_distinct_service_code_add" property="countDistinctServiceCodeAdd" jdbcType="BIGINT" />
+    <result column="max_report_status" property="maxReportStatus" jdbcType="BIGINT" />
+    <result column="min_report_status" property="minReportStatus" jdbcType="BIGINT" />
+    <result column="avg_report_status" property="avgReportStatus" jdbcType="BIGINT" />
+    <result column="count_report_status" property="countReportStatus" jdbcType="BIGINT" />
+    <result column="sum_report_status" property="sumReportStatus" jdbcType="VARCHAR" />
+    <result column="count_distinct_report_status" property="countDistinctReportStatus" jdbcType="BIGINT" />
+    <result column="max_receive_data" property="maxReceiveData" jdbcType="BIGINT" />
+    <result column="min_receive_data" property="minReceiveData" jdbcType="BIGINT" />
+    <result column="avg_receive_data" property="avgReceiveData" jdbcType="BIGINT" />
+    <result column="count_receive_data" property="countReceiveData" jdbcType="BIGINT" />
+    <result column="sum_receive_data" property="sumReceiveData" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_receive_data" property="countDistinctReceiveData" jdbcType="BIGINT" />
+    <result column="max_mobile" property="maxMobile" jdbcType="BIGINT" />
+    <result column="min_mobile" property="minMobile" jdbcType="BIGINT" />
+    <result column="avg_mobile" property="avgMobile" jdbcType="BIGINT" />
+    <result column="count_mobile" property="countMobile" jdbcType="BIGINT" />
+    <result column="sum_mobile" property="sumMobile" jdbcType="VARCHAR" />
+    <result column="count_distinct_mobile" property="countDistinctMobile" jdbcType="BIGINT" />
+    <result column="max_error_code" property="maxErrorCode" jdbcType="BIGINT" />
+    <result column="min_error_code" property="minErrorCode" jdbcType="BIGINT" />
+    <result column="avg_error_code" property="avgErrorCode" jdbcType="BIGINT" />
+    <result column="count_error_code" property="countErrorCode" jdbcType="BIGINT" />
+    <result column="sum_error_code" property="sumErrorCode" jdbcType="VARCHAR" />
+    <result column="count_distinct_error_code" property="countDistinctErrorCode" jdbcType="BIGINT" />
+    <result column="max_memo" property="maxMemo" jdbcType="BIGINT" />
+    <result column="min_memo" property="minMemo" jdbcType="BIGINT" />
+    <result column="avg_memo" property="avgMemo" jdbcType="BIGINT" />
+    <result column="count_memo" property="countMemo" jdbcType="BIGINT" />
+    <result column="sum_memo" property="sumMemo" jdbcType="VARCHAR" />
+    <result column="count_distinct_memo" property="countDistinctMemo" jdbcType="BIGINT" />
+    <result column="max_seq_id" property="maxSeqId" jdbcType="BIGINT" />
+    <result column="min_seq_id" property="minSeqId" jdbcType="BIGINT" />
+    <result column="avg_seq_id" property="avgSeqId" jdbcType="BIGINT" />
+    <result column="count_seq_id" property="countSeqId" jdbcType="BIGINT" />
+    <result column="sum_seq_id" property="sumSeqId" jdbcType="VARCHAR" />
+    <result column="count_distinct_seq_id" property="countDistinctSeqId" jdbcType="BIGINT" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="count_distinct_is_deleted" property="countDistinctIsDeleted" jdbcType="BIGINT" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="count_distinct_modified_by" property="countDistinctModifiedBy" jdbcType="BIGINT" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="count_distinct_created_by" property="countDistinctCreatedBy" jdbcType="BIGINT" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_gmt_modified" property="countDistinctGmtModified" jdbcType="BIGINT" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_gmt_created" property="countDistinctGmtCreated" jdbcType="BIGINT" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="count_distinct_id" property="countDistinctId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="seq_id" property="seqId" jdbcType="VARCHAR" />
+    <result column="memo" property="memo" jdbcType="VARCHAR" />
+    <result column="error_code" property="errorCode" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="receive_data" property="receiveData" jdbcType="TIMESTAMP" />
+    <result column="report_status" property="reportStatus" jdbcType="VARCHAR" />
+    <result column="service_code_add" property="serviceCodeAdd" jdbcType="VARCHAR" />
+    <result column="submit_data" property="submitData" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, created_by, modified_by, is_deleted, seq_id, memo, 
+    error_code, mobile, receive_data, report_status, service_code_add, submit_data, status
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.send.SmsStatusReportExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from sms_status_report
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sms_status_report
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update sms_status_report
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.send.SmsStatusReportExample" >
+    update sms_status_report
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.send.SmsStatusReport" useGeneratedKeys="true" keyProperty="id" >
+    insert into sms_status_report (id, gmt_created, gmt_modified, 
+      created_by, modified_by, is_deleted, 
+      seq_id, memo, error_code, 
+      mobile, receive_data, report_status, 
+      service_code_add, submit_data, status
+      )
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{seqId,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{errorCode,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{receiveData,jdbcType=TIMESTAMP}, #{reportStatus,jdbcType=VARCHAR}, 
+      #{serviceCodeAdd,jdbcType=VARCHAR}, #{submitData,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.send.SmsStatusReport" useGeneratedKeys="true" keyProperty="id" >
+    insert into sms_status_report
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="seqId != null" >
+        seq_id,
+      </if>
+      <if test="memo != null" >
+        memo,
+      </if>
+      <if test="errorCode != null" >
+        error_code,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="receiveData != null" >
+        receive_data,
+      </if>
+      <if test="reportStatus != null" >
+        report_status,
+      </if>
+      <if test="serviceCodeAdd != null" >
+        service_code_add,
+      </if>
+      <if test="submitData != null" >
+        submit_data,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="seqId != null" >
+        #{seqId,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="errorCode != null" >
+        #{errorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveData != null" >
+        #{receiveData,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportStatus != null" >
+        #{reportStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceCodeAdd != null" >
+        #{serviceCodeAdd,jdbcType=VARCHAR},
+      </if>
+      <if test="submitData != null" >
+        #{submitData,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.send.SmsStatusReportExample" resultType="java.lang.Integer" >
+    select count(*) from sms_status_report
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sms_status_report
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.seqId!=null and record.seqIdExpression==null" >
+          seq_id = #{record.seqId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.seqIdExpression!=null" >
+          seq_id = ${record.seqIdExpression},
+        </if>
+        <if test="record.memo!=null and record.memoExpression==null" >
+          memo = #{record.memo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.memoExpression!=null" >
+          memo = ${record.memoExpression},
+        </if>
+        <if test="record.errorCode!=null and record.errorCodeExpression==null" >
+          error_code = #{record.errorCode,jdbcType=VARCHAR},
+        </if>
+        <if test="record.errorCodeExpression!=null" >
+          error_code = ${record.errorCodeExpression},
+        </if>
+        <if test="record.mobile!=null and record.mobileExpression==null" >
+          mobile = #{record.mobile,jdbcType=VARCHAR},
+        </if>
+        <if test="record.mobileExpression!=null" >
+          mobile = ${record.mobileExpression},
+        </if>
+        <if test="record.receiveData!=null and record.receiveDataExpression==null" >
+          receive_data = #{record.receiveData,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.receiveDataExpression!=null" >
+          receive_data = ${record.receiveDataExpression},
+        </if>
+        <if test="record.reportStatus!=null and record.reportStatusExpression==null" >
+          report_status = #{record.reportStatus,jdbcType=VARCHAR},
+        </if>
+        <if test="record.reportStatusExpression!=null" >
+          report_status = ${record.reportStatusExpression},
+        </if>
+        <if test="record.serviceCodeAdd!=null and record.serviceCodeAddExpression==null" >
+          service_code_add = #{record.serviceCodeAdd,jdbcType=VARCHAR},
+        </if>
+        <if test="record.serviceCodeAddExpression!=null" >
+          service_code_add = ${record.serviceCodeAddExpression},
+        </if>
+        <if test="record.submitData!=null and record.submitDataExpression==null" >
+          submit_data = #{record.submitData,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.submitDataExpression!=null" >
+          submit_data = ${record.submitDataExpression},
+        </if>
+        <if test="record.status!=null and record.statusExpression==null" >
+          status = #{record.status,jdbcType=VARCHAR},
+        </if>
+        <if test="record.statusExpression!=null" >
+          status = ${record.statusExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sms_status_report
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      seq_id = #{record.seqId,jdbcType=VARCHAR},
+      memo = #{record.memo,jdbcType=VARCHAR},
+      error_code = #{record.errorCode,jdbcType=VARCHAR},
+      mobile = #{record.mobile,jdbcType=VARCHAR},
+      receive_data = #{record.receiveData,jdbcType=TIMESTAMP},
+      report_status = #{record.reportStatus,jdbcType=VARCHAR},
+      service_code_add = #{record.serviceCodeAdd,jdbcType=VARCHAR},
+      submit_data = #{record.submitData,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.send.SmsStatusReport" >
+    update sms_status_report
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.seqId!=null and record.seqIdExpression==null" >
+          seq_id = #{record.seqId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.seqIdExpression!=null" >
+          seq_id = ${record.seqIdExpression},
+        </if>
+        <if test="record.memo!=null and record.memoExpression==null" >
+          memo = #{record.memo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.memoExpression!=null" >
+          memo = ${record.memoExpression},
+        </if>
+        <if test="record.errorCode!=null and record.errorCodeExpression==null" >
+          error_code = #{record.errorCode,jdbcType=VARCHAR},
+        </if>
+        <if test="record.errorCodeExpression!=null" >
+          error_code = ${record.errorCodeExpression},
+        </if>
+        <if test="record.mobile!=null and record.mobileExpression==null" >
+          mobile = #{record.mobile,jdbcType=VARCHAR},
+        </if>
+        <if test="record.mobileExpression!=null" >
+          mobile = ${record.mobileExpression},
+        </if>
+        <if test="record.receiveData!=null and record.receiveDataExpression==null" >
+          receive_data = #{record.receiveData,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.receiveDataExpression!=null" >
+          receive_data = ${record.receiveDataExpression},
+        </if>
+        <if test="record.reportStatus!=null and record.reportStatusExpression==null" >
+          report_status = #{record.reportStatus,jdbcType=VARCHAR},
+        </if>
+        <if test="record.reportStatusExpression!=null" >
+          report_status = ${record.reportStatusExpression},
+        </if>
+        <if test="record.serviceCodeAdd!=null and record.serviceCodeAddExpression==null" >
+          service_code_add = #{record.serviceCodeAdd,jdbcType=VARCHAR},
+        </if>
+        <if test="record.serviceCodeAddExpression!=null" >
+          service_code_add = ${record.serviceCodeAddExpression},
+        </if>
+        <if test="record.submitData!=null and record.submitDataExpression==null" >
+          submit_data = #{record.submitData,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.submitDataExpression!=null" >
+          submit_data = ${record.submitDataExpression},
+        </if>
+        <if test="record.status!=null and record.statusExpression==null" >
+          status = #{record.status,jdbcType=VARCHAR},
+        </if>
+        <if test="record.statusExpression!=null" >
+          status = ${record.statusExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.send.SmsStatusReport" >
+    update sms_status_report
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      seq_id = #{seqId,jdbcType=VARCHAR},
+      memo = #{memo,jdbcType=VARCHAR},
+      error_code = #{errorCode,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      receive_data = #{receiveData,jdbcType=TIMESTAMP},
+      report_status = #{reportStatus,jdbcType=VARCHAR},
+      service_code_add = #{serviceCodeAdd,jdbcType=VARCHAR},
+      submit_data = #{submitData,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

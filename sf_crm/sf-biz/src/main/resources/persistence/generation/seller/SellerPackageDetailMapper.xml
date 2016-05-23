@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.seller.SellerPackageDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.seller.SellerPackageDetail" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="package_id" property="packageId" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="VARCHAR" />
+    <result column="package_name" property="packageName" jdbcType="VARCHAR" />
+    <result column="package_count" property="packageCount" jdbcType="INTEGER" />
+    <result column="expired_time" property="expiredTime" jdbcType="TIMESTAMP" />
+    <result column="expired_flag" property="expiredFlag" jdbcType="VARCHAR" />
+    <result column="package_remain" property="packageRemain" jdbcType="INTEGER" />
+    <result column="package_type" property="packageType" jdbcType="VARCHAR" />
+    <result column="package_fee" property="packageFee" jdbcType="INTEGER" />
+    <result column="package_free" property="packageFree" jdbcType="INTEGER" />
+    <result column="package_desc" property="packageDesc" jdbcType="VARCHAR" />
+    <result column="package_version" property="packageVersion" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, created_by, gmt_modified, modified_by, is_deleted, package_id, seller_id, 
+    package_name, package_count, expired_time, expired_flag, package_remain, package_type, 
+    package_fee, package_free, package_desc, package_version
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerPackageDetailExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from seller_package_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from seller_package_detail
+    where id = #{id,jdbcType=BIGINT}
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update seller_package_detail
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerPackageDetailExample" >
+    update seller_package_detail
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerPackageDetail" >
+    insert into seller_package_detail (id, gmt_created, created_by, 
+      gmt_modified, modified_by, is_deleted, 
+      package_id, seller_id, package_name, 
+      package_count, expired_time, expired_flag, 
+      package_remain, package_type, package_fee, 
+      package_free, package_desc, package_version
+      )
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{createdBy,jdbcType=VARCHAR}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{packageId,jdbcType=VARCHAR}, #{sellerId,jdbcType=VARCHAR}, #{packageName,jdbcType=VARCHAR}, 
+      #{packageCount,jdbcType=INTEGER}, #{expiredTime,jdbcType=TIMESTAMP}, #{expiredFlag,jdbcType=VARCHAR}, 
+      #{packageRemain,jdbcType=INTEGER}, #{packageType,jdbcType=VARCHAR}, #{packageFee,jdbcType=INTEGER}, 
+      #{packageFree,jdbcType=INTEGER}, #{packageDesc,jdbcType=VARCHAR}, #{packageVersion,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerPackageDetail" >
+    insert into seller_package_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="packageId != null" >
+        package_id,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="packageName != null" >
+        package_name,
+      </if>
+      <if test="packageCount != null" >
+        package_count,
+      </if>
+      <if test="expiredTime != null" >
+        expired_time,
+      </if>
+      <if test="expiredFlag != null" >
+        expired_flag,
+      </if>
+      <if test="packageRemain != null" >
+        package_remain,
+      </if>
+      <if test="packageType != null" >
+        package_type,
+      </if>
+      <if test="packageFee != null" >
+        package_fee,
+      </if>
+      <if test="packageFree != null" >
+        package_free,
+      </if>
+      <if test="packageDesc != null" >
+        package_desc,
+      </if>
+      <if test="packageVersion != null" >
+        package_version,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="packageId != null" >
+        #{packageId,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=VARCHAR},
+      </if>
+      <if test="packageName != null" >
+        #{packageName,jdbcType=VARCHAR},
+      </if>
+      <if test="packageCount != null" >
+        #{packageCount,jdbcType=INTEGER},
+      </if>
+      <if test="expiredTime != null" >
+        #{expiredTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expiredFlag != null" >
+        #{expiredFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="packageRemain != null" >
+        #{packageRemain,jdbcType=INTEGER},
+      </if>
+      <if test="packageType != null" >
+        #{packageType,jdbcType=VARCHAR},
+      </if>
+      <if test="packageFee != null" >
+        #{packageFee,jdbcType=INTEGER},
+      </if>
+      <if test="packageFree != null" >
+        #{packageFree,jdbcType=INTEGER},
+      </if>
+      <if test="packageDesc != null" >
+        #{packageDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="packageVersion != null" >
+        #{packageVersion,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerPackageDetailExample" resultType="java.lang.Integer" >
+    select count(*) from seller_package_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update seller_package_detail
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.packageId!=null and record.packageIdExpression==null" >
+          package_id = #{record.packageId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.packageIdExpression!=null" >
+          package_id = ${record.packageIdExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.packageName!=null and record.packageNameExpression==null" >
+          package_name = #{record.packageName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.packageNameExpression!=null" >
+          package_name = ${record.packageNameExpression},
+        </if>
+        <if test="record.packageCount!=null and record.packageCountExpression==null" >
+          package_count = #{record.packageCount,jdbcType=INTEGER},
+        </if>
+        <if test="record.packageCountExpression!=null" >
+          package_count = ${record.packageCountExpression},
+        </if>
+        <if test="record.expiredTime!=null and record.expiredTimeExpression==null" >
+          expired_time = #{record.expiredTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.expiredTimeExpression!=null" >
+          expired_time = ${record.expiredTimeExpression},
+        </if>
+        <if test="record.expiredFlag!=null and record.expiredFlagExpression==null" >
+          expired_flag = #{record.expiredFlag,jdbcType=VARCHAR},
+        </if>
+        <if test="record.expiredFlagExpression!=null" >
+          expired_flag = ${record.expiredFlagExpression},
+        </if>
+        <if test="record.packageRemain!=null and record.packageRemainExpression==null" >
+          package_remain = #{record.packageRemain,jdbcType=INTEGER},
+        </if>
+        <if test="record.packageRemainExpression!=null" >
+          package_remain = ${record.packageRemainExpression},
+        </if>
+        <if test="record.packageType!=null and record.packageTypeExpression==null" >
+          package_type = #{record.packageType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.packageTypeExpression!=null" >
+          package_type = ${record.packageTypeExpression},
+        </if>
+        <if test="record.packageFee!=null and record.packageFeeExpression==null" >
+          package_fee = #{record.packageFee,jdbcType=INTEGER},
+        </if>
+        <if test="record.packageFeeExpression!=null" >
+          package_fee = ${record.packageFeeExpression},
+        </if>
+        <if test="record.packageFree!=null and record.packageFreeExpression==null" >
+          package_free = #{record.packageFree,jdbcType=INTEGER},
+        </if>
+        <if test="record.packageFreeExpression!=null" >
+          package_free = ${record.packageFreeExpression},
+        </if>
+        <if test="record.packageDesc!=null and record.packageDescExpression==null" >
+          package_desc = #{record.packageDesc,jdbcType=VARCHAR},
+        </if>
+        <if test="record.packageDescExpression!=null" >
+          package_desc = ${record.packageDescExpression},
+        </if>
+        <if test="record.packageVersion!=null and record.packageVersionExpression==null" >
+          package_version = #{record.packageVersion,jdbcType=INTEGER},
+        </if>
+        <if test="record.packageVersionExpression!=null" >
+          package_version = ${record.packageVersionExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update seller_package_detail
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      package_id = #{record.packageId,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=VARCHAR},
+      package_name = #{record.packageName,jdbcType=VARCHAR},
+      package_count = #{record.packageCount,jdbcType=INTEGER},
+      expired_time = #{record.expiredTime,jdbcType=TIMESTAMP},
+      expired_flag = #{record.expiredFlag,jdbcType=VARCHAR},
+      package_remain = #{record.packageRemain,jdbcType=INTEGER},
+      package_type = #{record.packageType,jdbcType=VARCHAR},
+      package_fee = #{record.packageFee,jdbcType=INTEGER},
+      package_free = #{record.packageFree,jdbcType=INTEGER},
+      package_desc = #{record.packageDesc,jdbcType=VARCHAR},
+      package_version = #{record.packageVersion,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerPackageDetail" >
+    update seller_package_detail
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.packageId!=null and record.packageIdExpression==null" >
+          package_id = #{record.packageId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.packageIdExpression!=null" >
+          package_id = ${record.packageIdExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.packageName!=null and record.packageNameExpression==null" >
+          package_name = #{record.packageName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.packageNameExpression!=null" >
+          package_name = ${record.packageNameExpression},
+        </if>
+        <if test="record.packageCount!=null and record.packageCountExpression==null" >
+          package_count = #{record.packageCount,jdbcType=INTEGER},
+        </if>
+        <if test="record.packageCountExpression!=null" >
+          package_count = ${record.packageCountExpression},
+        </if>
+        <if test="record.expiredTime!=null and record.expiredTimeExpression==null" >
+          expired_time = #{record.expiredTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.expiredTimeExpression!=null" >
+          expired_time = ${record.expiredTimeExpression},
+        </if>
+        <if test="record.expiredFlag!=null and record.expiredFlagExpression==null" >
+          expired_flag = #{record.expiredFlag,jdbcType=VARCHAR},
+        </if>
+        <if test="record.expiredFlagExpression!=null" >
+          expired_flag = ${record.expiredFlagExpression},
+        </if>
+        <if test="record.packageRemain!=null and record.packageRemainExpression==null" >
+          package_remain = #{record.packageRemain,jdbcType=INTEGER},
+        </if>
+        <if test="record.packageRemainExpression!=null" >
+          package_remain = ${record.packageRemainExpression},
+        </if>
+        <if test="record.packageType!=null and record.packageTypeExpression==null" >
+          package_type = #{record.packageType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.packageTypeExpression!=null" >
+          package_type = ${record.packageTypeExpression},
+        </if>
+        <if test="record.packageFee!=null and record.packageFeeExpression==null" >
+          package_fee = #{record.packageFee,jdbcType=INTEGER},
+        </if>
+        <if test="record.packageFeeExpression!=null" >
+          package_fee = ${record.packageFeeExpression},
+        </if>
+        <if test="record.packageFree!=null and record.packageFreeExpression==null" >
+          package_free = #{record.packageFree,jdbcType=INTEGER},
+        </if>
+        <if test="record.packageFreeExpression!=null" >
+          package_free = ${record.packageFreeExpression},
+        </if>
+        <if test="record.packageDesc!=null and record.packageDescExpression==null" >
+          package_desc = #{record.packageDesc,jdbcType=VARCHAR},
+        </if>
+        <if test="record.packageDescExpression!=null" >
+          package_desc = ${record.packageDescExpression},
+        </if>
+        <if test="record.packageVersion!=null and record.packageVersionExpression==null" >
+          package_version = #{record.packageVersion,jdbcType=INTEGER},
+        </if>
+        <if test="record.packageVersionExpression!=null" >
+          package_version = ${record.packageVersionExpression},
+        </if>
+      </trim>
+    </set>
+    where record.id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerPackageDetail" >
+    update seller_package_detail
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      package_id = #{packageId,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=VARCHAR},
+      package_name = #{packageName,jdbcType=VARCHAR},
+      package_count = #{packageCount,jdbcType=INTEGER},
+      expired_time = #{expiredTime,jdbcType=TIMESTAMP},
+      expired_flag = #{expiredFlag,jdbcType=VARCHAR},
+      package_remain = #{packageRemain,jdbcType=INTEGER},
+      package_type = #{packageType,jdbcType=VARCHAR},
+      package_fee = #{packageFee,jdbcType=INTEGER},
+      package_free = #{packageFree,jdbcType=INTEGER},
+      package_desc = #{packageDesc,jdbcType=VARCHAR},
+      package_version = #{packageVersion,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,445 @@
+#set($layout = "/layout/mobileBlank.vm")
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <title>我的好评</title>
+    <style>
+
+        * {
+            font-family: "Microsoft YaHei";
+        }
+
+        .t_center {
+            text-align: center;
+            margin: 0 6px;
+        }
+
+        .t_left {
+            text-align: left;
+        }
+
+        .t_right {
+            text-align: right;
+        }
+
+        .pm_list {
+            font-size: 13px;
+        }
+
+        .pm_list tr {
+            border-bottom: 1px solid #efefef;
+            line-height: 42px;
+            vertical-align: middle;
+        }
+
+        .pm_list th {
+            color: #888;
+            font-weight: normal;
+            line-height: 26px;
+        }
+
+        .pm_list td span {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .pm_num {
+            overflow: hidden;
+        }
+
+        .pm_name {
+            width: 70px;
+        }
+
+        .pm_day {
+            width: 50px;
+        }
+
+        .pm_time {
+            width: 50px;
+        }
+
+        .pm_40 {
+            width: 40%;
+        }
+
+        .pm_30 {
+            width: 30%
+        }
+
+        .pm_15 {
+            width: 15%
+        }
+
+        .pm_4 {
+            width: 25%;
+        }
+
+        .pm_5 {
+            width: 20%;
+        }
+
+        .pm_4 {
+            width: 25%;
+        }
+
+        .col_title {
+            padding: 5px 5px;
+            overflow: hidden
+        }
+
+        .col_title span {
+            margin: 0 4px;
+        }
+
+        .col_title img {
+            width: 60px;
+            height: 60px;
+            vertical-align: middle;
+            border-radius: 50%;
+        }
+
+        .col_title a {
+            width: 120px;
+            overflow: hidden;
+            margin-left: 10px;
+            text-overflow: ellipsis;
+        }
+
+        .word-hidden p {
+            width: 120px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .word-hidden a {
+            color: #ff6633
+        }
+        .user-list-rank {
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 0 0px;
+        }
+
+        .user-list-rank .user-list-li {
+            overflow: hidden;
+            zoom: 1;
+            padding: 10px 0;
+            clear: both;
+        }
+
+        .user-list-rank .user-photo {
+            float: left;
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        .user-list-rank .user-photo img {
+            border-radius: 200px;
+            overflow: hidden;
+            border: 1px solid #c4c4c4;
+            display: block;
+        }
+
+        .user-list-rank .user-photo .user-name {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .user-list-rank .info {
+            overflow: hidden;
+            zoom: 1;
+        }
+
+        .user-list-rank .support-text {
+            margin-bottom: 15px;
+            font-size: 12px;
+            text-indent: 10px;
+            margin-top: 10px;
+        }
+
+        .user-list-rank .support-icon-btn {
+            font-size: 12px;
+            width: 90%;
+        }
+
+        .user-list-rank .rank-num {
+            float: left;
+            margin-top: 16px;
+            width: 30px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .user-list-rank .zan-btn {
+            float: right;
+            background: url(${rc.contextPath}/media/images/icon_heart.png) center bottom no-repeat;
+            padding: 0 10px 20px 10px;
+            background-size: 20px;
+            margin: 5px 5px 0 5px;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .user-list-rank .zan-btn.active {
+            background-image: url(${rc.contextPath}/media/images/icon_heart_active.png);
+        }
+
+        /*进度条*/
+        .progress {
+            height: 10px;
+            margin-top: 10px;
+            overflow: hidden;
+            background-color: #EFEEEC;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+            position: relative;
+            margin-right: 10px;
+        }
+
+        .progress-bar {
+            float: left;
+            width: 0;
+            height: 100%;
+            font-size: 12px;
+            line-height: 40px;
+            color: #fff;
+            text-indent: 10px;
+            background-color: #3FB752;
+            -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+            -webkit-transition: width .6s ease;
+            -o-transition: width .6s ease;
+            transition: width .6s ease;
+        }
+
+        .sr-only {
+            color: #999;
+            width: 120px!important;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            display: inline-block;
+        }
+
+        .num {
+            margin-left: 10px;
+            float: right;
+            margin-right: 10px;
+        }
+
+        .progress-text {
+            font-size: 14px;
+            margin-top: 8px;
+            color: #999;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+
+<div class="container " id="J_content">
+    <div class="u-body">
+        <div class="user bg_white">
+            <div class="user_back"></div>
+            <table class="user_table">
+                <tr>
+                    <td class="user_tleft">
+                        <div class="user_img rAll">
+                            <img class="rAll" id="wxHeadImgUrl" src="$!user.wxHeadimgurl"
+                                 onerror="this.src='${rc.contextPath}/media/mobile/assets/images/signIn/helpbuy-icon.jpg'"/>
+                        </div>
+                    </td>
+                    <td class="user_tright">
+                        <p class="user_name " id="wxNickName">$!user.wxNickName</p>
+
+                        <p class="user_leve red">$!user.mobile <span class="j_user_credit" id="totalPoint"></span>
+                        </p>
+                    </td>
+                <tr/>
+            </table>
+        </div>
+
+        <div class="u-block u-myscore">
+            <div class="form-grounp">
+                <div class="itemDetail rightBorder">好评订单数<span class="orange">$!totalPraseOrders</span></div>
+                <div class="itemDetail">好评红包<span
+                        class="orange">#set($totalPraseMoney=$!totalPraseMoney/100.00)$!totalPraseMoney</span>元
+                </div>
+            </div>
+            <div class="form-grounp">
+                <div class="itemDetail rightBorder">
+                    已领好评<span
+                        class="orange">#set($hongbaoPraiseAmount=$!userAccount.hongbaoPraiseAmount/100.00)#if(!$userAccount.hongbaoPraiseAmount)
+                    0.0#else$!hongbaoPraiseAmount#end</span>元
+                </div>
+                <div class="itemDetail">粉丝排名<span class="orange">$!userAccount.hbPraiseRank</span></div>
+            </div>
+
+            <div class="form-grounp">
+                <div class="itemDetail rightBorder">
+                    参与人数<span class="orange">$!totalPartakeCount</span>
+                </div>
+                <div class="itemDetail">累计发放<span
+                        class="orange">#if($!totalAmount<1000000)#set($totalAmount=$!totalAmount/100.00) $numTool.format("#0.00", $!totalAmount)</span>元
+                #else#set($totalAmount=$!totalAmount/1000000.00)$numTool.format("#0.00", $!totalAmount)</span>万元
+                #end
+                </div>
+
+            </div>
+        </div>
+
+        <table class="bg_white border_t taps tab_a" style="border-top: none;margin-top:10px">
+            <tr>
+                <td class="t_center">
+                    <div class="infor_item">
+                        <a class="tap_link f16 j_sign_list active" name="rank" href="javascript:void(0);">好评红包排行</a>
+                    </div>
+                </td>
+                <td class="t_center">
+                    <div class="infor_item">
+                        <a class="tap_link f16 j_sign_list" name="records" href="javascript:void(0);">我的奖励</a>
+                    </div>
+                </td>
+            <tr/>
+        </table>
+
+        <div class="pm_list list_cont tab_1" id="J_pm_list_1" style="margin-bottom: 10px;">
+            <ul class="user-list-rank">
+                #set($percent=100)
+                #set($maxAmount=0)
+                #foreach( $rankDetail in $rank)
+
+                    #if($!{velocityCount}==1)
+                        #set($maxAmount=$userAccount.hbobtainAmount)
+                    #end
+
+                    #if($maxAmount!='')
+                        #set($percent=($userAccount.hbobtainAmount*100.00/$!maxAmount))
+                    #end
+
+                    #if($rankDetail.hongbaoPraiseAmount==0)
+                        #set($percent=0)
+                    #end
+
+                    <div class="user-list-li" #if($!{velocityCount}==1&&$!userId==$!userAccount.userId)style="background-color:FFCB31;"#end >
+                        <span class="rank-num">$!rankDetail.hbPraiseRank</span>
+
+                        <span class="user-photo"><img src="$!rankDetail.wxHeadImgUrl"></span>
+
+                        <div class="progress-text"><span class="sr-only" #if($!{velocityCount}==1&&$!userId==$!userAccount.userId)style="color:#000000;"#end>$!rankDetail.wxNickName</span><span
+                                class="num" #if($!{velocityCount}==1&&$!userId==$!userAccount.userId)style="color:#000000;"#end > 已领#set($hongbaoPraiseAmount=$!rankDetail.hongbaoPraiseAmount/100.00) $!hongbaoPraiseAmount元</span>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-bar"
+                                 style="width:$!percent%;"></div>
+                        </div>
+
+                    </div>
+                #end
+            </ul>
+
+        </div>
+
+        <div class="pm_list list_cont tab_2" id="J_pm_list_2" style="display: none;margin-bottom: 10px">
+            <table class="bg_gray pm_list">
+                <thead>
+                <tr>
+                    <th class="t_center pm_4">订单编号</th>
+                    <th class="t_center pm_5">购物金额</th>
+                    <th class="t_center pm_5">类型</th>
+                    <th class="t_center pm_5">奖励</th>
+                    <th class="t_center pm_5">状态</th>
+                </tr>
+                </thead>
+                <tbody style="background-color: white">
+                    #set($amount=$denomination/100.00)
+                    #foreach( $orderTaoBao in $orderTaoBaoDOs)
+                    <tr>
+                        <td class="t_center word-hidden">
+                            <p>
+                                #if($!orderTaoBao.status=="toReceive")
+                                    <a href="${rc.contextPath}/mobile/hongbao/goHongbaoObtain?sellerId=$!sellerId&userId=$!userId&hbObtainId=$!orderTaoBao.hbObainId&businessType=other">淘宝$!orderTaoBao.oid</a>
+                                #elseif($!orderTaoBao.status=="received")
+                                    淘宝$!orderTaoBao.oid
+                                #end
+                            </p>
+                        </td>
+                        <td class="t_center">$!orderTaoBao.payment元</td>
+                        <td class="t_center">好评</td>
+                        <td class="t_center">$!amount元</td>
+                    <td class="t_center">
+                        #set ($status="")
+                       #if($!orderTaoBao.status=="toReceive")
+                        #set ($status="未领取")
+                    #elseif($!orderTaoBao.status=="received")
+                        #set ($status="已领取")
+                    #end $!status   #end </td>
+                </tr>
+
+                    #foreach( $orderJD in $orderJDs)
+                    <tr>
+                        <td class="t_center word-hidden"><p>
+
+                            #if($!orderTaoBao.status=="toReceive")
+                                <a href="${rc.contextPath}/mobile/hongbao/goHongbaoObtain?sellerId=$!sellerId&userId=$!userId&hbObtainId=$!orderTaoBao.hbObainId">京东$!orderJD.order_id</a>
+                            #elseif($!orderTaoBao.status=="received")
+                                京东$!orderJD.order_id
+                            #end
+                        </p></td>
+                        <td class="t_center">$!orderJD.orderPayment</td>
+                        <td class="t_center">好评</td>
+                        <td class="t_center">$!amount</td>
+                    <td class="t_center">
+                        #if($!orderJD.status=="toReceive")
+                            #set ($status="未领取")
+                        #elseif($!orderJD.status=="received")
+                            #set ($status="已领取")
+                        #end  $!status #end
+                </td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+        <div class="u-footer">
+            <p>
+                <img src="${rc.contextPath}/media/mobile/assets/images/public/suniu_logo_grey.jpg">
+                <span>技术支持·速牛科技</span>
+            </p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        $('.tap_link').click(function () {
+            var ref = $(this).attr("name");
+            $(this).addClass("active").parent().parent().siblings().find("a").removeClass("active");
+            if (ref == "rank") {
+                $(".tab_1").show();
+                $(".tab_2").hide();
+            } else if (ref == "records") {
+                $(".tab_1").hide();
+                $(".tab_2").show();
+            }
+        });
+    </script>
+</body>
+
+</html>
+

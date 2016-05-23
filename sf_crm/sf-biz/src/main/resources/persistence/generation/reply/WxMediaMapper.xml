@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.reply.WxMediaMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.reply.WxMedia" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_content" property="maxContent" jdbcType="BIGINT" />
+    <result column="min_content" property="minContent" jdbcType="BIGINT" />
+    <result column="avg_content" property="avgContent" jdbcType="BIGINT" />
+    <result column="count_content" property="countContent" jdbcType="BIGINT" />
+    <result column="sum_content" property="sumContent" jdbcType="LONGVARCHAR" />
+    <result column="count_distinct_content" property="countDistinctContent" jdbcType="BIGINT" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="count_distinct_seller_id" property="countDistinctSellerId" jdbcType="BIGINT" />
+    <result column="max_content_source_url" property="maxContentSourceUrl" jdbcType="BIGINT" />
+    <result column="min_content_source_url" property="minContentSourceUrl" jdbcType="BIGINT" />
+    <result column="avg_content_source_url" property="avgContentSourceUrl" jdbcType="BIGINT" />
+    <result column="count_content_source_url" property="countContentSourceUrl" jdbcType="BIGINT" />
+    <result column="sum_content_source_url" property="sumContentSourceUrl" jdbcType="VARCHAR" />
+    <result column="count_distinct_content_source_url" property="countDistinctContentSourceUrl" jdbcType="BIGINT" />
+    <result column="max_url" property="maxUrl" jdbcType="BIGINT" />
+    <result column="min_url" property="minUrl" jdbcType="BIGINT" />
+    <result column="avg_url" property="avgUrl" jdbcType="BIGINT" />
+    <result column="count_url" property="countUrl" jdbcType="BIGINT" />
+    <result column="sum_url" property="sumUrl" jdbcType="VARCHAR" />
+    <result column="count_distinct_url" property="countDistinctUrl" jdbcType="BIGINT" />
+    <result column="max_digest" property="maxDigest" jdbcType="BIGINT" />
+    <result column="min_digest" property="minDigest" jdbcType="BIGINT" />
+    <result column="avg_digest" property="avgDigest" jdbcType="BIGINT" />
+    <result column="count_digest" property="countDigest" jdbcType="BIGINT" />
+    <result column="sum_digest" property="sumDigest" jdbcType="VARCHAR" />
+    <result column="count_distinct_digest" property="countDistinctDigest" jdbcType="BIGINT" />
+    <result column="max_author" property="maxAuthor" jdbcType="BIGINT" />
+    <result column="min_author" property="minAuthor" jdbcType="BIGINT" />
+    <result column="avg_author" property="avgAuthor" jdbcType="BIGINT" />
+    <result column="count_author" property="countAuthor" jdbcType="BIGINT" />
+    <result column="sum_author" property="sumAuthor" jdbcType="VARCHAR" />
+    <result column="count_distinct_author" property="countDistinctAuthor" jdbcType="BIGINT" />
+    <result column="max_show_cover_pic" property="maxShowCoverPic" jdbcType="BIGINT" />
+    <result column="min_show_cover_pic" property="minShowCoverPic" jdbcType="BIGINT" />
+    <result column="avg_show_cover_pic" property="avgShowCoverPic" jdbcType="BIGINT" />
+    <result column="count_show_cover_pic" property="countShowCoverPic" jdbcType="BIGINT" />
+    <result column="sum_show_cover_pic" property="sumShowCoverPic" jdbcType="VARCHAR" />
+    <result column="count_distinct_show_cover_pic" property="countDistinctShowCoverPic" jdbcType="BIGINT" />
+    <result column="max_thumb_media_id" property="maxThumbMediaId" jdbcType="BIGINT" />
+    <result column="min_thumb_media_id" property="minThumbMediaId" jdbcType="BIGINT" />
+    <result column="avg_thumb_media_id" property="avgThumbMediaId" jdbcType="BIGINT" />
+    <result column="count_thumb_media_id" property="countThumbMediaId" jdbcType="BIGINT" />
+    <result column="sum_thumb_media_id" property="sumThumbMediaId" jdbcType="VARCHAR" />
+    <result column="count_distinct_thumb_media_id" property="countDistinctThumbMediaId" jdbcType="BIGINT" />
+    <result column="max_title" property="maxTitle" jdbcType="BIGINT" />
+    <result column="min_title" property="minTitle" jdbcType="BIGINT" />
+    <result column="avg_title" property="avgTitle" jdbcType="BIGINT" />
+    <result column="count_title" property="countTitle" jdbcType="BIGINT" />
+    <result column="sum_title" property="sumTitle" jdbcType="VARCHAR" />
+    <result column="count_distinct_title" property="countDistinctTitle" jdbcType="BIGINT" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="count_distinct_is_deleted" property="countDistinctIsDeleted" jdbcType="BIGINT" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="count_distinct_modified_by" property="countDistinctModifiedBy" jdbcType="BIGINT" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="count_distinct_created_by" property="countDistinctCreatedBy" jdbcType="BIGINT" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_gmt_modified" property="countDistinctGmtModified" jdbcType="BIGINT" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_gmt_created" property="countDistinctGmtCreated" jdbcType="BIGINT" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="count_distinct_id" property="countDistinctId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="thumb_media_id" property="thumbMediaId" jdbcType="VARCHAR" />
+    <result column="show_cover_pic" property="showCoverPic" jdbcType="VARCHAR" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="digest" property="digest" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="content_source_url" property="contentSourceUrl" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.shufensoft.crm.biz.domain.generation.reply.WxMedia" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, created_by, modified_by, is_deleted, title, thumb_media_id, 
+    show_cover_pic, author, digest, url, content_source_url, seller_id
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.shufensoft.crm.biz.domain.generation.reply.WxMediaExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from wx_media
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.reply.WxMediaExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from wx_media
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from wx_media
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update wx_media
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.reply.WxMediaExample" >
+    update wx_media
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.reply.WxMedia" useGeneratedKeys="true" keyProperty="id" >
+    insert into wx_media (id, gmt_created, gmt_modified, 
+      created_by, modified_by, is_deleted, 
+      title, thumb_media_id, show_cover_pic, 
+      author, digest, url, 
+      content_source_url, seller_id, content
+      )
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{thumbMediaId,jdbcType=VARCHAR}, #{showCoverPic,jdbcType=VARCHAR}, 
+      #{author,jdbcType=VARCHAR}, #{digest,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{contentSourceUrl,jdbcType=VARCHAR}, #{sellerId,jdbcType=BIGINT}, #{content,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.reply.WxMedia" useGeneratedKeys="true" keyProperty="id" >
+    insert into wx_media
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="thumbMediaId != null" >
+        thumb_media_id,
+      </if>
+      <if test="showCoverPic != null" >
+        show_cover_pic,
+      </if>
+      <if test="author != null" >
+        author,
+      </if>
+      <if test="digest != null" >
+        digest,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="contentSourceUrl != null" >
+        content_source_url,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbMediaId != null" >
+        #{thumbMediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="showCoverPic != null" >
+        #{showCoverPic,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="digest != null" >
+        #{digest,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="contentSourceUrl != null" >
+        #{contentSourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.reply.WxMediaExample" resultType="java.lang.Integer" >
+    select count(*) from wx_media
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update wx_media
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.title!=null and record.titleExpression==null" >
+          title = #{record.title,jdbcType=VARCHAR},
+        </if>
+        <if test="record.titleExpression!=null" >
+          title = ${record.titleExpression},
+        </if>
+        <if test="record.thumbMediaId!=null and record.thumbMediaIdExpression==null" >
+          thumb_media_id = #{record.thumbMediaId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.thumbMediaIdExpression!=null" >
+          thumb_media_id = ${record.thumbMediaIdExpression},
+        </if>
+        <if test="record.showCoverPic!=null and record.showCoverPicExpression==null" >
+          show_cover_pic = #{record.showCoverPic,jdbcType=VARCHAR},
+        </if>
+        <if test="record.showCoverPicExpression!=null" >
+          show_cover_pic = ${record.showCoverPicExpression},
+        </if>
+        <if test="record.author!=null and record.authorExpression==null" >
+          author = #{record.author,jdbcType=VARCHAR},
+        </if>
+        <if test="record.authorExpression!=null" >
+          author = ${record.authorExpression},
+        </if>
+        <if test="record.digest!=null and record.digestExpression==null" >
+          digest = #{record.digest,jdbcType=VARCHAR},
+        </if>
+        <if test="record.digestExpression!=null" >
+          digest = ${record.digestExpression},
+        </if>
+        <if test="record.url!=null and record.urlExpression==null" >
+          url = #{record.url,jdbcType=VARCHAR},
+        </if>
+        <if test="record.urlExpression!=null" >
+          url = ${record.urlExpression},
+        </if>
+        <if test="record.contentSourceUrl!=null and record.contentSourceUrlExpression==null" >
+          content_source_url = #{record.contentSourceUrl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.contentSourceUrlExpression!=null" >
+          content_source_url = ${record.contentSourceUrlExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update wx_media
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      title = #{record.title,jdbcType=VARCHAR},
+      thumb_media_id = #{record.thumbMediaId,jdbcType=VARCHAR},
+      show_cover_pic = #{record.showCoverPic,jdbcType=VARCHAR},
+      author = #{record.author,jdbcType=VARCHAR},
+      digest = #{record.digest,jdbcType=VARCHAR},
+      url = #{record.url,jdbcType=VARCHAR},
+      content_source_url = #{record.contentSourceUrl,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=BIGINT},
+      content = #{record.content,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update wx_media
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      title = #{record.title,jdbcType=VARCHAR},
+      thumb_media_id = #{record.thumbMediaId,jdbcType=VARCHAR},
+      show_cover_pic = #{record.showCoverPic,jdbcType=VARCHAR},
+      author = #{record.author,jdbcType=VARCHAR},
+      digest = #{record.digest,jdbcType=VARCHAR},
+      url = #{record.url,jdbcType=VARCHAR},
+      content_source_url = #{record.contentSourceUrl,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.reply.WxMedia" >
+    update wx_media
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.title!=null and record.titleExpression==null" >
+          title = #{record.title,jdbcType=VARCHAR},
+        </if>
+        <if test="record.titleExpression!=null" >
+          title = ${record.titleExpression},
+        </if>
+        <if test="record.thumbMediaId!=null and record.thumbMediaIdExpression==null" >
+          thumb_media_id = #{record.thumbMediaId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.thumbMediaIdExpression!=null" >
+          thumb_media_id = ${record.thumbMediaIdExpression},
+        </if>
+        <if test="record.showCoverPic!=null and record.showCoverPicExpression==null" >
+          show_cover_pic = #{record.showCoverPic,jdbcType=VARCHAR},
+        </if>
+        <if test="record.showCoverPicExpression!=null" >
+          show_cover_pic = ${record.showCoverPicExpression},
+        </if>
+        <if test="record.author!=null and record.authorExpression==null" >
+          author = #{record.author,jdbcType=VARCHAR},
+        </if>
+        <if test="record.authorExpression!=null" >
+          author = ${record.authorExpression},
+        </if>
+        <if test="record.digest!=null and record.digestExpression==null" >
+          digest = #{record.digest,jdbcType=VARCHAR},
+        </if>
+        <if test="record.digestExpression!=null" >
+          digest = ${record.digestExpression},
+        </if>
+        <if test="record.url!=null and record.urlExpression==null" >
+          url = #{record.url,jdbcType=VARCHAR},
+        </if>
+        <if test="record.urlExpression!=null" >
+          url = ${record.urlExpression},
+        </if>
+        <if test="record.contentSourceUrl!=null and record.contentSourceUrlExpression==null" >
+          content_source_url = #{record.contentSourceUrl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.contentSourceUrlExpression!=null" >
+          content_source_url = ${record.contentSourceUrlExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.shufensoft.crm.biz.domain.generation.reply.WxMedia" >
+    update wx_media
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      thumb_media_id = #{thumbMediaId,jdbcType=VARCHAR},
+      show_cover_pic = #{showCoverPic,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      digest = #{digest,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      content_source_url = #{contentSourceUrl,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=BIGINT},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.reply.WxMedia" >
+    update wx_media
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      thumb_media_id = #{thumbMediaId,jdbcType=VARCHAR},
+      show_cover_pic = #{showCoverPic,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      digest = #{digest,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      content_source_url = #{contentSourceUrl,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

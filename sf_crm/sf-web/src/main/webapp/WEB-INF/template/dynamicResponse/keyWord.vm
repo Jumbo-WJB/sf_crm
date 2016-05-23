@@ -1,0 +1,295 @@
+#set($layout = "/layout/blank.vm")
+<style>
+    #addForm input{
+        color:#333;
+    }
+</style>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <div class="BoxStyleA">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <i class="modal-logo interact"></i>
+                    <ul class="breadcrumb" style="margin-left: 2px">
+                        <li></li>
+                        <li>客户互动</li>
+                        <li>动态回复设置</li>
+                        <li class="active">关键字回复设置</li>
+                    </ul>
+                    <!-- .breadcrumb -->
+                </div>
+
+                <div class="widget-body">
+                    <div class="widget-main">
+                        <form class="form-horizontal" role="form" id="addForm">
+                            <input  type="hidden" name="id"/>
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="col-sm-4 control-label no-padding-right" for="form-field-1">
+                                    内容名称: </label>
+
+                                <div class="col-sm-6">
+                                    <input type="text" id="form-field-1" class="col-xs-10 col-sm-5" name="title"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" for="form-field-1">
+                                    内容分类: </label>
+
+                                <div class="col-sm-6">
+                                    <input name="bizType" type="radio" class="ace" value="point_exchange_goods"
+                                           checked/>
+                                    <span class="lbl" style="margin-right: 5px;">积分兑换商品</span>
+                                    <input name="bizType" type="radio" class="ace" value="point_exchange_hb"/>
+                                    <span class="lbl" style="margin-right: 5px;">积分换红包</span>
+                                    <input name="bizType" type="radio" class="ace" value="sign_in""/>
+                                    <span class="lbl" style="margin-right: 5px;">签到送积分</span>
+                                    <input name="bizType" type="radio" class="ace" value="point_query"/>
+                                    <span class="lbl" style="margin-right: 5px;">积分查询</span>
+                                    <input name="bizType" type="radio" class="ace" value="shake"/>
+                                    <span class="lbl" style="margin-right: 5px;">摇一摇</span>
+                                    <input name="bizType" type="radio" class="ace" value="user_validate"/>
+                                    <span class="lbl" style="margin-right: 5px;">用户认证</span><br />
+                                    <input name="bizType" type="radio" class="ace" style="margin: 15px 5px 0 0;"
+                                           value="express_query""/>
+                                    <span class="lbl" style="margin: 15px 5px 0 0;">快递查询</span>
+                                    <input name="bizType" type="radio" class="ace" style="margin: 15px 5px 0 0;float: left;"
+                                           value="birthday" />
+                                    <span class="lbl" style="margin: 15px 5px 0 0;">我的生日</span>
+                                    <input name="bizType" type="radio" class="ace" style="margin: 15px 5px 0 0;"
+                                           value="receive_common_hb"/>
+                                    <span class="lbl" style="margin: 15px 5px 0 0;">普通红包领取</span>
+                                    <input name="bizType" type="radio" class="ace" style="margin: 15px 5px 0 0;"
+                                           value="praise_receive_hb"/>
+                                    <span class="lbl" style="margin: 15px 5px 0 0;">好评返红包</span>
+                                    <input name="bizType" type="radio" class="ace" style="margin: 15px 5px 0 0;"
+                                           value="guide""/>
+                                    <span class="lbl" style="margin: 15px 5px 0 0;">引导语</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group keywordContent">
+                                <label class="col-sm-4 control-label no-padding-right" for="form-field-1">
+                                    回复关键字 : </label>
+
+                                <div class="col-sm-7">
+                                    <input type="text" id="form-field-1" class="col-xs-5 col-sm-5" name="keyWord"/>
+                                    <input name="matchType" type="radio" class="ace" value="0" checked="checked"/>
+                                    <span class="lbl" style="margin-left: 5px;">模糊匹配</span>
+                                    <input name="matchType" type="radio" class="ace" value="1"/>
+                                    <span class="lbl">精确匹配   <span style="color: red;padding-top:5px">&nbsp(多个关键字以|隔开,如key1|key2)</span></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group successContent">
+                                <label class="col-sm-4 control-label no-padding-right" for="form-field-1">
+                                    匹配成功内容回复: </label>
+
+                                <div class="col-sm-6" id="successInput">
+                                    <input type="text" id="inputEdit" class="col-xs-10 col-sm-5" value="积分商城首页" readonly/>
+                                </div>
+                                <div class="col-sm-6" id="selectPool" style="display:none;">
+                                    <input type="text" id="poolInput" class="col-xs-10 col-sm-5" data-toggle="modal"
+                                           placeholder="选择所要发送的红包活动" onclick="selPool()"/>
+                                    <input type="text" name="bizId" style="display: none;"/>
+                                </div>
+                                <div class="col-sm-5" style="display: none;" id="signEdit">
+                                    <textarea class="form-control" rows="10" id="signWord"
+                                              style="font-size: 15px;color: #000;display: none;" readonly></textarea>
+                                    <textarea class="form-control" rows="10" id="exampleWord"
+                                              style="font-size: 15px;color: #000;" readonly></textarea>
+                                </div>
+                                <div class="col-sm-5" style="display: none;" id="pointQueryEdit">
+                                    <textarea class="form-control" rows="10" id="expressWord" style="font-size: 15px;color: #000;" readonly></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group introductory" style="display: none;">
+                                <label class="col-sm-4 control-label no-padding-right" for="form-field-1">
+                                    引导语设置: </label>
+
+                                <div class="col-sm-5">
+                                    <textarea id="guid" style="color: #000;padding: 20px;" name="introduceWord"
+                                              rows="12" class="form-control" readonly></textarea>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer sn-footer">
+                                <center>
+                                    <input class="btn btn-primary" type="button" value="保存设置" id="save">
+                                    <input class="btn btn-danger" type="button" value="删除设置" id="delete" style="margin-left: 70px;">
+                                </center>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hbPoolModal -->
+<div class="modal fade" id="hbpoolModal" tabindex="-1" role="dialog" aria-labelledby="hbpoolModal" aria-hidden="true">
+    <div class="modal-dialog" style="width: 1200px;z-index:-999px">
+        <div class="modal-content">
+            <div class="tiptop"><span>红包活动列表</span><a data-dismiss="modal" aria-hidden="true"></a></div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="table-responsive">
+                        <div class="BoxStyleA">
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <form class="form-search" id="searchForm">
+                                        <div class="row">
+                                            <div class="col-xs-16 col-sm-12">
+                                                <div class="input-group">
+                                                    <span class="ml20">红包活动名称：<input type="text" name="name"/></span>
+                                                    <span class="ml20">&nbsp;&nbsp;&nbsp;领取方式：
+                                                        <select style="width: 150px;" name="type" disabled="disabled">
+                                                            <option value="">不限</option>
+                                                            <option value="point_exchange">积分兑换红包</option>
+                                                            <option value="common">普通红包</option>
+                                                            <option value="shake">摇一摇红包</option>
+                                                            <option value="praise">好评返红包</option>
+                                                            <option value="birthday">生日红包</option>
+                                                        </select>
+                                                    </span>
+                                                </div>
+                                                <div class="input-group " style="margin: 15px 10px;">
+                                                    <span style="float:left;">创建时间：<input type="text" name="startDate"
+                                                                                          onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"/></span>
+                                                    <span class="ml20" style="float:left;">&nbsp;&nbsp;至：<input
+                                                            type="text" name="endDate"
+                                                            onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"/></span>
+                                                    <span class="input-group-btn"
+                                                          style="float:left;margin-left: 120px;">
+                                                        <input class="btn_searchA ml20 searchBut" type="button"
+                                                               value="搜索"/>
+                                                    </span>
+                                                    <span class="input-group-btn"
+                                                          style="float:left;margin-left: 120px;">
+                                                        <input class="btn_searchA ml20 submitBut" type="button"
+                                                               aria-hidden="true" data-dismiss="modal" value="确定"/>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div>&nbsp</div>
+                        <div class="BoxStyleA">
+                            <div class="BoxStyleATop">
+                                <span class="fl">红包活动信息</span>
+                            </div>
+                            <table id="HBTable" class="table table-striped table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <th>红包活动名称</th>
+                                    <th style="width: 150px">创建时间</th>
+                                    <th>状态</th>
+                                    <th>总金额(元)</th>
+                                    <th>剩余金额(元)</th>
+                                    <th>总数量</th>
+                                    <th>领取数量</th>
+                                    <th>剩余数量</th>
+                                    <th>领取方式</th>
+                                </tr>
+
+                                </thead>
+
+                                <tbody id="tbContainer">
+                                </tbody>
+
+                                <tfoot>
+                                <tr>
+                                    <th>合计:</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th id="sumTotalAmount"></th>
+                                    <th id="sumOverAmount"></th>
+                                    <th id="sumNumber"></th>
+                                    <th id="sumNumberObtain"></th>
+                                    <th id="sumOverNumber"></th>
+                                    <th></th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- shakeListModal -->
+<div class="modal fade" id="shakeListModal" tabindex="-1" role="dialog" aria-labelledby="shakeListModal" aria-hidden="true">
+    <div class="modal-dialog" style="width: 1200px;z-index:-999px">
+        <div class="modal-content">
+            <div class="tiptop"><span>摇一摇列表</span><a data-dismiss="modal" aria-hidden="true"></a></div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="table-responsive">
+                        <div class="BoxStyleA">
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <form class="form-search" id="searchForm">
+                                        <div class="row">
+                                            <div class="col-xs-16 col-sm-12">
+                                                <div class="input-group">
+                                                    <span style="float: left;margin-left: 100px;">摇一摇主题：<input  type="text" name="rockTitle" /></span>
+                                                    <span style="float: left;margin-left: 40px;">状态：
+                                                        <input type="radio" class="ace" name="status" value="Y"/>
+                                                        <span class="lbl">进行中</span>
+                                                        <input type="radio" class="ace" name="status" style="margin-left: 20px;"  value="N"/>
+                                                        <span class="lbl" style="margin-left: 20px;">已结束</span>
+                                                    </span>
+                                                    <span class="input-group-btn"
+                                                          style="float:left;margin-left: 120px;">
+                                                        <input class="btn_searchA ml20 searchBut" type="button"
+                                                               value="搜索"/>
+                                                    </span>
+                                                    <span class="input-group-btn"
+                                                          style="float:left;margin-left: 120px;">
+                                                        <input class="btn_searchA ml20 submitBut" type="button"
+                                                               aria-hidden="true" data-dismiss="modal" value="确定"/>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div>&nbsp</div>
+                        <div class="BoxStyleA">
+                            <div class="BoxStyleATop">
+                                <span class="fl">摇一摇信息</span>
+                            </div>
+                            <table id="shakeTable" class="table table-striped table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <th>摇一摇主题活动</th>
+                                    <th>摇什么</th>
+                                    <th>状态</th>
+                                    <th>创建时间</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tbContainer">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="${rc.contextPath}/media/js/admin/dynamicResponse/keyWord.js"></script>

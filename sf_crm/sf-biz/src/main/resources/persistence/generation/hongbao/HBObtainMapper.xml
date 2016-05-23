@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.hongbao.HBObtainMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.hongbao.HBObtain" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="count_distinct_seller_id" property="countDistinctSellerId" jdbcType="BIGINT" />
+    <result column="max_status" property="maxStatus" jdbcType="BIGINT" />
+    <result column="min_status" property="minStatus" jdbcType="BIGINT" />
+    <result column="avg_status" property="avgStatus" jdbcType="BIGINT" />
+    <result column="count_status" property="countStatus" jdbcType="BIGINT" />
+    <result column="sum_status" property="sumStatus" jdbcType="VARCHAR" />
+    <result column="count_distinct_status" property="countDistinctStatus" jdbcType="BIGINT" />
+    <result column="max_obtain_post_number" property="maxObtainPostNumber" jdbcType="BIGINT" />
+    <result column="min_obtain_post_number" property="minObtainPostNumber" jdbcType="BIGINT" />
+    <result column="avg_obtain_post_number" property="avgObtainPostNumber" jdbcType="BIGINT" />
+    <result column="count_obtain_post_number" property="countObtainPostNumber" jdbcType="BIGINT" />
+    <result column="sum_obtain_post_number" property="sumObtainPostNumber" jdbcType="VARCHAR" />
+    <result column="count_distinct_obtain_post_number" property="countDistinctObtainPostNumber" jdbcType="BIGINT" />
+    <result column="max_amount_range" property="maxAmountRange" jdbcType="BIGINT" />
+    <result column="min_amount_range" property="minAmountRange" jdbcType="BIGINT" />
+    <result column="avg_amount_range" property="avgAmountRange" jdbcType="BIGINT" />
+    <result column="count_amount_range" property="countAmountRange" jdbcType="BIGINT" />
+    <result column="sum_amount_range" property="sumAmountRange" jdbcType="VARCHAR" />
+    <result column="count_distinct_amount_range" property="countDistinctAmountRange" jdbcType="BIGINT" />
+    <result column="max_obtain_datatime" property="maxObtainDatatime" jdbcType="BIGINT" />
+    <result column="min_obtain_datatime" property="minObtainDatatime" jdbcType="BIGINT" />
+    <result column="avg_obtain_datatime" property="avgObtainDatatime" jdbcType="BIGINT" />
+    <result column="count_obtain_datatime" property="countObtainDatatime" jdbcType="BIGINT" />
+    <result column="sum_obtain_datatime" property="sumObtainDatatime" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_obtain_datatime" property="countDistinctObtainDatatime" jdbcType="BIGINT" />
+    <result column="max_pool_name" property="maxPoolName" jdbcType="BIGINT" />
+    <result column="min_pool_name" property="minPoolName" jdbcType="BIGINT" />
+    <result column="avg_pool_name" property="avgPoolName" jdbcType="BIGINT" />
+    <result column="count_pool_name" property="countPoolName" jdbcType="BIGINT" />
+    <result column="sum_pool_name" property="sumPoolName" jdbcType="VARCHAR" />
+    <result column="count_distinct_pool_name" property="countDistinctPoolName" jdbcType="BIGINT" />
+    <result column="max_pool_id" property="maxPoolId" jdbcType="BIGINT" />
+    <result column="min_pool_id" property="minPoolId" jdbcType="BIGINT" />
+    <result column="avg_pool_id" property="avgPoolId" jdbcType="BIGINT" />
+    <result column="count_pool_id" property="countPoolId" jdbcType="BIGINT" />
+    <result column="sum_pool_id" property="sumPoolId" jdbcType="BIGINT" />
+    <result column="count_distinct_pool_id" property="countDistinctPoolId" jdbcType="BIGINT" />
+    <result column="max_hongbao_type" property="maxHongbaoType" jdbcType="BIGINT" />
+    <result column="min_hongbao_type" property="minHongbaoType" jdbcType="BIGINT" />
+    <result column="avg_hongbao_type" property="avgHongbaoType" jdbcType="BIGINT" />
+    <result column="count_hongbao_type" property="countHongbaoType" jdbcType="BIGINT" />
+    <result column="sum_hongbao_type" property="sumHongbaoType" jdbcType="VARCHAR" />
+    <result column="count_distinct_hongbao_type" property="countDistinctHongbaoType" jdbcType="BIGINT" />
+    <result column="max_open_id" property="maxOpenId" jdbcType="BIGINT" />
+    <result column="min_open_id" property="minOpenId" jdbcType="BIGINT" />
+    <result column="avg_open_id" property="avgOpenId" jdbcType="BIGINT" />
+    <result column="count_open_id" property="countOpenId" jdbcType="BIGINT" />
+    <result column="sum_open_id" property="sumOpenId" jdbcType="VARCHAR" />
+    <result column="count_distinct_open_id" property="countDistinctOpenId" jdbcType="BIGINT" />
+    <result column="max_amount" property="maxAmount" jdbcType="BIGINT" />
+    <result column="min_amount" property="minAmount" jdbcType="BIGINT" />
+    <result column="avg_amount" property="avgAmount" jdbcType="BIGINT" />
+    <result column="count_amount" property="countAmount" jdbcType="BIGINT" />
+    <result column="sum_amount" property="sumAmount" jdbcType="BIGINT" />
+    <result column="count_distinct_amount" property="countDistinctAmount" jdbcType="BIGINT" />
+    <result column="max_user_id" property="maxUserId" jdbcType="BIGINT" />
+    <result column="min_user_id" property="minUserId" jdbcType="BIGINT" />
+    <result column="avg_user_id" property="avgUserId" jdbcType="BIGINT" />
+    <result column="count_user_id" property="countUserId" jdbcType="BIGINT" />
+    <result column="sum_user_id" property="sumUserId" jdbcType="BIGINT" />
+    <result column="count_distinct_user_id" property="countDistinctUserId" jdbcType="BIGINT" />
+    <result column="max_hongbao_obtain_id" property="maxHongbaoObtainId" jdbcType="BIGINT" />
+    <result column="min_hongbao_obtain_id" property="minHongbaoObtainId" jdbcType="BIGINT" />
+    <result column="avg_hongbao_obtain_id" property="avgHongbaoObtainId" jdbcType="BIGINT" />
+    <result column="count_hongbao_obtain_id" property="countHongbaoObtainId" jdbcType="BIGINT" />
+    <result column="sum_hongbao_obtain_id" property="sumHongbaoObtainId" jdbcType="BIGINT" />
+    <result column="count_distinct_hongbao_obtain_id" property="countDistinctHongbaoObtainId" jdbcType="BIGINT" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="count_distinct_is_deleted" property="countDistinctIsDeleted" jdbcType="BIGINT" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="count_distinct_modified_by" property="countDistinctModifiedBy" jdbcType="BIGINT" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_gmt_modified" property="countDistinctGmtModified" jdbcType="BIGINT" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="count_distinct_created_by" property="countDistinctCreatedBy" jdbcType="BIGINT" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_gmt_created" property="countDistinctGmtCreated" jdbcType="BIGINT" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="count_distinct_id" property="countDistinctId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="hongbao_obtain_id" property="hongbaoObtainId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="amount" property="amount" jdbcType="BIGINT" />
+    <result column="open_id" property="openId" jdbcType="VARCHAR" />
+    <result column="hongbao_type" property="hongbaoType" jdbcType="VARCHAR" />
+    <result column="pool_id" property="poolId" jdbcType="BIGINT" />
+    <result column="pool_name" property="poolName" jdbcType="VARCHAR" />
+    <result column="obtain_datatime" property="obtainDatatime" jdbcType="TIMESTAMP" />
+    <result column="amount_range" property="amountRange" jdbcType="VARCHAR" />
+    <result column="obtain_post_number" property="obtainPostNumber" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, created_by, gmt_modified, modified_by, is_deleted, hongbao_obtain_id, 
+    user_id, amount, open_id, hongbao_type, pool_id, pool_name, obtain_datatime, amount_range, 
+    obtain_post_number, status, seller_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.hongbao.HBObtainExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from hongbao_obtain
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from hongbao_obtain
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update hongbao_obtain
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.hongbao.HBObtainExample" >
+    update hongbao_obtain
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.hongbao.HBObtain" useGeneratedKeys="true" keyProperty="id" >
+    insert into hongbao_obtain (id, gmt_created, created_by, 
+      gmt_modified, modified_by, is_deleted, 
+      hongbao_obtain_id, user_id, amount, 
+      open_id, hongbao_type, pool_id, 
+      pool_name, obtain_datatime, amount_range, 
+      obtain_post_number, status, seller_id
+      )
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{createdBy,jdbcType=VARCHAR}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{hongbaoObtainId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{amount,jdbcType=BIGINT}, 
+      #{openId,jdbcType=VARCHAR}, #{hongbaoType,jdbcType=VARCHAR}, #{poolId,jdbcType=BIGINT}, 
+      #{poolName,jdbcType=VARCHAR}, #{obtainDatatime,jdbcType=TIMESTAMP}, #{amountRange,jdbcType=VARCHAR}, 
+      #{obtainPostNumber,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{sellerId,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.hongbao.HBObtain" useGeneratedKeys="true" keyProperty="id" >
+    insert into hongbao_obtain
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="hongbaoObtainId != null" >
+        hongbao_obtain_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+      <if test="openId != null" >
+        open_id,
+      </if>
+      <if test="hongbaoType != null" >
+        hongbao_type,
+      </if>
+      <if test="poolId != null" >
+        pool_id,
+      </if>
+      <if test="poolName != null" >
+        pool_name,
+      </if>
+      <if test="obtainDatatime != null" >
+        obtain_datatime,
+      </if>
+      <if test="amountRange != null" >
+        amount_range,
+      </if>
+      <if test="obtainPostNumber != null" >
+        obtain_post_number,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="hongbaoObtainId != null" >
+        #{hongbaoObtainId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=BIGINT},
+      </if>
+      <if test="openId != null" >
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="hongbaoType != null" >
+        #{hongbaoType,jdbcType=VARCHAR},
+      </if>
+      <if test="poolId != null" >
+        #{poolId,jdbcType=BIGINT},
+      </if>
+      <if test="poolName != null" >
+        #{poolName,jdbcType=VARCHAR},
+      </if>
+      <if test="obtainDatatime != null" >
+        #{obtainDatatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="amountRange != null" >
+        #{amountRange,jdbcType=VARCHAR},
+      </if>
+      <if test="obtainPostNumber != null" >
+        #{obtainPostNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.hongbao.HBObtainExample" resultType="java.lang.Integer" >
+    select count(*) from hongbao_obtain
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update hongbao_obtain
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.hongbaoObtainId!=null and record.hongbaoObtainIdExpression==null" >
+          hongbao_obtain_id = #{record.hongbaoObtainId,jdbcType=BIGINT},
+        </if>
+        <if test="record.hongbaoObtainIdExpression!=null" >
+          hongbao_obtain_id = ${record.hongbaoObtainIdExpression},
+        </if>
+        <if test="record.userId!=null and record.userIdExpression==null" >
+          user_id = #{record.userId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdExpression!=null" >
+          user_id = ${record.userIdExpression},
+        </if>
+        <if test="record.amount!=null and record.amountExpression==null" >
+          amount = #{record.amount,jdbcType=BIGINT},
+        </if>
+        <if test="record.amountExpression!=null" >
+          amount = ${record.amountExpression},
+        </if>
+        <if test="record.openId!=null and record.openIdExpression==null" >
+          open_id = #{record.openId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.openIdExpression!=null" >
+          open_id = ${record.openIdExpression},
+        </if>
+        <if test="record.hongbaoType!=null and record.hongbaoTypeExpression==null" >
+          hongbao_type = #{record.hongbaoType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.hongbaoTypeExpression!=null" >
+          hongbao_type = ${record.hongbaoTypeExpression},
+        </if>
+        <if test="record.poolId!=null and record.poolIdExpression==null" >
+          pool_id = #{record.poolId,jdbcType=BIGINT},
+        </if>
+        <if test="record.poolIdExpression!=null" >
+          pool_id = ${record.poolIdExpression},
+        </if>
+        <if test="record.poolName!=null and record.poolNameExpression==null" >
+          pool_name = #{record.poolName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.poolNameExpression!=null" >
+          pool_name = ${record.poolNameExpression},
+        </if>
+        <if test="record.obtainDatatime!=null and record.obtainDatatimeExpression==null" >
+          obtain_datatime = #{record.obtainDatatime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.obtainDatatimeExpression!=null" >
+          obtain_datatime = ${record.obtainDatatimeExpression},
+        </if>
+        <if test="record.amountRange!=null and record.amountRangeExpression==null" >
+          amount_range = #{record.amountRange,jdbcType=VARCHAR},
+        </if>
+        <if test="record.amountRangeExpression!=null" >
+          amount_range = ${record.amountRangeExpression},
+        </if>
+        <if test="record.obtainPostNumber!=null and record.obtainPostNumberExpression==null" >
+          obtain_post_number = #{record.obtainPostNumber,jdbcType=VARCHAR},
+        </if>
+        <if test="record.obtainPostNumberExpression!=null" >
+          obtain_post_number = ${record.obtainPostNumberExpression},
+        </if>
+        <if test="record.status!=null and record.statusExpression==null" >
+          status = #{record.status,jdbcType=VARCHAR},
+        </if>
+        <if test="record.statusExpression!=null" >
+          status = ${record.statusExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update hongbao_obtain
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      hongbao_obtain_id = #{record.hongbaoObtainId,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      amount = #{record.amount,jdbcType=BIGINT},
+      open_id = #{record.openId,jdbcType=VARCHAR},
+      hongbao_type = #{record.hongbaoType,jdbcType=VARCHAR},
+      pool_id = #{record.poolId,jdbcType=BIGINT},
+      pool_name = #{record.poolName,jdbcType=VARCHAR},
+      obtain_datatime = #{record.obtainDatatime,jdbcType=TIMESTAMP},
+      amount_range = #{record.amountRange,jdbcType=VARCHAR},
+      obtain_post_number = #{record.obtainPostNumber,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.hongbao.HBObtain" >
+    update hongbao_obtain
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.hongbaoObtainId!=null and record.hongbaoObtainIdExpression==null" >
+          hongbao_obtain_id = #{record.hongbaoObtainId,jdbcType=BIGINT},
+        </if>
+        <if test="record.hongbaoObtainIdExpression!=null" >
+          hongbao_obtain_id = ${record.hongbaoObtainIdExpression},
+        </if>
+        <if test="record.userId!=null and record.userIdExpression==null" >
+          user_id = #{record.userId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdExpression!=null" >
+          user_id = ${record.userIdExpression},
+        </if>
+        <if test="record.amount!=null and record.amountExpression==null" >
+          amount = #{record.amount,jdbcType=BIGINT},
+        </if>
+        <if test="record.amountExpression!=null" >
+          amount = ${record.amountExpression},
+        </if>
+        <if test="record.openId!=null and record.openIdExpression==null" >
+          open_id = #{record.openId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.openIdExpression!=null" >
+          open_id = ${record.openIdExpression},
+        </if>
+        <if test="record.hongbaoType!=null and record.hongbaoTypeExpression==null" >
+          hongbao_type = #{record.hongbaoType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.hongbaoTypeExpression!=null" >
+          hongbao_type = ${record.hongbaoTypeExpression},
+        </if>
+        <if test="record.poolId!=null and record.poolIdExpression==null" >
+          pool_id = #{record.poolId,jdbcType=BIGINT},
+        </if>
+        <if test="record.poolIdExpression!=null" >
+          pool_id = ${record.poolIdExpression},
+        </if>
+        <if test="record.poolName!=null and record.poolNameExpression==null" >
+          pool_name = #{record.poolName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.poolNameExpression!=null" >
+          pool_name = ${record.poolNameExpression},
+        </if>
+        <if test="record.obtainDatatime!=null and record.obtainDatatimeExpression==null" >
+          obtain_datatime = #{record.obtainDatatime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.obtainDatatimeExpression!=null" >
+          obtain_datatime = ${record.obtainDatatimeExpression},
+        </if>
+        <if test="record.amountRange!=null and record.amountRangeExpression==null" >
+          amount_range = #{record.amountRange,jdbcType=VARCHAR},
+        </if>
+        <if test="record.amountRangeExpression!=null" >
+          amount_range = ${record.amountRangeExpression},
+        </if>
+        <if test="record.obtainPostNumber!=null and record.obtainPostNumberExpression==null" >
+          obtain_post_number = #{record.obtainPostNumber,jdbcType=VARCHAR},
+        </if>
+        <if test="record.obtainPostNumberExpression!=null" >
+          obtain_post_number = ${record.obtainPostNumberExpression},
+        </if>
+        <if test="record.status!=null and record.statusExpression==null" >
+          status = #{record.status,jdbcType=VARCHAR},
+        </if>
+        <if test="record.statusExpression!=null" >
+          status = ${record.statusExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.hongbao.HBObtain" >
+    update hongbao_obtain
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      hongbao_obtain_id = #{hongbaoObtainId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      amount = #{amount,jdbcType=BIGINT},
+      open_id = #{openId,jdbcType=VARCHAR},
+      hongbao_type = #{hongbaoType,jdbcType=VARCHAR},
+      pool_id = #{poolId,jdbcType=BIGINT},
+      pool_name = #{poolName,jdbcType=VARCHAR},
+      obtain_datatime = #{obtainDatatime,jdbcType=TIMESTAMP},
+      amount_range = #{amountRange,jdbcType=VARCHAR},
+      obtain_post_number = #{obtainPostNumber,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

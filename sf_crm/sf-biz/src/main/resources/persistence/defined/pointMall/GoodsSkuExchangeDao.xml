@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.pointMall.GoodsSkuExchangeDao" >
+    <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.pointMall.GoodsSkuExchangeInfoDo" >
+        <result column="sid" property="skuId" jdbcType="BIGINT" />
+        <result column="slid" property="sellerId" jdbcType="BIGINT" />
+        <result column="gid" property="goodsId" jdbcType="BIGINT" />
+        <result column="pri" property="price" jdbcType="BIGINT" />
+        <result column="poi" property="point" jdbcType="BIGINT" />
+        <result column="ec" property="exchangeCount" jdbcType="BIGINT" />
+        <result column="ss" property="stockSize" jdbcType="BIGINT" />
+
+        <result column="url" property="imgsUrl" jdbcType="VARCHAR" />
+        <result column="tl" property="title" jdbcType="VARCHAR" />
+        <result column="pns" property="propsName" jdbcType="VARCHAR" />
+        <result column="virtual" property="isVirtual" jdbcType="VARCHAR" />
+        <result column="thumbnail" property="thumbnail" jdbcType="VARCHAR" />
+
+    </resultMap>
+
+    <select id="findGoodsSkuExchangeInfosBySellerId" resultMap="BaseResultMap" parameterType="long">
+        SELECT MAX(sku.sku_id) sid, MAX(sku.seller_id) slid,MAX(sku.goods_id) gid,COUNT(pe.user_id) ec,
+        MAX(sku.price) pri, MAX(sku.point) poi,MAX(mg.title) tl, MAX(mg.imgs_url) url, MAX(sku.props_name) pns
+        FROM mall_goods_sku sku LEFT JOIN mall_goods mg ON sku.goods_id = mg.goods_id
+        LEFT JOIN mall_order od ON sku.sku_id = od.sku_id LEFT JOIN point_exchange pe ON od.oid = pe.exchange_id LEFT JOIN mall_category mc ON mg.category_id=mc.cid
+        WHERE (pe.seller_id = #{sellerId} OR pe.seller_id IS NULL) AND mg.seller_id=1 AND mg.quantity > 0 AND mg.is_deleted=0 AND mg.status='onsale' AND sku.is_deleted=0 AND
+          (pe.exchange_method = 'lw' or pe.exchange_method = 'goods' OR pe.exchange_method IS NULL)
+        AND mc.name <![CDATA[ <> ]]> '礼物'
+        GROUP BY sku.sku_id,pe.user_id
+        order by mg.list_time desc
+    </select>
+
+    <select id="findGoodsSkuExchangeInfoDoBySkuId" resultMap="BaseResultMap" parameterType="map">
+        SELECT sku.seller_id slid, sku.sku_id sid,mg.goods_id gid, sku.price pri, sku.point poi,
+          sku.quantity ss,mg.imgs_url url,mg.title tl,sku.props_name pns,mg.is_virtual virtual,mg.thumbnail
+        FROM mall_goods_sku sku LEFT JOIN mall_goods mg ON sku.goods_id = mg.goods_id
+        WHERE sku.seller_id = #{sellerId} AND sku.sku_id = #{skuId}
+    </select>
+
+    <select id="findGoodsExchangePersonNum" resultMap="BaseResultMap" parameterType="long">
+        SELECT  (mg.seller_id) slid,MAX(mg.goods_id) gid,COUNT(pe.user_id) ec,
+        MAX(mg.price) pri, MAX(mg.point) poi,MAX(mg.title) tl, MAX(mg.imgs_url) url, max(mg.thumbnail) thumbnail
+        FROM mall_goods mg LEFT JOIN mall_order mo ON mg.goods_id = mo.goods_id LEFT JOIN point_exchange pe ON pe.exchange_id = mo.oid LEFT JOIN mall_category mc ON mg.category_id=mc.cid
+        WHERE mg.seller_id=#{sellerId} AND mg.quantity > 0 AND mg.is_deleted=0 AND mg.status='onsale'
+        AND (pe.exchange_method = 'goods' OR pe.exchange_method IS NULL)
+        AND mc.name <![CDATA[ <> ]]> '礼物'
+        GROUP BY mg.goods_id, pe.user_id
+        order by mg.list_time desc
+    </select>
+
+</mapper>

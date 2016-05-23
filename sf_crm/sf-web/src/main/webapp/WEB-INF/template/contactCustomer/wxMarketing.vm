@@ -1,0 +1,161 @@
+#set($layout = "/layout/blank.vm")
+<div class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <div class="BoxStyleA">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <i class="modal-logo contact"></i>
+                    <ul class="breadcrumb" style="margin-left: 2px">
+                        <li></li>
+                        <li>联系客户</li>
+                        <li class="active">新建微信营销活动</li>
+                    </ul>
+                </div>
+                <div class="widget-body">
+                    <div class="widget-main">
+                        <form class="form-horizontal markAct" id="markActForm" role="form" style="">
+                            <div class="form-group" >
+                                <label class="col-sm-4 control-label no-padding-right" > 营销方式：</label>
+                                <div class="col-sm-4">
+                                    <label style="float: left;margin-left: 10px;">
+                                        <input name="type" type="radio" class="ace" value="sms"/>
+                                        <span class="lbl"> 短信</span>
+                                    </label>
+                                    <label  style="float: left;margin-left: 20px;">
+                                        <input name="type" type="radio" class="ace" value="email"/>
+                                        <span class="lbl"> 邮件</span>
+                                    </label>
+                                    <!--  微信  -->
+                                    <label  style="float: left;margin-left: 20px;">
+                                        <input name="type" type="radio" class="ace" value="wx" checked/>
+                                        <span class="lbl"> 微信</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group" >
+                                <label class="col-sm-4 control-label no-padding-right"> 营销主题：</label>
+                                <div class="col-sm-6" style="padding-left: 25px">
+                                    <input type="text" name="title" placeholder="营销主题" class="col-xs-10 col-sm-5"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group" >
+                                <label class="col-sm-4 control-label no-padding-right"> 营销目的：</label>
+                                <div class="col-sm-4">
+                                    <label style="float: left;margin-left: 10px;">
+                                        <input name="target" type="radio" class="ace" value="sale"/>
+                                        <span class="lbl"> 销售</span>
+                                    </label>
+                                    <label style="float: left;margin-left: 10px;">
+                                        <input name="target" type="radio" class="ace" value="increase_fans"/>
+                                        <span class="lbl"> 粉丝</span>
+                                    </label>
+                                    <label style="float: left;margin-left: 10px;">
+                                        <input name="target" type="radio" class="ace" value="spread"/>
+                                        <span class="lbl"> 传播</span>
+                                    </label>
+                                    <label style="float: left;margin-left: 10px;">
+                                        <input name="target" type="radio" class="ace" value="other"/>
+                                        <span class="lbl"> 其他</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group" >
+                                <label class="col-sm-4 control-label no-padding-right" > 发送方式：</label>
+                                <label style="float: left;margin-left: 22px;">
+                                    <input name="wxSendType" type="radio" class="ace" value="mass"/>
+                                    <span class="lbl"> 群发接口（主动发送，每月限发四次）</span>
+                                </label>
+                                <label style="float: left;margin-left: 10px;">
+                                    <input name="wxSendType" type="radio" class="ace" value="custom"/>
+                                    <span class="lbl"> 客服接口（被动发送，次数无限制）</span>
+                                </label>
+                            </div>
+
+                            <div class="form-group" >
+                                <label class="col-sm-4 control-label no-padding-right" > 目标客户：</label>
+                                <div class="col-sm-6" style="padding-left: 25px;">
+                                    <span style="line-height: 30px;padding-right:20px;">可发送客户共有：
+                                        <span class="userNum">$!subsribeCount</span>人
+                                        <span class="monthWxMassTimes">(本月已群发&nbsp;$!monthWxMassTimes&nbsp;次)</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group" >
+                                <label class="col-sm-4 control-label no-padding-right" > 活动链接：</label>
+                                <div class="col-sm-6" style="padding-left: 25px">
+                                    <input type="text" name="url" placeholder="活动链接" class="col-xs-14 col-sm-10"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" > 活动图片：</label>
+                                <div class="col-sm-6">
+                                    <div style="position: relative;margin-left: 10px;float: left;width: 70px;height: 30px;text-align: center;border-radius: 2px;background-color: #428bca;">
+                                        <a id="wxImgHref" style="color: #fff;font-size: 14px;line-height: 30px;">上传</a>
+                                        <div style="position: absolute;top:0;left:0;">
+                                            <input type="file" name="wxImgUrl" id="wxImgUrl" style="width: 100px; height: 30px;background: rgb(255, 255, 255) none repeat scroll 0% 0%;filter:alpha(opacity:0);opacity: 0;"
+                                                   onchange="getName(this,'wxImgUrl');" />
+                                        </div>
+                                    </div>
+                                    <span class="wxImgUrl" style="display: block;float: left;margin-left: 5px;margin-top: 5px;"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group" >
+                                <label class="col-sm-4 control-label no-padding-right" > 营销内容：</label>
+                                <div class="col-sm-7">
+                                    <div id="showBox">
+                                        <div class="col-sm-10" style="margin:5px 0 0 2px;">
+                                            <textarea class="form-control" name="content" rows="10"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" ></label>
+                                <div class="col-sm-6" style="padding-left: 25px">
+                                    <button class="btn btn-primary" type="button" id="sendActBut">
+                                        <i class="icon-ok bigger-110"></i>
+                                        发送&nbsp;&nbsp;
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getName(element,className){
+        var name = element.value;
+        var pos = name.lastIndexOf("\\");
+        var str = name.substring(pos+1);
+
+        $('.'+className).html(str);
+    }
+
+    var subsribeCount = '$!subsribeCount';
+    var interactCount = '$!interactCount';
+    var monthWxMassTimes = '$!monthWxMassTimes';
+
+    $("input[name='wxSendType']").click(function(){
+        var value = $(this).val();
+        if (value == 'mass'){
+            $('.userNum').html(subsribeCount);
+            $('.monthWxMassTimes').show();
+        }else if (value == 'custom'){
+            $('.userNum').html(interactCount);
+            $('.monthWxMassTimes').hide();
+        }
+    })
+</script>
+
+<script type="text/javascript" src="${rc.contextPath}/media/js/admin/concactCustomer/wxMarketing.js"></script>

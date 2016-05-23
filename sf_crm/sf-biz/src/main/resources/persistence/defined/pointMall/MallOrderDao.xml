@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.pointMall.MallOrderDao" >
+    <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.pointMall.MallOrderDo" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+        <result column="user_id" property="userId" jdbcType="BIGINT" />
+        <result column="oid" property="oid" jdbcType="BIGINT" />
+        <result column="tid" property="tid" jdbcType="BIGINT" />
+        <result column="goods_id" property="goodsId" jdbcType="BIGINT" />
+        <result column="sku_id" property="skuId" jdbcType="BIGINT" />
+        <result column="quantity" property="quantity" jdbcType="INTEGER" />
+        <result column="price" property="price" jdbcType="INTEGER" />
+        <result column="point" property="point" jdbcType="INTEGER" />
+        <result column="imgs_url" property="imgUrls" jdbcType="VARCHAR" />
+        <result column="title" property="title" jdbcType="VARCHAR" />
+        <result column="name" property="userName" jdbcType="VARCHAR" />
+        <result column="created" property="tradeDate" jdbcType="TIMESTAMP" />
+        <result column="status" property="status" jdbcType="VARCHAR" />
+        <result column="props_name" property="prop" jdbcType="VARCHAR" />
+        <result column="thumbnail" property="thumbnail" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select id="findMallOrders" resultMap="BaseResultMap" parameterType="map">
+        select
+        o.seller_id, o.user_id,o.tid,o.oid,o.goods_id,o.sku_id,o.quantity,
+        g.imgs_url,g.title,sk.price,sk.point,u.name,t.created,t.status,sk.props_name,g.thumbnail
+        from mall_order o left join mall_trade t on o.tid = t.tid left join mall_goods g on o.goods_id = g.goods_id
+        left join mall_goods_sku sk on o.sku_id = sk.sku_id left join user u on o.user_id = u.user_id
+        <where>
+            <trim prefixOverrides="and">
+                <if test="sellerId != null">
+                    and o.seller_id = #{sellerId}
+                </if>
+                <if test="statusType!=null">
+                    <if test="statusType == 1">
+                        and t.status = 'WAIT_BUYER_PAY'
+                    </if>
+                    <if test="statusType == 2">
+                        and t.status = 'WAIT_SELLER_SEND_GOODS'
+                    </if>
+                    <if test="statusType == 3">
+                        and t.status = 'WAIT_BUYER_CONFIRM_GOODS'
+                    </if>
+                    <if test="statusType == 4">
+                        and (t.status = 'TRADE_FINISHED' or t.status = 'TRADE_CLOSED' or t.status = 'TRADE_CLOSED_BY_SELLER')
+                    </if>
+                </if>
+                    ORDER BY t.created desc
+            </trim>
+        </where>
+    </select>
+
+
+
+</mapper>

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.marketActivity.TariffPackageDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.marketActivity.TariffPackageDetail" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="GMT_CREATED" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="GMT_MODIFIED" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="CREATED_BY" property="createdBy" jdbcType="VARCHAR" />
+    <result column="MODIFIED_BY" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="IS_DELETED" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="TARIFF_TYPE" property="tariffType" jdbcType="VARCHAR" />
+    <result column="TARIFF_NAME" property="tariffName" jdbcType="VARCHAR" />
+    <result column="TARIFF_AMOUNT" property="tariffAmount" jdbcType="DECIMAL" />
+    <result column="TARIFF_MONEY" property="tariffMoney" jdbcType="DECIMAL" />
+    <result column="TARIFF_FREE" property="tariffFree" jdbcType="DECIMAL" />
+    <result column="TARIFF_DESC" property="tariffDesc" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, GMT_CREATED, GMT_MODIFIED, CREATED_BY, MODIFIED_BY, IS_DELETED, TARIFF_TYPE, 
+    TARIFF_NAME, TARIFF_AMOUNT, TARIFF_MONEY, TARIFF_FREE, TARIFF_DESC
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.marketActivity.TariffPackageDetailExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from TARIFF_PACKAGE_DETAIL
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from TARIFF_PACKAGE_DETAIL
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from TARIFF_PACKAGE_DETAIL
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.marketActivity.TariffPackageDetailExample" >
+    delete from TARIFF_PACKAGE_DETAIL
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.marketActivity.TariffPackageDetail" >
+    insert into TARIFF_PACKAGE_DETAIL (ID, GMT_CREATED, GMT_MODIFIED, 
+      CREATED_BY, MODIFIED_BY, IS_DELETED, 
+      TARIFF_TYPE, TARIFF_NAME, TARIFF_AMOUNT, 
+      TARIFF_MONEY, TARIFF_FREE, TARIFF_DESC
+      )
+    values (#{id,jdbcType=DECIMAL}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{tariffType,jdbcType=VARCHAR}, #{tariffName,jdbcType=VARCHAR}, #{tariffAmount,jdbcType=DECIMAL}, 
+      #{tariffMoney,jdbcType=DECIMAL}, #{tariffFree,jdbcType=DECIMAL}, #{tariffDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.marketActivity.TariffPackageDetail" >
+    insert into TARIFF_PACKAGE_DETAIL
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="gmtCreated != null" >
+        GMT_CREATED,
+      </if>
+      <if test="gmtModified != null" >
+        GMT_MODIFIED,
+      </if>
+      <if test="createdBy != null" >
+        CREATED_BY,
+      </if>
+      <if test="modifiedBy != null" >
+        MODIFIED_BY,
+      </if>
+      <if test="isDeleted != null" >
+        IS_DELETED,
+      </if>
+      <if test="tariffType != null" >
+        TARIFF_TYPE,
+      </if>
+      <if test="tariffName != null" >
+        TARIFF_NAME,
+      </if>
+      <if test="tariffAmount != null" >
+        TARIFF_AMOUNT,
+      </if>
+      <if test="tariffMoney != null" >
+        TARIFF_MONEY,
+      </if>
+      <if test="tariffFree != null" >
+        TARIFF_FREE,
+      </if>
+      <if test="tariffDesc != null" >
+        TARIFF_DESC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="tariffType != null" >
+        #{tariffType,jdbcType=VARCHAR},
+      </if>
+      <if test="tariffName != null" >
+        #{tariffName,jdbcType=VARCHAR},
+      </if>
+      <if test="tariffAmount != null" >
+        #{tariffAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="tariffMoney != null" >
+        #{tariffMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="tariffFree != null" >
+        #{tariffFree,jdbcType=DECIMAL},
+      </if>
+      <if test="tariffDesc != null" >
+        #{tariffDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.marketActivity.TariffPackageDetailExample" resultType="java.lang.Integer" >
+    select count(*) from TARIFF_PACKAGE_DETAIL
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update TARIFF_PACKAGE_DETAIL
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=DECIMAL},
+      </if>
+      <if test="record.gmtCreated != null" >
+        GMT_CREATED = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtModified != null" >
+        GMT_MODIFIED = #{record.gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createdBy != null" >
+        CREATED_BY = #{record.createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifiedBy != null" >
+        MODIFIED_BY = #{record.modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDeleted != null" >
+        IS_DELETED = #{record.isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tariffType != null" >
+        TARIFF_TYPE = #{record.tariffType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tariffName != null" >
+        TARIFF_NAME = #{record.tariffName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tariffAmount != null" >
+        TARIFF_AMOUNT = #{record.tariffAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.tariffMoney != null" >
+        TARIFF_MONEY = #{record.tariffMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.tariffFree != null" >
+        TARIFF_FREE = #{record.tariffFree,jdbcType=DECIMAL},
+      </if>
+      <if test="record.tariffDesc != null" >
+        TARIFF_DESC = #{record.tariffDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update TARIFF_PACKAGE_DETAIL
+    set ID = #{record.id,jdbcType=DECIMAL},
+      GMT_CREATED = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      GMT_MODIFIED = #{record.gmtModified,jdbcType=TIMESTAMP},
+      CREATED_BY = #{record.createdBy,jdbcType=VARCHAR},
+      MODIFIED_BY = #{record.modifiedBy,jdbcType=VARCHAR},
+      IS_DELETED = #{record.isDeleted,jdbcType=VARCHAR},
+      TARIFF_TYPE = #{record.tariffType,jdbcType=VARCHAR},
+      TARIFF_NAME = #{record.tariffName,jdbcType=VARCHAR},
+      TARIFF_AMOUNT = #{record.tariffAmount,jdbcType=DECIMAL},
+      TARIFF_MONEY = #{record.tariffMoney,jdbcType=DECIMAL},
+      TARIFF_FREE = #{record.tariffFree,jdbcType=DECIMAL},
+      TARIFF_DESC = #{record.tariffDesc,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.marketActivity.TariffPackageDetail" >
+    update TARIFF_PACKAGE_DETAIL
+    <set >
+      <if test="gmtCreated != null" >
+        GMT_CREATED = #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        GMT_MODIFIED = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        MODIFIED_BY = #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        IS_DELETED = #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="tariffType != null" >
+        TARIFF_TYPE = #{tariffType,jdbcType=VARCHAR},
+      </if>
+      <if test="tariffName != null" >
+        TARIFF_NAME = #{tariffName,jdbcType=VARCHAR},
+      </if>
+      <if test="tariffAmount != null" >
+        TARIFF_AMOUNT = #{tariffAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="tariffMoney != null" >
+        TARIFF_MONEY = #{tariffMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="tariffFree != null" >
+        TARIFF_FREE = #{tariffFree,jdbcType=DECIMAL},
+      </if>
+      <if test="tariffDesc != null" >
+        TARIFF_DESC = #{tariffDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.marketActivity.TariffPackageDetail" >
+    update TARIFF_PACKAGE_DETAIL
+    set GMT_CREATED = #{gmtCreated,jdbcType=TIMESTAMP},
+      GMT_MODIFIED = #{gmtModified,jdbcType=TIMESTAMP},
+      CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      MODIFIED_BY = #{modifiedBy,jdbcType=VARCHAR},
+      IS_DELETED = #{isDeleted,jdbcType=VARCHAR},
+      TARIFF_TYPE = #{tariffType,jdbcType=VARCHAR},
+      TARIFF_NAME = #{tariffName,jdbcType=VARCHAR},
+      TARIFF_AMOUNT = #{tariffAmount,jdbcType=DECIMAL},
+      TARIFF_MONEY = #{tariffMoney,jdbcType=DECIMAL},
+      TARIFF_FREE = #{tariffFree,jdbcType=DECIMAL},
+      TARIFF_DESC = #{tariffDesc,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

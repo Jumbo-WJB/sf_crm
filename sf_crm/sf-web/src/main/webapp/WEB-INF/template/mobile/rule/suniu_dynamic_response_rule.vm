@@ -1,0 +1,79 @@
+#set($layout = "/layout/mobileBlank.vm")
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <title>智能回复说明</title>
+</head>
+<body>
+<div class="container " id="J_content">
+    <div class="u-body" style="margin-top: 0px;">
+        <div style="height: 110px">
+            <img src="${rc.contextPath}/media/mobile/assets/images/public/rule_view.png" style="height:120px"/>
+        </div>
+
+
+        <div class="myscore-li">
+
+            <div class="li-choose-two">
+                <ul>
+                    <li><a href="#" style="font-size: 17px">类别</a></li>
+                    <li><a href="javascript:" style="font-size: 17px">回复关键字</a></li>
+                </ul>
+            </div>
+
+            <div class="goodsPanle">
+
+                #foreach( $keyWordReplyConfigVO in $keyWordReplyConfigVOs)
+                    <div class="itemLi">
+                        <div style="width: 50%;text-align: center;white-space: nowrap;float: left;height: 10px;vertical-align: middle;margin: 5% 0">
+                            #if($!keyWordReplyConfigVO.bizType=="point_exchange_hb")
+                                #set ($bizType="积分兑换红包")
+                            #elseif($!keyWordReplyConfigVO.bizType=="point_exchange_goods")
+                                #set ($bizType="积分兑换商品")
+                            #elseif($!keyWordReplyConfigVO.bizType=="express_query")
+                                #set ($bizType="快递查询")
+                            #elseif($!keyWordReplyConfigVO.bizType=="receive_common_hb")
+                                #set ($bizType="普通红包领取")
+                            #elseif($!keyWordReplyConfigVO.bizType=="praise_receive_hb")
+                                #set ($bizType="好评返红包")
+                            #elseif($!keyWordReplyConfigVO.bizType=="share_receive_hb")
+                                #set ($bizType="分享送红包")
+                            #elseif($!keyWordReplyConfigVO.bizType=="sign_in")
+                                #set ($bizType="签到")
+                            #elseif($!keyWordReplyConfigVO.bizType=="birthday")
+                                #set ($bizType="生日")
+                            #elseif($!keyWordReplyConfigVO.bizType=="user_validate")
+                                #set ($bizType="用户验证")
+                            #elseif($!keyWordReplyConfigVO.bizType=="point_query")
+                                #set ($bizType="积分查询")
+                            #elseif($!keyWordReplyConfigVO.bizType=="guide")
+                                #set ($bizType="引导语")
+                            #elseif($!keyWordReplyConfigVO.bizType=="shake")
+                                #set ($bizType="摇一摇")
+                            #end
+                    $!bizType
+                        </div>
+                        <div style="width: 50%;text-align: center;float: right;margin: 4% 0">
+                            <span class="u-fontAtv">$!keyWordReplyConfigVO.keyWord</span>
+                        </div>
+                    </div>
+                #end
+
+            </div>
+        </div>
+
+        <div class="u-footer">
+            <p>
+                <img src="${rc.contextPath}/media/mobile/assets/images/public/suniu_logo_grey.jpg">
+                <span>技术支持·速牛科技</span>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1401 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.trade.TradeYZMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.trade.TradeYZ" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_buyer_area" property="maxBuyerArea" jdbcType="BIGINT" />
+    <result column="min_buyer_area" property="minBuyerArea" jdbcType="BIGINT" />
+    <result column="avg_buyer_area" property="avgBuyerArea" jdbcType="BIGINT" />
+    <result column="count_buyer_area" property="countBuyerArea" jdbcType="BIGINT" />
+    <result column="sum_buyer_area" property="sumBuyerArea" jdbcType="VARCHAR" />
+    <result column="max_parent_tid" property="maxParentTid" jdbcType="BIGINT" />
+    <result column="min_parent_tid" property="minParentTid" jdbcType="BIGINT" />
+    <result column="avg_parent_tid" property="avgParentTid" jdbcType="BIGINT" />
+    <result column="count_parent_tid" property="countParentTid" jdbcType="BIGINT" />
+    <result column="sum_parent_tid" property="sumParentTid" jdbcType="VARCHAR" />
+    <result column="max_sign_time" property="maxSignTime" jdbcType="BIGINT" />
+    <result column="min_sign_time" property="minSignTime" jdbcType="BIGINT" />
+    <result column="avg_sign_time" property="avgSignTime" jdbcType="BIGINT" />
+    <result column="count_sign_time" property="countSignTime" jdbcType="BIGINT" />
+    <result column="sum_sign_time" property="sumSignTime" jdbcType="TIMESTAMP" />
+    <result column="max_consign_time" property="maxConsignTime" jdbcType="BIGINT" />
+    <result column="min_consign_time" property="minConsignTime" jdbcType="BIGINT" />
+    <result column="avg_consign_time" property="avgConsignTime" jdbcType="BIGINT" />
+    <result column="count_consign_time" property="countConsignTime" jdbcType="BIGINT" />
+    <result column="sum_consign_time" property="sumConsignTime" jdbcType="TIMESTAMP" />
+    <result column="max_pay_type" property="maxPayType" jdbcType="BIGINT" />
+    <result column="min_pay_type" property="minPayType" jdbcType="BIGINT" />
+    <result column="avg_pay_type" property="avgPayType" jdbcType="BIGINT" />
+    <result column="count_pay_type" property="countPayType" jdbcType="BIGINT" />
+    <result column="sum_pay_type" property="sumPayType" jdbcType="VARCHAR" />
+    <result column="max_pay_time" property="maxPayTime" jdbcType="BIGINT" />
+    <result column="min_pay_time" property="minPayTime" jdbcType="BIGINT" />
+    <result column="avg_pay_time" property="avgPayTime" jdbcType="BIGINT" />
+    <result column="count_pay_time" property="countPayTime" jdbcType="BIGINT" />
+    <result column="sum_pay_time" property="sumPayTime" jdbcType="TIMESTAMP" />
+    <result column="max_update_time" property="maxUpdateTime" jdbcType="BIGINT" />
+    <result column="min_update_time" property="minUpdateTime" jdbcType="BIGINT" />
+    <result column="avg_update_time" property="avgUpdateTime" jdbcType="BIGINT" />
+    <result column="count_update_time" property="countUpdateTime" jdbcType="BIGINT" />
+    <result column="sum_update_time" property="sumUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="max_created" property="maxCreated" jdbcType="BIGINT" />
+    <result column="min_created" property="minCreated" jdbcType="BIGINT" />
+    <result column="avg_created" property="avgCreated" jdbcType="BIGINT" />
+    <result column="count_created" property="countCreated" jdbcType="BIGINT" />
+    <result column="sum_created" property="sumCreated" jdbcType="TIMESTAMP" />
+    <result column="max_payment" property="maxPayment" jdbcType="BIGINT" />
+    <result column="min_payment" property="minPayment" jdbcType="BIGINT" />
+    <result column="avg_payment" property="avgPayment" jdbcType="BIGINT" />
+    <result column="count_payment" property="countPayment" jdbcType="BIGINT" />
+    <result column="sum_payment" property="sumPayment" jdbcType="DECIMAL" />
+    <result column="max_adjust_fee" property="maxAdjustFee" jdbcType="BIGINT" />
+    <result column="min_adjust_fee" property="minAdjustFee" jdbcType="BIGINT" />
+    <result column="avg_adjust_fee" property="avgAdjustFee" jdbcType="BIGINT" />
+    <result column="count_adjust_fee" property="countAdjustFee" jdbcType="BIGINT" />
+    <result column="sum_adjust_fee" property="sumAdjustFee" jdbcType="DECIMAL" />
+    <result column="max_discount_fee" property="maxDiscountFee" jdbcType="BIGINT" />
+    <result column="min_discount_fee" property="minDiscountFee" jdbcType="BIGINT" />
+    <result column="avg_discount_fee" property="avgDiscountFee" jdbcType="BIGINT" />
+    <result column="count_discount_fee" property="countDiscountFee" jdbcType="BIGINT" />
+    <result column="sum_discount_fee" property="sumDiscountFee" jdbcType="DECIMAL" />
+    <result column="max_total_fee" property="maxTotalFee" jdbcType="BIGINT" />
+    <result column="min_total_fee" property="minTotalFee" jdbcType="BIGINT" />
+    <result column="avg_total_fee" property="avgTotalFee" jdbcType="BIGINT" />
+    <result column="count_total_fee" property="countTotalFee" jdbcType="BIGINT" />
+    <result column="sum_total_fee" property="sumTotalFee" jdbcType="DECIMAL" />
+    <result column="max_post_fee" property="maxPostFee" jdbcType="BIGINT" />
+    <result column="min_post_fee" property="minPostFee" jdbcType="BIGINT" />
+    <result column="avg_post_fee" property="avgPostFee" jdbcType="BIGINT" />
+    <result column="count_post_fee" property="countPostFee" jdbcType="BIGINT" />
+    <result column="sum_post_fee" property="sumPostFee" jdbcType="DECIMAL" />
+    <result column="max_shipping_type" property="maxShippingType" jdbcType="BIGINT" />
+    <result column="min_shipping_type" property="minShippingType" jdbcType="BIGINT" />
+    <result column="avg_shipping_type" property="avgShippingType" jdbcType="BIGINT" />
+    <result column="count_shipping_type" property="countShippingType" jdbcType="BIGINT" />
+    <result column="sum_shipping_type" property="sumShippingType" jdbcType="VARCHAR" />
+    <result column="max_status" property="maxStatus" jdbcType="BIGINT" />
+    <result column="min_status" property="minStatus" jdbcType="BIGINT" />
+    <result column="avg_status" property="avgStatus" jdbcType="BIGINT" />
+    <result column="count_status" property="countStatus" jdbcType="BIGINT" />
+    <result column="sum_status" property="sumStatus" jdbcType="VARCHAR" />
+    <result column="max_outer_tid" property="maxOuterTid" jdbcType="BIGINT" />
+    <result column="min_outer_tid" property="minOuterTid" jdbcType="BIGINT" />
+    <result column="avg_outer_tid" property="avgOuterTid" jdbcType="BIGINT" />
+    <result column="count_outer_tid" property="countOuterTid" jdbcType="BIGINT" />
+    <result column="sum_outer_tid" property="sumOuterTid" jdbcType="VARCHAR" />
+    <result column="max_feedback" property="maxFeedback" jdbcType="BIGINT" />
+    <result column="min_feedback" property="minFeedback" jdbcType="BIGINT" />
+    <result column="avg_feedback" property="avgFeedback" jdbcType="BIGINT" />
+    <result column="count_feedback" property="countFeedback" jdbcType="BIGINT" />
+    <result column="sum_feedback" property="sumFeedback" jdbcType="INTEGER" />
+    <result column="max_receiver_mobile" property="maxReceiverMobile" jdbcType="BIGINT" />
+    <result column="min_receiver_mobile" property="minReceiverMobile" jdbcType="BIGINT" />
+    <result column="avg_receiver_mobile" property="avgReceiverMobile" jdbcType="BIGINT" />
+    <result column="count_receiver_mobile" property="countReceiverMobile" jdbcType="BIGINT" />
+    <result column="sum_receiver_mobile" property="sumReceiverMobile" jdbcType="VARCHAR" />
+    <result column="max_receiver_zip" property="maxReceiverZip" jdbcType="BIGINT" />
+    <result column="min_receiver_zip" property="minReceiverZip" jdbcType="BIGINT" />
+    <result column="avg_receiver_zip" property="avgReceiverZip" jdbcType="BIGINT" />
+    <result column="count_receiver_zip" property="countReceiverZip" jdbcType="BIGINT" />
+    <result column="sum_receiver_zip" property="sumReceiverZip" jdbcType="VARCHAR" />
+    <result column="max_receiver_address" property="maxReceiverAddress" jdbcType="BIGINT" />
+    <result column="min_receiver_address" property="minReceiverAddress" jdbcType="BIGINT" />
+    <result column="avg_receiver_address" property="avgReceiverAddress" jdbcType="BIGINT" />
+    <result column="count_receiver_address" property="countReceiverAddress" jdbcType="BIGINT" />
+    <result column="sum_receiver_address" property="sumReceiverAddress" jdbcType="VARCHAR" />
+    <result column="max_receiver_state" property="maxReceiverState" jdbcType="BIGINT" />
+    <result column="min_receiver_state" property="minReceiverState" jdbcType="BIGINT" />
+    <result column="avg_receiver_state" property="avgReceiverState" jdbcType="BIGINT" />
+    <result column="count_receiver_state" property="countReceiverState" jdbcType="BIGINT" />
+    <result column="sum_receiver_state" property="sumReceiverState" jdbcType="VARCHAR" />
+    <result column="max_receiver_name" property="maxReceiverName" jdbcType="BIGINT" />
+    <result column="min_receiver_name" property="minReceiverName" jdbcType="BIGINT" />
+    <result column="avg_receiver_name" property="avgReceiverName" jdbcType="BIGINT" />
+    <result column="count_receiver_name" property="countReceiverName" jdbcType="BIGINT" />
+    <result column="sum_receiver_name" property="sumReceiverName" jdbcType="VARCHAR" />
+    <result column="max_receiver_district" property="maxReceiverDistrict" jdbcType="BIGINT" />
+    <result column="min_receiver_district" property="minReceiverDistrict" jdbcType="BIGINT" />
+    <result column="avg_receiver_district" property="avgReceiverDistrict" jdbcType="BIGINT" />
+    <result column="count_receiver_district" property="countReceiverDistrict" jdbcType="BIGINT" />
+    <result column="sum_receiver_district" property="sumReceiverDistrict" jdbcType="VARCHAR" />
+    <result column="max_receiver_city" property="maxReceiverCity" jdbcType="BIGINT" />
+    <result column="min_receiver_city" property="minReceiverCity" jdbcType="BIGINT" />
+    <result column="avg_receiver_city" property="avgReceiverCity" jdbcType="BIGINT" />
+    <result column="count_receiver_city" property="countReceiverCity" jdbcType="BIGINT" />
+    <result column="sum_receiver_city" property="sumReceiverCity" jdbcType="VARCHAR" />
+    <result column="max_trade_memo" property="maxTradeMemo" jdbcType="BIGINT" />
+    <result column="min_trade_memo" property="minTradeMemo" jdbcType="BIGINT" />
+    <result column="avg_trade_memo" property="avgTradeMemo" jdbcType="BIGINT" />
+    <result column="count_trade_memo" property="countTradeMemo" jdbcType="BIGINT" />
+    <result column="sum_trade_memo" property="sumTradeMemo" jdbcType="VARCHAR" />
+    <result column="max_seller_flag" property="maxSellerFlag" jdbcType="BIGINT" />
+    <result column="min_seller_flag" property="minSellerFlag" jdbcType="BIGINT" />
+    <result column="avg_seller_flag" property="avgSellerFlag" jdbcType="BIGINT" />
+    <result column="count_seller_flag" property="countSellerFlag" jdbcType="BIGINT" />
+    <result column="sum_seller_flag" property="sumSellerFlag" jdbcType="INTEGER" />
+    <result column="max_buyer_message" property="maxBuyerMessage" jdbcType="BIGINT" />
+    <result column="min_buyer_message" property="minBuyerMessage" jdbcType="BIGINT" />
+    <result column="avg_buyer_message" property="avgBuyerMessage" jdbcType="BIGINT" />
+    <result column="count_buyer_message" property="countBuyerMessage" jdbcType="BIGINT" />
+    <result column="sum_buyer_message" property="sumBuyerMessage" jdbcType="VARCHAR" />
+    <result column="max_buyer_nick" property="maxBuyerNick" jdbcType="BIGINT" />
+    <result column="min_buyer_nick" property="minBuyerNick" jdbcType="BIGINT" />
+    <result column="avg_buyer_nick" property="avgBuyerNick" jdbcType="BIGINT" />
+    <result column="count_buyer_nick" property="countBuyerNick" jdbcType="BIGINT" />
+    <result column="sum_buyer_nick" property="sumBuyerNick" jdbcType="VARCHAR" />
+    <result column="max_buyer_id" property="maxBuyerId" jdbcType="BIGINT" />
+    <result column="min_buyer_id" property="minBuyerId" jdbcType="BIGINT" />
+    <result column="avg_buyer_id" property="avgBuyerId" jdbcType="BIGINT" />
+    <result column="count_buyer_id" property="countBuyerId" jdbcType="BIGINT" />
+    <result column="sum_buyer_id" property="sumBuyerId" jdbcType="BIGINT" />
+    <result column="max_buyer_type" property="maxBuyerType" jdbcType="BIGINT" />
+    <result column="min_buyer_type" property="minBuyerType" jdbcType="BIGINT" />
+    <result column="avg_buyer_type" property="avgBuyerType" jdbcType="BIGINT" />
+    <result column="count_buyer_type" property="countBuyerType" jdbcType="BIGINT" />
+    <result column="sum_buyer_type" property="sumBuyerType" jdbcType="INTEGER" />
+    <result column="max_weixin_user_id" property="maxWeixinUserId" jdbcType="BIGINT" />
+    <result column="min_weixin_user_id" property="minWeixinUserId" jdbcType="BIGINT" />
+    <result column="avg_weixin_user_id" property="avgWeixinUserId" jdbcType="BIGINT" />
+    <result column="count_weixin_user_id" property="countWeixinUserId" jdbcType="BIGINT" />
+    <result column="sum_weixin_user_id" property="sumWeixinUserId" jdbcType="BIGINT" />
+    <result column="max_type" property="maxType" jdbcType="BIGINT" />
+    <result column="min_type" property="minType" jdbcType="BIGINT" />
+    <result column="avg_type" property="avgType" jdbcType="BIGINT" />
+    <result column="count_type" property="countType" jdbcType="BIGINT" />
+    <result column="sum_type" property="sumType" jdbcType="VARCHAR" />
+    <result column="max_title" property="maxTitle" jdbcType="BIGINT" />
+    <result column="min_title" property="minTitle" jdbcType="BIGINT" />
+    <result column="avg_title" property="avgTitle" jdbcType="BIGINT" />
+    <result column="count_title" property="countTitle" jdbcType="BIGINT" />
+    <result column="sum_title" property="sumTitle" jdbcType="VARCHAR" />
+    <result column="max_price" property="maxPrice" jdbcType="BIGINT" />
+    <result column="min_price" property="minPrice" jdbcType="BIGINT" />
+    <result column="avg_price" property="avgPrice" jdbcType="BIGINT" />
+    <result column="count_price" property="countPrice" jdbcType="BIGINT" />
+    <result column="sum_price" property="sumPrice" jdbcType="DECIMAL" />
+    <result column="max_pic_path" property="maxPicPath" jdbcType="BIGINT" />
+    <result column="min_pic_path" property="minPicPath" jdbcType="BIGINT" />
+    <result column="avg_pic_path" property="avgPicPath" jdbcType="BIGINT" />
+    <result column="count_pic_path" property="countPicPath" jdbcType="BIGINT" />
+    <result column="sum_pic_path" property="sumPicPath" jdbcType="VARCHAR" />
+    <result column="max_pic_thumb_path" property="maxPicThumbPath" jdbcType="BIGINT" />
+    <result column="min_pic_thumb_path" property="minPicThumbPath" jdbcType="BIGINT" />
+    <result column="avg_pic_thumb_path" property="avgPicThumbPath" jdbcType="BIGINT" />
+    <result column="count_pic_thumb_path" property="countPicThumbPath" jdbcType="BIGINT" />
+    <result column="sum_pic_thumb_path" property="sumPicThumbPath" jdbcType="VARCHAR" />
+    <result column="max_num_iid" property="maxNumIid" jdbcType="BIGINT" />
+    <result column="min_num_iid" property="minNumIid" jdbcType="BIGINT" />
+    <result column="avg_num_iid" property="avgNumIid" jdbcType="BIGINT" />
+    <result column="count_num_iid" property="countNumIid" jdbcType="BIGINT" />
+    <result column="sum_num_iid" property="sumNumIid" jdbcType="VARCHAR" />
+    <result column="max_num" property="maxNum" jdbcType="BIGINT" />
+    <result column="min_num" property="minNum" jdbcType="BIGINT" />
+    <result column="avg_num" property="avgNum" jdbcType="BIGINT" />
+    <result column="count_num" property="countNum" jdbcType="BIGINT" />
+    <result column="sum_num" property="sumNum" jdbcType="INTEGER" />
+    <result column="max_receiver_id_yz" property="maxReceiverIdYz" jdbcType="BIGINT" />
+    <result column="min_receiver_id_yz" property="minReceiverIdYz" jdbcType="BIGINT" />
+    <result column="avg_receiver_id_yz" property="avgReceiverIdYz" jdbcType="BIGINT" />
+    <result column="count_receiver_id_yz" property="countReceiverIdYz" jdbcType="BIGINT" />
+    <result column="sum_receiver_id_yz" property="sumReceiverIdYz" jdbcType="BIGINT" />
+    <result column="max_user_id_yz" property="maxUserIdYz" jdbcType="BIGINT" />
+    <result column="min_user_id_yz" property="minUserIdYz" jdbcType="BIGINT" />
+    <result column="avg_user_id_yz" property="avgUserIdYz" jdbcType="BIGINT" />
+    <result column="count_user_id_yz" property="countUserIdYz" jdbcType="BIGINT" />
+    <result column="sum_user_id_yz" property="sumUserIdYz" jdbcType="BIGINT" />
+    <result column="max_shop_id" property="maxShopId" jdbcType="BIGINT" />
+    <result column="min_shop_id" property="minShopId" jdbcType="BIGINT" />
+    <result column="avg_shop_id" property="avgShopId" jdbcType="BIGINT" />
+    <result column="count_shop_id" property="countShopId" jdbcType="BIGINT" />
+    <result column="sum_shop_id" property="sumShopId" jdbcType="BIGINT" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="max_tid" property="maxTid" jdbcType="BIGINT" />
+    <result column="min_tid" property="minTid" jdbcType="BIGINT" />
+    <result column="avg_tid" property="avgTid" jdbcType="BIGINT" />
+    <result column="count_tid" property="countTid" jdbcType="BIGINT" />
+    <result column="sum_tid" property="sumTid" jdbcType="VARCHAR" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="tid" property="tid" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+    <result column="shop_id" property="shopId" jdbcType="BIGINT" />
+    <result column="user_id_yz" property="userIdYz" jdbcType="BIGINT" />
+    <result column="receiver_id_yz" property="receiverIdYz" jdbcType="BIGINT" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="num_iid" property="numIid" jdbcType="VARCHAR" />
+    <result column="pic_thumb_path" property="picThumbPath" jdbcType="VARCHAR" />
+    <result column="pic_path" property="picPath" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="weixin_user_id" property="weixinUserId" jdbcType="BIGINT" />
+    <result column="buyer_type" property="buyerType" jdbcType="INTEGER" />
+    <result column="buyer_id" property="buyerId" jdbcType="BIGINT" />
+    <result column="buyer_nick" property="buyerNick" jdbcType="VARCHAR" />
+    <result column="buyer_message" property="buyerMessage" jdbcType="VARCHAR" />
+    <result column="seller_flag" property="sellerFlag" jdbcType="INTEGER" />
+    <result column="trade_memo" property="tradeMemo" jdbcType="VARCHAR" />
+    <result column="receiver_city" property="receiverCity" jdbcType="VARCHAR" />
+    <result column="receiver_district" property="receiverDistrict" jdbcType="VARCHAR" />
+    <result column="receiver_name" property="receiverName" jdbcType="VARCHAR" />
+    <result column="receiver_state" property="receiverState" jdbcType="VARCHAR" />
+    <result column="receiver_address" property="receiverAddress" jdbcType="VARCHAR" />
+    <result column="receiver_zip" property="receiverZip" jdbcType="VARCHAR" />
+    <result column="receiver_mobile" property="receiverMobile" jdbcType="VARCHAR" />
+    <result column="feedback" property="feedback" jdbcType="INTEGER" />
+    <result column="outer_tid" property="outerTid" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="shipping_type" property="shippingType" jdbcType="VARCHAR" />
+    <result column="post_fee" property="postFee" jdbcType="DECIMAL" />
+    <result column="total_fee" property="totalFee" jdbcType="DECIMAL" />
+    <result column="discount_fee" property="discountFee" jdbcType="DECIMAL" />
+    <result column="adjust_fee" property="adjustFee" jdbcType="DECIMAL" />
+    <result column="payment" property="payment" jdbcType="DECIMAL" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="pay_time" property="payTime" jdbcType="TIMESTAMP" />
+    <result column="pay_type" property="payType" jdbcType="VARCHAR" />
+    <result column="consign_time" property="consignTime" jdbcType="TIMESTAMP" />
+    <result column="sign_time" property="signTime" jdbcType="TIMESTAMP" />
+    <result column="parent_tid" property="parentTid" jdbcType="VARCHAR" />
+    <result column="buyer_area" property="buyerArea" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, is_deleted, tid, seller_id, shop_id, user_id_yz, receiver_id_yz, 
+    num, num_iid, pic_thumb_path, pic_path, price, title, type, weixin_user_id, buyer_type, 
+    buyer_id, buyer_nick, buyer_message, seller_flag, trade_memo, receiver_city, receiver_district, 
+    receiver_name, receiver_state, receiver_address, receiver_zip, receiver_mobile, feedback, 
+    outer_tid, status, shipping_type, post_fee, total_fee, discount_fee, adjust_fee, 
+    payment, created, update_time, pay_time, pay_type, consign_time, sign_time, parent_tid, 
+    buyer_area
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.trade.TradeYZExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from trade_yz
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from trade_yz
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update trade_yz
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.trade.TradeYZExample" >
+    update trade_yz
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.trade.TradeYZ" useGeneratedKeys="true" keyProperty="id" >
+    insert into trade_yz (id, gmt_created, gmt_modified, 
+      is_deleted, tid, seller_id, 
+      shop_id, user_id_yz, receiver_id_yz, 
+      num, num_iid, pic_thumb_path, 
+      pic_path, price, title, 
+      type, weixin_user_id, buyer_type, 
+      buyer_id, buyer_nick, buyer_message, 
+      seller_flag, trade_memo, receiver_city, 
+      receiver_district, receiver_name, receiver_state, 
+      receiver_address, receiver_zip, receiver_mobile, 
+      feedback, outer_tid, status, 
+      shipping_type, post_fee, total_fee, 
+      discount_fee, adjust_fee, payment, 
+      created, update_time, pay_time, 
+      pay_type, consign_time, sign_time, 
+      parent_tid, buyer_area)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{isDeleted,jdbcType=VARCHAR}, #{tid,jdbcType=VARCHAR}, #{sellerId,jdbcType=BIGINT}, 
+      #{shopId,jdbcType=BIGINT}, #{userIdYz,jdbcType=BIGINT}, #{receiverIdYz,jdbcType=BIGINT}, 
+      #{num,jdbcType=INTEGER}, #{numIid,jdbcType=VARCHAR}, #{picThumbPath,jdbcType=VARCHAR}, 
+      #{picPath,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{title,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{weixinUserId,jdbcType=BIGINT}, #{buyerType,jdbcType=INTEGER}, 
+      #{buyerId,jdbcType=BIGINT}, #{buyerNick,jdbcType=VARCHAR}, #{buyerMessage,jdbcType=VARCHAR}, 
+      #{sellerFlag,jdbcType=INTEGER}, #{tradeMemo,jdbcType=VARCHAR}, #{receiverCity,jdbcType=VARCHAR}, 
+      #{receiverDistrict,jdbcType=VARCHAR}, #{receiverName,jdbcType=VARCHAR}, #{receiverState,jdbcType=VARCHAR}, 
+      #{receiverAddress,jdbcType=VARCHAR}, #{receiverZip,jdbcType=VARCHAR}, #{receiverMobile,jdbcType=VARCHAR}, 
+      #{feedback,jdbcType=INTEGER}, #{outerTid,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{shippingType,jdbcType=VARCHAR}, #{postFee,jdbcType=DECIMAL}, #{totalFee,jdbcType=DECIMAL}, 
+      #{discountFee,jdbcType=DECIMAL}, #{adjustFee,jdbcType=DECIMAL}, #{payment,jdbcType=DECIMAL}, 
+      #{created,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{payTime,jdbcType=TIMESTAMP}, 
+      #{payType,jdbcType=VARCHAR}, #{consignTime,jdbcType=TIMESTAMP}, #{signTime,jdbcType=TIMESTAMP}, 
+      #{parentTid,jdbcType=VARCHAR}, #{buyerArea,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.trade.TradeYZ" useGeneratedKeys="true" keyProperty="id" >
+    insert into trade_yz
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="tid != null" >
+        tid,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="shopId != null" >
+        shop_id,
+      </if>
+      <if test="userIdYz != null" >
+        user_id_yz,
+      </if>
+      <if test="receiverIdYz != null" >
+        receiver_id_yz,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="numIid != null" >
+        num_iid,
+      </if>
+      <if test="picThumbPath != null" >
+        pic_thumb_path,
+      </if>
+      <if test="picPath != null" >
+        pic_path,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="weixinUserId != null" >
+        weixin_user_id,
+      </if>
+      <if test="buyerType != null" >
+        buyer_type,
+      </if>
+      <if test="buyerId != null" >
+        buyer_id,
+      </if>
+      <if test="buyerNick != null" >
+        buyer_nick,
+      </if>
+      <if test="buyerMessage != null" >
+        buyer_message,
+      </if>
+      <if test="sellerFlag != null" >
+        seller_flag,
+      </if>
+      <if test="tradeMemo != null" >
+        trade_memo,
+      </if>
+      <if test="receiverCity != null" >
+        receiver_city,
+      </if>
+      <if test="receiverDistrict != null" >
+        receiver_district,
+      </if>
+      <if test="receiverName != null" >
+        receiver_name,
+      </if>
+      <if test="receiverState != null" >
+        receiver_state,
+      </if>
+      <if test="receiverAddress != null" >
+        receiver_address,
+      </if>
+      <if test="receiverZip != null" >
+        receiver_zip,
+      </if>
+      <if test="receiverMobile != null" >
+        receiver_mobile,
+      </if>
+      <if test="feedback != null" >
+        feedback,
+      </if>
+      <if test="outerTid != null" >
+        outer_tid,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="shippingType != null" >
+        shipping_type,
+      </if>
+      <if test="postFee != null" >
+        post_fee,
+      </if>
+      <if test="totalFee != null" >
+        total_fee,
+      </if>
+      <if test="discountFee != null" >
+        discount_fee,
+      </if>
+      <if test="adjustFee != null" >
+        adjust_fee,
+      </if>
+      <if test="payment != null" >
+        payment,
+      </if>
+      <if test="created != null" >
+        created,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="payTime != null" >
+        pay_time,
+      </if>
+      <if test="payType != null" >
+        pay_type,
+      </if>
+      <if test="consignTime != null" >
+        consign_time,
+      </if>
+      <if test="signTime != null" >
+        sign_time,
+      </if>
+      <if test="parentTid != null" >
+        parent_tid,
+      </if>
+      <if test="buyerArea != null" >
+        buyer_area,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+      <if test="shopId != null" >
+        #{shopId,jdbcType=BIGINT},
+      </if>
+      <if test="userIdYz != null" >
+        #{userIdYz,jdbcType=BIGINT},
+      </if>
+      <if test="receiverIdYz != null" >
+        #{receiverIdYz,jdbcType=BIGINT},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="numIid != null" >
+        #{numIid,jdbcType=VARCHAR},
+      </if>
+      <if test="picThumbPath != null" >
+        #{picThumbPath,jdbcType=VARCHAR},
+      </if>
+      <if test="picPath != null" >
+        #{picPath,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinUserId != null" >
+        #{weixinUserId,jdbcType=BIGINT},
+      </if>
+      <if test="buyerType != null" >
+        #{buyerType,jdbcType=INTEGER},
+      </if>
+      <if test="buyerId != null" >
+        #{buyerId,jdbcType=BIGINT},
+      </if>
+      <if test="buyerNick != null" >
+        #{buyerNick,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerMessage != null" >
+        #{buyerMessage,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerFlag != null" >
+        #{sellerFlag,jdbcType=INTEGER},
+      </if>
+      <if test="tradeMemo != null" >
+        #{tradeMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverCity != null" >
+        #{receiverCity,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverDistrict != null" >
+        #{receiverDistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverName != null" >
+        #{receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverState != null" >
+        #{receiverState,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverAddress != null" >
+        #{receiverAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverZip != null" >
+        #{receiverZip,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverMobile != null" >
+        #{receiverMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="feedback != null" >
+        #{feedback,jdbcType=INTEGER},
+      </if>
+      <if test="outerTid != null" >
+        #{outerTid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingType != null" >
+        #{shippingType,jdbcType=VARCHAR},
+      </if>
+      <if test="postFee != null" >
+        #{postFee,jdbcType=DECIMAL},
+      </if>
+      <if test="totalFee != null" >
+        #{totalFee,jdbcType=DECIMAL},
+      </if>
+      <if test="discountFee != null" >
+        #{discountFee,jdbcType=DECIMAL},
+      </if>
+      <if test="adjustFee != null" >
+        #{adjustFee,jdbcType=DECIMAL},
+      </if>
+      <if test="payment != null" >
+        #{payment,jdbcType=DECIMAL},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payTime != null" >
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payType != null" >
+        #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="consignTime != null" >
+        #{consignTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signTime != null" >
+        #{signTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="parentTid != null" >
+        #{parentTid,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerArea != null" >
+        #{buyerArea,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.trade.TradeYZExample" resultType="java.lang.Integer" >
+    select count(*) from trade_yz
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update trade_yz
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.tid!=null and record.tidExpression==null" >
+          tid = #{record.tid,jdbcType=VARCHAR},
+        </if>
+        <if test="record.tidExpression!=null" >
+          tid = ${record.tidExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.shopId!=null and record.shopIdExpression==null" >
+          shop_id = #{record.shopId,jdbcType=BIGINT},
+        </if>
+        <if test="record.shopIdExpression!=null" >
+          shop_id = ${record.shopIdExpression},
+        </if>
+        <if test="record.userIdYz!=null and record.userIdYzExpression==null" >
+          user_id_yz = #{record.userIdYz,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdYzExpression!=null" >
+          user_id_yz = ${record.userIdYzExpression},
+        </if>
+        <if test="record.receiverIdYz!=null and record.receiverIdYzExpression==null" >
+          receiver_id_yz = #{record.receiverIdYz,jdbcType=BIGINT},
+        </if>
+        <if test="record.receiverIdYzExpression!=null" >
+          receiver_id_yz = ${record.receiverIdYzExpression},
+        </if>
+        <if test="record.num!=null and record.numExpression==null" >
+          num = #{record.num,jdbcType=INTEGER},
+        </if>
+        <if test="record.numExpression!=null" >
+          num = ${record.numExpression},
+        </if>
+        <if test="record.numIid!=null and record.numIidExpression==null" >
+          num_iid = #{record.numIid,jdbcType=VARCHAR},
+        </if>
+        <if test="record.numIidExpression!=null" >
+          num_iid = ${record.numIidExpression},
+        </if>
+        <if test="record.picThumbPath!=null and record.picThumbPathExpression==null" >
+          pic_thumb_path = #{record.picThumbPath,jdbcType=VARCHAR},
+        </if>
+        <if test="record.picThumbPathExpression!=null" >
+          pic_thumb_path = ${record.picThumbPathExpression},
+        </if>
+        <if test="record.picPath!=null and record.picPathExpression==null" >
+          pic_path = #{record.picPath,jdbcType=VARCHAR},
+        </if>
+        <if test="record.picPathExpression!=null" >
+          pic_path = ${record.picPathExpression},
+        </if>
+        <if test="record.price!=null and record.priceExpression==null" >
+          price = #{record.price,jdbcType=DECIMAL},
+        </if>
+        <if test="record.priceExpression!=null" >
+          price = ${record.priceExpression},
+        </if>
+        <if test="record.title!=null and record.titleExpression==null" >
+          title = #{record.title,jdbcType=VARCHAR},
+        </if>
+        <if test="record.titleExpression!=null" >
+          title = ${record.titleExpression},
+        </if>
+        <if test="record.type!=null and record.typeExpression==null" >
+          type = #{record.type,jdbcType=VARCHAR},
+        </if>
+        <if test="record.typeExpression!=null" >
+          type = ${record.typeExpression},
+        </if>
+        <if test="record.weixinUserId!=null and record.weixinUserIdExpression==null" >
+          weixin_user_id = #{record.weixinUserId,jdbcType=BIGINT},
+        </if>
+        <if test="record.weixinUserIdExpression!=null" >
+          weixin_user_id = ${record.weixinUserIdExpression},
+        </if>
+        <if test="record.buyerType!=null and record.buyerTypeExpression==null" >
+          buyer_type = #{record.buyerType,jdbcType=INTEGER},
+        </if>
+        <if test="record.buyerTypeExpression!=null" >
+          buyer_type = ${record.buyerTypeExpression},
+        </if>
+        <if test="record.buyerId!=null and record.buyerIdExpression==null" >
+          buyer_id = #{record.buyerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.buyerIdExpression!=null" >
+          buyer_id = ${record.buyerIdExpression},
+        </if>
+        <if test="record.buyerNick!=null and record.buyerNickExpression==null" >
+          buyer_nick = #{record.buyerNick,jdbcType=VARCHAR},
+        </if>
+        <if test="record.buyerNickExpression!=null" >
+          buyer_nick = ${record.buyerNickExpression},
+        </if>
+        <if test="record.buyerMessage!=null and record.buyerMessageExpression==null" >
+          buyer_message = #{record.buyerMessage,jdbcType=VARCHAR},
+        </if>
+        <if test="record.buyerMessageExpression!=null" >
+          buyer_message = ${record.buyerMessageExpression},
+        </if>
+        <if test="record.sellerFlag!=null and record.sellerFlagExpression==null" >
+          seller_flag = #{record.sellerFlag,jdbcType=INTEGER},
+        </if>
+        <if test="record.sellerFlagExpression!=null" >
+          seller_flag = ${record.sellerFlagExpression},
+        </if>
+        <if test="record.tradeMemo!=null and record.tradeMemoExpression==null" >
+          trade_memo = #{record.tradeMemo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.tradeMemoExpression!=null" >
+          trade_memo = ${record.tradeMemoExpression},
+        </if>
+        <if test="record.receiverCity!=null and record.receiverCityExpression==null" >
+          receiver_city = #{record.receiverCity,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverCityExpression!=null" >
+          receiver_city = ${record.receiverCityExpression},
+        </if>
+        <if test="record.receiverDistrict!=null and record.receiverDistrictExpression==null" >
+          receiver_district = #{record.receiverDistrict,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverDistrictExpression!=null" >
+          receiver_district = ${record.receiverDistrictExpression},
+        </if>
+        <if test="record.receiverName!=null and record.receiverNameExpression==null" >
+          receiver_name = #{record.receiverName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverNameExpression!=null" >
+          receiver_name = ${record.receiverNameExpression},
+        </if>
+        <if test="record.receiverState!=null and record.receiverStateExpression==null" >
+          receiver_state = #{record.receiverState,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverStateExpression!=null" >
+          receiver_state = ${record.receiverStateExpression},
+        </if>
+        <if test="record.receiverAddress!=null and record.receiverAddressExpression==null" >
+          receiver_address = #{record.receiverAddress,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverAddressExpression!=null" >
+          receiver_address = ${record.receiverAddressExpression},
+        </if>
+        <if test="record.receiverZip!=null and record.receiverZipExpression==null" >
+          receiver_zip = #{record.receiverZip,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverZipExpression!=null" >
+          receiver_zip = ${record.receiverZipExpression},
+        </if>
+        <if test="record.receiverMobile!=null and record.receiverMobileExpression==null" >
+          receiver_mobile = #{record.receiverMobile,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverMobileExpression!=null" >
+          receiver_mobile = ${record.receiverMobileExpression},
+        </if>
+        <if test="record.feedback!=null and record.feedbackExpression==null" >
+          feedback = #{record.feedback,jdbcType=INTEGER},
+        </if>
+        <if test="record.feedbackExpression!=null" >
+          feedback = ${record.feedbackExpression},
+        </if>
+        <if test="record.outerTid!=null and record.outerTidExpression==null" >
+          outer_tid = #{record.outerTid,jdbcType=VARCHAR},
+        </if>
+        <if test="record.outerTidExpression!=null" >
+          outer_tid = ${record.outerTidExpression},
+        </if>
+        <if test="record.status!=null and record.statusExpression==null" >
+          status = #{record.status,jdbcType=VARCHAR},
+        </if>
+        <if test="record.statusExpression!=null" >
+          status = ${record.statusExpression},
+        </if>
+        <if test="record.shippingType!=null and record.shippingTypeExpression==null" >
+          shipping_type = #{record.shippingType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shippingTypeExpression!=null" >
+          shipping_type = ${record.shippingTypeExpression},
+        </if>
+        <if test="record.postFee!=null and record.postFeeExpression==null" >
+          post_fee = #{record.postFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.postFeeExpression!=null" >
+          post_fee = ${record.postFeeExpression},
+        </if>
+        <if test="record.totalFee!=null and record.totalFeeExpression==null" >
+          total_fee = #{record.totalFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.totalFeeExpression!=null" >
+          total_fee = ${record.totalFeeExpression},
+        </if>
+        <if test="record.discountFee!=null and record.discountFeeExpression==null" >
+          discount_fee = #{record.discountFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.discountFeeExpression!=null" >
+          discount_fee = ${record.discountFeeExpression},
+        </if>
+        <if test="record.adjustFee!=null and record.adjustFeeExpression==null" >
+          adjust_fee = #{record.adjustFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.adjustFeeExpression!=null" >
+          adjust_fee = ${record.adjustFeeExpression},
+        </if>
+        <if test="record.payment!=null and record.paymentExpression==null" >
+          payment = #{record.payment,jdbcType=DECIMAL},
+        </if>
+        <if test="record.paymentExpression!=null" >
+          payment = ${record.paymentExpression},
+        </if>
+        <if test="record.created!=null and record.createdExpression==null" >
+          created = #{record.created,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.createdExpression!=null" >
+          created = ${record.createdExpression},
+        </if>
+        <if test="record.updateTime!=null and record.updateTimeExpression==null" >
+          update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.updateTimeExpression!=null" >
+          update_time = ${record.updateTimeExpression},
+        </if>
+        <if test="record.payTime!=null and record.payTimeExpression==null" >
+          pay_time = #{record.payTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.payTimeExpression!=null" >
+          pay_time = ${record.payTimeExpression},
+        </if>
+        <if test="record.payType!=null and record.payTypeExpression==null" >
+          pay_type = #{record.payType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.payTypeExpression!=null" >
+          pay_type = ${record.payTypeExpression},
+        </if>
+        <if test="record.consignTime!=null and record.consignTimeExpression==null" >
+          consign_time = #{record.consignTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.consignTimeExpression!=null" >
+          consign_time = ${record.consignTimeExpression},
+        </if>
+        <if test="record.signTime!=null and record.signTimeExpression==null" >
+          sign_time = #{record.signTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.signTimeExpression!=null" >
+          sign_time = ${record.signTimeExpression},
+        </if>
+        <if test="record.parentTid!=null and record.parentTidExpression==null" >
+          parent_tid = #{record.parentTid,jdbcType=VARCHAR},
+        </if>
+        <if test="record.parentTidExpression!=null" >
+          parent_tid = ${record.parentTidExpression},
+        </if>
+        <if test="record.buyerArea!=null and record.buyerAreaExpression==null" >
+          buyer_area = #{record.buyerArea,jdbcType=VARCHAR},
+        </if>
+        <if test="record.buyerAreaExpression!=null" >
+          buyer_area = ${record.buyerAreaExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update trade_yz
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      tid = #{record.tid,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=BIGINT},
+      shop_id = #{record.shopId,jdbcType=BIGINT},
+      user_id_yz = #{record.userIdYz,jdbcType=BIGINT},
+      receiver_id_yz = #{record.receiverIdYz,jdbcType=BIGINT},
+      num = #{record.num,jdbcType=INTEGER},
+      num_iid = #{record.numIid,jdbcType=VARCHAR},
+      pic_thumb_path = #{record.picThumbPath,jdbcType=VARCHAR},
+      pic_path = #{record.picPath,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=DECIMAL},
+      title = #{record.title,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=VARCHAR},
+      weixin_user_id = #{record.weixinUserId,jdbcType=BIGINT},
+      buyer_type = #{record.buyerType,jdbcType=INTEGER},
+      buyer_id = #{record.buyerId,jdbcType=BIGINT},
+      buyer_nick = #{record.buyerNick,jdbcType=VARCHAR},
+      buyer_message = #{record.buyerMessage,jdbcType=VARCHAR},
+      seller_flag = #{record.sellerFlag,jdbcType=INTEGER},
+      trade_memo = #{record.tradeMemo,jdbcType=VARCHAR},
+      receiver_city = #{record.receiverCity,jdbcType=VARCHAR},
+      receiver_district = #{record.receiverDistrict,jdbcType=VARCHAR},
+      receiver_name = #{record.receiverName,jdbcType=VARCHAR},
+      receiver_state = #{record.receiverState,jdbcType=VARCHAR},
+      receiver_address = #{record.receiverAddress,jdbcType=VARCHAR},
+      receiver_zip = #{record.receiverZip,jdbcType=VARCHAR},
+      receiver_mobile = #{record.receiverMobile,jdbcType=VARCHAR},
+      feedback = #{record.feedback,jdbcType=INTEGER},
+      outer_tid = #{record.outerTid,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=VARCHAR},
+      shipping_type = #{record.shippingType,jdbcType=VARCHAR},
+      post_fee = #{record.postFee,jdbcType=DECIMAL},
+      total_fee = #{record.totalFee,jdbcType=DECIMAL},
+      discount_fee = #{record.discountFee,jdbcType=DECIMAL},
+      adjust_fee = #{record.adjustFee,jdbcType=DECIMAL},
+      payment = #{record.payment,jdbcType=DECIMAL},
+      created = #{record.created,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      pay_time = #{record.payTime,jdbcType=TIMESTAMP},
+      pay_type = #{record.payType,jdbcType=VARCHAR},
+      consign_time = #{record.consignTime,jdbcType=TIMESTAMP},
+      sign_time = #{record.signTime,jdbcType=TIMESTAMP},
+      parent_tid = #{record.parentTid,jdbcType=VARCHAR},
+      buyer_area = #{record.buyerArea,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.trade.TradeYZ" >
+    update trade_yz
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.tid!=null and record.tidExpression==null" >
+          tid = #{record.tid,jdbcType=VARCHAR},
+        </if>
+        <if test="record.tidExpression!=null" >
+          tid = ${record.tidExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.shopId!=null and record.shopIdExpression==null" >
+          shop_id = #{record.shopId,jdbcType=BIGINT},
+        </if>
+        <if test="record.shopIdExpression!=null" >
+          shop_id = ${record.shopIdExpression},
+        </if>
+        <if test="record.userIdYz!=null and record.userIdYzExpression==null" >
+          user_id_yz = #{record.userIdYz,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdYzExpression!=null" >
+          user_id_yz = ${record.userIdYzExpression},
+        </if>
+        <if test="record.receiverIdYz!=null and record.receiverIdYzExpression==null" >
+          receiver_id_yz = #{record.receiverIdYz,jdbcType=BIGINT},
+        </if>
+        <if test="record.receiverIdYzExpression!=null" >
+          receiver_id_yz = ${record.receiverIdYzExpression},
+        </if>
+        <if test="record.num!=null and record.numExpression==null" >
+          num = #{record.num,jdbcType=INTEGER},
+        </if>
+        <if test="record.numExpression!=null" >
+          num = ${record.numExpression},
+        </if>
+        <if test="record.numIid!=null and record.numIidExpression==null" >
+          num_iid = #{record.numIid,jdbcType=VARCHAR},
+        </if>
+        <if test="record.numIidExpression!=null" >
+          num_iid = ${record.numIidExpression},
+        </if>
+        <if test="record.picThumbPath!=null and record.picThumbPathExpression==null" >
+          pic_thumb_path = #{record.picThumbPath,jdbcType=VARCHAR},
+        </if>
+        <if test="record.picThumbPathExpression!=null" >
+          pic_thumb_path = ${record.picThumbPathExpression},
+        </if>
+        <if test="record.picPath!=null and record.picPathExpression==null" >
+          pic_path = #{record.picPath,jdbcType=VARCHAR},
+        </if>
+        <if test="record.picPathExpression!=null" >
+          pic_path = ${record.picPathExpression},
+        </if>
+        <if test="record.price!=null and record.priceExpression==null" >
+          price = #{record.price,jdbcType=DECIMAL},
+        </if>
+        <if test="record.priceExpression!=null" >
+          price = ${record.priceExpression},
+        </if>
+        <if test="record.title!=null and record.titleExpression==null" >
+          title = #{record.title,jdbcType=VARCHAR},
+        </if>
+        <if test="record.titleExpression!=null" >
+          title = ${record.titleExpression},
+        </if>
+        <if test="record.type!=null and record.typeExpression==null" >
+          type = #{record.type,jdbcType=VARCHAR},
+        </if>
+        <if test="record.typeExpression!=null" >
+          type = ${record.typeExpression},
+        </if>
+        <if test="record.weixinUserId!=null and record.weixinUserIdExpression==null" >
+          weixin_user_id = #{record.weixinUserId,jdbcType=BIGINT},
+        </if>
+        <if test="record.weixinUserIdExpression!=null" >
+          weixin_user_id = ${record.weixinUserIdExpression},
+        </if>
+        <if test="record.buyerType!=null and record.buyerTypeExpression==null" >
+          buyer_type = #{record.buyerType,jdbcType=INTEGER},
+        </if>
+        <if test="record.buyerTypeExpression!=null" >
+          buyer_type = ${record.buyerTypeExpression},
+        </if>
+        <if test="record.buyerId!=null and record.buyerIdExpression==null" >
+          buyer_id = #{record.buyerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.buyerIdExpression!=null" >
+          buyer_id = ${record.buyerIdExpression},
+        </if>
+        <if test="record.buyerNick!=null and record.buyerNickExpression==null" >
+          buyer_nick = #{record.buyerNick,jdbcType=VARCHAR},
+        </if>
+        <if test="record.buyerNickExpression!=null" >
+          buyer_nick = ${record.buyerNickExpression},
+        </if>
+        <if test="record.buyerMessage!=null and record.buyerMessageExpression==null" >
+          buyer_message = #{record.buyerMessage,jdbcType=VARCHAR},
+        </if>
+        <if test="record.buyerMessageExpression!=null" >
+          buyer_message = ${record.buyerMessageExpression},
+        </if>
+        <if test="record.sellerFlag!=null and record.sellerFlagExpression==null" >
+          seller_flag = #{record.sellerFlag,jdbcType=INTEGER},
+        </if>
+        <if test="record.sellerFlagExpression!=null" >
+          seller_flag = ${record.sellerFlagExpression},
+        </if>
+        <if test="record.tradeMemo!=null and record.tradeMemoExpression==null" >
+          trade_memo = #{record.tradeMemo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.tradeMemoExpression!=null" >
+          trade_memo = ${record.tradeMemoExpression},
+        </if>
+        <if test="record.receiverCity!=null and record.receiverCityExpression==null" >
+          receiver_city = #{record.receiverCity,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverCityExpression!=null" >
+          receiver_city = ${record.receiverCityExpression},
+        </if>
+        <if test="record.receiverDistrict!=null and record.receiverDistrictExpression==null" >
+          receiver_district = #{record.receiverDistrict,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverDistrictExpression!=null" >
+          receiver_district = ${record.receiverDistrictExpression},
+        </if>
+        <if test="record.receiverName!=null and record.receiverNameExpression==null" >
+          receiver_name = #{record.receiverName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverNameExpression!=null" >
+          receiver_name = ${record.receiverNameExpression},
+        </if>
+        <if test="record.receiverState!=null and record.receiverStateExpression==null" >
+          receiver_state = #{record.receiverState,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverStateExpression!=null" >
+          receiver_state = ${record.receiverStateExpression},
+        </if>
+        <if test="record.receiverAddress!=null and record.receiverAddressExpression==null" >
+          receiver_address = #{record.receiverAddress,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverAddressExpression!=null" >
+          receiver_address = ${record.receiverAddressExpression},
+        </if>
+        <if test="record.receiverZip!=null and record.receiverZipExpression==null" >
+          receiver_zip = #{record.receiverZip,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverZipExpression!=null" >
+          receiver_zip = ${record.receiverZipExpression},
+        </if>
+        <if test="record.receiverMobile!=null and record.receiverMobileExpression==null" >
+          receiver_mobile = #{record.receiverMobile,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverMobileExpression!=null" >
+          receiver_mobile = ${record.receiverMobileExpression},
+        </if>
+        <if test="record.feedback!=null and record.feedbackExpression==null" >
+          feedback = #{record.feedback,jdbcType=INTEGER},
+        </if>
+        <if test="record.feedbackExpression!=null" >
+          feedback = ${record.feedbackExpression},
+        </if>
+        <if test="record.outerTid!=null and record.outerTidExpression==null" >
+          outer_tid = #{record.outerTid,jdbcType=VARCHAR},
+        </if>
+        <if test="record.outerTidExpression!=null" >
+          outer_tid = ${record.outerTidExpression},
+        </if>
+        <if test="record.status!=null and record.statusExpression==null" >
+          status = #{record.status,jdbcType=VARCHAR},
+        </if>
+        <if test="record.statusExpression!=null" >
+          status = ${record.statusExpression},
+        </if>
+        <if test="record.shippingType!=null and record.shippingTypeExpression==null" >
+          shipping_type = #{record.shippingType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shippingTypeExpression!=null" >
+          shipping_type = ${record.shippingTypeExpression},
+        </if>
+        <if test="record.postFee!=null and record.postFeeExpression==null" >
+          post_fee = #{record.postFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.postFeeExpression!=null" >
+          post_fee = ${record.postFeeExpression},
+        </if>
+        <if test="record.totalFee!=null and record.totalFeeExpression==null" >
+          total_fee = #{record.totalFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.totalFeeExpression!=null" >
+          total_fee = ${record.totalFeeExpression},
+        </if>
+        <if test="record.discountFee!=null and record.discountFeeExpression==null" >
+          discount_fee = #{record.discountFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.discountFeeExpression!=null" >
+          discount_fee = ${record.discountFeeExpression},
+        </if>
+        <if test="record.adjustFee!=null and record.adjustFeeExpression==null" >
+          adjust_fee = #{record.adjustFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.adjustFeeExpression!=null" >
+          adjust_fee = ${record.adjustFeeExpression},
+        </if>
+        <if test="record.payment!=null and record.paymentExpression==null" >
+          payment = #{record.payment,jdbcType=DECIMAL},
+        </if>
+        <if test="record.paymentExpression!=null" >
+          payment = ${record.paymentExpression},
+        </if>
+        <if test="record.created!=null and record.createdExpression==null" >
+          created = #{record.created,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.createdExpression!=null" >
+          created = ${record.createdExpression},
+        </if>
+        <if test="record.updateTime!=null and record.updateTimeExpression==null" >
+          update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.updateTimeExpression!=null" >
+          update_time = ${record.updateTimeExpression},
+        </if>
+        <if test="record.payTime!=null and record.payTimeExpression==null" >
+          pay_time = #{record.payTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.payTimeExpression!=null" >
+          pay_time = ${record.payTimeExpression},
+        </if>
+        <if test="record.payType!=null and record.payTypeExpression==null" >
+          pay_type = #{record.payType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.payTypeExpression!=null" >
+          pay_type = ${record.payTypeExpression},
+        </if>
+        <if test="record.consignTime!=null and record.consignTimeExpression==null" >
+          consign_time = #{record.consignTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.consignTimeExpression!=null" >
+          consign_time = ${record.consignTimeExpression},
+        </if>
+        <if test="record.signTime!=null and record.signTimeExpression==null" >
+          sign_time = #{record.signTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.signTimeExpression!=null" >
+          sign_time = ${record.signTimeExpression},
+        </if>
+        <if test="record.parentTid!=null and record.parentTidExpression==null" >
+          parent_tid = #{record.parentTid,jdbcType=VARCHAR},
+        </if>
+        <if test="record.parentTidExpression!=null" >
+          parent_tid = ${record.parentTidExpression},
+        </if>
+        <if test="record.buyerArea!=null and record.buyerAreaExpression==null" >
+          buyer_area = #{record.buyerArea,jdbcType=VARCHAR},
+        </if>
+        <if test="record.buyerAreaExpression!=null" >
+          buyer_area = ${record.buyerAreaExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.trade.TradeYZ" >
+    update trade_yz
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      tid = #{tid,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=BIGINT},
+      shop_id = #{shopId,jdbcType=BIGINT},
+      user_id_yz = #{userIdYz,jdbcType=BIGINT},
+      receiver_id_yz = #{receiverIdYz,jdbcType=BIGINT},
+      num = #{num,jdbcType=INTEGER},
+      num_iid = #{numIid,jdbcType=VARCHAR},
+      pic_thumb_path = #{picThumbPath,jdbcType=VARCHAR},
+      pic_path = #{picPath,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      title = #{title,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      weixin_user_id = #{weixinUserId,jdbcType=BIGINT},
+      buyer_type = #{buyerType,jdbcType=INTEGER},
+      buyer_id = #{buyerId,jdbcType=BIGINT},
+      buyer_nick = #{buyerNick,jdbcType=VARCHAR},
+      buyer_message = #{buyerMessage,jdbcType=VARCHAR},
+      seller_flag = #{sellerFlag,jdbcType=INTEGER},
+      trade_memo = #{tradeMemo,jdbcType=VARCHAR},
+      receiver_city = #{receiverCity,jdbcType=VARCHAR},
+      receiver_district = #{receiverDistrict,jdbcType=VARCHAR},
+      receiver_name = #{receiverName,jdbcType=VARCHAR},
+      receiver_state = #{receiverState,jdbcType=VARCHAR},
+      receiver_address = #{receiverAddress,jdbcType=VARCHAR},
+      receiver_zip = #{receiverZip,jdbcType=VARCHAR},
+      receiver_mobile = #{receiverMobile,jdbcType=VARCHAR},
+      feedback = #{feedback,jdbcType=INTEGER},
+      outer_tid = #{outerTid,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      shipping_type = #{shippingType,jdbcType=VARCHAR},
+      post_fee = #{postFee,jdbcType=DECIMAL},
+      total_fee = #{totalFee,jdbcType=DECIMAL},
+      discount_fee = #{discountFee,jdbcType=DECIMAL},
+      adjust_fee = #{adjustFee,jdbcType=DECIMAL},
+      payment = #{payment,jdbcType=DECIMAL},
+      created = #{created,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      pay_time = #{payTime,jdbcType=TIMESTAMP},
+      pay_type = #{payType,jdbcType=VARCHAR},
+      consign_time = #{consignTime,jdbcType=TIMESTAMP},
+      sign_time = #{signTime,jdbcType=TIMESTAMP},
+      parent_tid = #{parentTid,jdbcType=VARCHAR},
+      buyer_area = #{buyerArea,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

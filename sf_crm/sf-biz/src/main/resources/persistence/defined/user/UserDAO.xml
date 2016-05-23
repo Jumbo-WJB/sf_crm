@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.user.UserDAO" >
+
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.user.UserDO" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+    <result column="user_id_tb" property="userIdTb" jdbcType="BIGINT" />
+    <result column="user_id_jd" property="userIdJd" jdbcType="BIGINT" />
+    <result column="user_id_yz" property="userIdYz" jdbcType="BIGINT" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+    <result column="first_source" property="firstSource" jdbcType="VARCHAR" />
+    <result column="jd_pin" property="jdPin" jdbcType="VARCHAR" />
+    <result column="tb_buyer_nick" property="tbBuyerNick" jdbcType="VARCHAR" />
+    <result column="wx_openid" property="wxOpenid" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="wx_nick_name" property="wxNickName" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="country" property="country" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="wx_subscribe" property="wxSubscribe" jdbcType="VARCHAR" />
+    <result column="wx_headimgurl" property="wxHeadimgurl" jdbcType="VARCHAR" />
+    <result column="wx_subscribe_time" property="wxSubscribeTime" jdbcType="VARCHAR" />
+    <result column="is_old_user" property="isOldUser" jdbcType="VARCHAR" />
+    <result column="integral" property="integral" jdbcType="BIGINT" />
+    <result column="brand_fans" property="brandFans" jdbcType="VARCHAR" />
+    <result column="is_verify" property="isVerify" jdbcType="VARCHAR" />
+    <result column="is_received_hb" property="isReceivedHb" jdbcType="VARCHAR" />
+    <result column="user_portrait_id" property="userPortraitId" jdbcType="BIGINT" />
+    <result column="liveness" property="liveness" jdbcType="INTEGER" />
+    <result column="contribution" property="contribution" jdbcType="DECIMAL" />
+    <result column="last_sign_in_date" property="lastSignInDate" jdbcType="TIMESTAMP" />
+    <result column="sign_in_times" property="signInTimes" jdbcType="BIGINT" />
+    <result column="total_purchase_amount" property="totalPurchaseAmount" jdbcType="BIGINT" />
+    <result column="total_purchase_times" property="totalPurchaseTimes" jdbcType="INTEGER" />
+    <result column="interactions_times" property="interactionsTimes" jdbcType="INTEGER" />
+    <result column="last_purchase_date" property="lastPurchaseDate" jdbcType="TIMESTAMP" />
+    <result column="last_purchase_amount" property="lastPurchaseAmount" jdbcType="BIGINT" />
+    <result column="mobile_purchase_rate" property="mobilePurchaseRate" jdbcType="DECIMAL" />
+    <result column="purchase_average_cycle" property="purchaseAverageCycle" jdbcType="DECIMAL" />
+    <result column="purchase_average_amount" property="purchaseAverageAmount" jdbcType="BIGINT" />
+    <result column="wx_purchase_average_amount" property="wxPurchaseAverageAmount" jdbcType="BIGINT" />
+    <result column="sms_accept_number" property="smsAcceptNumber" jdbcType="INTEGER" />
+    <result column="sms_accept_circle" property="smsAcceptCircle" jdbcType="INTEGER" />
+    <result column="email_accept_number" property="emailAcceptNumber" jdbcType="INTEGER" />
+    <result column="email_accept_circle" property="emailAcceptCircle" jdbcType="INTEGER" />
+    <result column="fancy" property="fancy" jdbcType="VARCHAR" />
+    <result column="goods_rate" property="goodsRate" jdbcType="DECIMAL" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+  </resultMap>
+    <resultMap id="manualResultMap" type="com.shufensoft.crm.biz.domain.defined.user.UserDO">
+        <result column="user_id" property="userId" jdbcType="BIGINT"/>
+        <result column="wx_nick_name" property="wxNickName" jdbcType="VARCHAR"/>
+        <result column="jd_pin" property="jdPin" jdbcType="VARCHAR"/>
+        <result column="tb_buyer_nick" property="tbBuyerNick" jdbcType="VARCHAR"/>
+        <result column="first_source" property="firstSource" jdbcType="VARCHAR"/>
+        <result column="mobile" property="mobile" jdbcType="VARCHAR"/>
+        <result column="birthday" property="birthday" jdbcType="TIMESTAMP"/>
+        <result column="birthday_acivity_id" property="birthdayActivityId" jdbcType="BIGINT"/>
+    </resultMap>
+    <select id="selectUserWithPortrait" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.defined.user.UserDO">
+        select
+        a.ID,a.USER_ID,a.SELLER_ID,a.WX_NICK_NAME,a.EMAIL,a.INTEGRAL,a.IS_RECEIVED_HB,a.USER_PORTRAIT_ID,a.NAME,a.USER_ID_TB,
+        a.USER_ID_JD,a.USER_ID_YZ,a.MOBILE,a.PROVINCE,a.CITY,a.country,a.SOURCE,a.FIRST_SOURCE,a.jd_pin,a.tb_buyer_nick,a.birthday,
+        b.liveness, b.contribution,b.last_sign_in_date,b.sign_in_times, b.total_purchase_amount, b.total_purchase_times, b.interactions_times,
+        b.last_purchase_date, b.last_purchase_amount, b.mobile_purchase_rate, b.purchase_average_cycle,
+        b.purchase_average_amount, b.wx_purchase_average_amount, b.sms_accept_number, b.sms_accept_circle,
+        b.email_accept_number, b.email_accept_circle, b.fancy, b.goods_rate
+        from user a , user_portrait b
+        <where>
+            <trim prefixOverrides="and | or">
+
+                a.is_deleted = '0'
+
+                and a.user_portrait_id = b.user_portrait_id
+
+                <if test="isSuccessCustom != null and isSuccessCustom == '1'">
+                    and b.contribution >0
+                </if>
+                <if test="keyword!=null">
+                    and (a.name like '%${keyword}%'
+                    or a.wx_nick_name like '%${keyword}%'
+                    or a.tb_buyer_nick like '%${keyword}%'
+                    or a.jd_pin like '%${keyword}%')
+                </if>
+                <if test="name!=null">
+                    and a.name like '%${name}%'
+                </if>
+                <if test="source!=null">
+                    and a.source like '%${source}%'
+                </if>
+                <if test="isOldUser != null">
+                    and a.is_old_user = #{isOldUser}
+                </if>
+                <if test="userPortraitId != null">
+                    and a.USER_PORTRAIT_ID = #{userPortraitId}
+                </if>
+                <if test="hasMobile!=null and hasMobile!=''">
+                    and a.mobile is not null and a.mobile !=  ''
+                </if>
+                <if test="hasEmail!=null and hasEmail!=''">
+                    and a.email is not null and a.email != ''
+                </if>
+                <if test="emailType != null">
+                  and (
+                    <trim prefixOverrides="or">
+                        <if test="Eqq != null">
+                            email like '%${Eqq}%'
+                        </if>
+                        <if test="E163 != null">
+                            or email like '%${E163}%'
+                        </if>
+                        <if test="Eyahoo != null">
+                            or email like '%${Eyahoo}%'
+                        </if>
+                        <if test="E126 != null">
+                            or email like '%${E126}%'
+                        </if>
+                    </trim>
+                    )
+                </if>
+
+                <if test="minPriceNum!=null and maxPriceNum!=null">
+                    and b.purchase_average_amount between #{minPriceNum} and #{maxPriceNum}
+                </if>
+                <if test="minQuantity!=null and maxQuantity!=null">
+                    and b.Total_purchase_times between #{minQuantity} and #{maxQuantity}
+                </if>
+                <if test="minQuantity!=null and maxQuantity==null">
+                    and b.Total_purchase_times >= #{minQuantity}
+                </if>
+                <if test="isReceivedHb!=null">
+                    and a.IS_RECEIVED_HB = #{isReceivedHb}
+                </if>
+                <if test="minInteg!=null and maxInteg!=null">
+                    and a.INTEGRAL between #{minInteg} and #{maxInteg}
+                </if>
+                <if test="minInteg!=null and maxInteg==null">
+                    and a.INTEGRAL >= #{minInteg}
+                </if>
+                <if test="minInteractionsTimes!=null and maxInteractionsTimes!=null">
+                    and b.interactions_times between #{minInteractionsTimes} and #{maxInteractionsTimes}
+                </if>
+                <if test="minInteractionsTimes!=null and maxInteractionsTimes==null">
+                    and b.interactions_times >= #{minInteractionsTimes}
+                </if>
+                <if test="userId!=null">
+                    and a.USER_ID = #{userId}
+                </if>
+                <if test="lastPurchaseDate!=null">
+                    and b.last_purchase_date >= #{lastPurchaseDate}
+                </if>
+                <if test="withPortrait!=null">
+                    and b.user_portrait_id is not null
+                </if>
+
+                <if test="firstSource != null">
+                    <if test=" firstSource=='TB'  or firstSource=='TMALL' ">
+                        <if test="startContributionNum != null and startContributionNum != ''">
+                            <![CDATA[
+                    and b.contribution_tb >= #{startContributionNum}
+                         ]]>
+                    </if>
+                    <if test="endContributionNum != null and endContributionNum != ''">
+                        <![CDATA[
+                    and b.contribution_tb <= #{endContributionNum}
+                    ]]>
+                    </if>
+                </if>
+
+                    <if test="firstSource=='JD'">
+                        <if test="startContributionNum != null and startContributionNum != ''">
+                            <![CDATA[
+                    and b.contribution_jd >= #{startContributionNum}
+                         ]]>
+                        </if>
+                        <if test="endContributionNum != null and endContributionNum != ''">
+                            <![CDATA[
+                        and b.contribution_jd <= #{endContributionNum}
+                        ]]>
+                        </if>
+                    </if>
+
+                    <if test="firstSource=='YZ'">
+                        <if test="startContributionNum != null and startContributionNum != ''">
+                            <![CDATA[
+                           and b.contribution_yz >= #{startContributionNum}
+                         ]]>
+                        </if>
+                        <if test="endContributionNum != null and endContributionNum != ''">
+                            <![CDATA[
+                            and b.contribution_yz <= #{endContributionNum}
+                        ]]>
+                        </if>
+                    </if>
+                    AND a.first_source = #{firstSource}
+                </if>
+
+                <if test="firstSource == null">
+
+                    <if test="startContributionNum != null and startContributionNum != ''">
+                        <![CDATA[
+                           and b.contribution >= #{startContributionNum}
+                         ]]>
+                    </if>
+                    <if test="endContributionNum != null and endContributionNum != ''">
+                        <![CDATA[
+                           and b.contribution <= #{endContributionNum}
+                        ]]>
+                    </if>
+
+                </if>
+
+                AND a.seller_id = #{sellerId}
+            </trim>
+        </where>
+        <if test="orderClause != null">
+            order by ${orderClause}
+        </if>
+    </select>
+
+    <select id="selectCount" parameterType="com.shufensoft.crm.biz.domain.defined.user.UserDO" resultType="java.lang.Integer">
+            select count(*) from user
+            <where>
+                <trim prefixOverrides="or">
+                    is_deleted = '0'
+                  <if test="Eqq != null">
+                    and email like '%${Eqq}%'
+                  </if>
+                  <if test="E163 != null">
+                     or email like '%${E163}%'
+                  </if>
+                  <if test="Eyahoo != null">
+                      or email like '%${Eyahoo}%'
+                  </if>
+                  <if test="E126 != null">
+                      or email like '%${E126}%'
+                  </if>
+                    and email is not null and email != ''
+                    and seller_id = #{sellerId}
+                </trim>
+            </where>
+    </select>
+    <select id="selectIds" resultMap="BaseResultMap">
+        SELECT u.user_id_tb, u.user_id_jd, u.user_id_yz,u.user_portrait_id
+        FROM user u
+        WHERE u.user_id=#{userId}
+        AND u.seller_id=#{sellerId}
+    </select>
+    <select id="selectBirthdayOfFansWeek" resultMap="BaseResultMap">
+        SELECT u.user_id,u.wx_nick_name, u.first_source,u.mobile, u.birthday
+        FROM user u
+        WHERE date_format(u.birthday,'%Y-%m-%d')  >= date_format(date_add(now(),interval 7 day),'%y-%m-%d')
+    </select>
+    <select id="selectBirthdayOfFansMonth" resultMap="BaseResultMap">
+        SELECT u.user_id,u.wx_nick_name, u.first_source,u.mobile, u.birthday
+        FROM user u
+        WHERE date_format(u.birthday,'%Y-%m-%d')  >= date_format(date_add(now(),interval 30 day),'%y-%m-%d')
+    </select>
+    <select id="selectBetweenStartAndEnd" resultMap="manualResultMap">
+        SELECT p.birthday_acivity_id,x.*
+        FROM present p
+        RIGHT JOIN
+        (
+          SELECT u.user_id,u.wx_nick_name,u.jd_pin,u.tb_buyer_nick,
+                 u.first_source,u.mobile, u.birthday
+          FROM user u, user_portrait up
+          WHERE CAST(CONCAT(YEAR(#{startTime}),DATE_FORMAT(u.birthday, '-%m-%d')) AS DATE)
+          BETWEEN #{startTime}
+          AND #{endTime}
+          AND u.user_portrait_id=up.user_portrait_id
+          AND u.mobile IS NOT NULL
+          AND u.is_deleted=0
+          AND up.is_deleted=0
+          <if test="level==0">
+              AND up.contribution >80
+          </if>
+          <if test="level==1">
+              AND 80 >= up.contribution
+              AND up.contribution >60
+          </if>
+          <if test="level==2">
+              AND 60 >= up.contribution
+          </if>
+
+          UNION
+
+          SELECT u.user_id,u.wx_nick_name,u.jd_pin,u.tb_buyer_nick,
+          u.first_source,u.mobile, u.birthday
+          FROM user u, user_portrait up
+          WHERE CAST(CONCAT(YEAR(#{endTime}),DATE_FORMAT(u.birthday, '-%m-%d')) AS DATE)
+          BETWEEN #{startTime}
+          AND #{endTime}
+          AND u.user_portrait_id=up.user_portrait_id
+          AND u.mobile IS NOT NULL
+          AND u.is_deleted=0
+          AND up.is_deleted=0
+          <if test="level==0">
+              AND up.contribution >80
+          </if>
+          <if test="level==1">
+              AND 80 >= up.contribution
+              AND up.contribution >60
+          </if>
+          <if test="level==2">
+              AND 60 >= up.contribution
+          </if>
+
+        ) x
+        ON p.user_id=x.user_id
+        AND p.is_deleted=0
+        AND p.birthday_acivity_id = #{birthdayActivityId}
+        AND p.seller_id=#{sellerId}
+        OR p.birthday_acivity_id = null
+    </select>
+
+    <select id="selectUserIdsBetweenStartAndEnd" resultMap="BaseResultMap">
+        SELECT user_id
+        FROM user u
+        WHERE DATE_FORMAT(u.birthday, '%m%d')
+        BETWEEN DATE_FORMAT(#{startTime}, '%m%d' )
+        AND DATE_FORMAT(#{endTime}, '%m%d' )
+        AND seller_id=#{sellerId}
+        AND user_portrait_id IS NOT NULL
+        AND is_deleted=0
+    </select>
+    <select id="selectCountBetweenStartAndEnd" resultType="java.lang.Long">
+        SELECT count(user_id)
+        FROM user u
+        WHERE DATE_FORMAT(u.birthday, '%m%d')
+        BETWEEN DATE_FORMAT(#{startTime}, '%m%d' )
+        AND DATE_FORMAT(#{endTime}, '%m%d' )
+        AND seller_id=#{sellerId}
+        AND user_portrait_id IS NOT NULL
+    </select>
+    <update id="updateWeekBirthdayOfFans">
+        UPDATE
+          user u
+        SET
+          u.birthday_id=#{birthdayId}
+        WHERE
+          date_format(u.birthday,'%Y-%m-%d')  >= date_format(date_add(now(),interval 7 day),'%y-%m-%d')
+    </update>
+    <update id="updateMonthBirthdayOfFans">
+        UPDATE
+        user u
+        SET
+          u.birthday_id=#{birthdayId}
+        WHERE
+          date_format(u.birthday,'%Y-%m-%d')  >= date_format(date_add(now(),interval 30 day),'%y-%m-%d')
+    </update>
+    <update id="updateManualBirthdayOfFans">
+        UPDATE
+        user u
+        SET
+        u.birthday_id=#{birthdayId}
+        WHERE
+        u.user_id=#{userId}
+    </update>
+    <select id="selectUserIdByBirthdayId" resultMap="BaseResultMap">
+      SELECT user_id FROM user WHERE birthday_id=#{birthdayId} AND is_deleted='0'
+    </select>
+    <select id="selectAllFans" resultMap="BaseResultMap">
+      SELECT u.wx_nick_name, u.first_source, u.mobile, u.birthday FROM user u WHERE isnull(u.birthday) IS FALSE
+      ORDER BY u.birthday DESC
+    </select>
+</mapper>

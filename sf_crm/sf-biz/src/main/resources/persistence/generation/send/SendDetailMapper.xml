@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.send.SendDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.send.SendDetail" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_activity_id" property="maxActivityId" jdbcType="BIGINT" />
+    <result column="min_activity_id" property="minActivityId" jdbcType="BIGINT" />
+    <result column="avg_activity_id" property="avgActivityId" jdbcType="BIGINT" />
+    <result column="count_activity_id" property="countActivityId" jdbcType="BIGINT" />
+    <result column="sum_activity_id" property="sumActivityId" jdbcType="VARCHAR" />
+    <result column="max_send_priority" property="maxSendPriority" jdbcType="BIGINT" />
+    <result column="min_send_priority" property="minSendPriority" jdbcType="BIGINT" />
+    <result column="avg_send_priority" property="avgSendPriority" jdbcType="BIGINT" />
+    <result column="count_send_priority" property="countSendPriority" jdbcType="BIGINT" />
+    <result column="sum_send_priority" property="sumSendPriority" jdbcType="VARCHAR" />
+    <result column="max_send_time" property="maxSendTime" jdbcType="BIGINT" />
+    <result column="min_send_time" property="minSendTime" jdbcType="BIGINT" />
+    <result column="avg_send_time" property="avgSendTime" jdbcType="BIGINT" />
+    <result column="count_send_time" property="countSendTime" jdbcType="BIGINT" />
+    <result column="sum_send_time" property="sumSendTime" jdbcType="TIMESTAMP" />
+    <result column="max_STATUS" property="maxStatus" jdbcType="BIGINT" />
+    <result column="min_STATUS" property="minStatus" jdbcType="BIGINT" />
+    <result column="avg_STATUS" property="avgStatus" jdbcType="BIGINT" />
+    <result column="count_STATUS" property="countStatus" jdbcType="BIGINT" />
+    <result column="sum_STATUS" property="sumStatus" jdbcType="VARCHAR" />
+    <result column="max_user_send_address" property="maxUserSendAddress" jdbcType="BIGINT" />
+    <result column="min_user_send_address" property="minUserSendAddress" jdbcType="BIGINT" />
+    <result column="avg_user_send_address" property="avgUserSendAddress" jdbcType="BIGINT" />
+    <result column="count_user_send_address" property="countUserSendAddress" jdbcType="BIGINT" />
+    <result column="sum_user_send_address" property="sumUserSendAddress" jdbcType="VARCHAR" />
+    <result column="max_sale_type" property="maxSaleType" jdbcType="BIGINT" />
+    <result column="min_sale_type" property="minSaleType" jdbcType="BIGINT" />
+    <result column="avg_sale_type" property="avgSaleType" jdbcType="BIGINT" />
+    <result column="count_sale_type" property="countSaleType" jdbcType="BIGINT" />
+    <result column="sum_sale_type" property="sumSaleType" jdbcType="VARCHAR" />
+    <result column="max_package_id" property="maxPackageId" jdbcType="BIGINT" />
+    <result column="min_package_id" property="minPackageId" jdbcType="BIGINT" />
+    <result column="avg_package_id" property="avgPackageId" jdbcType="BIGINT" />
+    <result column="count_package_id" property="countPackageId" jdbcType="BIGINT" />
+    <result column="sum_package_id" property="sumPackageId" jdbcType="VARCHAR" />
+    <result column="max_seq_id" property="maxSeqId" jdbcType="BIGINT" />
+    <result column="min_seq_id" property="minSeqId" jdbcType="BIGINT" />
+    <result column="avg_seq_id" property="avgSeqId" jdbcType="BIGINT" />
+    <result column="count_seq_id" property="countSeqId" jdbcType="BIGINT" />
+    <result column="sum_seq_id" property="sumSeqId" jdbcType="VARCHAR" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="VARCHAR" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="VARCHAR" />
+    <result column="seq_id" property="seqId" jdbcType="VARCHAR" />
+    <result column="package_id" property="packageId" jdbcType="VARCHAR" />
+    <result column="sale_type" property="saleType" jdbcType="VARCHAR" />
+    <result column="user_send_address" property="userSendAddress" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="send_time" property="sendTime" jdbcType="TIMESTAMP" />
+    <result column="send_priority" property="sendPriority" jdbcType="VARCHAR" />
+    <result column="activity_id" property="activityId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, created_by, gmt_modified, modified_by, is_deleted, seller_id, seq_id, 
+    package_id, sale_type, user_send_address, STATUS, send_time, send_priority, activity_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.send.SendDetailExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from send_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from send_detail
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update send_detail
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.send.SendDetailExample" >
+    update send_detail
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.send.SendDetail" useGeneratedKeys="true" keyProperty="id" >
+    insert into send_detail (id, gmt_created, created_by, 
+      gmt_modified, modified_by, is_deleted, 
+      seller_id, seq_id, package_id, 
+      sale_type, user_send_address, STATUS, 
+      send_time, send_priority, activity_id
+      )
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{createdBy,jdbcType=VARCHAR}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{sellerId,jdbcType=VARCHAR}, #{seqId,jdbcType=VARCHAR}, #{packageId,jdbcType=VARCHAR}, 
+      #{saleType,jdbcType=VARCHAR}, #{userSendAddress,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{sendTime,jdbcType=TIMESTAMP}, #{sendPriority,jdbcType=VARCHAR}, #{activityId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.send.SendDetail" useGeneratedKeys="true" keyProperty="id" >
+    insert into send_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="seqId != null" >
+        seq_id,
+      </if>
+      <if test="packageId != null" >
+        package_id,
+      </if>
+      <if test="saleType != null" >
+        sale_type,
+      </if>
+      <if test="userSendAddress != null" >
+        user_send_address,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="sendTime != null" >
+        send_time,
+      </if>
+      <if test="sendPriority != null" >
+        send_priority,
+      </if>
+      <if test="activityId != null" >
+        activity_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=VARCHAR},
+      </if>
+      <if test="seqId != null" >
+        #{seqId,jdbcType=VARCHAR},
+      </if>
+      <if test="packageId != null" >
+        #{packageId,jdbcType=VARCHAR},
+      </if>
+      <if test="saleType != null" >
+        #{saleType,jdbcType=VARCHAR},
+      </if>
+      <if test="userSendAddress != null" >
+        #{userSendAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null" >
+        #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendPriority != null" >
+        #{sendPriority,jdbcType=VARCHAR},
+      </if>
+      <if test="activityId != null" >
+        #{activityId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.send.SendDetailExample" resultType="java.lang.Integer" >
+    select count(*) from send_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update send_detail
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.seqId!=null and record.seqIdExpression==null" >
+          seq_id = #{record.seqId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.seqIdExpression!=null" >
+          seq_id = ${record.seqIdExpression},
+        </if>
+        <if test="record.packageId!=null and record.packageIdExpression==null" >
+          package_id = #{record.packageId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.packageIdExpression!=null" >
+          package_id = ${record.packageIdExpression},
+        </if>
+        <if test="record.saleType!=null and record.saleTypeExpression==null" >
+          sale_type = #{record.saleType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.saleTypeExpression!=null" >
+          sale_type = ${record.saleTypeExpression},
+        </if>
+        <if test="record.userSendAddress!=null and record.userSendAddressExpression==null" >
+          user_send_address = #{record.userSendAddress,jdbcType=VARCHAR},
+        </if>
+        <if test="record.userSendAddressExpression!=null" >
+          user_send_address = ${record.userSendAddressExpression},
+        </if>
+        <if test="record.status!=null and record.statusExpression==null" >
+          STATUS = #{record.status,jdbcType=VARCHAR},
+        </if>
+        <if test="record.statusExpression!=null" >
+          STATUS = ${record.statusExpression},
+        </if>
+        <if test="record.sendTime!=null and record.sendTimeExpression==null" >
+          send_time = #{record.sendTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.sendTimeExpression!=null" >
+          send_time = ${record.sendTimeExpression},
+        </if>
+        <if test="record.sendPriority!=null and record.sendPriorityExpression==null" >
+          send_priority = #{record.sendPriority,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sendPriorityExpression!=null" >
+          send_priority = ${record.sendPriorityExpression},
+        </if>
+        <if test="record.activityId!=null and record.activityIdExpression==null" >
+          activity_id = #{record.activityId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.activityIdExpression!=null" >
+          activity_id = ${record.activityIdExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update send_detail
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=VARCHAR},
+      seq_id = #{record.seqId,jdbcType=VARCHAR},
+      package_id = #{record.packageId,jdbcType=VARCHAR},
+      sale_type = #{record.saleType,jdbcType=VARCHAR},
+      user_send_address = #{record.userSendAddress,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=VARCHAR},
+      send_time = #{record.sendTime,jdbcType=TIMESTAMP},
+      send_priority = #{record.sendPriority,jdbcType=VARCHAR},
+      activity_id = #{record.activityId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.send.SendDetail" >
+    update send_detail
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.seqId!=null and record.seqIdExpression==null" >
+          seq_id = #{record.seqId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.seqIdExpression!=null" >
+          seq_id = ${record.seqIdExpression},
+        </if>
+        <if test="record.packageId!=null and record.packageIdExpression==null" >
+          package_id = #{record.packageId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.packageIdExpression!=null" >
+          package_id = ${record.packageIdExpression},
+        </if>
+        <if test="record.saleType!=null and record.saleTypeExpression==null" >
+          sale_type = #{record.saleType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.saleTypeExpression!=null" >
+          sale_type = ${record.saleTypeExpression},
+        </if>
+        <if test="record.userSendAddress!=null and record.userSendAddressExpression==null" >
+          user_send_address = #{record.userSendAddress,jdbcType=VARCHAR},
+        </if>
+        <if test="record.userSendAddressExpression!=null" >
+          user_send_address = ${record.userSendAddressExpression},
+        </if>
+        <if test="record.status!=null and record.statusExpression==null" >
+          STATUS = #{record.status,jdbcType=VARCHAR},
+        </if>
+        <if test="record.statusExpression!=null" >
+          STATUS = ${record.statusExpression},
+        </if>
+        <if test="record.sendTime!=null and record.sendTimeExpression==null" >
+          send_time = #{record.sendTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.sendTimeExpression!=null" >
+          send_time = ${record.sendTimeExpression},
+        </if>
+        <if test="record.sendPriority!=null and record.sendPriorityExpression==null" >
+          send_priority = #{record.sendPriority,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sendPriorityExpression!=null" >
+          send_priority = ${record.sendPriorityExpression},
+        </if>
+        <if test="record.activityId!=null and record.activityIdExpression==null" >
+          activity_id = #{record.activityId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.activityIdExpression!=null" >
+          activity_id = ${record.activityIdExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.send.SendDetail" >
+    update send_detail
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=VARCHAR},
+      seq_id = #{seqId,jdbcType=VARCHAR},
+      package_id = #{packageId,jdbcType=VARCHAR},
+      sale_type = #{saleType,jdbcType=VARCHAR},
+      user_send_address = #{userSendAddress,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      send_time = #{sendTime,jdbcType=TIMESTAMP},
+      send_priority = #{sendPriority,jdbcType=VARCHAR},
+      activity_id = #{activityId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,532 @@
+#set($layout = "/layout/blank.vm")
+<style>
+    #goodsList tbody > tr > th,#goodsList tfoot > tr > th,#goodsList tbody > tr > td,#goodsList  tfoot > tr > td {
+        vertical-align: middle;
+    }
+</style>
+
+<div class="row" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+     xmlns="http://www.w3.org/1999/html">
+
+
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <div class="BoxStyleA">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <i class="modal-logo interact"></i>
+                    <ul class="breadcrumb" style="margin-left: 2px;">
+                        <li></li>
+                        <li>客户互动</li>
+                        <li>传播有礼</li>
+                        <li class="active">摇一摇设置</li>
+                    </ul>
+                </div>
+                <div class="widget-body" id="integralConfigDiv">
+                    <div class="widget-main">
+
+                        <form class="form-horizontal markAct" id="rockConfigForm" role="form" style="" method="post">
+
+                            <div id="rockGroup">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right"
+                                           >摇一摇标题设置：</label>
+
+                                    <div class="col-sm-5" style="padding-left: 25px;">
+                                        <input type="text" name="rockTitle" placeholder="摇一摇活动名称"
+                                               class="col-xs-10 col-sm-5"/>
+                                    </div>
+
+                                </div>
+
+                                <!--<div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right" style="font-family: 'Helvetica';">生成带参数：</label>
+                                    <div id="code">
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right" style="font-family: 'Helvetica';">生成链接的地址：</label>
+                                    <div class="col-sm-5" style="padding-left: 25px;">
+                                        <input type="text" name="shareUrl" placeholder="" class="col-xs-10 col-sm-5"/>
+                                    </div>
+
+                                </div>-->
+
+
+                                <!--<div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right"
+                                           style="font-family: 'Helvetica';">兑换的公众号：</label>
+
+                                    <div class="col-sm-5" style="padding-left: 25px;">
+                                        <input disabled="disabled" type="text" value="" name="wxNumber"
+                                               placeholder="" class="col-xs-10 col-sm-5"/>
+                                    </div>
+                                </div>-->
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right"
+                                           >是否需要认证：</label>
+
+                                    <div class="col-sm-4">
+                                        <label style="float: left;margin-left: 12px;">
+                                            <input name="isVerify" type="radio" class="ace" value="1"
+                                                   checked="checked"/>
+                                            <span class="lbl">是</span>
+                                            <input name="isVerify" type="radio" class="ace" value="0"/>
+                                            <span class="lbl">否</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right"
+                                           >摇中机率：</label>
+
+                                    <div class="col-sm-5" style="padding-left: 25px;">
+                                        <input type="text" name="randomNum" placeholder="1-100"
+                                               class="col-xs-10 col-sm-5"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right"
+                                           >领取限制：</label>
+
+                                    <div class="col-sm-4">
+                                        <label style="float: left;margin-left: 12px;">
+                                            <input name="getNum" type="radio" class="ace" value="1" checked="checked"/>
+                                            <span class="lbl">每人一次</span>
+
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right"
+                                           >摇的次数限制：</label>
+
+                                    <div class="col-sm-5" style="padding-left: 25px;">
+                                        <input type="text" name="rockNum" placeholder="" class="col-xs-10 col-sm-5"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right"
+                                           >摇一摇类型：</label>
+
+                                    <div class="col-sm-4">
+                                        <label style="float: left;margin-left: 12px;">
+                                            <input name="type" type="radio" class="ace" value="my" checked="checked"/>
+                                            <span class="lbl">自己摇</span>
+
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right"
+                                           >起止时间：</label>
+
+                                    <div class="col-sm-7">
+                                        <label style="float: left;margin-left: 12px;">
+                                            &nbsp;<input name="startConfig" type="radio" class="ace" value="1"
+                                                         checked="checked"/>
+                                            <span class="lbl">设置时间</span>
+                                            <span class="ml20">&nbsp;&nbsp;<input type="text" name="startDate"
+                                                                                  onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"/></span>
+                                            <span class="ml20">&nbsp;&nbsp;至</gc>&nbsp;<input type="text" name="endDate"
+                                                                                              onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"/></span>
+                                            <input name="startConfig" type="radio" class="ace" value="0"/>
+                                            <span class="lbl">立即开始</span>
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div id="rockDetail">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right"
+                                           >摇一摇标题设置：</label>
+
+                                    <div class="col-sm-5" style="padding-left: 25px;">
+                                        <input disabled="disabled" type="text" name="rockName" placeholder=""
+                                               class="col-xs-10 col-sm-5"/>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <div class="col-sm-6" style="margin-left: 300px;">
+                                        <div class="tabbable">
+                                            <ul class="nav nav-tabs" id="myTab">
+                                                <li class="active">
+                                                    <a data-toggle="tab" href="#hb">
+                                                        红包
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a data-toggle="tab" href="#point">
+                                                        积分
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a data-toggle="tab" href="#gift">
+                                                        礼物
+                                                    </a>
+                                                </li>
+                                            </ul>
+
+                                            <div class="tab-content">
+                                                <div id="point" class="tab-pane">
+                                                    <p>
+
+                                                    <div id="pointConfig">
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-4 control-label no-padding-right"
+                                                                   >是否启用：</label>
+                                                            <label style="margin-left: 25px;"><input name="isShakePoint" value="1"
+                                                                          type="checkbox" class="ace"/><span
+                                                                    class="lbl"></span></label>
+                                                        </div>
+
+                                                        <div id="from_group_point">
+                                                            <div class="form-group">
+                                                                <label class="col-sm-4 control-label no-padding-right"
+                                                                       >赠送积分随机值：</label>
+
+                                                                <div class="col-sm-6" style="padding-left: 25px;">
+                                                                    <input disabled="disabled" type="text"
+                                                                           name="pointIntervalMin"
+                                                                           class="col-sm-3"/>
+
+                                                                    <div class="col-sm-1"
+                                                                         style="margin: 0 15px 0 5px;text-align: center">
+                                                                        至&nbsp;&nbsp;</div>
+                                                                    <input disabled="disabled" type="text"
+                                                                           name="pointIntervalMax"
+                                                                           class="col-sm-3"/>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label class="col-sm-4 control-label no-padding-right"
+                                                                       >赠送积分人数设置：</label>
+
+                                                                <div class="col-sm-4" style="padding-left: 25px;">
+                                                                    <input disabled="disabled" type="text"
+                                                                           name="getPointNum"
+                                                                           class="col-xs-3 col-sm-5"/>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label class="col-sm-4 control-label no-padding-right"
+                                                                       >领取到的积分是否可分享：</label>
+
+                                                                <div class="col-sm-4" style="margin-left: 15px;">
+                                                                    <label>
+                                                                        <input disabled="disabled"
+                                                                               name="isGetPointShare" type="radio"
+                                                                               class="ace" value="1" checked="checked"/>
+                                                                        <span class="lbl">是</span>
+                                                                        <input disabled="disabled"
+                                                                               name="isGetPointShare" type="radio"
+                                                                               class="ace" value="0"/>
+                                                                        <span class="lbl">否</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div id="hb" class="tab-pane in active">
+                                                <p>
+
+                                                <div id="hbPoll">
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-4 control-label no-padding-right"
+                                                           >是否启用：</label>
+                                                    <label style="margin-left: 25px;"><input name="isShakeHb" value="1"
+                                                                  type="checkbox" class="ace"/><span
+                                                            class="lbl"></span></label>
+                                                </div>
+
+                                                <div id="from_group_hb">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-4 control-label no-padding-right"
+                                                               >选择红包活动：</label>
+                                                        <input hidden name="hbPoolId"/>
+
+                                                        <div class="col-sm-6" style="padding-left: 25px;">
+                                                            <input readonly="readonly" name="hbPoolName"
+                                                                   class="col-xs-4 col-sm-8"/>
+
+                                                            <div class="col-sm-1" style="padding-left: 25px;">
+                                                                <span id="hbPool"></span><input disabled="disabled" width="200px"
+                                                                                                type="button"
+                                                                                                onclick="selPool()"
+                                                                                                value="选择"
+                                                                                                name="selHbPool"/>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-4 control-label no-padding-right"
+                                                               >赠送红包人数设置：</label>
+
+                                                        <div class="col-sm-4" style="padding-left: 25px;">
+                                                            <input readonly="readonly" type="text" name="getHbNum"
+                                                                   class="col-xs-3 col-sm-5"/>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-4 control-label no-padding-right"
+                                                               >领取到红包是否可分享：</label>
+
+                                                        <div class="col-sm-4" style="margin-left: 15px;">
+                                                            <label>
+                                                                <input disabled="disabled" name="isGetHBShare" checked="checked" type="radio" class="ace"
+                                                                       value="0"/>
+                                                                <span class="lbl">否</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                </p>
+                                            </div>
+                                            </div>
+
+                                            <div id="gift" class="tab-pane">
+                                                <p>
+
+                                                <div id="giftConfig">
+
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-4 control-label no-padding-right"
+                                                           >是否启用：</label>
+                                                    <label style="margin-left: 25px;"><input name="isShakeGift" value="1"
+                                                                  type="checkbox" class="ace"/><span
+                                                            class="lbl"></span></label>
+                                                </div>
+
+                                                    <div id="goodsGroup">
+                                                        <div class="form-group">
+
+                                                            <div class="goodsCount"/>
+                                                            <label class="col-sm-4 control-label no-padding-right"
+                                                                   >选择积分商城的商品：</label>
+                                                            <input hidden name="goodsId_1" class="goodsNumIndex"/>
+
+                                                            <div class="col-sm-6" style="padding-left: 25px;">
+
+                                                                <input type="text" readonly="readonly" name="goodsName_1"
+                                                                       class="col-xs-4 col-sm-8"/>
+
+                                                                <div class="col-sm-2" style="padding-left: 25px;">
+                                                                    <span class="goodsSel" id="goods"></span><input disabled="disabled" width="200px"
+                                                                                                   type="button"
+                                                                                                   onclick="selPointGoods(1)"
+                                                                                                   value="选择"
+                                                                                                   name="selGoods"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+
+                                                <div style="margin-bottom: 20px;">
+                                                    <input width="200px" style="margin-left: 215px;" type="button"
+                                                            name="addGoodsBtn" disabled="disabled" value="继续添加" onclick="addGoodsCofig()"/></div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-4 control-label no-padding-right"
+                                                           >领取礼物的人数设置：</label>
+
+                                                    <div class="col-sm-4" style="padding-left: 25px;">
+                                                        <input readonly="readonly" type="text" name="getGiftNum"
+                                                               class="col-xs-3 col-sm-5"/>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-4 control-label no-padding-right"
+                                                           >领取礼物是否可分享：</label>
+
+                                                    <div class="col-sm-4" style="margin-left: 15px;">
+
+                                                        <label>
+
+                                                            <input disabled="disabled"
+                                                                   name="isGetGiftShare" type="radio"
+                                                                   class="ace" value="1" checked="checked"/>
+                                                            <span class="lbl">是</span>
+                                                            <input disabled="disabled"
+                                                                   name="isGetGiftShare" type="radio"
+                                                                   class="ace" value="0"/>
+                                                            <span class="lbl">否</span>
+
+
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+
+                <div class="modal-footer  sn-footer">
+                    <center><input width="200px" class="sure" id="next" type="button" value="下一步"></center>
+                    <center><input width="200px" class="sure" id="back" type="button" value="上一步">
+                        <input width="200px" class="sure" id="save" type="button" onclick="saveOrUpdateFrom();"
+                               value="保存"></center>
+                </div>
+
+
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+<!--红包活动选择 Modal -->
+<div class="modal fade" id="hbPoolSelectedModal" tabindex="-1" role="dialog" aria-labelledby="hbPoolSelectedModal"
+     aria-hidden="true">
+    <div class="modal-dialog" style="width: 1000px">
+        <div class="modal-content">
+            <div class="tiptop"><span>红包活动选择</span><a data-dismiss="modal" aria-hidden="true"></a></div>
+            <div class="row">
+                <div class="col-xs-12" style="padding-top:15px;">
+                    <form class="form-search" id="searchForm">
+                        <div class="row">
+                            <div class="col-xs-16 col-sm-12" style="padding: 0 30px;">
+                                <div class="input-group">
+                                    <input type="hidden" name="hbType" id="hbType" value="12"/>
+                                    <span class="ml20">红包活动名称：<input type="text" name="name"/></span>
+                                    <span class="ml20">&nbsp;&nbsp;创建时间：<input type="text" name="startDate"
+                                                                               onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"/></span>
+                                    <span class="ml20">&nbsp;&nbsp;至：<input type="text" name="endDate"
+                                                                            onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"/></span>
+                                    <span class="input-group-btn">
+                                        <input class="btn_searchA ml20" type="submit" value="搜索"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    </br>
+                    <div style="padding:0 10px;">
+                        <table id="imgTable" class="table table-striped table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th class="center">
+                                </th>
+                                <th>红包活动名称</th>
+                                <th>创建时间</th>
+                                <th>状态</th>
+                                <th>总数量</th>
+                                <th>领取数量</th>
+                                <th>剩余数量</th>
+                                <th>领取方式</th>
+                                <th>结束时间</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbContainer1">
+                            </tbody>
+                        </table>
+                        <div class="modal-footer" style="margin-left: -8px;margin-right: -8px">
+                            <center><input class="sure" id="poolSure" type="submit" value="确定">&nbsp;
+                                <input class="cancel" type="button" data-dismiss="modal" aria-hidden="true" value="取消">
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--积分商品选择 Modal -->
+<div class="modal fade" id="pointGoodsSelectedModal" tabindex="-1" role="dialog"
+     aria-labelledby="pointGoodsSelectedModal" aria-hidden="true">
+    <div class="modal-dialog" style="width: 1000px">
+        <div class="modal-content">
+            <div class="tiptop"><span>商品选择</span><a data-dismiss="modal" aria-hidden="true"></a></div>
+            <div class="row">
+                <div class="col-xs-12" style="padding-top:15px;">
+                    <div style="padding:0 10px;">
+                        <table id="goodsList" class="table table-striped table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th class="center">
+                                    <label>
+                                        <input type="checkbox" class="ace"/>
+                                        <span class="lbl"></span>
+                                    </label>
+                                </th>
+                                <th style="width: 300px">兑换商品</th>
+                                <th>市场价格</th>
+                                <th>兑换总数量</th>
+                                <th>已兑换数量</th>
+                                <th>消耗积分</th>
+                                <th>发布时间</th>
+                                <th>状态</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbContainer">
+                            </tbody>
+                        </table>
+                        <input hidden id="goodsIndex">
+
+                        <div class="modal-footer" style="margin-left: -8px;margin-right: -8px">
+                            <center><input class="sure" id="goodsSure" onclick="" type="submit" value="确定">&nbsp;&nbsp;
+                                <input class="cancel" type="button" data-dismiss="modal" aria-hidden="true" value="取消">
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="${rc.contextPath}/media/js/admin/rock/rockConfig.js"></script>

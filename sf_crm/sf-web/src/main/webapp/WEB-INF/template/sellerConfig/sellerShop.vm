@@ -1,0 +1,243 @@
+#set($layout = "/layout/blank.vm")
+<div class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <div class="BoxStyleA">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <i class="modal-logo config"></i>
+                    <ul class="breadcrumb" style="margin-left: 2px">
+                        <li></li>
+                        <li>店铺设置</li>
+                    </ul>
+                    <!-- .breadcrumb -->
+                </div>
+                <div class="widget-body">
+                    <div class="widget-main">
+                        <div class="row">
+                            <div class="center">
+                                <button type="button" id="addShop" style="background: #428bca;border: 0;padding: 6px 60px;border-radius: 5px;color: #fff;font-size: 16px;letter-spacing: 3px;">新增店铺</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>&nbsp</div>
+            <div class="BoxStyleA">
+                <div class="BoxStyleATop">
+                    <span class="fl">查看店铺</span>
+                </div>
+                <div class="table-div" class="tab-pane">
+                    <table id="shopTable" class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>店铺名称</th>
+                            <th>店铺类型</th>
+                            <th>接入方式</th>
+                            <th>店铺AppId</th>
+                            <th>店铺AppSecret</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            #if($shopList)
+                                #set($i = 0)
+                                #foreach($shop in $shopList)
+                                    #set($i = $i + 1)
+
+                                    #set($type = "")
+                                    #if($shop.shopType == "TB")
+                                        #set($type = "淘宝")
+                                    #end
+                                    #if($shop.shopType == "TMALL")
+                                        #set($type = "天猫")
+                                    #end
+                                    #if($shop.shopType == "JD")
+                                        #set($type = "京东")
+                                    #end
+                                    #if($shop.shopType == "YZ")
+                                        #set($type = "有赞")
+                                    #end
+
+                                    #set($accessType = "")
+                                    #if($shop.accessType == "general")
+                                        #set($accessType = "通用")
+                                    #end
+                                    #if($shop.accessType == "self_development")
+                                        #set($accessType = "卖家自研")
+                                    #end
+                                    #if($shop.accessType == "plugin")
+                                        #set($accessType = "浏览器插件")
+                                    #end
+                                    <tr>
+                                        <td>$!shop.shopName</td>
+                                        <td>$type</td>
+                                        <td>$accessType</td>
+                                        <td>$!shop.shopAppId</td>
+                                        <td>$!shop.shopAppSecret</td>
+                                        <td id="operate${i}"></td>
+                                    </tr>
+                                #end
+                            #end
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!----------新增店铺------------>
+<div class="modal fade" id="shopModal" tabindex="-1" role="dialog" aria-labelledby="shopModal" aria-hidden="true" >
+    <div class="modal-dialog" style="width: 800px;margin-top: 50px;">
+        <div class="modal-content" >
+            <div class="tiptop"><span>店铺信息</span><a data-dismiss="modal" aria-hidden="true"></a></div>
+            <div class="row" style="padding-bottom: 20px;">
+                <form class="form-horizontal" role="form" id="addForm">
+                    <input name="shopId" type="hidden"  />
+                    <div class="form-group" style="margin-top: 10px;">
+                        <label class="col-sm-4 control-label no-padding-right" for="form-field-1">
+                            店铺名称: </label>
+                        <div class="col-sm-7">
+                            <input type="text" id="form-field-1" class="col-xs-10 col-sm-7" name="shopName"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" for="form-field-1">
+                            店铺类型: </label>
+                        <div class="col-sm-7">
+                            <div style="float: left;margin-top: 5px;">
+                                <input name="shopType" type="radio" class="ace" value="TB" checked="checked"/>
+                                <span class="lbl">淘宝</span>
+                            </div>
+                            <div style="float: left;margin-left: 15px;margin-top: 5px;">
+                                <input name="shopType" type="radio" class="ace" value="TMALL"/>
+                                <span class="lbl">天猫</span>
+                            </div>
+                            <div style="float: left;margin-left: 15px;margin-top: 5px;">
+                                <input name="shopType" type="radio" class="ace" value="JD"/>
+                                <span class="lbl">京东</span>
+                            </div>
+                            <div style="float: left;margin-left: 15px;margin-top: 5px;">
+                                <input name="shopType" type="radio" class="ace" value="YZ"/>
+                                <span class="lbl">有赞</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" for="form-field-1">
+                            接入方式: </label>
+                        <div class="col-sm-7">
+                            <div style="float: left;margin-top: 5px;display: none;" class="general">
+                                <input name="accessType" type="radio" class="ace" value="general"/>
+                                <span class="lbl">通用</span>
+                            </div>
+                            <div style="float: left;margin-left: 5px;margin-top: 5px;" class="self">
+                                <input name="accessType" type="radio" class="ace" value="self_development"/>
+                                <span class="lbl">卖家自研</span>
+                            </div>
+                            <div style="float: left;margin-left: 5px;margin-top: 5px;" class="plugin">
+                                <input name="accessType" type="radio" class="ace" value="plugin"/>
+                                <span class="lbl">浏览器插件</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group notBrowser" style="margin-top: 10px;">
+                        <label class="col-sm-4 control-label no-padding-right" for="form-field-1">
+                            店铺AppId: </label>
+                        <div class="col-sm-7">
+                            <input type="text" id="form-field-1" class="col-xs-10 col-sm-7" name="shopAppId"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group notBrowser" style="margin-top: 10px;">
+                        <label class="col-sm-4 control-label no-padding-right" for="form-field-1">
+                            店铺AppSecret: </label>
+                        <div class="col-sm-7">
+                            <input type="text" id="form-field-1" class="col-xs-10 col-sm-7" name="shopAppSecret"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group polySpireDIV notBrowser" style="margin-top: 10px;">
+                        <label class="col-sm-4 control-label no-padding-right" for="form-field-1">
+                            聚石塔url: </label>
+                        <div class="col-sm-7">
+                            <input type="text" id="form-field-1" class="col-xs-10 col-sm-7" name="polySpireUrl"/>
+                            <input type="button" id="urlVerify" class="btn_searchA" style="margin-left: 0;background: #428bca;" value="验证" />
+                        </div>
+                    </div>
+
+                    <div class="form-group browserDIV" style="margin-top: 10px;display: none;">
+                        <label class="col-sm-4 control-label no-padding-right" for="form-field-1">
+                            插件下载: </label>
+                        <div class="col-sm-7">
+                            <span class="col-xs-10 col-sm-7" style="text-align: left;margin-top:5px;font-size: 14px;"><a href="http://www.suniusoft.com">点击下载</a></span>
+                        </div>
+                    </div>
+
+                    <center class="saveBut">
+                        <input class="btn btn-primary" type="button" value="保存设置" id="save">
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#addShop').hover(function(){$(this).css('font-size','17px')},function(){$(this).css('font-size','16px')});
+
+    var tbRedirectUri = '$!tbRedirectUri';
+    var jdRedirectUri = '$!jdRedirectUri';
+    var tbOauthUrl = '$!tbOauthUrl';
+    var jdOauthUrl = '$!jdOauthUrl';
+
+    var jdAppKey = '$!jdAppKey';
+    var jdAppSecret = '$!jdAppSecret';
+
+    #if($shopList)
+        #set($i = 0)
+        #foreach($shop in $shopList)
+            #set($i = $i + 1)
+
+            var id = '$!shop.id';
+            var shopid = '$!shop.shopId';
+            var htm = '<label><p><a href="javascript:edit('+id+');">修改</a>|<a href="javascript:deleteA('+shopid+');">删除</a>';
+            var url = '';
+            var html = '';
+            if('$!shop.shopType' == 'TB' || '$!shop.shopType' == 'TMALL'){
+                url = tbOauthUrl + '/authorize?response_type=code&client_id=' + '$!shop.shopAppId' + '&redirect_uri=' + tbRedirectUri + '&state=' + '$!shop.sellerId' + '_' + '$!shop.shopId' + '&view=tmall';
+                if ('$!shop.accessType' == 'general' || '$!shop.accessType' == 'self_development'){
+                    if ('$!shop.shopAccessToken' != '' && '$!shop.shopTokenExpire' != '' && '$!shop.shopTokenExpire' >= new Date().getTime()){
+                        html = htm + '|<a  style="color:#aaa;" style="color:#ddd;" href="javascript:void(0)">已授权</a></p></label>';
+                    }else{
+                        html = htm + '|<a href="' + url + '">授权</a></p></label>';
+                    }
+                }else{
+                    html = htm + '</p></label>';
+                }
+            }else if('$!shop.shopType' == 'JD'){
+                url = jdOauthUrl + '/authorize?response_type=code&client_id=' + '$!shop.shopAppId' + '&redirect_uri=' + jdRedirectUri + '&state=' + '$!shop.sellerId' + '_' + '$!shop.shopId';
+                if ('$!shop.accessType' == 'general' || '$!shop.accessType' == 'self_development') {
+                    if ('$!shop.shopAccessToken' != null && '$!shop.shopTokenExpire' != null && '$!shop.shopTokenExpire' >= new Date().getTime()) {
+                        html = htm + '|<a  style="color:#aaa;" href="javascript:void(0)">已授权</a></p></label>';
+                    } else {
+                        html = htm + '|<a href="' + url + '">授权</a></p></label>';
+                    }
+                }else{
+                    html = htm + '</p></label>';
+                }
+            }else if ('$!shop.shopType' == 'YZ'){
+                html = htm + '</p></label>';
+            }
+
+            $('#operate'+${i}).html(html);
+
+        #end
+    #end
+
+
+</script>
+<script type="text/javascript" src="${rc.contextPath}/media/js/admin/sellerConfig/sellerShop.js"></script>

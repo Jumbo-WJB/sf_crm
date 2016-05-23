@@ -1,0 +1,120 @@
+#set($layout = "/layout/blank.vm")
+
+<style>
+    #userWXMessageQueryTable tbody > tr > th,#userWXMessageQueryTable tfoot > tr > th,#userWXMessageQueryTable tbody > tr > td,#userWXMessageQueryTable  tfoot > tr > td {
+        vertical-align: middle;
+    }
+    #userWXMessageQueryTable  tr td:nth-child(4),td:nth-child(11){width: 300px!important;word-wrap:break-word;}
+</style>
+<div class="row">
+<div class="col-xs-12">
+    <div class="table-responsive">
+        <div class="BoxStyleA">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <i class="modal-logo interact"></i>
+                <ul class="breadcrumb" style="margin-left: 2px">
+                    <li></li>
+                    <li>客户互动</li>
+                    <li>动态回复设置</li>
+                    <li class="active">场景回复明细</li>
+                </ul><!-- .breadcrumb -->
+            </div>
+
+            <div class="widget-body">
+                <div class="widget-main">
+                    <form class="form-search" id="userWXMessageQueryForm">
+                        <div class="row">
+                            <div class="col-xs-16 col-sm-8">
+                                <div class="input-group" style="width: 1300px">
+                                    <input type="hidden"   name="poolId">
+                                    <input type="hidden"   name="status" value="received">
+                                    <span class="ml20" style="">手机号码：<input width="10px" type="text" name="mobile" /></span>
+                                    <span class="ml20" style="margin-left: 10px">微信昵称：<input  type="text" name="wxNickName" /></span>
+                                    <span class="ml20" style="">&nbsp;&nbsp;&nbsp;内容分类：
+                                        <select  name="bizType">
+                                            <option value="">不限</option>
+                                            <option value="兑换红包" >积分兑换红包</option>
+                                            <option value="红包">普通红包领取</option>
+                                            <option value="生日">生日红包领取</option>
+                                            <option value="快递">快递查询</option>
+                                            <option value="好评">好评返红包</option>
+                                            <option value="商品">积分兑换商品</option>
+                                            <option value="签到">签到</option>
+                                            <option value="摇">摇一摇</option>
+                                            <option value="认证">用户验证</option>
+                                            <option value="积分">积分查询</option>
+                                            <option value="引导">引导语</option>
+                                        </select>
+                                    </span>
+                                   <span class="ml20" style="">&nbsp;&nbsp;&nbsp;营销回复：
+                                        <select  name="toSend">
+                                            <option value="">不限</option>
+                                            <option value="1" >可回复的用户</option>
+                                        </select>
+                                    </span>
+
+
+                            <span class="input-group-btn">
+                                <input class="btn_searchA ml20" style="margin-left: -340px" type="submit" value="筛选"/>
+                            </span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div>&nbsp</div>
+        <div class="BoxStyleA" style="padding-bottom:20px;">
+            <div class="BoxStyleATop">
+                <span class="fl">用户查询明细信息</span>
+
+                <!--<a href="" class="fr">X</a>-->
+            </div>
+            <table id="userWXMessageQueryTable" class="table table-striped table-bordered table-hover" style="table-layout: fixed">
+                <thead>
+                <tr>
+                    <th class="center" width="5%">
+                        <label>
+                            <input type="checkbox" class="ace" />
+                            <span class="lbl"></span>
+                        </label>
+                    </th>
+                    <th width="8%">微信昵称</th>
+                    <th width="10%">手机号码</th>
+                    <th width="10%">查询内容</th>
+                    <th width="8%">信息类型</th>
+                    <th width="8%">查询总数</th>
+                    <th width="6%">粉丝来源</th>
+                    <th width="9%">回复类型</th>
+                    <th width="10%">查询时间</th>
+                    <th width="10%">回复时间</th>
+                    <th width="27%">回复内容</th>
+                </tr>
+                </thead>
+                <tbody id="tbContainer"
+                </tbody>
+            </table>
+        </div>
+
+            </br>
+            <div class="col-sm-9" style="text-align: left;margin: 0 0 40px 400px;">
+                <div class="col-sm-6">
+                    <form  id="pointReplyForm">
+                        <label for="form-field-1" style="margin-top:10px;line-height: 30px;display: block">快速回复</label>
+                        <textarea name="content" cols="50" rows="7"></textarea>
+                    </form>
+                </div>
+                <div class="col-sm-4" style="padding-top: 85px;">
+                    <span class="input-group-btn">
+                        <input id="replyButton" type="button" class="btn_searchA" value="人工回复" style=""/>
+                    </span>
+                </div>
+
+            </div>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript" src="${rc.contextPath}/media/js/admin/dynamicResponse/userWxMessageQuery.js"></script>

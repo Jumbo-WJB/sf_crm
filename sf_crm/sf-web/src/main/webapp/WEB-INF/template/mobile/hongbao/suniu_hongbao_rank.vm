@@ -1,0 +1,79 @@
+#set($layout = "/layout/blank.vm")
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <title>红包排行</title>
+
+</head>
+<body>
+<link rel="stylesheet" href="${rc.contextPath}/media/mobile/assets/css/shake/shakeHB.css" />
+<script src="${rc.contextPath}/media/js/zepto.min.js"></script>
+<script src="${rc.contextPath}/media/mobile/assets/js/jweixin-1.0.0.js"></script>
+<div class="wap rank-page">
+    <div class="handle-row">
+        <a href="javascirpt:;">红包排行版</a>
+    </div>
+    <ul class="user-list">
+
+        #set($percent=100)
+        #foreach( $!userAccount in $!userAccountDOs)
+
+            #if($maxAmount!='')
+                #set($percent=($userAccount.hbobtainAmount*100.00/$!maxAmount))
+            #end
+
+            #if($userAccount.hbobtainAmount==0)
+                #set($percent=0)
+            #end
+
+            <li>
+                <span class="rank-num" >$!userAccount.hongbaoRank </span>
+                <a href="javascript:;" class="zan-btn" data-buid="$!userAccount.userId">$!userAccount.interactionCount</a>
+                <span class="user-photo"><img src="$!userAccount.wxHeadImgUrl"></span>
+                <div class="progress-text"><span class="sr-only">$!userAccount.wxNickName</span><span class="num">#set($hbobtainAmount=$!userAccount.hbobtainAmount/100.00) $!hbobtainAmount元</span></div>
+                <div class="progress">
+
+                    <div class="progress-bar" style="width:$!percent%;"></div>
+                </div>
+            </li>
+        #end
+
+    </ul>
+</div>
+<script>
+
+    wx.config({
+        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: '$wxJsConfig.appId',  // 必填，公众号的唯一标识
+        timestamp: '$wxJsConfig.timestamp', // 必填，生成签名的时间戳
+        nonceStr: '$wxJsConfig.nonceStr', // 必填，生成签名的随机串
+        signature: '$wxJsConfig.signature',// 必填，签名，见附录1
+        jsApiList: ['hideOptionMenu'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+
+    wx.ready(function(){
+        wx.hideOptionMenu();
+    });
+
+    Zepto(function($){
+        $('.zan-btn').bind('click', function(event) {
+            var target = $(this);
+            if(!target.hasClass('active')){
+                var buid = target.data('buid');
+                $.post('${rc.contextPath}/mobile/dianzan?sellerId=$sellerId',{buid :buid,uid:$!userId,interactionEntry:'HONGBAO_DIANZAN'} , function(data) {
+                    if(data.errorCode == 0){
+                        target.text(parseInt(target.text())+1);
+                        target.addClass('active')
+                        var countNode = target.siblings('.progress-text').find('.num');
+                    }else{
+                        alert(data.errorMessage);
+                    }
+                },'json');
+            }
+        });
+    })
+</script>
+</body>
+</html>

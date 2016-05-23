@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 定时任务配置-->
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+
+
+                <ref bean="channelUserDataAnalysisJobTrigger"/>
+
+                <!--
+                 <ref bean="orderJDSyncTrigger"/>
+
+                <ref bean="smsSendTrigger"/>
+                <ref bean="smsReportReceiveTrigger"/>
+                <ref bean="marketSendTrigger"/>
+                <ref bean="smsCheckAccountTrigger" />
+                <ref bean="emailSendTrigger"/>
+                <ref bean="emailReceiverigger"/>
+                <ref bean="zeroTimeTrigger" />
+                <ref bean="taoBaoTradeSyncTrigger"/>
+                <ref bean="orderJDSyncTrigger"/>
+                <ref bean="jdCommentSyncTrigger"/>
+                <ref bean="shakeExpireTrigger"/>
+                <ref bean="taobaoBuyPointTrigger"/>
+                <ref bean="jdBuyPointTrigger"/>
+                <ref bean="yzBuyPointTrigger"/>
+
+
+                <ref bean="taoBaoTradeSyncTrigger"/>
+
+                <ref bean="taobaoBuyPointTrigger"/>
+                <ref bean="orderJDSyncTrigger"/>
+                <ref bean="jdBuyPointTrigger"/>
+
+
+
+                <ref bean="yzBuyPointTrigger"/>
+
+                <ref bean="smsSendTrigger" />
+                <ref bean="smsReportReceiveTrigger" />
+                <ref bean="taobaoBuyPointTrigger"/>
+
+
+
+                <ref bean="orderJDSyncTrigger"/>
+                <ref bean="jdCommentSyncTrigger"/>
+                <ref bean="wxUserDataAnalysisJobTrigger"/>
+                <ref bean="smsReportReceiveTrigger" />
+                <ref bean="smsCheckAccountTrigger" />
+                <ref bean="marketSendTrigger" />
+                <ref bean="shakeExpireTrigger"/>
+
+                <ref bean="wXUserSyncTrigger" />
+                <ref bean="refreshTokenJobTrigger" />
+                <ref bean="dataImportJobTrigger"/>
+                <ref bean="channelUserDataAnalysisJobTrigger" />
+                <ref bean="hbCashJobTrigger" />
+                <ref bean="youZanTradeSyncTrigger" />
+                <ref bean="zeroTimeTrigger" />
+                <ref bean="pointExpireTrigger" />
+                <ref bean="userBoundJobTrigger" />
+                <ref bean="hbUserBoundJobTrigger" />
+                <ref bean="hbReturnJobTrigger"/>
+                <ref bean="buyPointTrigger" />-->
+
+            </list>
+        </property>
+        <property name="autoStartup" value="true"/>
+    </bean>
+
+    <!--处理用户摇一摇过期未领取job-->
+    <bean id="shakeExpireJob" class="com.shufensoft.crm.job.point.ShakeExpireJob"/>
+    <bean id="shakeExpireJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="shakeExpireJob"/>
+        <property name="targetMethod" value="start"/>
+        <!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 -->
+        <property name="concurrent" value="false"/>
+    </bean>
+    <bean id="shakeExpireTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="shakeExpireJobDetail"/>
+        <!-- 每隔30秒触发一次 -->
+        <property name="cronExpression" value="0/30 * * * * ?"/>
+    </bean>
+
+    <!--计算淘宝用户购物积分job-->
+    <bean id="taobaoBuyPointJob" class="com.shufensoft.crm.job.point.TaobaoBuyPointJob"/>
+    <bean id="taobaoBuyPointDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="taobaoBuyPointJob"/>
+        <property name="targetMethod" value="start"/>
+        <!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 -->
+        <property name="concurrent" value="false"/>
+    </bean>
+    <bean id="taobaoBuyPointTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="taobaoBuyPointDetail"/>
+        <!-- 每隔30秒触发一次 -->
+        <property name="cronExpression" value="0 0 0/1 * * ?"/>
+    </bean>
+
+    <!--计算京东用户购物积分job-->
+    <bean id="jdBuyPointJob" class="com.shufensoft.crm.job.point.JdBuyPointJob"/>
+    <bean id="jdBuyPointDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="jdBuyPointJob"/>
+        <property name="targetMethod" value="start"/>
+        <!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 -->
+        <property name="concurrent" value="false"/>
+    </bean>
+    <bean id="jdBuyPointTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="jdBuyPointDetail"/>
+        <!-- 每隔30秒触发一次 -->
+        <property name="cronExpression" value="0 0 0/1 * * ?"/>
+    </bean>
+
+    <!--计算京东用户购物积分job-->
+    <bean id="yzBuyPointJob" class="com.shufensoft.crm.job.point.YzBuyPointJob"/>
+    <bean id="yzBuyPointDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="yzBuyPointJob"/>
+        <property name="targetMethod" value="start"/>
+        <!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 -->
+        <property name="concurrent" value="false"/>
+    </bean>
+    <bean id="yzBuyPointTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="yzBuyPointDetail"/>
+        <!-- 每隔30秒触发一次 -->
+        <property name="cronExpression" value="0 0 0/1 * * ?"/>
+    </bean>
+
+    <!--淘宝交易同步job-->
+    <bean id="wXUserSyncJob" class="com.shufensoft.crm.job.user.WXUserSyncJob"/>
+    <bean id="wXUserSyncJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="wXUserSyncJob"/>
+        <property name="targetMethod" value="start"/>
+        <!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 -->
+        <property name="concurrent" value="false"/>
+    </bean>
+    <bean id="wXUserSyncTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="wXUserSyncJobDetail"/>
+        <!-- 每隔30秒触发一次 -->
+        <property name="cronExpression" value="0/30 * * * * ?"/>
+    </bean>
+
+    <!--淘宝交易同步job-->
+    <bean id="taoBaoTradeSyncJob" class="com.shufensoft.crm.job.trade.TaoBaoTradeSyncJob"/>
+    <bean id="taobaoTradeSyncJobDetail"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="taoBaoTradeSyncJob"/>
+        <property name="targetMethod" value="start"/>
+        <!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 -->
+        <property name="concurrent" value="false"/>
+    </bean>
+    <bean id="taoBaoTradeSyncTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="taobaoTradeSyncJobDetail"/>
+        <!-- 每隔30秒触发一次 -->
+        <property name="cronExpression" value="0 0/1 * * * ?"/>
+    </bean>
+
+    <!--淘宝交易同步job-->
+    <bean id="jdCommentSyncJob" class="com.shufensoft.crm.job.comment.JDCommentSyncJob"/>
+    <bean id="jdCommentSyncJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="jdCommentSyncJob"/>
+        <property name="targetMethod" value="start"/>
+        <!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 -->
+        <property name="concurrent" value="false"/>
+    </bean>
+
+    <bean id="jdCommentSyncTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="jdCommentSyncJobDetail"/>
+        <!-- 每隔30秒触发一次 -->
+        <property name="cronExpression" value="0 0/1 * * * ?"/>
+    </bean>
+
+    <!--有赞交易同步job-->
+    <bean id="youZanTradeSyncJob" class="com.shufensoft.crm.job.trade.YouZanTradeSyncJob"/>
+    <bean id="youZanTradeSyncJobDetail"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="youZanTradeSyncJob"/>
+        <property name="targetMethod" value="start"/>
+        <!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 -->
+        <property name="concurrent" value="false"/>
+    </bean>
+    <bean id="youZanTradeSyncTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="youZanTradeSyncJobDetail"/>
+        <!-- 每隔30秒触发一次 -->
+        <property name="cronExpression" value="0 0/1 * * * ?"/>
+    </bean>
+
+    <!--京东订单同步job-->
+    <bean id="orderJDSyncJob" class="com.shufensoft.crm.job.trade.JdTradeSyncJob"/>
+    <bean id="orderJDSyncJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="orderJDSyncJob"/>
+        <property name="targetMethod" value="start"/>
+        <!-- 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程 -->
+        <property name="concurrent" value="false"/>
+    </bean>
+    <bean id="orderJDSyncTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="orderJDSyncJobDetail"/>
+        <!-- 每隔30秒触发一次 -->
+        <property name="cronExpression" value="0 0/1 * * * ?"/>
+    </bean>
+
+
+    <!--积分过期任务-->
+    <bean id="pointExpireJob" class="com.shufensoft.crm.job.PointExpireJob"/>
+    <bean id="pointExpireJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="pointExpireJob"/>
+        <property name="targetMethod" value="start"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
+    <bean id="pointExpireTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="pointExpireJobDetail"/>
+        <property name="cronExpression" value="0 0/1 * * * ?"/>
+    </bean>
+
+    <!-- 微信用户数据指标分析任务 -->
+    <bean id="wxUserDataAnalysisJob" class="com.shufensoft.crm.job.WxUserDataAnalysisJob"/>
+    <bean id="wxUserDataAnalysisJobDetail"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="wxUserDataAnalysisJob"/>
+        <property name="targetMethod" value="start"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
+    <bean id="wxUserDataAnalysisJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="wxUserDataAnalysisJobDetail"/>
+        <property name="cronExpression" value="0 0/60 * * * ?"/>
+    </bean>
+
+    <!-- 用户数据指标分析任务 -->
+    <bean id="channelUserDataAnalysisJob" class="com.shufensoft.crm.job.ChannelUserDataAnalysisJob"/>
+    <bean id="channelUserDataAnalysisJobDetail"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="channelUserDataAnalysisJob"/>
+        <property name="targetMethod" value="start"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+    <bean id="channelUserDataAnalysisJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="channelUserDataAnalysisJobDetail"/>
+        <property name="cronExpression" value="0 0/2 * * * ?"/>
+    </bean>
+
+    <!-- 用户数据指标分析任务 -->
+    <bean id="userBoundJob" class="com.shufensoft.crm.job.UserBoundJob"/>
+    <bean id="userBoundJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="userBoundJob"/>
+        <property name="targetMethod" value="start"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+    <bean id="userBoundJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="userBoundJobDetail"/>
+        <property name="cronExpression" value="0 11 1 * * ?"/>
+    </bean>
+
+    <!--零点JOB-->
+    <bean id="zeroTimeJob" class="com.shufensoft.crm.job.ZeroTimeJob"/>
+    <bean id="zeroTimeJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="zeroTimeJob"/>
+        <property name="targetMethod" value="start"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+    <!-- 触发器 -->
+    <bean id="zeroTimeTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="zeroTimeJobDetail"/>
+        <!-- 每天零点触发一次 -->
+        <property name="cronExpression" value="0 0 0 * * ?"/>
+    </bean>
+
+    <!--邮件报告接收JOB-->
+    <bean id="emailReceiveJob" class="com.shufensoft.crm.job.EmailReceiveJob"/>
+    <bean id="emailReceiveJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="emailReceiveJob"/>
+        <property name="targetMethod" value="start"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
+    <!-- 触发器 -->
+    <bean id="emailReceiverigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="emailReceiveJobDetail"/>
+        <!-- 每隔1分钟触发一次 -->
+        <property name="cronExpression" value="0 0/1 * * * ?"/>
+    </bean>
+
+    <!--邮件发送JOB-->
+    <bean id="emailSendJob" class="com.shufensoft.crm.job.EmailSendJob"/>
+    <bean id="emailSendJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="emailSendJob"/>
+        <property name="targetMethod" value="start"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+    <!-- 触发器 -->
+    <bean id="emailSendTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="emailSendJobDetail"/>
+        <!-- 每隔1分钟触发一次 -->
+        <property name="cronExpression" value="0 0/1 * * * ?"/>
+    </bean>
+
+    <!--营销发送JOB-->
+    <bean id="marketSendJob" class="com.shufensoft.crm.job.market.MarketSendJob"/>
+    <bean id="marketSendJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="marketSendJob"/>
+        <property name="targetMethod" value="start"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+    <!-- 触发器 -->
+    <bean id="marketSendTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="marketSendJobDetail"/>
+        <!-- 每隔1分钟触发一次 -->
+        <property name="cronExpression" value="0 0/1 * * * ?"/>
+    </bean>
+
+    <!--短信发送JOB-->
+    <bean id="smsSendJob" class="com.shufensoft.crm.job.SmsSendJob"/>
+    <bean id="smsSendJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="smsSendJob"/>
+        <property name="targetMethod" value="start"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+    <!-- 触发器 -->
+    <bean id="smsSendTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="smsSendJobDetail"/>
+        <!-- 每隔1分钟触发一次 -->
+        <property name="cronExpression" value="0 0/1 * * * ?"/>
+    </bean>
+
+
+    <!--短信接收状态报告JOB-->
+    <bean id="smsReportReceiveJob" class="com.shufensoft.crm.job.SmsReceiveJob"/>
+    <bean id="smsReportReceiveDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="smsReportReceiveJob"/>
+        <property name="targetMethod" value="start"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+    <!-- 触发器 -->
+    <bean id="smsReportReceiveTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="smsReportReceiveDetail"/>
+        <!-- 每隔1分钟触发一次 -->
+        <property name="cronExpression" value="0 0/1 * * * ?"/>
+    </bean>
+
+    <!--短信接收状态报告JOB-->
+    <bean id="smsCheckAccountJob" class="com.shufensoft.crm.job.SmsCheckAccountJob"/>
+    <bean id="smsCheckAccountDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="smsCheckAccountJob"/>
+        <property name="targetMethod" value="start"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+    <!-- 触发器 -->
+    <bean id="smsCheckAccountTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="smsCheckAccountDetail"/>
+        <!-- 每隔1分钟触发一次 -->
+        <property name="cronExpression" value="0 0/1 * * * ?"/>
+    </bean>
+
+    <!--红包提现JOB-->
+    <bean id="hbCashJob" class="com.shufensoft.crm.job.hongbao.HbCashJob"/>
+    <bean id="hbCashJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="hbCashJob"/>
+        <property name="targetMethod" value="start"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+    <!--触发器 -->
+    <bean id="hbCashJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="hbCashJobDetail"/>
+        <!-- 早上七点开始,每半小时触发一次 -->
+        <property name="cronExpression" value="0 0/30 9-21 *  * ?"/>
+    </bean>
+
+    <!--将领用未拆的红包记录返回JOB-->
+    <bean id="hbReturnJob" class="com.shufensoft.crm.job.hongbao.HbReturnJob"/>
+    <bean id="hbReturnJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="hbReturnJob"/>
+        <property name="targetMethod" value="start"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
+    <!-- 触发器 -->
+    <bean id="hbReturnJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="hbReturnJobDetail"/>
+        <!-- 每隔2分钟触发一次 -->
+        <property name="cronExpression" value="0 0/2 * * * ?"/>
+    </bean>
+
+    <!--红包用户绑定定时JOB-->
+    <bean id="hbUserBoundJob" class="com.shufensoft.crm.job.hongbao.HbUserBoundJob"/>
+    <bean id="hbUserBoundJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="hbUserBoundJob"/>
+        <property name="targetMethod" value="start"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
+    <!-- 触发器 -->
+    <bean id="hbUserBoundJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="hbUserBoundJobDetail"/>
+        <!-- 每隔2分钟触发一次 -->
+        <property name="cronExpression" value="0 0/2 * * * ?"/>
+    </bean>
+
+    <!-- accessToken 定时刷新,提醒JOB -->
+    <bean id="refreshTokenJob" class="com.shufensoft.crm.job.oauth.RefreshTokenJob"/>
+    <bean id="refreshTokenJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="refreshTokenJob"/>
+        <property name="targetMethod" value="start"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
+    <!-- 触发器 -->
+    <bean id="refreshTokenJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="refreshTokenJobDetail"/>
+        <!-- 每隔1小时触发一次 -->
+        <property name="cronExpression" value="0 0 0/1 * * ?"/>
+    </bean>
+
+    <!-- 小B商家淘宝数据定时插入,JOB -->
+    <bean id="dataImportJob" class="com.shufensoft.crm.job.dataImport.DataImportByDayJob"/>
+    <bean id="dataImportJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="dataImportJob"/>
+        <property name="targetMethod" value="start"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
+    <!-- 触发器 -->
+    <bean id="dataImportJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="dataImportJobDetail"/>
+        <!-- 每天23点触发一次 -->
+        <property name="cronExpression" value="0 0 23 * * ?"/>
+    </bean>
+
+</beans>

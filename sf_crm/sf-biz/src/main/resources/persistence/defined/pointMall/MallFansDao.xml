@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.pointMall.MallFansDao" >
+    <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.pointMall.MallFansDo" >
+        <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+        <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+        <result column="uid" property="userId" jdbcType="BIGINT" />
+        <result column="amount" property="amount" jdbcType="BIGINT" />
+        <result column="exchange_id" property="exchangeId" jdbcType="BIGINT" />
+        <result column="exchange_method" property="exchangeMethod" jdbcType="VARCHAR" />
+        <result column="status" property="status" jdbcType="VARCHAR" />
+
+        <result column="wnn" property="wxNickName" jdbcType="VARCHAR" />
+        <result column="un" property="userName" jdbcType="VARCHAR" />
+        <result column="skpri" property="paymentTotal" jdbcType="VARCHAR" />
+        <result column="exc" property="exchageCount" jdbcType="VARCHAR" />
+        <result column="pto" property="pointTotal" jdbcType="VARCHAR" />
+        <result column="epto" property="exchagePointTotal" jdbcType="VARCHAR" />
+        <result column="em" property="lastExchageType" jdbcType="VARCHAR" />
+        <result column="ou" property="isOldUser" jdbcType="VARCHAR" />
+
+    </resultMap>
+
+    <select id="findMallFansDoList" resultMap="BaseResultMap" parameterType="map">
+        select
+        max(pe.user_id) uid,max(u.wx_nick_name) wnn,max(u.name) un,sum(sk.price * mo.quantity) skpri,count(pe.id) exc,max(ua.point_amount_total) pto,
+        max(ua.point_amount_exchange) epto, max(temp.eme) em, max(u.is_old_user) ou
+        from point_exchange pe left join user u on pe.user_id = u.user_id
+        left join user_account ua on pe.user_id=ua.user_id
+        left join mall_order mo on pe.exchange_id=mo.oid
+        left join mall_goods_sku sk on mo.sku_id = sk.sku_id left join
+        (
+
+           select a.user_id auid, a.exchange_method eme from point_exchange a,
+            (select pex.user_id uid, max(pex.gmt_modified) lastd from point_exchange pex
+                <where>
+                    <trim prefixOverrides="and">
+                        <if test="sellerId != null">
+                            and pex.seller_id = #{sellerId}
+                        </if>
+                        <if test="startDate != null">
+                            and pex.gmt_created >= #{startDate}
+                        </if>
+                        <if test="endDate != null">
+                            and pex.gmt_created <![CDATA[<=]]> #{endDate}
+                        </if>
+                        group by pex.user_id
+                    </trim>
+                </where>
+                ) b where a.user_id = b.uid and a.gmt_modified = b.lastd
+
+        ) temp on pe.user_id = temp.auid
+        <where>
+            <trim prefixOverrides="and">
+                <if test="sellerId != null">
+                    and pe.seller_id = #{sellerId}
+                </if>
+                <if test="wxNickName != null">
+                    and u.wx_nick_name like #{wxNickName}
+                </if>
+                <if test="status != null and status == 'fail'">
+                    and pe.status != 'success'
+                </if>
+                <if test="status != null and status == 'success'">
+                    and pe.status = 'success'
+                </if>
+                <if test="startDate != null">
+                    and pe.gmt_created >= #{startDate}
+                </if>
+                <if test="endDate != null">
+                    and pe.gmt_created <![CDATA[<=]]> #{endDate}
+                </if>
+                group by pe.user_id
+            </trim>
+        </where>
+    </select>
+
+
+
+</mapper>
+

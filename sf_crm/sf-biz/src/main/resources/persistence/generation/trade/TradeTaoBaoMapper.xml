@@ -1,0 +1,2637 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.trade.TradeTaoBaoMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.trade.TradeTaoBao" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_trade_close_reson" property="maxTradeCloseReson" jdbcType="BIGINT" />
+    <result column="min_trade_close_reson" property="minTradeCloseReson" jdbcType="BIGINT" />
+    <result column="avg_trade_close_reson" property="avgTradeCloseReson" jdbcType="BIGINT" />
+    <result column="count_trade_close_reson" property="countTradeCloseReson" jdbcType="BIGINT" />
+    <result column="sum_trade_close_reson" property="sumTradeCloseReson" jdbcType="VARCHAR" />
+    <result column="max_is_excel_import" property="maxIsExcelImport" jdbcType="BIGINT" />
+    <result column="min_is_excel_import" property="minIsExcelImport" jdbcType="BIGINT" />
+    <result column="avg_is_excel_import" property="avgIsExcelImport" jdbcType="BIGINT" />
+    <result column="count_is_excel_import" property="countIsExcelImport" jdbcType="BIGINT" />
+    <result column="sum_is_excel_import" property="sumIsExcelImport" jdbcType="VARCHAR" />
+    <result column="max_is_wt" property="maxIsWt" jdbcType="BIGINT" />
+    <result column="min_is_wt" property="minIsWt" jdbcType="BIGINT" />
+    <result column="avg_is_wt" property="avgIsWt" jdbcType="BIGINT" />
+    <result column="count_is_wt" property="countIsWt" jdbcType="BIGINT" />
+    <result column="sum_is_wt" property="sumIsWt" jdbcType="VARCHAR" />
+    <result column="max_pcc_af" property="maxPccAf" jdbcType="BIGINT" />
+    <result column="min_pcc_af" property="minPccAf" jdbcType="BIGINT" />
+    <result column="avg_pcc_af" property="avgPccAf" jdbcType="BIGINT" />
+    <result column="count_pcc_af" property="countPccAf" jdbcType="BIGINT" />
+    <result column="sum_pcc_af" property="sumPccAf" jdbcType="INTEGER" />
+    <result column="max_alipay_point" property="maxAlipayPoint" jdbcType="BIGINT" />
+    <result column="min_alipay_point" property="minAlipayPoint" jdbcType="BIGINT" />
+    <result column="avg_alipay_point" property="avgAlipayPoint" jdbcType="BIGINT" />
+    <result column="count_alipay_point" property="countAlipayPoint" jdbcType="BIGINT" />
+    <result column="sum_alipay_point" property="sumAlipayPoint" jdbcType="INTEGER" />
+    <result column="max_async_modified" property="maxAsyncModified" jdbcType="BIGINT" />
+    <result column="min_async_modified" property="minAsyncModified" jdbcType="BIGINT" />
+    <result column="avg_async_modified" property="avgAsyncModified" jdbcType="BIGINT" />
+    <result column="count_async_modified" property="countAsyncModified" jdbcType="BIGINT" />
+    <result column="sum_async_modified" property="sumAsyncModified" jdbcType="TIMESTAMP" />
+    <result column="max_consign_interval" property="maxConsignInterval" jdbcType="BIGINT" />
+    <result column="min_consign_interval" property="minConsignInterval" jdbcType="BIGINT" />
+    <result column="avg_consign_interval" property="avgConsignInterval" jdbcType="BIGINT" />
+    <result column="count_consign_interval" property="countConsignInterval" jdbcType="BIGINT" />
+    <result column="sum_consign_interval" property="sumConsignInterval" jdbcType="INTEGER" />
+    <result column="max_arrive_cut_time" property="maxArriveCutTime" jdbcType="BIGINT" />
+    <result column="min_arrive_cut_time" property="minArriveCutTime" jdbcType="BIGINT" />
+    <result column="avg_arrive_cut_time" property="avgArriveCutTime" jdbcType="BIGINT" />
+    <result column="count_arrive_cut_time" property="countArriveCutTime" jdbcType="BIGINT" />
+    <result column="sum_arrive_cut_time" property="sumArriveCutTime" jdbcType="VARCHAR" />
+    <result column="max_arrive_interval" property="maxArriveInterval" jdbcType="BIGINT" />
+    <result column="min_arrive_interval" property="minArriveInterval" jdbcType="BIGINT" />
+    <result column="avg_arrive_interval" property="avgArriveInterval" jdbcType="BIGINT" />
+    <result column="count_arrive_interval" property="countArriveInterval" jdbcType="BIGINT" />
+    <result column="sum_arrive_interval" property="sumArriveInterval" jdbcType="INTEGER" />
+    <result column="max_receiver_district" property="maxReceiverDistrict" jdbcType="BIGINT" />
+    <result column="min_receiver_district" property="minReceiverDistrict" jdbcType="BIGINT" />
+    <result column="avg_receiver_district" property="avgReceiverDistrict" jdbcType="BIGINT" />
+    <result column="count_receiver_district" property="countReceiverDistrict" jdbcType="BIGINT" />
+    <result column="sum_receiver_district" property="sumReceiverDistrict" jdbcType="VARCHAR" />
+    <result column="max_receiver_city" property="maxReceiverCity" jdbcType="BIGINT" />
+    <result column="min_receiver_city" property="minReceiverCity" jdbcType="BIGINT" />
+    <result column="avg_receiver_city" property="avgReceiverCity" jdbcType="BIGINT" />
+    <result column="count_receiver_city" property="countReceiverCity" jdbcType="BIGINT" />
+    <result column="sum_receiver_city" property="sumReceiverCity" jdbcType="VARCHAR" />
+    <result column="max_real_point_fee" property="maxRealPointFee" jdbcType="BIGINT" />
+    <result column="min_real_point_fee" property="minRealPointFee" jdbcType="BIGINT" />
+    <result column="avg_real_point_fee" property="avgRealPointFee" jdbcType="BIGINT" />
+    <result column="count_real_point_fee" property="countRealPointFee" jdbcType="BIGINT" />
+    <result column="sum_real_point_fee" property="sumRealPointFee" jdbcType="INTEGER" />
+    <result column="max_is_part_consign" property="maxIsPartConsign" jdbcType="BIGINT" />
+    <result column="min_is_part_consign" property="minIsPartConsign" jdbcType="BIGINT" />
+    <result column="avg_is_part_consign" property="avgIsPartConsign" jdbcType="BIGINT" />
+    <result column="count_is_part_consign" property="countIsPartConsign" jdbcType="BIGINT" />
+    <result column="sum_is_part_consign" property="sumIsPartConsign" jdbcType="VARCHAR" />
+    <result column="max_trade_source" property="maxTradeSource" jdbcType="BIGINT" />
+    <result column="min_trade_source" property="minTradeSource" jdbcType="BIGINT" />
+    <result column="avg_trade_source" property="avgTradeSource" jdbcType="BIGINT" />
+    <result column="count_trade_source" property="countTradeSource" jdbcType="BIGINT" />
+    <result column="sum_trade_source" property="sumTradeSource" jdbcType="VARCHAR" />
+    <result column="max_buyer_rate" property="maxBuyerRate" jdbcType="BIGINT" />
+    <result column="min_buyer_rate" property="minBuyerRate" jdbcType="BIGINT" />
+    <result column="avg_buyer_rate" property="avgBuyerRate" jdbcType="BIGINT" />
+    <result column="count_buyer_rate" property="countBuyerRate" jdbcType="BIGINT" />
+    <result column="sum_buyer_rate" property="sumBuyerRate" jdbcType="VARCHAR" />
+    <result column="max_trade_memo" property="maxTradeMemo" jdbcType="BIGINT" />
+    <result column="min_trade_memo" property="minTradeMemo" jdbcType="BIGINT" />
+    <result column="avg_trade_memo" property="avgTradeMemo" jdbcType="BIGINT" />
+    <result column="count_trade_memo" property="countTradeMemo" jdbcType="BIGINT" />
+    <result column="sum_trade_memo" property="sumTradeMemo" jdbcType="VARCHAR" />
+    <result column="max_commission_fee" property="maxCommissionFee" jdbcType="BIGINT" />
+    <result column="min_commission_fee" property="minCommissionFee" jdbcType="BIGINT" />
+    <result column="avg_commission_fee" property="avgCommissionFee" jdbcType="BIGINT" />
+    <result column="count_commission_fee" property="countCommissionFee" jdbcType="BIGINT" />
+    <result column="sum_commission_fee" property="sumCommissionFee" jdbcType="VARCHAR" />
+    <result column="max_can_rate" property="maxCanRate" jdbcType="BIGINT" />
+    <result column="min_can_rate" property="minCanRate" jdbcType="BIGINT" />
+    <result column="avg_can_rate" property="avgCanRate" jdbcType="BIGINT" />
+    <result column="count_can_rate" property="countCanRate" jdbcType="BIGINT" />
+    <result column="sum_can_rate" property="sumCanRate" jdbcType="VARCHAR" />
+    <result column="max_cod_status" property="maxCodStatus" jdbcType="BIGINT" />
+    <result column="min_cod_status" property="minCodStatus" jdbcType="BIGINT" />
+    <result column="avg_cod_status" property="avgCodStatus" jdbcType="BIGINT" />
+    <result column="count_cod_status" property="countCodStatus" jdbcType="BIGINT" />
+    <result column="sum_cod_status" property="sumCodStatus" jdbcType="VARCHAR" />
+    <result column="max_alipay_warn_msg" property="maxAlipayWarnMsg" jdbcType="BIGINT" />
+    <result column="min_alipay_warn_msg" property="minAlipayWarnMsg" jdbcType="BIGINT" />
+    <result column="avg_alipay_warn_msg" property="avgAlipayWarnMsg" jdbcType="BIGINT" />
+    <result column="count_alipay_warn_msg" property="countAlipayWarnMsg" jdbcType="BIGINT" />
+    <result column="sum_alipay_warn_msg" property="sumAlipayWarnMsg" jdbcType="VARCHAR" />
+    <result column="max_trade_from" property="maxTradeFrom" jdbcType="BIGINT" />
+    <result column="min_trade_from" property="minTradeFrom" jdbcType="BIGINT" />
+    <result column="avg_trade_from" property="avgTradeFrom" jdbcType="BIGINT" />
+    <result column="count_trade_from" property="countTradeFrom" jdbcType="BIGINT" />
+    <result column="sum_trade_from" property="sumTradeFrom" jdbcType="VARCHAR" />
+    <result column="max_send_time" property="maxSendTime" jdbcType="BIGINT" />
+    <result column="min_send_time" property="minSendTime" jdbcType="BIGINT" />
+    <result column="avg_send_time" property="avgSendTime" jdbcType="BIGINT" />
+    <result column="count_send_time" property="countSendTime" jdbcType="BIGINT" />
+    <result column="sum_send_time" property="sumSendTime" jdbcType="VARCHAR" />
+    <result column="max_mark_desc" property="maxMarkDesc" jdbcType="BIGINT" />
+    <result column="min_mark_desc" property="minMarkDesc" jdbcType="BIGINT" />
+    <result column="avg_mark_desc" property="avgMarkDesc" jdbcType="BIGINT" />
+    <result column="count_mark_desc" property="countMarkDesc" jdbcType="BIGINT" />
+    <result column="sum_mark_desc" property="sumMarkDesc" jdbcType="VARCHAR" />
+    <result column="max_step_paid_fee" property="maxStepPaidFee" jdbcType="BIGINT" />
+    <result column="min_step_paid_fee" property="minStepPaidFee" jdbcType="BIGINT" />
+    <result column="avg_step_paid_fee" property="avgStepPaidFee" jdbcType="BIGINT" />
+    <result column="count_step_paid_fee" property="countStepPaidFee" jdbcType="BIGINT" />
+    <result column="sum_step_paid_fee" property="sumStepPaidFee" jdbcType="VARCHAR" />
+    <result column="max_step_trade_status" property="maxStepTradeStatus" jdbcType="BIGINT" />
+    <result column="min_step_trade_status" property="minStepTradeStatus" jdbcType="BIGINT" />
+    <result column="avg_step_trade_status" property="avgStepTradeStatus" jdbcType="BIGINT" />
+    <result column="count_step_trade_status" property="countStepTradeStatus" jdbcType="BIGINT" />
+    <result column="sum_step_trade_status" property="sumStepTradeStatus" jdbcType="VARCHAR" />
+    <result column="max_nut_feature" property="maxNutFeature" jdbcType="BIGINT" />
+    <result column="min_nut_feature" property="minNutFeature" jdbcType="BIGINT" />
+    <result column="avg_nut_feature" property="avgNutFeature" jdbcType="BIGINT" />
+    <result column="count_nut_feature" property="countNutFeature" jdbcType="BIGINT" />
+    <result column="sum_nut_feature" property="sumNutFeature" jdbcType="VARCHAR" />
+    <result column="max_credit_card_fee" property="maxCreditCardFee" jdbcType="BIGINT" />
+    <result column="min_credit_card_fee" property="minCreditCardFee" jdbcType="BIGINT" />
+    <result column="avg_credit_card_fee" property="avgCreditCardFee" jdbcType="BIGINT" />
+    <result column="count_credit_card_fee" property="countCreditCardFee" jdbcType="BIGINT" />
+    <result column="sum_credit_card_fee" property="sumCreditCardFee" jdbcType="VARCHAR" />
+    <result column="max_area_id" property="maxAreaId" jdbcType="BIGINT" />
+    <result column="min_area_id" property="minAreaId" jdbcType="BIGINT" />
+    <result column="avg_area_id" property="avgAreaId" jdbcType="BIGINT" />
+    <result column="count_area_id" property="countAreaId" jdbcType="BIGINT" />
+    <result column="sum_area_id" property="sumAreaId" jdbcType="VARCHAR" />
+    <result column="max_has_buyer_message" property="maxHasBuyerMessage" jdbcType="BIGINT" />
+    <result column="min_has_buyer_message" property="minHasBuyerMessage" jdbcType="BIGINT" />
+    <result column="avg_has_buyer_message" property="avgHasBuyerMessage" jdbcType="BIGINT" />
+    <result column="count_has_buyer_message" property="countHasBuyerMessage" jdbcType="BIGINT" />
+    <result column="sum_has_buyer_message" property="sumHasBuyerMessage" jdbcType="VARCHAR" />
+    <result column="max_buyer_email" property="maxBuyerEmail" jdbcType="BIGINT" />
+    <result column="min_buyer_email" property="minBuyerEmail" jdbcType="BIGINT" />
+    <result column="avg_buyer_email" property="avgBuyerEmail" jdbcType="BIGINT" />
+    <result column="count_buyer_email" property="countBuyerEmail" jdbcType="BIGINT" />
+    <result column="sum_buyer_email" property="sumBuyerEmail" jdbcType="VARCHAR" />
+    <result column="max_buyer_area" property="maxBuyerArea" jdbcType="BIGINT" />
+    <result column="min_buyer_area" property="minBuyerArea" jdbcType="BIGINT" />
+    <result column="avg_buyer_area" property="avgBuyerArea" jdbcType="BIGINT" />
+    <result column="count_buyer_area" property="countBuyerArea" jdbcType="BIGINT" />
+    <result column="sum_buyer_area" property="sumBuyerArea" jdbcType="VARCHAR" />
+    <result column="max_buyer_nick" property="maxBuyerNick" jdbcType="BIGINT" />
+    <result column="min_buyer_nick" property="minBuyerNick" jdbcType="BIGINT" />
+    <result column="avg_buyer_nick" property="avgBuyerNick" jdbcType="BIGINT" />
+    <result column="count_buyer_nick" property="countBuyerNick" jdbcType="BIGINT" />
+    <result column="sum_buyer_nick" property="sumBuyerNick" jdbcType="VARCHAR" />
+    <result column="max_seller_flag" property="maxSellerFlag" jdbcType="BIGINT" />
+    <result column="min_seller_flag" property="minSellerFlag" jdbcType="BIGINT" />
+    <result column="avg_seller_flag" property="avgSellerFlag" jdbcType="BIGINT" />
+    <result column="count_seller_flag" property="countSellerFlag" jdbcType="BIGINT" />
+    <result column="sum_seller_flag" property="sumSellerFlag" jdbcType="INTEGER" />
+    <result column="max_seller_memo" property="maxSellerMemo" jdbcType="BIGINT" />
+    <result column="min_seller_memo" property="minSellerMemo" jdbcType="BIGINT" />
+    <result column="avg_seller_memo" property="avgSellerMemo" jdbcType="BIGINT" />
+    <result column="count_seller_memo" property="countSellerMemo" jdbcType="BIGINT" />
+    <result column="sum_seller_memo" property="sumSellerMemo" jdbcType="VARCHAR" />
+    <result column="max_buyer_flag" property="maxBuyerFlag" jdbcType="BIGINT" />
+    <result column="min_buyer_flag" property="minBuyerFlag" jdbcType="BIGINT" />
+    <result column="avg_buyer_flag" property="avgBuyerFlag" jdbcType="BIGINT" />
+    <result column="count_buyer_flag" property="countBuyerFlag" jdbcType="BIGINT" />
+    <result column="sum_buyer_flag" property="sumBuyerFlag" jdbcType="INTEGER" />
+    <result column="max_buyer_memo" property="maxBuyerMemo" jdbcType="BIGINT" />
+    <result column="min_buyer_memo" property="minBuyerMemo" jdbcType="BIGINT" />
+    <result column="avg_buyer_memo" property="avgBuyerMemo" jdbcType="BIGINT" />
+    <result column="count_buyer_memo" property="countBuyerMemo" jdbcType="BIGINT" />
+    <result column="sum_buyer_memo" property="sumBuyerMemo" jdbcType="VARCHAR" />
+    <result column="max_buyer_alipay_no" property="maxBuyerAlipayNo" jdbcType="BIGINT" />
+    <result column="min_buyer_alipay_no" property="minBuyerAlipayNo" jdbcType="BIGINT" />
+    <result column="avg_buyer_alipay_no" property="avgBuyerAlipayNo" jdbcType="BIGINT" />
+    <result column="count_buyer_alipay_no" property="countBuyerAlipayNo" jdbcType="BIGINT" />
+    <result column="sum_buyer_alipay_no" property="sumBuyerAlipayNo" jdbcType="VARCHAR" />
+    <result column="max_alipay_no" property="maxAlipayNo" jdbcType="BIGINT" />
+    <result column="min_alipay_no" property="minAlipayNo" jdbcType="BIGINT" />
+    <result column="avg_alipay_no" property="avgAlipayNo" jdbcType="BIGINT" />
+    <result column="count_alipay_no" property="countAlipayNo" jdbcType="BIGINT" />
+    <result column="sum_alipay_no" property="sumAlipayNo" jdbcType="VARCHAR" />
+    <result column="max_alipay_id" property="maxAlipayId" jdbcType="BIGINT" />
+    <result column="min_alipay_id" property="minAlipayId" jdbcType="BIGINT" />
+    <result column="avg_alipay_id" property="avgAlipayId" jdbcType="BIGINT" />
+    <result column="count_alipay_id" property="countAlipayId" jdbcType="BIGINT" />
+    <result column="sum_alipay_id" property="sumAlipayId" jdbcType="BIGINT" />
+    <result column="max_buyer_message" property="maxBuyerMessage" jdbcType="BIGINT" />
+    <result column="min_buyer_message" property="minBuyerMessage" jdbcType="BIGINT" />
+    <result column="avg_buyer_message" property="avgBuyerMessage" jdbcType="BIGINT" />
+    <result column="count_buyer_message" property="countBuyerMessage" jdbcType="BIGINT" />
+    <result column="sum_buyer_message" property="sumBuyerMessage" jdbcType="VARCHAR" />
+    <result column="max_end_time" property="maxEndTime" jdbcType="BIGINT" />
+    <result column="min_end_time" property="minEndTime" jdbcType="BIGINT" />
+    <result column="avg_end_time" property="avgEndTime" jdbcType="BIGINT" />
+    <result column="count_end_time" property="countEndTime" jdbcType="BIGINT" />
+    <result column="sum_end_time" property="sumEndTime" jdbcType="TIMESTAMP" />
+    <result column="max_modified" property="maxModified" jdbcType="BIGINT" />
+    <result column="min_modified" property="minModified" jdbcType="BIGINT" />
+    <result column="avg_modified" property="avgModified" jdbcType="BIGINT" />
+    <result column="count_modified" property="countModified" jdbcType="BIGINT" />
+    <result column="sum_modified" property="sumModified" jdbcType="TIMESTAMP" />
+    <result column="max_pay_time" property="maxPayTime" jdbcType="BIGINT" />
+    <result column="min_pay_time" property="minPayTime" jdbcType="BIGINT" />
+    <result column="avg_pay_time" property="avgPayTime" jdbcType="BIGINT" />
+    <result column="count_pay_time" property="countPayTime" jdbcType="BIGINT" />
+    <result column="sum_pay_time" property="sumPayTime" jdbcType="TIMESTAMP" />
+    <result column="max_created" property="maxCreated" jdbcType="BIGINT" />
+    <result column="min_created" property="minCreated" jdbcType="BIGINT" />
+    <result column="avg_created" property="avgCreated" jdbcType="BIGINT" />
+    <result column="count_created" property="countCreated" jdbcType="BIGINT" />
+    <result column="sum_created" property="sumCreated" jdbcType="TIMESTAMP" />
+    <result column="max_lg_aging" property="maxLgAging" jdbcType="BIGINT" />
+    <result column="min_lg_aging" property="minLgAging" jdbcType="BIGINT" />
+    <result column="avg_lg_aging" property="avgLgAging" jdbcType="BIGINT" />
+    <result column="count_lg_aging" property="countLgAging" jdbcType="BIGINT" />
+    <result column="sum_lg_aging" property="sumLgAging" jdbcType="DECIMAL" />
+    <result column="max_is_brand_sale" property="maxIsBrandSale" jdbcType="BIGINT" />
+    <result column="min_is_brand_sale" property="minIsBrandSale" jdbcType="BIGINT" />
+    <result column="avg_is_brand_sale" property="avgIsBrandSale" jdbcType="BIGINT" />
+    <result column="count_is_brand_sale" property="countIsBrandSale" jdbcType="BIGINT" />
+    <result column="sum_is_brand_sale" property="sumIsBrandSale" jdbcType="VARCHAR" />
+    <result column="max_total_fee" property="maxTotalFee" jdbcType="BIGINT" />
+    <result column="min_total_fee" property="minTotalFee" jdbcType="BIGINT" />
+    <result column="avg_total_fee" property="avgTotalFee" jdbcType="BIGINT" />
+    <result column="count_total_fee" property="countTotalFee" jdbcType="BIGINT" />
+    <result column="sum_total_fee" property="sumTotalFee" jdbcType="DECIMAL" />
+    <result column="max_point_fee" property="maxPointFee" jdbcType="BIGINT" />
+    <result column="min_point_fee" property="minPointFee" jdbcType="BIGINT" />
+    <result column="avg_point_fee" property="avgPointFee" jdbcType="BIGINT" />
+    <result column="count_point_fee" property="countPointFee" jdbcType="BIGINT" />
+    <result column="sum_point_fee" property="sumPointFee" jdbcType="INTEGER" />
+    <result column="max_discount_fee" property="maxDiscountFee" jdbcType="BIGINT" />
+    <result column="min_discount_fee" property="minDiscountFee" jdbcType="BIGINT" />
+    <result column="avg_discount_fee" property="avgDiscountFee" jdbcType="BIGINT" />
+    <result column="count_discount_fee" property="countDiscountFee" jdbcType="BIGINT" />
+    <result column="sum_discount_fee" property="sumDiscountFee" jdbcType="DECIMAL" />
+    <result column="max_seller_cod_fee" property="maxSellerCodFee" jdbcType="BIGINT" />
+    <result column="min_seller_cod_fee" property="minSellerCodFee" jdbcType="BIGINT" />
+    <result column="avg_seller_cod_fee" property="avgSellerCodFee" jdbcType="BIGINT" />
+    <result column="count_seller_cod_fee" property="countSellerCodFee" jdbcType="BIGINT" />
+    <result column="sum_seller_cod_fee" property="sumSellerCodFee" jdbcType="DECIMAL" />
+    <result column="max_price" property="maxPrice" jdbcType="BIGINT" />
+    <result column="min_price" property="minPrice" jdbcType="BIGINT" />
+    <result column="avg_price" property="avgPrice" jdbcType="BIGINT" />
+    <result column="count_price" property="countPrice" jdbcType="BIGINT" />
+    <result column="sum_price" property="sumPrice" jdbcType="DECIMAL" />
+    <result column="max_type" property="maxType" jdbcType="BIGINT" />
+    <result column="min_type" property="minType" jdbcType="BIGINT" />
+    <result column="avg_type" property="avgType" jdbcType="BIGINT" />
+    <result column="count_type" property="countType" jdbcType="BIGINT" />
+    <result column="sum_type" property="sumType" jdbcType="VARCHAR" />
+    <result column="max_title" property="maxTitle" jdbcType="BIGINT" />
+    <result column="min_title" property="minTitle" jdbcType="BIGINT" />
+    <result column="avg_title" property="avgTitle" jdbcType="BIGINT" />
+    <result column="count_title" property="countTitle" jdbcType="BIGINT" />
+    <result column="sum_title" property="sumTitle" jdbcType="VARCHAR" />
+    <result column="max_status" property="maxStatus" jdbcType="BIGINT" />
+    <result column="min_status" property="minStatus" jdbcType="BIGINT" />
+    <result column="avg_status" property="avgStatus" jdbcType="BIGINT" />
+    <result column="count_status" property="countStatus" jdbcType="BIGINT" />
+    <result column="sum_status" property="sumStatus" jdbcType="VARCHAR" />
+    <result column="max_num_iid" property="maxNumIid" jdbcType="BIGINT" />
+    <result column="min_num_iid" property="minNumIid" jdbcType="BIGINT" />
+    <result column="avg_num_iid" property="avgNumIid" jdbcType="BIGINT" />
+    <result column="count_num_iid" property="countNumIid" jdbcType="BIGINT" />
+    <result column="sum_num_iid" property="sumNumIid" jdbcType="VARCHAR" />
+    <result column="max_num" property="maxNum" jdbcType="BIGINT" />
+    <result column="min_num" property="minNum" jdbcType="BIGINT" />
+    <result column="avg_num" property="avgNum" jdbcType="BIGINT" />
+    <result column="count_num" property="countNum" jdbcType="BIGINT" />
+    <result column="sum_num" property="sumNum" jdbcType="INTEGER" />
+    <result column="max_goods_category_num" property="maxGoodsCategoryNum" jdbcType="BIGINT" />
+    <result column="min_goods_category_num" property="minGoodsCategoryNum" jdbcType="BIGINT" />
+    <result column="avg_goods_category_num" property="avgGoodsCategoryNum" jdbcType="BIGINT" />
+    <result column="count_goods_category_num" property="countGoodsCategoryNum" jdbcType="BIGINT" />
+    <result column="sum_goods_category_num" property="sumGoodsCategoryNum" jdbcType="INTEGER" />
+    <result column="max_invoice_kind" property="maxInvoiceKind" jdbcType="BIGINT" />
+    <result column="min_invoice_kind" property="minInvoiceKind" jdbcType="BIGINT" />
+    <result column="avg_invoice_kind" property="avgInvoiceKind" jdbcType="BIGINT" />
+    <result column="count_invoice_kind" property="countInvoiceKind" jdbcType="BIGINT" />
+    <result column="sum_invoice_kind" property="sumInvoiceKind" jdbcType="VARCHAR" />
+    <result column="max_est_con_time" property="maxEstConTime" jdbcType="BIGINT" />
+    <result column="min_est_con_time" property="minEstConTime" jdbcType="BIGINT" />
+    <result column="avg_est_con_time" property="avgEstConTime" jdbcType="BIGINT" />
+    <result column="count_est_con_time" property="countEstConTime" jdbcType="BIGINT" />
+    <result column="sum_est_con_time" property="sumEstConTime" jdbcType="TIMESTAMP" />
+    <result column="max_promotion" property="maxPromotion" jdbcType="BIGINT" />
+    <result column="min_promotion" property="minPromotion" jdbcType="BIGINT" />
+    <result column="avg_promotion" property="avgPromotion" jdbcType="BIGINT" />
+    <result column="count_promotion" property="countPromotion" jdbcType="BIGINT" />
+    <result column="sum_promotion" property="sumPromotion" jdbcType="VARCHAR" />
+    <result column="max_is_3d" property="maxIs3d" jdbcType="BIGINT" />
+    <result column="min_is_3d" property="minIs3d" jdbcType="BIGINT" />
+    <result column="avg_is_3d" property="avgIs3d" jdbcType="BIGINT" />
+    <result column="count_is_3d" property="countIs3d" jdbcType="BIGINT" />
+    <result column="sum_is_3d" property="sumIs3d" jdbcType="VARCHAR" />
+    <result column="max_timeout_action_time" property="maxTimeoutActionTime" jdbcType="BIGINT" />
+    <result column="min_timeout_action_time" property="minTimeoutActionTime" jdbcType="BIGINT" />
+    <result column="avg_timeout_action_time" property="avgTimeoutActionTime" jdbcType="BIGINT" />
+    <result column="count_timeout_action_time" property="countTimeoutActionTime" jdbcType="BIGINT" />
+    <result column="sum_timeout_action_time" property="sumTimeoutActionTime" jdbcType="TIMESTAMP" />
+    <result column="max_received_payment" property="maxReceivedPayment" jdbcType="BIGINT" />
+    <result column="min_received_payment" property="minReceivedPayment" jdbcType="BIGINT" />
+    <result column="avg_received_payment" property="avgReceivedPayment" jdbcType="BIGINT" />
+    <result column="count_received_payment" property="countReceivedPayment" jdbcType="BIGINT" />
+    <result column="sum_received_payment" property="sumReceivedPayment" jdbcType="DECIMAL" />
+    <result column="max_available_confirm_fee" property="maxAvailableConfirmFee" jdbcType="BIGINT" />
+    <result column="min_available_confirm_fee" property="minAvailableConfirmFee" jdbcType="BIGINT" />
+    <result column="avg_available_confirm_fee" property="avgAvailableConfirmFee" jdbcType="BIGINT" />
+    <result column="count_available_confirm_fee" property="countAvailableConfirmFee" jdbcType="BIGINT" />
+    <result column="sum_available_confirm_fee" property="sumAvailableConfirmFee" jdbcType="DECIMAL" />
+    <result column="max_seller_email" property="maxSellerEmail" jdbcType="BIGINT" />
+    <result column="min_seller_email" property="minSellerEmail" jdbcType="BIGINT" />
+    <result column="avg_seller_email" property="avgSellerEmail" jdbcType="BIGINT" />
+    <result column="count_seller_email" property="countSellerEmail" jdbcType="BIGINT" />
+    <result column="sum_seller_email" property="sumSellerEmail" jdbcType="VARCHAR" />
+    <result column="max_seller_name" property="maxSellerName" jdbcType="BIGINT" />
+    <result column="min_seller_name" property="minSellerName" jdbcType="BIGINT" />
+    <result column="avg_seller_name" property="avgSellerName" jdbcType="BIGINT" />
+    <result column="count_seller_name" property="countSellerName" jdbcType="BIGINT" />
+    <result column="sum_seller_name" property="sumSellerName" jdbcType="VARCHAR" />
+    <result column="max_seller_phone" property="maxSellerPhone" jdbcType="BIGINT" />
+    <result column="min_seller_phone" property="minSellerPhone" jdbcType="BIGINT" />
+    <result column="avg_seller_phone" property="avgSellerPhone" jdbcType="BIGINT" />
+    <result column="count_seller_phone" property="countSellerPhone" jdbcType="BIGINT" />
+    <result column="sum_seller_phone" property="sumSellerPhone" jdbcType="VARCHAR" />
+    <result column="max_seller_mobile" property="maxSellerMobile" jdbcType="BIGINT" />
+    <result column="min_seller_mobile" property="minSellerMobile" jdbcType="BIGINT" />
+    <result column="avg_seller_mobile" property="avgSellerMobile" jdbcType="BIGINT" />
+    <result column="count_seller_mobile" property="countSellerMobile" jdbcType="BIGINT" />
+    <result column="sum_seller_mobile" property="sumSellerMobile" jdbcType="VARCHAR" />
+    <result column="max_seller_alipay_no" property="maxSellerAlipayNo" jdbcType="BIGINT" />
+    <result column="min_seller_alipay_no" property="minSellerAlipayNo" jdbcType="BIGINT" />
+    <result column="avg_seller_alipay_no" property="avgSellerAlipayNo" jdbcType="BIGINT" />
+    <result column="count_seller_alipay_no" property="countSellerAlipayNo" jdbcType="BIGINT" />
+    <result column="sum_seller_alipay_no" property="sumSellerAlipayNo" jdbcType="VARCHAR" />
+    <result column="max_consign_time" property="maxConsignTime" jdbcType="BIGINT" />
+    <result column="min_consign_time" property="minConsignTime" jdbcType="BIGINT" />
+    <result column="avg_consign_time" property="avgConsignTime" jdbcType="BIGINT" />
+    <result column="count_consign_time" property="countConsignTime" jdbcType="BIGINT" />
+    <result column="sum_consign_time" property="sumConsignTime" jdbcType="TIMESTAMP" />
+    <result column="max_receiver_phone" property="maxReceiverPhone" jdbcType="BIGINT" />
+    <result column="min_receiver_phone" property="minReceiverPhone" jdbcType="BIGINT" />
+    <result column="avg_receiver_phone" property="avgReceiverPhone" jdbcType="BIGINT" />
+    <result column="count_receiver_phone" property="countReceiverPhone" jdbcType="BIGINT" />
+    <result column="sum_receiver_phone" property="sumReceiverPhone" jdbcType="VARCHAR" />
+    <result column="max_receiver_mobile" property="maxReceiverMobile" jdbcType="BIGINT" />
+    <result column="min_receiver_mobile" property="minReceiverMobile" jdbcType="BIGINT" />
+    <result column="avg_receiver_mobile" property="avgReceiverMobile" jdbcType="BIGINT" />
+    <result column="count_receiver_mobile" property="countReceiverMobile" jdbcType="BIGINT" />
+    <result column="sum_receiver_mobile" property="sumReceiverMobile" jdbcType="VARCHAR" />
+    <result column="max_receiver_zip" property="maxReceiverZip" jdbcType="BIGINT" />
+    <result column="min_receiver_zip" property="minReceiverZip" jdbcType="BIGINT" />
+    <result column="avg_receiver_zip" property="avgReceiverZip" jdbcType="BIGINT" />
+    <result column="count_receiver_zip" property="countReceiverZip" jdbcType="BIGINT" />
+    <result column="sum_receiver_zip" property="sumReceiverZip" jdbcType="VARCHAR" />
+    <result column="max_receiver_address" property="maxReceiverAddress" jdbcType="BIGINT" />
+    <result column="min_receiver_address" property="minReceiverAddress" jdbcType="BIGINT" />
+    <result column="avg_receiver_address" property="avgReceiverAddress" jdbcType="BIGINT" />
+    <result column="count_receiver_address" property="countReceiverAddress" jdbcType="BIGINT" />
+    <result column="sum_receiver_address" property="sumReceiverAddress" jdbcType="VARCHAR" />
+    <result column="max_receiver_town" property="maxReceiverTown" jdbcType="BIGINT" />
+    <result column="min_receiver_town" property="minReceiverTown" jdbcType="BIGINT" />
+    <result column="avg_receiver_town" property="avgReceiverTown" jdbcType="BIGINT" />
+    <result column="count_receiver_town" property="countReceiverTown" jdbcType="BIGINT" />
+    <result column="sum_receiver_town" property="sumReceiverTown" jdbcType="VARCHAR" />
+    <result column="max_receiver_state" property="maxReceiverState" jdbcType="BIGINT" />
+    <result column="min_receiver_state" property="minReceiverState" jdbcType="BIGINT" />
+    <result column="avg_receiver_state" property="avgReceiverState" jdbcType="BIGINT" />
+    <result column="count_receiver_state" property="countReceiverState" jdbcType="BIGINT" />
+    <result column="sum_receiver_state" property="sumReceiverState" jdbcType="VARCHAR" />
+    <result column="max_receiver_country" property="maxReceiverCountry" jdbcType="BIGINT" />
+    <result column="min_receiver_country" property="minReceiverCountry" jdbcType="BIGINT" />
+    <result column="avg_receiver_country" property="avgReceiverCountry" jdbcType="BIGINT" />
+    <result column="count_receiver_country" property="countReceiverCountry" jdbcType="BIGINT" />
+    <result column="sum_receiver_country" property="sumReceiverCountry" jdbcType="VARCHAR" />
+    <result column="max_receiver_name" property="maxReceiverName" jdbcType="BIGINT" />
+    <result column="min_receiver_name" property="minReceiverName" jdbcType="BIGINT" />
+    <result column="avg_receiver_name" property="avgReceiverName" jdbcType="BIGINT" />
+    <result column="count_receiver_name" property="countReceiverName" jdbcType="BIGINT" />
+    <result column="sum_receiver_name" property="sumReceiverName" jdbcType="VARCHAR" />
+    <result column="max_post_fee" property="maxPostFee" jdbcType="BIGINT" />
+    <result column="min_post_fee" property="minPostFee" jdbcType="BIGINT" />
+    <result column="avg_post_fee" property="avgPostFee" jdbcType="BIGINT" />
+    <result column="count_post_fee" property="countPostFee" jdbcType="BIGINT" />
+    <result column="sum_post_fee" property="sumPostFee" jdbcType="DECIMAL" />
+    <result column="max_buyer_obtain_point_fee" property="maxBuyerObtainPointFee" jdbcType="BIGINT" />
+    <result column="min_buyer_obtain_point_fee" property="minBuyerObtainPointFee" jdbcType="BIGINT" />
+    <result column="avg_buyer_obtain_point_fee" property="avgBuyerObtainPointFee" jdbcType="BIGINT" />
+    <result column="count_buyer_obtain_point_fee" property="countBuyerObtainPointFee" jdbcType="BIGINT" />
+    <result column="sum_buyer_obtain_point_fee" property="sumBuyerObtainPointFee" jdbcType="INTEGER" />
+    <result column="max_seller_rate" property="maxSellerRate" jdbcType="BIGINT" />
+    <result column="min_seller_rate" property="minSellerRate" jdbcType="BIGINT" />
+    <result column="avg_seller_rate" property="avgSellerRate" jdbcType="BIGINT" />
+    <result column="count_seller_rate" property="countSellerRate" jdbcType="BIGINT" />
+    <result column="sum_seller_rate" property="sumSellerRate" jdbcType="VARCHAR" />
+    <result column="max_payment" property="maxPayment" jdbcType="BIGINT" />
+    <result column="min_payment" property="minPayment" jdbcType="BIGINT" />
+    <result column="avg_payment" property="avgPayment" jdbcType="BIGINT" />
+    <result column="count_payment" property="countPayment" jdbcType="BIGINT" />
+    <result column="sum_payment" property="sumPayment" jdbcType="DECIMAL" />
+    <result column="max_shipping_type" property="maxShippingType" jdbcType="BIGINT" />
+    <result column="min_shipping_type" property="minShippingType" jdbcType="BIGINT" />
+    <result column="avg_shipping_type" property="avgShippingType" jdbcType="BIGINT" />
+    <result column="count_shipping_type" property="countShippingType" jdbcType="BIGINT" />
+    <result column="sum_shipping_type" property="sumShippingType" jdbcType="VARCHAR" />
+    <result column="max_seller_nick" property="maxSellerNick" jdbcType="BIGINT" />
+    <result column="min_seller_nick" property="minSellerNick" jdbcType="BIGINT" />
+    <result column="avg_seller_nick" property="avgSellerNick" jdbcType="BIGINT" />
+    <result column="count_seller_nick" property="countSellerNick" jdbcType="BIGINT" />
+    <result column="sum_seller_nick" property="sumSellerNick" jdbcType="VARCHAR" />
+    <result column="max_receiver_id_tb" property="maxReceiverIdTb" jdbcType="BIGINT" />
+    <result column="min_receiver_id_tb" property="minReceiverIdTb" jdbcType="BIGINT" />
+    <result column="avg_receiver_id_tb" property="avgReceiverIdTb" jdbcType="BIGINT" />
+    <result column="count_receiver_id_tb" property="countReceiverIdTb" jdbcType="BIGINT" />
+    <result column="sum_receiver_id_tb" property="sumReceiverIdTb" jdbcType="BIGINT" />
+    <result column="max_user_id_tb" property="maxUserIdTb" jdbcType="BIGINT" />
+    <result column="min_user_id_tb" property="minUserIdTb" jdbcType="BIGINT" />
+    <result column="avg_user_id_tb" property="avgUserIdTb" jdbcType="BIGINT" />
+    <result column="count_user_id_tb" property="countUserIdTb" jdbcType="BIGINT" />
+    <result column="sum_user_id_tb" property="sumUserIdTb" jdbcType="BIGINT" />
+    <result column="max_shop_id" property="maxShopId" jdbcType="BIGINT" />
+    <result column="min_shop_id" property="minShopId" jdbcType="BIGINT" />
+    <result column="avg_shop_id" property="avgShopId" jdbcType="BIGINT" />
+    <result column="count_shop_id" property="countShopId" jdbcType="BIGINT" />
+    <result column="sum_shop_id" property="sumShopId" jdbcType="BIGINT" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="max_tid" property="maxTid" jdbcType="BIGINT" />
+    <result column="min_tid" property="minTid" jdbcType="BIGINT" />
+    <result column="avg_tid" property="avgTid" jdbcType="BIGINT" />
+    <result column="count_tid" property="countTid" jdbcType="BIGINT" />
+    <result column="sum_tid" property="sumTid" jdbcType="BIGINT" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="tid" property="tid" jdbcType="BIGINT" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+    <result column="shop_id" property="shopId" jdbcType="BIGINT" />
+    <result column="user_id_tb" property="userIdTb" jdbcType="BIGINT" />
+    <result column="receiver_id_tb" property="receiverIdTb" jdbcType="BIGINT" />
+    <result column="seller_nick" property="sellerNick" jdbcType="VARCHAR" />
+    <result column="shipping_type" property="shippingType" jdbcType="VARCHAR" />
+    <result column="payment" property="payment" jdbcType="DECIMAL" />
+    <result column="seller_rate" property="sellerRate" jdbcType="VARCHAR" />
+    <result column="buyer_obtain_point_fee" property="buyerObtainPointFee" jdbcType="INTEGER" />
+    <result column="post_fee" property="postFee" jdbcType="DECIMAL" />
+    <result column="receiver_name" property="receiverName" jdbcType="VARCHAR" />
+    <result column="receiver_country" property="receiverCountry" jdbcType="VARCHAR" />
+    <result column="receiver_state" property="receiverState" jdbcType="VARCHAR" />
+    <result column="receiver_town" property="receiverTown" jdbcType="VARCHAR" />
+    <result column="receiver_address" property="receiverAddress" jdbcType="VARCHAR" />
+    <result column="receiver_zip" property="receiverZip" jdbcType="VARCHAR" />
+    <result column="receiver_mobile" property="receiverMobile" jdbcType="VARCHAR" />
+    <result column="receiver_phone" property="receiverPhone" jdbcType="VARCHAR" />
+    <result column="consign_time" property="consignTime" jdbcType="TIMESTAMP" />
+    <result column="seller_alipay_no" property="sellerAlipayNo" jdbcType="VARCHAR" />
+    <result column="seller_mobile" property="sellerMobile" jdbcType="VARCHAR" />
+    <result column="seller_phone" property="sellerPhone" jdbcType="VARCHAR" />
+    <result column="seller_name" property="sellerName" jdbcType="VARCHAR" />
+    <result column="seller_email" property="sellerEmail" jdbcType="VARCHAR" />
+    <result column="available_confirm_fee" property="availableConfirmFee" jdbcType="DECIMAL" />
+    <result column="received_payment" property="receivedPayment" jdbcType="DECIMAL" />
+    <result column="timeout_action_time" property="timeoutActionTime" jdbcType="TIMESTAMP" />
+    <result column="is_3d" property="is3d" jdbcType="VARCHAR" />
+    <result column="promotion" property="promotion" jdbcType="VARCHAR" />
+    <result column="est_con_time" property="estConTime" jdbcType="TIMESTAMP" />
+    <result column="invoice_kind" property="invoiceKind" jdbcType="VARCHAR" />
+    <result column="goods_category_num" property="goodsCategoryNum" jdbcType="INTEGER" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="num_iid" property="numIid" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="seller_cod_fee" property="sellerCodFee" jdbcType="DECIMAL" />
+    <result column="discount_fee" property="discountFee" jdbcType="DECIMAL" />
+    <result column="point_fee" property="pointFee" jdbcType="INTEGER" />
+    <result column="total_fee" property="totalFee" jdbcType="DECIMAL" />
+    <result column="is_brand_sale" property="isBrandSale" jdbcType="VARCHAR" />
+    <result column="lg_aging" property="lgAging" jdbcType="DECIMAL" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="pay_time" property="payTime" jdbcType="TIMESTAMP" />
+    <result column="modified" property="modified" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="buyer_message" property="buyerMessage" jdbcType="VARCHAR" />
+    <result column="alipay_id" property="alipayId" jdbcType="BIGINT" />
+    <result column="alipay_no" property="alipayNo" jdbcType="VARCHAR" />
+    <result column="buyer_alipay_no" property="buyerAlipayNo" jdbcType="VARCHAR" />
+    <result column="buyer_memo" property="buyerMemo" jdbcType="VARCHAR" />
+    <result column="buyer_flag" property="buyerFlag" jdbcType="INTEGER" />
+    <result column="seller_memo" property="sellerMemo" jdbcType="VARCHAR" />
+    <result column="seller_flag" property="sellerFlag" jdbcType="INTEGER" />
+    <result column="buyer_nick" property="buyerNick" jdbcType="VARCHAR" />
+    <result column="buyer_area" property="buyerArea" jdbcType="VARCHAR" />
+    <result column="buyer_email" property="buyerEmail" jdbcType="VARCHAR" />
+    <result column="has_buyer_message" property="hasBuyerMessage" jdbcType="VARCHAR" />
+    <result column="area_id" property="areaId" jdbcType="VARCHAR" />
+    <result column="credit_card_fee" property="creditCardFee" jdbcType="VARCHAR" />
+    <result column="nut_feature" property="nutFeature" jdbcType="VARCHAR" />
+    <result column="step_trade_status" property="stepTradeStatus" jdbcType="VARCHAR" />
+    <result column="step_paid_fee" property="stepPaidFee" jdbcType="VARCHAR" />
+    <result column="mark_desc" property="markDesc" jdbcType="VARCHAR" />
+    <result column="send_time" property="sendTime" jdbcType="VARCHAR" />
+    <result column="trade_from" property="tradeFrom" jdbcType="VARCHAR" />
+    <result column="alipay_warn_msg" property="alipayWarnMsg" jdbcType="VARCHAR" />
+    <result column="cod_status" property="codStatus" jdbcType="VARCHAR" />
+    <result column="can_rate" property="canRate" jdbcType="VARCHAR" />
+    <result column="commission_fee" property="commissionFee" jdbcType="VARCHAR" />
+    <result column="trade_memo" property="tradeMemo" jdbcType="VARCHAR" />
+    <result column="buyer_rate" property="buyerRate" jdbcType="VARCHAR" />
+    <result column="trade_source" property="tradeSource" jdbcType="VARCHAR" />
+    <result column="is_part_consign" property="isPartConsign" jdbcType="VARCHAR" />
+    <result column="real_point_fee" property="realPointFee" jdbcType="INTEGER" />
+    <result column="receiver_city" property="receiverCity" jdbcType="VARCHAR" />
+    <result column="receiver_district" property="receiverDistrict" jdbcType="VARCHAR" />
+    <result column="arrive_interval" property="arriveInterval" jdbcType="INTEGER" />
+    <result column="arrive_cut_time" property="arriveCutTime" jdbcType="VARCHAR" />
+    <result column="consign_interval" property="consignInterval" jdbcType="INTEGER" />
+    <result column="async_modified" property="asyncModified" jdbcType="TIMESTAMP" />
+    <result column="alipay_point" property="alipayPoint" jdbcType="INTEGER" />
+    <result column="pcc_af" property="pccAf" jdbcType="INTEGER" />
+    <result column="is_wt" property="isWt" jdbcType="VARCHAR" />
+    <result column="is_excel_import" property="isExcelImport" jdbcType="VARCHAR" />
+    <result column="trade_close_reson" property="tradeCloseReson" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, is_deleted, tid, seller_id, shop_id, user_id_tb, receiver_id_tb, 
+    seller_nick, shipping_type, payment, seller_rate, buyer_obtain_point_fee, post_fee, 
+    receiver_name, receiver_country, receiver_state, receiver_town, receiver_address, 
+    receiver_zip, receiver_mobile, receiver_phone, consign_time, seller_alipay_no, seller_mobile, 
+    seller_phone, seller_name, seller_email, available_confirm_fee, received_payment, 
+    timeout_action_time, is_3d, promotion, est_con_time, invoice_kind, goods_category_num, 
+    num, num_iid, status, title, type, price, seller_cod_fee, discount_fee, point_fee, 
+    total_fee, is_brand_sale, lg_aging, created, pay_time, modified, end_time, buyer_message, 
+    alipay_id, alipay_no, buyer_alipay_no, buyer_memo, buyer_flag, seller_memo, seller_flag, 
+    buyer_nick, buyer_area, buyer_email, has_buyer_message, area_id, credit_card_fee, 
+    nut_feature, step_trade_status, step_paid_fee, mark_desc, send_time, trade_from, 
+    alipay_warn_msg, cod_status, can_rate, commission_fee, trade_memo, buyer_rate, trade_source, 
+    is_part_consign, real_point_fee, receiver_city, receiver_district, arrive_interval, 
+    arrive_cut_time, consign_interval, async_modified, alipay_point, pcc_af, is_wt, is_excel_import, 
+    trade_close_reson
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.trade.TradeTaoBaoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from trade_taobao
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from trade_taobao
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update trade_taobao
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.trade.TradeTaoBaoExample" >
+    update trade_taobao
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.trade.TradeTaoBao" useGeneratedKeys="true" keyProperty="id" >
+    insert into trade_taobao (id, gmt_created, gmt_modified, 
+      is_deleted, tid, seller_id, 
+      shop_id, user_id_tb, receiver_id_tb, 
+      seller_nick, shipping_type, payment, 
+      seller_rate, buyer_obtain_point_fee, post_fee, 
+      receiver_name, receiver_country, receiver_state, 
+      receiver_town, receiver_address, receiver_zip, 
+      receiver_mobile, receiver_phone, consign_time, 
+      seller_alipay_no, seller_mobile, seller_phone, 
+      seller_name, seller_email, available_confirm_fee, 
+      received_payment, timeout_action_time, is_3d, 
+      promotion, est_con_time, invoice_kind, 
+      goods_category_num, num, num_iid, 
+      status, title, type, 
+      price, seller_cod_fee, discount_fee, 
+      point_fee, total_fee, is_brand_sale, 
+      lg_aging, created, pay_time, 
+      modified, end_time, buyer_message, 
+      alipay_id, alipay_no, buyer_alipay_no, 
+      buyer_memo, buyer_flag, seller_memo, 
+      seller_flag, buyer_nick, buyer_area, 
+      buyer_email, has_buyer_message, area_id, 
+      credit_card_fee, nut_feature, step_trade_status, 
+      step_paid_fee, mark_desc, send_time, 
+      trade_from, alipay_warn_msg, cod_status, 
+      can_rate, commission_fee, trade_memo, 
+      buyer_rate, trade_source, is_part_consign, 
+      real_point_fee, receiver_city, receiver_district, 
+      arrive_interval, arrive_cut_time, consign_interval, 
+      async_modified, alipay_point, pcc_af, 
+      is_wt, is_excel_import, trade_close_reson
+      )
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{isDeleted,jdbcType=VARCHAR}, #{tid,jdbcType=BIGINT}, #{sellerId,jdbcType=BIGINT}, 
+      #{shopId,jdbcType=BIGINT}, #{userIdTb,jdbcType=BIGINT}, #{receiverIdTb,jdbcType=BIGINT}, 
+      #{sellerNick,jdbcType=VARCHAR}, #{shippingType,jdbcType=VARCHAR}, #{payment,jdbcType=DECIMAL}, 
+      #{sellerRate,jdbcType=VARCHAR}, #{buyerObtainPointFee,jdbcType=INTEGER}, #{postFee,jdbcType=DECIMAL}, 
+      #{receiverName,jdbcType=VARCHAR}, #{receiverCountry,jdbcType=VARCHAR}, #{receiverState,jdbcType=VARCHAR}, 
+      #{receiverTown,jdbcType=VARCHAR}, #{receiverAddress,jdbcType=VARCHAR}, #{receiverZip,jdbcType=VARCHAR}, 
+      #{receiverMobile,jdbcType=VARCHAR}, #{receiverPhone,jdbcType=VARCHAR}, #{consignTime,jdbcType=TIMESTAMP}, 
+      #{sellerAlipayNo,jdbcType=VARCHAR}, #{sellerMobile,jdbcType=VARCHAR}, #{sellerPhone,jdbcType=VARCHAR}, 
+      #{sellerName,jdbcType=VARCHAR}, #{sellerEmail,jdbcType=VARCHAR}, #{availableConfirmFee,jdbcType=DECIMAL}, 
+      #{receivedPayment,jdbcType=DECIMAL}, #{timeoutActionTime,jdbcType=TIMESTAMP}, #{is3d,jdbcType=VARCHAR}, 
+      #{promotion,jdbcType=VARCHAR}, #{estConTime,jdbcType=TIMESTAMP}, #{invoiceKind,jdbcType=VARCHAR}, 
+      #{goodsCategoryNum,jdbcType=INTEGER}, #{num,jdbcType=INTEGER}, #{numIid,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DECIMAL}, #{sellerCodFee,jdbcType=DECIMAL}, #{discountFee,jdbcType=DECIMAL}, 
+      #{pointFee,jdbcType=INTEGER}, #{totalFee,jdbcType=DECIMAL}, #{isBrandSale,jdbcType=VARCHAR}, 
+      #{lgAging,jdbcType=DECIMAL}, #{created,jdbcType=TIMESTAMP}, #{payTime,jdbcType=TIMESTAMP}, 
+      #{modified,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{buyerMessage,jdbcType=VARCHAR}, 
+      #{alipayId,jdbcType=BIGINT}, #{alipayNo,jdbcType=VARCHAR}, #{buyerAlipayNo,jdbcType=VARCHAR}, 
+      #{buyerMemo,jdbcType=VARCHAR}, #{buyerFlag,jdbcType=INTEGER}, #{sellerMemo,jdbcType=VARCHAR}, 
+      #{sellerFlag,jdbcType=INTEGER}, #{buyerNick,jdbcType=VARCHAR}, #{buyerArea,jdbcType=VARCHAR}, 
+      #{buyerEmail,jdbcType=VARCHAR}, #{hasBuyerMessage,jdbcType=VARCHAR}, #{areaId,jdbcType=VARCHAR}, 
+      #{creditCardFee,jdbcType=VARCHAR}, #{nutFeature,jdbcType=VARCHAR}, #{stepTradeStatus,jdbcType=VARCHAR}, 
+      #{stepPaidFee,jdbcType=VARCHAR}, #{markDesc,jdbcType=VARCHAR}, #{sendTime,jdbcType=VARCHAR}, 
+      #{tradeFrom,jdbcType=VARCHAR}, #{alipayWarnMsg,jdbcType=VARCHAR}, #{codStatus,jdbcType=VARCHAR}, 
+      #{canRate,jdbcType=VARCHAR}, #{commissionFee,jdbcType=VARCHAR}, #{tradeMemo,jdbcType=VARCHAR}, 
+      #{buyerRate,jdbcType=VARCHAR}, #{tradeSource,jdbcType=VARCHAR}, #{isPartConsign,jdbcType=VARCHAR}, 
+      #{realPointFee,jdbcType=INTEGER}, #{receiverCity,jdbcType=VARCHAR}, #{receiverDistrict,jdbcType=VARCHAR}, 
+      #{arriveInterval,jdbcType=INTEGER}, #{arriveCutTime,jdbcType=VARCHAR}, #{consignInterval,jdbcType=INTEGER}, 
+      #{asyncModified,jdbcType=TIMESTAMP}, #{alipayPoint,jdbcType=INTEGER}, #{pccAf,jdbcType=INTEGER}, 
+      #{isWt,jdbcType=VARCHAR}, #{isExcelImport,jdbcType=VARCHAR}, #{tradeCloseReson,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.trade.TradeTaoBao" useGeneratedKeys="true" keyProperty="id" >
+    insert into trade_taobao
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="tid != null" >
+        tid,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="shopId != null" >
+        shop_id,
+      </if>
+      <if test="userIdTb != null" >
+        user_id_tb,
+      </if>
+      <if test="receiverIdTb != null" >
+        receiver_id_tb,
+      </if>
+      <if test="sellerNick != null" >
+        seller_nick,
+      </if>
+      <if test="shippingType != null" >
+        shipping_type,
+      </if>
+      <if test="payment != null" >
+        payment,
+      </if>
+      <if test="sellerRate != null" >
+        seller_rate,
+      </if>
+      <if test="buyerObtainPointFee != null" >
+        buyer_obtain_point_fee,
+      </if>
+      <if test="postFee != null" >
+        post_fee,
+      </if>
+      <if test="receiverName != null" >
+        receiver_name,
+      </if>
+      <if test="receiverCountry != null" >
+        receiver_country,
+      </if>
+      <if test="receiverState != null" >
+        receiver_state,
+      </if>
+      <if test="receiverTown != null" >
+        receiver_town,
+      </if>
+      <if test="receiverAddress != null" >
+        receiver_address,
+      </if>
+      <if test="receiverZip != null" >
+        receiver_zip,
+      </if>
+      <if test="receiverMobile != null" >
+        receiver_mobile,
+      </if>
+      <if test="receiverPhone != null" >
+        receiver_phone,
+      </if>
+      <if test="consignTime != null" >
+        consign_time,
+      </if>
+      <if test="sellerAlipayNo != null" >
+        seller_alipay_no,
+      </if>
+      <if test="sellerMobile != null" >
+        seller_mobile,
+      </if>
+      <if test="sellerPhone != null" >
+        seller_phone,
+      </if>
+      <if test="sellerName != null" >
+        seller_name,
+      </if>
+      <if test="sellerEmail != null" >
+        seller_email,
+      </if>
+      <if test="availableConfirmFee != null" >
+        available_confirm_fee,
+      </if>
+      <if test="receivedPayment != null" >
+        received_payment,
+      </if>
+      <if test="timeoutActionTime != null" >
+        timeout_action_time,
+      </if>
+      <if test="is3d != null" >
+        is_3d,
+      </if>
+      <if test="promotion != null" >
+        promotion,
+      </if>
+      <if test="estConTime != null" >
+        est_con_time,
+      </if>
+      <if test="invoiceKind != null" >
+        invoice_kind,
+      </if>
+      <if test="goodsCategoryNum != null" >
+        goods_category_num,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="numIid != null" >
+        num_iid,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="sellerCodFee != null" >
+        seller_cod_fee,
+      </if>
+      <if test="discountFee != null" >
+        discount_fee,
+      </if>
+      <if test="pointFee != null" >
+        point_fee,
+      </if>
+      <if test="totalFee != null" >
+        total_fee,
+      </if>
+      <if test="isBrandSale != null" >
+        is_brand_sale,
+      </if>
+      <if test="lgAging != null" >
+        lg_aging,
+      </if>
+      <if test="created != null" >
+        created,
+      </if>
+      <if test="payTime != null" >
+        pay_time,
+      </if>
+      <if test="modified != null" >
+        modified,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="buyerMessage != null" >
+        buyer_message,
+      </if>
+      <if test="alipayId != null" >
+        alipay_id,
+      </if>
+      <if test="alipayNo != null" >
+        alipay_no,
+      </if>
+      <if test="buyerAlipayNo != null" >
+        buyer_alipay_no,
+      </if>
+      <if test="buyerMemo != null" >
+        buyer_memo,
+      </if>
+      <if test="buyerFlag != null" >
+        buyer_flag,
+      </if>
+      <if test="sellerMemo != null" >
+        seller_memo,
+      </if>
+      <if test="sellerFlag != null" >
+        seller_flag,
+      </if>
+      <if test="buyerNick != null" >
+        buyer_nick,
+      </if>
+      <if test="buyerArea != null" >
+        buyer_area,
+      </if>
+      <if test="buyerEmail != null" >
+        buyer_email,
+      </if>
+      <if test="hasBuyerMessage != null" >
+        has_buyer_message,
+      </if>
+      <if test="areaId != null" >
+        area_id,
+      </if>
+      <if test="creditCardFee != null" >
+        credit_card_fee,
+      </if>
+      <if test="nutFeature != null" >
+        nut_feature,
+      </if>
+      <if test="stepTradeStatus != null" >
+        step_trade_status,
+      </if>
+      <if test="stepPaidFee != null" >
+        step_paid_fee,
+      </if>
+      <if test="markDesc != null" >
+        mark_desc,
+      </if>
+      <if test="sendTime != null" >
+        send_time,
+      </if>
+      <if test="tradeFrom != null" >
+        trade_from,
+      </if>
+      <if test="alipayWarnMsg != null" >
+        alipay_warn_msg,
+      </if>
+      <if test="codStatus != null" >
+        cod_status,
+      </if>
+      <if test="canRate != null" >
+        can_rate,
+      </if>
+      <if test="commissionFee != null" >
+        commission_fee,
+      </if>
+      <if test="tradeMemo != null" >
+        trade_memo,
+      </if>
+      <if test="buyerRate != null" >
+        buyer_rate,
+      </if>
+      <if test="tradeSource != null" >
+        trade_source,
+      </if>
+      <if test="isPartConsign != null" >
+        is_part_consign,
+      </if>
+      <if test="realPointFee != null" >
+        real_point_fee,
+      </if>
+      <if test="receiverCity != null" >
+        receiver_city,
+      </if>
+      <if test="receiverDistrict != null" >
+        receiver_district,
+      </if>
+      <if test="arriveInterval != null" >
+        arrive_interval,
+      </if>
+      <if test="arriveCutTime != null" >
+        arrive_cut_time,
+      </if>
+      <if test="consignInterval != null" >
+        consign_interval,
+      </if>
+      <if test="asyncModified != null" >
+        async_modified,
+      </if>
+      <if test="alipayPoint != null" >
+        alipay_point,
+      </if>
+      <if test="pccAf != null" >
+        pcc_af,
+      </if>
+      <if test="isWt != null" >
+        is_wt,
+      </if>
+      <if test="isExcelImport != null" >
+        is_excel_import,
+      </if>
+      <if test="tradeCloseReson != null" >
+        trade_close_reson,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=BIGINT},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+      <if test="shopId != null" >
+        #{shopId,jdbcType=BIGINT},
+      </if>
+      <if test="userIdTb != null" >
+        #{userIdTb,jdbcType=BIGINT},
+      </if>
+      <if test="receiverIdTb != null" >
+        #{receiverIdTb,jdbcType=BIGINT},
+      </if>
+      <if test="sellerNick != null" >
+        #{sellerNick,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingType != null" >
+        #{shippingType,jdbcType=VARCHAR},
+      </if>
+      <if test="payment != null" >
+        #{payment,jdbcType=DECIMAL},
+      </if>
+      <if test="sellerRate != null" >
+        #{sellerRate,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerObtainPointFee != null" >
+        #{buyerObtainPointFee,jdbcType=INTEGER},
+      </if>
+      <if test="postFee != null" >
+        #{postFee,jdbcType=DECIMAL},
+      </if>
+      <if test="receiverName != null" >
+        #{receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverCountry != null" >
+        #{receiverCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverState != null" >
+        #{receiverState,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverTown != null" >
+        #{receiverTown,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverAddress != null" >
+        #{receiverAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverZip != null" >
+        #{receiverZip,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverMobile != null" >
+        #{receiverMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverPhone != null" >
+        #{receiverPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="consignTime != null" >
+        #{consignTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sellerAlipayNo != null" >
+        #{sellerAlipayNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerMobile != null" >
+        #{sellerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerPhone != null" >
+        #{sellerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerName != null" >
+        #{sellerName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerEmail != null" >
+        #{sellerEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="availableConfirmFee != null" >
+        #{availableConfirmFee,jdbcType=DECIMAL},
+      </if>
+      <if test="receivedPayment != null" >
+        #{receivedPayment,jdbcType=DECIMAL},
+      </if>
+      <if test="timeoutActionTime != null" >
+        #{timeoutActionTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="is3d != null" >
+        #{is3d,jdbcType=VARCHAR},
+      </if>
+      <if test="promotion != null" >
+        #{promotion,jdbcType=VARCHAR},
+      </if>
+      <if test="estConTime != null" >
+        #{estConTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="invoiceKind != null" >
+        #{invoiceKind,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsCategoryNum != null" >
+        #{goodsCategoryNum,jdbcType=INTEGER},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="numIid != null" >
+        #{numIid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="sellerCodFee != null" >
+        #{sellerCodFee,jdbcType=DECIMAL},
+      </if>
+      <if test="discountFee != null" >
+        #{discountFee,jdbcType=DECIMAL},
+      </if>
+      <if test="pointFee != null" >
+        #{pointFee,jdbcType=INTEGER},
+      </if>
+      <if test="totalFee != null" >
+        #{totalFee,jdbcType=DECIMAL},
+      </if>
+      <if test="isBrandSale != null" >
+        #{isBrandSale,jdbcType=VARCHAR},
+      </if>
+      <if test="lgAging != null" >
+        #{lgAging,jdbcType=DECIMAL},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payTime != null" >
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modified != null" >
+        #{modified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buyerMessage != null" >
+        #{buyerMessage,jdbcType=VARCHAR},
+      </if>
+      <if test="alipayId != null" >
+        #{alipayId,jdbcType=BIGINT},
+      </if>
+      <if test="alipayNo != null" >
+        #{alipayNo,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerAlipayNo != null" >
+        #{buyerAlipayNo,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerMemo != null" >
+        #{buyerMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerFlag != null" >
+        #{buyerFlag,jdbcType=INTEGER},
+      </if>
+      <if test="sellerMemo != null" >
+        #{sellerMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerFlag != null" >
+        #{sellerFlag,jdbcType=INTEGER},
+      </if>
+      <if test="buyerNick != null" >
+        #{buyerNick,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerArea != null" >
+        #{buyerArea,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerEmail != null" >
+        #{buyerEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="hasBuyerMessage != null" >
+        #{hasBuyerMessage,jdbcType=VARCHAR},
+      </if>
+      <if test="areaId != null" >
+        #{areaId,jdbcType=VARCHAR},
+      </if>
+      <if test="creditCardFee != null" >
+        #{creditCardFee,jdbcType=VARCHAR},
+      </if>
+      <if test="nutFeature != null" >
+        #{nutFeature,jdbcType=VARCHAR},
+      </if>
+      <if test="stepTradeStatus != null" >
+        #{stepTradeStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="stepPaidFee != null" >
+        #{stepPaidFee,jdbcType=VARCHAR},
+      </if>
+      <if test="markDesc != null" >
+        #{markDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null" >
+        #{sendTime,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeFrom != null" >
+        #{tradeFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="alipayWarnMsg != null" >
+        #{alipayWarnMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="codStatus != null" >
+        #{codStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="canRate != null" >
+        #{canRate,jdbcType=VARCHAR},
+      </if>
+      <if test="commissionFee != null" >
+        #{commissionFee,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeMemo != null" >
+        #{tradeMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerRate != null" >
+        #{buyerRate,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeSource != null" >
+        #{tradeSource,jdbcType=VARCHAR},
+      </if>
+      <if test="isPartConsign != null" >
+        #{isPartConsign,jdbcType=VARCHAR},
+      </if>
+      <if test="realPointFee != null" >
+        #{realPointFee,jdbcType=INTEGER},
+      </if>
+      <if test="receiverCity != null" >
+        #{receiverCity,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverDistrict != null" >
+        #{receiverDistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="arriveInterval != null" >
+        #{arriveInterval,jdbcType=INTEGER},
+      </if>
+      <if test="arriveCutTime != null" >
+        #{arriveCutTime,jdbcType=VARCHAR},
+      </if>
+      <if test="consignInterval != null" >
+        #{consignInterval,jdbcType=INTEGER},
+      </if>
+      <if test="asyncModified != null" >
+        #{asyncModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="alipayPoint != null" >
+        #{alipayPoint,jdbcType=INTEGER},
+      </if>
+      <if test="pccAf != null" >
+        #{pccAf,jdbcType=INTEGER},
+      </if>
+      <if test="isWt != null" >
+        #{isWt,jdbcType=VARCHAR},
+      </if>
+      <if test="isExcelImport != null" >
+        #{isExcelImport,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeCloseReson != null" >
+        #{tradeCloseReson,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.trade.TradeTaoBaoExample" resultType="java.lang.Integer" >
+    select count(*) from trade_taobao
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update trade_taobao
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.tid!=null and record.tidExpression==null" >
+          tid = #{record.tid,jdbcType=BIGINT},
+        </if>
+        <if test="record.tidExpression!=null" >
+          tid = ${record.tidExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.shopId!=null and record.shopIdExpression==null" >
+          shop_id = #{record.shopId,jdbcType=BIGINT},
+        </if>
+        <if test="record.shopIdExpression!=null" >
+          shop_id = ${record.shopIdExpression},
+        </if>
+        <if test="record.userIdTb!=null and record.userIdTbExpression==null" >
+          user_id_tb = #{record.userIdTb,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdTbExpression!=null" >
+          user_id_tb = ${record.userIdTbExpression},
+        </if>
+        <if test="record.receiverIdTb!=null and record.receiverIdTbExpression==null" >
+          receiver_id_tb = #{record.receiverIdTb,jdbcType=BIGINT},
+        </if>
+        <if test="record.receiverIdTbExpression!=null" >
+          receiver_id_tb = ${record.receiverIdTbExpression},
+        </if>
+        <if test="record.sellerNick!=null and record.sellerNickExpression==null" >
+          seller_nick = #{record.sellerNick,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerNickExpression!=null" >
+          seller_nick = ${record.sellerNickExpression},
+        </if>
+        <if test="record.shippingType!=null and record.shippingTypeExpression==null" >
+          shipping_type = #{record.shippingType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shippingTypeExpression!=null" >
+          shipping_type = ${record.shippingTypeExpression},
+        </if>
+        <if test="record.payment!=null and record.paymentExpression==null" >
+          payment = #{record.payment,jdbcType=DECIMAL},
+        </if>
+        <if test="record.paymentExpression!=null" >
+          payment = ${record.paymentExpression},
+        </if>
+        <if test="record.sellerRate!=null and record.sellerRateExpression==null" >
+          seller_rate = #{record.sellerRate,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerRateExpression!=null" >
+          seller_rate = ${record.sellerRateExpression},
+        </if>
+        <if test="record.buyerObtainPointFee!=null and record.buyerObtainPointFeeExpression==null" >
+          buyer_obtain_point_fee = #{record.buyerObtainPointFee,jdbcType=INTEGER},
+        </if>
+        <if test="record.buyerObtainPointFeeExpression!=null" >
+          buyer_obtain_point_fee = ${record.buyerObtainPointFeeExpression},
+        </if>
+        <if test="record.postFee!=null and record.postFeeExpression==null" >
+          post_fee = #{record.postFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.postFeeExpression!=null" >
+          post_fee = ${record.postFeeExpression},
+        </if>
+        <if test="record.receiverName!=null and record.receiverNameExpression==null" >
+          receiver_name = #{record.receiverName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverNameExpression!=null" >
+          receiver_name = ${record.receiverNameExpression},
+        </if>
+        <if test="record.receiverCountry!=null and record.receiverCountryExpression==null" >
+          receiver_country = #{record.receiverCountry,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverCountryExpression!=null" >
+          receiver_country = ${record.receiverCountryExpression},
+        </if>
+        <if test="record.receiverState!=null and record.receiverStateExpression==null" >
+          receiver_state = #{record.receiverState,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverStateExpression!=null" >
+          receiver_state = ${record.receiverStateExpression},
+        </if>
+        <if test="record.receiverTown!=null and record.receiverTownExpression==null" >
+          receiver_town = #{record.receiverTown,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverTownExpression!=null" >
+          receiver_town = ${record.receiverTownExpression},
+        </if>
+        <if test="record.receiverAddress!=null and record.receiverAddressExpression==null" >
+          receiver_address = #{record.receiverAddress,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverAddressExpression!=null" >
+          receiver_address = ${record.receiverAddressExpression},
+        </if>
+        <if test="record.receiverZip!=null and record.receiverZipExpression==null" >
+          receiver_zip = #{record.receiverZip,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverZipExpression!=null" >
+          receiver_zip = ${record.receiverZipExpression},
+        </if>
+        <if test="record.receiverMobile!=null and record.receiverMobileExpression==null" >
+          receiver_mobile = #{record.receiverMobile,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverMobileExpression!=null" >
+          receiver_mobile = ${record.receiverMobileExpression},
+        </if>
+        <if test="record.receiverPhone!=null and record.receiverPhoneExpression==null" >
+          receiver_phone = #{record.receiverPhone,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverPhoneExpression!=null" >
+          receiver_phone = ${record.receiverPhoneExpression},
+        </if>
+        <if test="record.consignTime!=null and record.consignTimeExpression==null" >
+          consign_time = #{record.consignTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.consignTimeExpression!=null" >
+          consign_time = ${record.consignTimeExpression},
+        </if>
+        <if test="record.sellerAlipayNo!=null and record.sellerAlipayNoExpression==null" >
+          seller_alipay_no = #{record.sellerAlipayNo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerAlipayNoExpression!=null" >
+          seller_alipay_no = ${record.sellerAlipayNoExpression},
+        </if>
+        <if test="record.sellerMobile!=null and record.sellerMobileExpression==null" >
+          seller_mobile = #{record.sellerMobile,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerMobileExpression!=null" >
+          seller_mobile = ${record.sellerMobileExpression},
+        </if>
+        <if test="record.sellerPhone!=null and record.sellerPhoneExpression==null" >
+          seller_phone = #{record.sellerPhone,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerPhoneExpression!=null" >
+          seller_phone = ${record.sellerPhoneExpression},
+        </if>
+        <if test="record.sellerName!=null and record.sellerNameExpression==null" >
+          seller_name = #{record.sellerName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerNameExpression!=null" >
+          seller_name = ${record.sellerNameExpression},
+        </if>
+        <if test="record.sellerEmail!=null and record.sellerEmailExpression==null" >
+          seller_email = #{record.sellerEmail,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerEmailExpression!=null" >
+          seller_email = ${record.sellerEmailExpression},
+        </if>
+        <if test="record.availableConfirmFee!=null and record.availableConfirmFeeExpression==null" >
+          available_confirm_fee = #{record.availableConfirmFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.availableConfirmFeeExpression!=null" >
+          available_confirm_fee = ${record.availableConfirmFeeExpression},
+        </if>
+        <if test="record.receivedPayment!=null and record.receivedPaymentExpression==null" >
+          received_payment = #{record.receivedPayment,jdbcType=DECIMAL},
+        </if>
+        <if test="record.receivedPaymentExpression!=null" >
+          received_payment = ${record.receivedPaymentExpression},
+        </if>
+        <if test="record.timeoutActionTime!=null and record.timeoutActionTimeExpression==null" >
+          timeout_action_time = #{record.timeoutActionTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.timeoutActionTimeExpression!=null" >
+          timeout_action_time = ${record.timeoutActionTimeExpression},
+        </if>
+        <if test="record.is3d!=null and record.is3dExpression==null" >
+          is_3d = #{record.is3d,jdbcType=VARCHAR},
+        </if>
+        <if test="record.is3dExpression!=null" >
+          is_3d = ${record.is3dExpression},
+        </if>
+        <if test="record.promotion!=null and record.promotionExpression==null" >
+          promotion = #{record.promotion,jdbcType=VARCHAR},
+        </if>
+        <if test="record.promotionExpression!=null" >
+          promotion = ${record.promotionExpression},
+        </if>
+        <if test="record.estConTime!=null and record.estConTimeExpression==null" >
+          est_con_time = #{record.estConTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.estConTimeExpression!=null" >
+          est_con_time = ${record.estConTimeExpression},
+        </if>
+        <if test="record.invoiceKind!=null and record.invoiceKindExpression==null" >
+          invoice_kind = #{record.invoiceKind,jdbcType=VARCHAR},
+        </if>
+        <if test="record.invoiceKindExpression!=null" >
+          invoice_kind = ${record.invoiceKindExpression},
+        </if>
+        <if test="record.goodsCategoryNum!=null and record.goodsCategoryNumExpression==null" >
+          goods_category_num = #{record.goodsCategoryNum,jdbcType=INTEGER},
+        </if>
+        <if test="record.goodsCategoryNumExpression!=null" >
+          goods_category_num = ${record.goodsCategoryNumExpression},
+        </if>
+        <if test="record.num!=null and record.numExpression==null" >
+          num = #{record.num,jdbcType=INTEGER},
+        </if>
+        <if test="record.numExpression!=null" >
+          num = ${record.numExpression},
+        </if>
+        <if test="record.numIid!=null and record.numIidExpression==null" >
+          num_iid = #{record.numIid,jdbcType=VARCHAR},
+        </if>
+        <if test="record.numIidExpression!=null" >
+          num_iid = ${record.numIidExpression},
+        </if>
+        <if test="record.status!=null and record.statusExpression==null" >
+          status = #{record.status,jdbcType=VARCHAR},
+        </if>
+        <if test="record.statusExpression!=null" >
+          status = ${record.statusExpression},
+        </if>
+        <if test="record.title!=null and record.titleExpression==null" >
+          title = #{record.title,jdbcType=VARCHAR},
+        </if>
+        <if test="record.titleExpression!=null" >
+          title = ${record.titleExpression},
+        </if>
+        <if test="record.type!=null and record.typeExpression==null" >
+          type = #{record.type,jdbcType=VARCHAR},
+        </if>
+        <if test="record.typeExpression!=null" >
+          type = ${record.typeExpression},
+        </if>
+        <if test="record.price!=null and record.priceExpression==null" >
+          price = #{record.price,jdbcType=DECIMAL},
+        </if>
+        <if test="record.priceExpression!=null" >
+          price = ${record.priceExpression},
+        </if>
+        <if test="record.sellerCodFee!=null and record.sellerCodFeeExpression==null" >
+          seller_cod_fee = #{record.sellerCodFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.sellerCodFeeExpression!=null" >
+          seller_cod_fee = ${record.sellerCodFeeExpression},
+        </if>
+        <if test="record.discountFee!=null and record.discountFeeExpression==null" >
+          discount_fee = #{record.discountFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.discountFeeExpression!=null" >
+          discount_fee = ${record.discountFeeExpression},
+        </if>
+        <if test="record.pointFee!=null and record.pointFeeExpression==null" >
+          point_fee = #{record.pointFee,jdbcType=INTEGER},
+        </if>
+        <if test="record.pointFeeExpression!=null" >
+          point_fee = ${record.pointFeeExpression},
+        </if>
+        <if test="record.totalFee!=null and record.totalFeeExpression==null" >
+          total_fee = #{record.totalFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.totalFeeExpression!=null" >
+          total_fee = ${record.totalFeeExpression},
+        </if>
+        <if test="record.isBrandSale!=null and record.isBrandSaleExpression==null" >
+          is_brand_sale = #{record.isBrandSale,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isBrandSaleExpression!=null" >
+          is_brand_sale = ${record.isBrandSaleExpression},
+        </if>
+        <if test="record.lgAging!=null and record.lgAgingExpression==null" >
+          lg_aging = #{record.lgAging,jdbcType=DECIMAL},
+        </if>
+        <if test="record.lgAgingExpression!=null" >
+          lg_aging = ${record.lgAgingExpression},
+        </if>
+        <if test="record.created!=null and record.createdExpression==null" >
+          created = #{record.created,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.createdExpression!=null" >
+          created = ${record.createdExpression},
+        </if>
+        <if test="record.payTime!=null and record.payTimeExpression==null" >
+          pay_time = #{record.payTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.payTimeExpression!=null" >
+          pay_time = ${record.payTimeExpression},
+        </if>
+        <if test="record.modified!=null and record.modifiedExpression==null" >
+          modified = #{record.modified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.modifiedExpression!=null" >
+          modified = ${record.modifiedExpression},
+        </if>
+        <if test="record.endTime!=null and record.endTimeExpression==null" >
+          end_time = #{record.endTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.endTimeExpression!=null" >
+          end_time = ${record.endTimeExpression},
+        </if>
+        <if test="record.buyerMessage!=null and record.buyerMessageExpression==null" >
+          buyer_message = #{record.buyerMessage,jdbcType=VARCHAR},
+        </if>
+        <if test="record.buyerMessageExpression!=null" >
+          buyer_message = ${record.buyerMessageExpression},
+        </if>
+        <if test="record.alipayId!=null and record.alipayIdExpression==null" >
+          alipay_id = #{record.alipayId,jdbcType=BIGINT},
+        </if>
+        <if test="record.alipayIdExpression!=null" >
+          alipay_id = ${record.alipayIdExpression},
+        </if>
+        <if test="record.alipayNo!=null and record.alipayNoExpression==null" >
+          alipay_no = #{record.alipayNo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.alipayNoExpression!=null" >
+          alipay_no = ${record.alipayNoExpression},
+        </if>
+        <if test="record.buyerAlipayNo!=null and record.buyerAlipayNoExpression==null" >
+          buyer_alipay_no = #{record.buyerAlipayNo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.buyerAlipayNoExpression!=null" >
+          buyer_alipay_no = ${record.buyerAlipayNoExpression},
+        </if>
+        <if test="record.buyerMemo!=null and record.buyerMemoExpression==null" >
+          buyer_memo = #{record.buyerMemo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.buyerMemoExpression!=null" >
+          buyer_memo = ${record.buyerMemoExpression},
+        </if>
+        <if test="record.buyerFlag!=null and record.buyerFlagExpression==null" >
+          buyer_flag = #{record.buyerFlag,jdbcType=INTEGER},
+        </if>
+        <if test="record.buyerFlagExpression!=null" >
+          buyer_flag = ${record.buyerFlagExpression},
+        </if>
+        <if test="record.sellerMemo!=null and record.sellerMemoExpression==null" >
+          seller_memo = #{record.sellerMemo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerMemoExpression!=null" >
+          seller_memo = ${record.sellerMemoExpression},
+        </if>
+        <if test="record.sellerFlag!=null and record.sellerFlagExpression==null" >
+          seller_flag = #{record.sellerFlag,jdbcType=INTEGER},
+        </if>
+        <if test="record.sellerFlagExpression!=null" >
+          seller_flag = ${record.sellerFlagExpression},
+        </if>
+        <if test="record.buyerNick!=null and record.buyerNickExpression==null" >
+          buyer_nick = #{record.buyerNick,jdbcType=VARCHAR},
+        </if>
+        <if test="record.buyerNickExpression!=null" >
+          buyer_nick = ${record.buyerNickExpression},
+        </if>
+        <if test="record.buyerArea!=null and record.buyerAreaExpression==null" >
+          buyer_area = #{record.buyerArea,jdbcType=VARCHAR},
+        </if>
+        <if test="record.buyerAreaExpression!=null" >
+          buyer_area = ${record.buyerAreaExpression},
+        </if>
+        <if test="record.buyerEmail!=null and record.buyerEmailExpression==null" >
+          buyer_email = #{record.buyerEmail,jdbcType=VARCHAR},
+        </if>
+        <if test="record.buyerEmailExpression!=null" >
+          buyer_email = ${record.buyerEmailExpression},
+        </if>
+        <if test="record.hasBuyerMessage!=null and record.hasBuyerMessageExpression==null" >
+          has_buyer_message = #{record.hasBuyerMessage,jdbcType=VARCHAR},
+        </if>
+        <if test="record.hasBuyerMessageExpression!=null" >
+          has_buyer_message = ${record.hasBuyerMessageExpression},
+        </if>
+        <if test="record.areaId!=null and record.areaIdExpression==null" >
+          area_id = #{record.areaId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.areaIdExpression!=null" >
+          area_id = ${record.areaIdExpression},
+        </if>
+        <if test="record.creditCardFee!=null and record.creditCardFeeExpression==null" >
+          credit_card_fee = #{record.creditCardFee,jdbcType=VARCHAR},
+        </if>
+        <if test="record.creditCardFeeExpression!=null" >
+          credit_card_fee = ${record.creditCardFeeExpression},
+        </if>
+        <if test="record.nutFeature!=null and record.nutFeatureExpression==null" >
+          nut_feature = #{record.nutFeature,jdbcType=VARCHAR},
+        </if>
+        <if test="record.nutFeatureExpression!=null" >
+          nut_feature = ${record.nutFeatureExpression},
+        </if>
+        <if test="record.stepTradeStatus!=null and record.stepTradeStatusExpression==null" >
+          step_trade_status = #{record.stepTradeStatus,jdbcType=VARCHAR},
+        </if>
+        <if test="record.stepTradeStatusExpression!=null" >
+          step_trade_status = ${record.stepTradeStatusExpression},
+        </if>
+        <if test="record.stepPaidFee!=null and record.stepPaidFeeExpression==null" >
+          step_paid_fee = #{record.stepPaidFee,jdbcType=VARCHAR},
+        </if>
+        <if test="record.stepPaidFeeExpression!=null" >
+          step_paid_fee = ${record.stepPaidFeeExpression},
+        </if>
+        <if test="record.markDesc!=null and record.markDescExpression==null" >
+          mark_desc = #{record.markDesc,jdbcType=VARCHAR},
+        </if>
+        <if test="record.markDescExpression!=null" >
+          mark_desc = ${record.markDescExpression},
+        </if>
+        <if test="record.sendTime!=null and record.sendTimeExpression==null" >
+          send_time = #{record.sendTime,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sendTimeExpression!=null" >
+          send_time = ${record.sendTimeExpression},
+        </if>
+        <if test="record.tradeFrom!=null and record.tradeFromExpression==null" >
+          trade_from = #{record.tradeFrom,jdbcType=VARCHAR},
+        </if>
+        <if test="record.tradeFromExpression!=null" >
+          trade_from = ${record.tradeFromExpression},
+        </if>
+        <if test="record.alipayWarnMsg!=null and record.alipayWarnMsgExpression==null" >
+          alipay_warn_msg = #{record.alipayWarnMsg,jdbcType=VARCHAR},
+        </if>
+        <if test="record.alipayWarnMsgExpression!=null" >
+          alipay_warn_msg = ${record.alipayWarnMsgExpression},
+        </if>
+        <if test="record.codStatus!=null and record.codStatusExpression==null" >
+          cod_status = #{record.codStatus,jdbcType=VARCHAR},
+        </if>
+        <if test="record.codStatusExpression!=null" >
+          cod_status = ${record.codStatusExpression},
+        </if>
+        <if test="record.canRate!=null and record.canRateExpression==null" >
+          can_rate = #{record.canRate,jdbcType=VARCHAR},
+        </if>
+        <if test="record.canRateExpression!=null" >
+          can_rate = ${record.canRateExpression},
+        </if>
+        <if test="record.commissionFee!=null and record.commissionFeeExpression==null" >
+          commission_fee = #{record.commissionFee,jdbcType=VARCHAR},
+        </if>
+        <if test="record.commissionFeeExpression!=null" >
+          commission_fee = ${record.commissionFeeExpression},
+        </if>
+        <if test="record.tradeMemo!=null and record.tradeMemoExpression==null" >
+          trade_memo = #{record.tradeMemo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.tradeMemoExpression!=null" >
+          trade_memo = ${record.tradeMemoExpression},
+        </if>
+        <if test="record.buyerRate!=null and record.buyerRateExpression==null" >
+          buyer_rate = #{record.buyerRate,jdbcType=VARCHAR},
+        </if>
+        <if test="record.buyerRateExpression!=null" >
+          buyer_rate = ${record.buyerRateExpression},
+        </if>
+        <if test="record.tradeSource!=null and record.tradeSourceExpression==null" >
+          trade_source = #{record.tradeSource,jdbcType=VARCHAR},
+        </if>
+        <if test="record.tradeSourceExpression!=null" >
+          trade_source = ${record.tradeSourceExpression},
+        </if>
+        <if test="record.isPartConsign!=null and record.isPartConsignExpression==null" >
+          is_part_consign = #{record.isPartConsign,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isPartConsignExpression!=null" >
+          is_part_consign = ${record.isPartConsignExpression},
+        </if>
+        <if test="record.realPointFee!=null and record.realPointFeeExpression==null" >
+          real_point_fee = #{record.realPointFee,jdbcType=INTEGER},
+        </if>
+        <if test="record.realPointFeeExpression!=null" >
+          real_point_fee = ${record.realPointFeeExpression},
+        </if>
+        <if test="record.receiverCity!=null and record.receiverCityExpression==null" >
+          receiver_city = #{record.receiverCity,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverCityExpression!=null" >
+          receiver_city = ${record.receiverCityExpression},
+        </if>
+        <if test="record.receiverDistrict!=null and record.receiverDistrictExpression==null" >
+          receiver_district = #{record.receiverDistrict,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverDistrictExpression!=null" >
+          receiver_district = ${record.receiverDistrictExpression},
+        </if>
+        <if test="record.arriveInterval!=null and record.arriveIntervalExpression==null" >
+          arrive_interval = #{record.arriveInterval,jdbcType=INTEGER},
+        </if>
+        <if test="record.arriveIntervalExpression!=null" >
+          arrive_interval = ${record.arriveIntervalExpression},
+        </if>
+        <if test="record.arriveCutTime!=null and record.arriveCutTimeExpression==null" >
+          arrive_cut_time = #{record.arriveCutTime,jdbcType=VARCHAR},
+        </if>
+        <if test="record.arriveCutTimeExpression!=null" >
+          arrive_cut_time = ${record.arriveCutTimeExpression},
+        </if>
+        <if test="record.consignInterval!=null and record.consignIntervalExpression==null" >
+          consign_interval = #{record.consignInterval,jdbcType=INTEGER},
+        </if>
+        <if test="record.consignIntervalExpression!=null" >
+          consign_interval = ${record.consignIntervalExpression},
+        </if>
+        <if test="record.asyncModified!=null and record.asyncModifiedExpression==null" >
+          async_modified = #{record.asyncModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.asyncModifiedExpression!=null" >
+          async_modified = ${record.asyncModifiedExpression},
+        </if>
+        <if test="record.alipayPoint!=null and record.alipayPointExpression==null" >
+          alipay_point = #{record.alipayPoint,jdbcType=INTEGER},
+        </if>
+        <if test="record.alipayPointExpression!=null" >
+          alipay_point = ${record.alipayPointExpression},
+        </if>
+        <if test="record.pccAf!=null and record.pccAfExpression==null" >
+          pcc_af = #{record.pccAf,jdbcType=INTEGER},
+        </if>
+        <if test="record.pccAfExpression!=null" >
+          pcc_af = ${record.pccAfExpression},
+        </if>
+        <if test="record.isWt!=null and record.isWtExpression==null" >
+          is_wt = #{record.isWt,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isWtExpression!=null" >
+          is_wt = ${record.isWtExpression},
+        </if>
+        <if test="record.isExcelImport!=null and record.isExcelImportExpression==null" >
+          is_excel_import = #{record.isExcelImport,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isExcelImportExpression!=null" >
+          is_excel_import = ${record.isExcelImportExpression},
+        </if>
+        <if test="record.tradeCloseReson!=null and record.tradeCloseResonExpression==null" >
+          trade_close_reson = #{record.tradeCloseReson,jdbcType=VARCHAR},
+        </if>
+        <if test="record.tradeCloseResonExpression!=null" >
+          trade_close_reson = ${record.tradeCloseResonExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update trade_taobao
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      tid = #{record.tid,jdbcType=BIGINT},
+      seller_id = #{record.sellerId,jdbcType=BIGINT},
+      shop_id = #{record.shopId,jdbcType=BIGINT},
+      user_id_tb = #{record.userIdTb,jdbcType=BIGINT},
+      receiver_id_tb = #{record.receiverIdTb,jdbcType=BIGINT},
+      seller_nick = #{record.sellerNick,jdbcType=VARCHAR},
+      shipping_type = #{record.shippingType,jdbcType=VARCHAR},
+      payment = #{record.payment,jdbcType=DECIMAL},
+      seller_rate = #{record.sellerRate,jdbcType=VARCHAR},
+      buyer_obtain_point_fee = #{record.buyerObtainPointFee,jdbcType=INTEGER},
+      post_fee = #{record.postFee,jdbcType=DECIMAL},
+      receiver_name = #{record.receiverName,jdbcType=VARCHAR},
+      receiver_country = #{record.receiverCountry,jdbcType=VARCHAR},
+      receiver_state = #{record.receiverState,jdbcType=VARCHAR},
+      receiver_town = #{record.receiverTown,jdbcType=VARCHAR},
+      receiver_address = #{record.receiverAddress,jdbcType=VARCHAR},
+      receiver_zip = #{record.receiverZip,jdbcType=VARCHAR},
+      receiver_mobile = #{record.receiverMobile,jdbcType=VARCHAR},
+      receiver_phone = #{record.receiverPhone,jdbcType=VARCHAR},
+      consign_time = #{record.consignTime,jdbcType=TIMESTAMP},
+      seller_alipay_no = #{record.sellerAlipayNo,jdbcType=VARCHAR},
+      seller_mobile = #{record.sellerMobile,jdbcType=VARCHAR},
+      seller_phone = #{record.sellerPhone,jdbcType=VARCHAR},
+      seller_name = #{record.sellerName,jdbcType=VARCHAR},
+      seller_email = #{record.sellerEmail,jdbcType=VARCHAR},
+      available_confirm_fee = #{record.availableConfirmFee,jdbcType=DECIMAL},
+      received_payment = #{record.receivedPayment,jdbcType=DECIMAL},
+      timeout_action_time = #{record.timeoutActionTime,jdbcType=TIMESTAMP},
+      is_3d = #{record.is3d,jdbcType=VARCHAR},
+      promotion = #{record.promotion,jdbcType=VARCHAR},
+      est_con_time = #{record.estConTime,jdbcType=TIMESTAMP},
+      invoice_kind = #{record.invoiceKind,jdbcType=VARCHAR},
+      goods_category_num = #{record.goodsCategoryNum,jdbcType=INTEGER},
+      num = #{record.num,jdbcType=INTEGER},
+      num_iid = #{record.numIid,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=VARCHAR},
+      title = #{record.title,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=DECIMAL},
+      seller_cod_fee = #{record.sellerCodFee,jdbcType=DECIMAL},
+      discount_fee = #{record.discountFee,jdbcType=DECIMAL},
+      point_fee = #{record.pointFee,jdbcType=INTEGER},
+      total_fee = #{record.totalFee,jdbcType=DECIMAL},
+      is_brand_sale = #{record.isBrandSale,jdbcType=VARCHAR},
+      lg_aging = #{record.lgAging,jdbcType=DECIMAL},
+      created = #{record.created,jdbcType=TIMESTAMP},
+      pay_time = #{record.payTime,jdbcType=TIMESTAMP},
+      modified = #{record.modified,jdbcType=TIMESTAMP},
+      end_time = #{record.endTime,jdbcType=TIMESTAMP},
+      buyer_message = #{record.buyerMessage,jdbcType=VARCHAR},
+      alipay_id = #{record.alipayId,jdbcType=BIGINT},
+      alipay_no = #{record.alipayNo,jdbcType=VARCHAR},
+      buyer_alipay_no = #{record.buyerAlipayNo,jdbcType=VARCHAR},
+      buyer_memo = #{record.buyerMemo,jdbcType=VARCHAR},
+      buyer_flag = #{record.buyerFlag,jdbcType=INTEGER},
+      seller_memo = #{record.sellerMemo,jdbcType=VARCHAR},
+      seller_flag = #{record.sellerFlag,jdbcType=INTEGER},
+      buyer_nick = #{record.buyerNick,jdbcType=VARCHAR},
+      buyer_area = #{record.buyerArea,jdbcType=VARCHAR},
+      buyer_email = #{record.buyerEmail,jdbcType=VARCHAR},
+      has_buyer_message = #{record.hasBuyerMessage,jdbcType=VARCHAR},
+      area_id = #{record.areaId,jdbcType=VARCHAR},
+      credit_card_fee = #{record.creditCardFee,jdbcType=VARCHAR},
+      nut_feature = #{record.nutFeature,jdbcType=VARCHAR},
+      step_trade_status = #{record.stepTradeStatus,jdbcType=VARCHAR},
+      step_paid_fee = #{record.stepPaidFee,jdbcType=VARCHAR},
+      mark_desc = #{record.markDesc,jdbcType=VARCHAR},
+      send_time = #{record.sendTime,jdbcType=VARCHAR},
+      trade_from = #{record.tradeFrom,jdbcType=VARCHAR},
+      alipay_warn_msg = #{record.alipayWarnMsg,jdbcType=VARCHAR},
+      cod_status = #{record.codStatus,jdbcType=VARCHAR},
+      can_rate = #{record.canRate,jdbcType=VARCHAR},
+      commission_fee = #{record.commissionFee,jdbcType=VARCHAR},
+      trade_memo = #{record.tradeMemo,jdbcType=VARCHAR},
+      buyer_rate = #{record.buyerRate,jdbcType=VARCHAR},
+      trade_source = #{record.tradeSource,jdbcType=VARCHAR},
+      is_part_consign = #{record.isPartConsign,jdbcType=VARCHAR},
+      real_point_fee = #{record.realPointFee,jdbcType=INTEGER},
+      receiver_city = #{record.receiverCity,jdbcType=VARCHAR},
+      receiver_district = #{record.receiverDistrict,jdbcType=VARCHAR},
+      arrive_interval = #{record.arriveInterval,jdbcType=INTEGER},
+      arrive_cut_time = #{record.arriveCutTime,jdbcType=VARCHAR},
+      consign_interval = #{record.consignInterval,jdbcType=INTEGER},
+      async_modified = #{record.asyncModified,jdbcType=TIMESTAMP},
+      alipay_point = #{record.alipayPoint,jdbcType=INTEGER},
+      pcc_af = #{record.pccAf,jdbcType=INTEGER},
+      is_wt = #{record.isWt,jdbcType=VARCHAR},
+      is_excel_import = #{record.isExcelImport,jdbcType=VARCHAR},
+      trade_close_reson = #{record.tradeCloseReson,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.trade.TradeTaoBao" >
+    update trade_taobao
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.tid!=null and record.tidExpression==null" >
+          tid = #{record.tid,jdbcType=BIGINT},
+        </if>
+        <if test="record.tidExpression!=null" >
+          tid = ${record.tidExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.shopId!=null and record.shopIdExpression==null" >
+          shop_id = #{record.shopId,jdbcType=BIGINT},
+        </if>
+        <if test="record.shopIdExpression!=null" >
+          shop_id = ${record.shopIdExpression},
+        </if>
+        <if test="record.userIdTb!=null and record.userIdTbExpression==null" >
+          user_id_tb = #{record.userIdTb,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdTbExpression!=null" >
+          user_id_tb = ${record.userIdTbExpression},
+        </if>
+        <if test="record.receiverIdTb!=null and record.receiverIdTbExpression==null" >
+          receiver_id_tb = #{record.receiverIdTb,jdbcType=BIGINT},
+        </if>
+        <if test="record.receiverIdTbExpression!=null" >
+          receiver_id_tb = ${record.receiverIdTbExpression},
+        </if>
+        <if test="record.sellerNick!=null and record.sellerNickExpression==null" >
+          seller_nick = #{record.sellerNick,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerNickExpression!=null" >
+          seller_nick = ${record.sellerNickExpression},
+        </if>
+        <if test="record.shippingType!=null and record.shippingTypeExpression==null" >
+          shipping_type = #{record.shippingType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shippingTypeExpression!=null" >
+          shipping_type = ${record.shippingTypeExpression},
+        </if>
+        <if test="record.payment!=null and record.paymentExpression==null" >
+          payment = #{record.payment,jdbcType=DECIMAL},
+        </if>
+        <if test="record.paymentExpression!=null" >
+          payment = ${record.paymentExpression},
+        </if>
+        <if test="record.sellerRate!=null and record.sellerRateExpression==null" >
+          seller_rate = #{record.sellerRate,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerRateExpression!=null" >
+          seller_rate = ${record.sellerRateExpression},
+        </if>
+        <if test="record.buyerObtainPointFee!=null and record.buyerObtainPointFeeExpression==null" >
+          buyer_obtain_point_fee = #{record.buyerObtainPointFee,jdbcType=INTEGER},
+        </if>
+        <if test="record.buyerObtainPointFeeExpression!=null" >
+          buyer_obtain_point_fee = ${record.buyerObtainPointFeeExpression},
+        </if>
+        <if test="record.postFee!=null and record.postFeeExpression==null" >
+          post_fee = #{record.postFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.postFeeExpression!=null" >
+          post_fee = ${record.postFeeExpression},
+        </if>
+        <if test="record.receiverName!=null and record.receiverNameExpression==null" >
+          receiver_name = #{record.receiverName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverNameExpression!=null" >
+          receiver_name = ${record.receiverNameExpression},
+        </if>
+        <if test="record.receiverCountry!=null and record.receiverCountryExpression==null" >
+          receiver_country = #{record.receiverCountry,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverCountryExpression!=null" >
+          receiver_country = ${record.receiverCountryExpression},
+        </if>
+        <if test="record.receiverState!=null and record.receiverStateExpression==null" >
+          receiver_state = #{record.receiverState,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverStateExpression!=null" >
+          receiver_state = ${record.receiverStateExpression},
+        </if>
+        <if test="record.receiverTown!=null and record.receiverTownExpression==null" >
+          receiver_town = #{record.receiverTown,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverTownExpression!=null" >
+          receiver_town = ${record.receiverTownExpression},
+        </if>
+        <if test="record.receiverAddress!=null and record.receiverAddressExpression==null" >
+          receiver_address = #{record.receiverAddress,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverAddressExpression!=null" >
+          receiver_address = ${record.receiverAddressExpression},
+        </if>
+        <if test="record.receiverZip!=null and record.receiverZipExpression==null" >
+          receiver_zip = #{record.receiverZip,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverZipExpression!=null" >
+          receiver_zip = ${record.receiverZipExpression},
+        </if>
+        <if test="record.receiverMobile!=null and record.receiverMobileExpression==null" >
+          receiver_mobile = #{record.receiverMobile,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverMobileExpression!=null" >
+          receiver_mobile = ${record.receiverMobileExpression},
+        </if>
+        <if test="record.receiverPhone!=null and record.receiverPhoneExpression==null" >
+          receiver_phone = #{record.receiverPhone,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverPhoneExpression!=null" >
+          receiver_phone = ${record.receiverPhoneExpression},
+        </if>
+        <if test="record.consignTime!=null and record.consignTimeExpression==null" >
+          consign_time = #{record.consignTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.consignTimeExpression!=null" >
+          consign_time = ${record.consignTimeExpression},
+        </if>
+        <if test="record.sellerAlipayNo!=null and record.sellerAlipayNoExpression==null" >
+          seller_alipay_no = #{record.sellerAlipayNo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerAlipayNoExpression!=null" >
+          seller_alipay_no = ${record.sellerAlipayNoExpression},
+        </if>
+        <if test="record.sellerMobile!=null and record.sellerMobileExpression==null" >
+          seller_mobile = #{record.sellerMobile,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerMobileExpression!=null" >
+          seller_mobile = ${record.sellerMobileExpression},
+        </if>
+        <if test="record.sellerPhone!=null and record.sellerPhoneExpression==null" >
+          seller_phone = #{record.sellerPhone,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerPhoneExpression!=null" >
+          seller_phone = ${record.sellerPhoneExpression},
+        </if>
+        <if test="record.sellerName!=null and record.sellerNameExpression==null" >
+          seller_name = #{record.sellerName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerNameExpression!=null" >
+          seller_name = ${record.sellerNameExpression},
+        </if>
+        <if test="record.sellerEmail!=null and record.sellerEmailExpression==null" >
+          seller_email = #{record.sellerEmail,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerEmailExpression!=null" >
+          seller_email = ${record.sellerEmailExpression},
+        </if>
+        <if test="record.availableConfirmFee!=null and record.availableConfirmFeeExpression==null" >
+          available_confirm_fee = #{record.availableConfirmFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.availableConfirmFeeExpression!=null" >
+          available_confirm_fee = ${record.availableConfirmFeeExpression},
+        </if>
+        <if test="record.receivedPayment!=null and record.receivedPaymentExpression==null" >
+          received_payment = #{record.receivedPayment,jdbcType=DECIMAL},
+        </if>
+        <if test="record.receivedPaymentExpression!=null" >
+          received_payment = ${record.receivedPaymentExpression},
+        </if>
+        <if test="record.timeoutActionTime!=null and record.timeoutActionTimeExpression==null" >
+          timeout_action_time = #{record.timeoutActionTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.timeoutActionTimeExpression!=null" >
+          timeout_action_time = ${record.timeoutActionTimeExpression},
+        </if>
+        <if test="record.is3d!=null and record.is3dExpression==null" >
+          is_3d = #{record.is3d,jdbcType=VARCHAR},
+        </if>
+        <if test="record.is3dExpression!=null" >
+          is_3d = ${record.is3dExpression},
+        </if>
+        <if test="record.promotion!=null and record.promotionExpression==null" >
+          promotion = #{record.promotion,jdbcType=VARCHAR},
+        </if>
+        <if test="record.promotionExpression!=null" >
+          promotion = ${record.promotionExpression},
+        </if>
+        <if test="record.estConTime!=null and record.estConTimeExpression==null" >
+          est_con_time = #{record.estConTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.estConTimeExpression!=null" >
+          est_con_time = ${record.estConTimeExpression},
+        </if>
+        <if test="record.invoiceKind!=null and record.invoiceKindExpression==null" >
+          invoice_kind = #{record.invoiceKind,jdbcType=VARCHAR},
+        </if>
+        <if test="record.invoiceKindExpression!=null" >
+          invoice_kind = ${record.invoiceKindExpression},
+        </if>
+        <if test="record.goodsCategoryNum!=null and record.goodsCategoryNumExpression==null" >
+          goods_category_num = #{record.goodsCategoryNum,jdbcType=INTEGER},
+        </if>
+        <if test="record.goodsCategoryNumExpression!=null" >
+          goods_category_num = ${record.goodsCategoryNumExpression},
+        </if>
+        <if test="record.num!=null and record.numExpression==null" >
+          num = #{record.num,jdbcType=INTEGER},
+        </if>
+        <if test="record.numExpression!=null" >
+          num = ${record.numExpression},
+        </if>
+        <if test="record.numIid!=null and record.numIidExpression==null" >
+          num_iid = #{record.numIid,jdbcType=VARCHAR},
+        </if>
+        <if test="record.numIidExpression!=null" >
+          num_iid = ${record.numIidExpression},
+        </if>
+        <if test="record.status!=null and record.statusExpression==null" >
+          status = #{record.status,jdbcType=VARCHAR},
+        </if>
+        <if test="record.statusExpression!=null" >
+          status = ${record.statusExpression},
+        </if>
+        <if test="record.title!=null and record.titleExpression==null" >
+          title = #{record.title,jdbcType=VARCHAR},
+        </if>
+        <if test="record.titleExpression!=null" >
+          title = ${record.titleExpression},
+        </if>
+        <if test="record.type!=null and record.typeExpression==null" >
+          type = #{record.type,jdbcType=VARCHAR},
+        </if>
+        <if test="record.typeExpression!=null" >
+          type = ${record.typeExpression},
+        </if>
+        <if test="record.price!=null and record.priceExpression==null" >
+          price = #{record.price,jdbcType=DECIMAL},
+        </if>
+        <if test="record.priceExpression!=null" >
+          price = ${record.priceExpression},
+        </if>
+        <if test="record.sellerCodFee!=null and record.sellerCodFeeExpression==null" >
+          seller_cod_fee = #{record.sellerCodFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.sellerCodFeeExpression!=null" >
+          seller_cod_fee = ${record.sellerCodFeeExpression},
+        </if>
+        <if test="record.discountFee!=null and record.discountFeeExpression==null" >
+          discount_fee = #{record.discountFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.discountFeeExpression!=null" >
+          discount_fee = ${record.discountFeeExpression},
+        </if>
+        <if test="record.pointFee!=null and record.pointFeeExpression==null" >
+          point_fee = #{record.pointFee,jdbcType=INTEGER},
+        </if>
+        <if test="record.pointFeeExpression!=null" >
+          point_fee = ${record.pointFeeExpression},
+        </if>
+        <if test="record.totalFee!=null and record.totalFeeExpression==null" >
+          total_fee = #{record.totalFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.totalFeeExpression!=null" >
+          total_fee = ${record.totalFeeExpression},
+        </if>
+        <if test="record.isBrandSale!=null and record.isBrandSaleExpression==null" >
+          is_brand_sale = #{record.isBrandSale,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isBrandSaleExpression!=null" >
+          is_brand_sale = ${record.isBrandSaleExpression},
+        </if>
+        <if test="record.lgAging!=null and record.lgAgingExpression==null" >
+          lg_aging = #{record.lgAging,jdbcType=DECIMAL},
+        </if>
+        <if test="record.lgAgingExpression!=null" >
+          lg_aging = ${record.lgAgingExpression},
+        </if>
+        <if test="record.created!=null and record.createdExpression==null" >
+          created = #{record.created,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.createdExpression!=null" >
+          created = ${record.createdExpression},
+        </if>
+        <if test="record.payTime!=null and record.payTimeExpression==null" >
+          pay_time = #{record.payTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.payTimeExpression!=null" >
+          pay_time = ${record.payTimeExpression},
+        </if>
+        <if test="record.modified!=null and record.modifiedExpression==null" >
+          modified = #{record.modified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.modifiedExpression!=null" >
+          modified = ${record.modifiedExpression},
+        </if>
+        <if test="record.endTime!=null and record.endTimeExpression==null" >
+          end_time = #{record.endTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.endTimeExpression!=null" >
+          end_time = ${record.endTimeExpression},
+        </if>
+        <if test="record.buyerMessage!=null and record.buyerMessageExpression==null" >
+          buyer_message = #{record.buyerMessage,jdbcType=VARCHAR},
+        </if>
+        <if test="record.buyerMessageExpression!=null" >
+          buyer_message = ${record.buyerMessageExpression},
+        </if>
+        <if test="record.alipayId!=null and record.alipayIdExpression==null" >
+          alipay_id = #{record.alipayId,jdbcType=BIGINT},
+        </if>
+        <if test="record.alipayIdExpression!=null" >
+          alipay_id = ${record.alipayIdExpression},
+        </if>
+        <if test="record.alipayNo!=null and record.alipayNoExpression==null" >
+          alipay_no = #{record.alipayNo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.alipayNoExpression!=null" >
+          alipay_no = ${record.alipayNoExpression},
+        </if>
+        <if test="record.buyerAlipayNo!=null and record.buyerAlipayNoExpression==null" >
+          buyer_alipay_no = #{record.buyerAlipayNo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.buyerAlipayNoExpression!=null" >
+          buyer_alipay_no = ${record.buyerAlipayNoExpression},
+        </if>
+        <if test="record.buyerMemo!=null and record.buyerMemoExpression==null" >
+          buyer_memo = #{record.buyerMemo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.buyerMemoExpression!=null" >
+          buyer_memo = ${record.buyerMemoExpression},
+        </if>
+        <if test="record.buyerFlag!=null and record.buyerFlagExpression==null" >
+          buyer_flag = #{record.buyerFlag,jdbcType=INTEGER},
+        </if>
+        <if test="record.buyerFlagExpression!=null" >
+          buyer_flag = ${record.buyerFlagExpression},
+        </if>
+        <if test="record.sellerMemo!=null and record.sellerMemoExpression==null" >
+          seller_memo = #{record.sellerMemo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerMemoExpression!=null" >
+          seller_memo = ${record.sellerMemoExpression},
+        </if>
+        <if test="record.sellerFlag!=null and record.sellerFlagExpression==null" >
+          seller_flag = #{record.sellerFlag,jdbcType=INTEGER},
+        </if>
+        <if test="record.sellerFlagExpression!=null" >
+          seller_flag = ${record.sellerFlagExpression},
+        </if>
+        <if test="record.buyerNick!=null and record.buyerNickExpression==null" >
+          buyer_nick = #{record.buyerNick,jdbcType=VARCHAR},
+        </if>
+        <if test="record.buyerNickExpression!=null" >
+          buyer_nick = ${record.buyerNickExpression},
+        </if>
+        <if test="record.buyerArea!=null and record.buyerAreaExpression==null" >
+          buyer_area = #{record.buyerArea,jdbcType=VARCHAR},
+        </if>
+        <if test="record.buyerAreaExpression!=null" >
+          buyer_area = ${record.buyerAreaExpression},
+        </if>
+        <if test="record.buyerEmail!=null and record.buyerEmailExpression==null" >
+          buyer_email = #{record.buyerEmail,jdbcType=VARCHAR},
+        </if>
+        <if test="record.buyerEmailExpression!=null" >
+          buyer_email = ${record.buyerEmailExpression},
+        </if>
+        <if test="record.hasBuyerMessage!=null and record.hasBuyerMessageExpression==null" >
+          has_buyer_message = #{record.hasBuyerMessage,jdbcType=VARCHAR},
+        </if>
+        <if test="record.hasBuyerMessageExpression!=null" >
+          has_buyer_message = ${record.hasBuyerMessageExpression},
+        </if>
+        <if test="record.areaId!=null and record.areaIdExpression==null" >
+          area_id = #{record.areaId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.areaIdExpression!=null" >
+          area_id = ${record.areaIdExpression},
+        </if>
+        <if test="record.creditCardFee!=null and record.creditCardFeeExpression==null" >
+          credit_card_fee = #{record.creditCardFee,jdbcType=VARCHAR},
+        </if>
+        <if test="record.creditCardFeeExpression!=null" >
+          credit_card_fee = ${record.creditCardFeeExpression},
+        </if>
+        <if test="record.nutFeature!=null and record.nutFeatureExpression==null" >
+          nut_feature = #{record.nutFeature,jdbcType=VARCHAR},
+        </if>
+        <if test="record.nutFeatureExpression!=null" >
+          nut_feature = ${record.nutFeatureExpression},
+        </if>
+        <if test="record.stepTradeStatus!=null and record.stepTradeStatusExpression==null" >
+          step_trade_status = #{record.stepTradeStatus,jdbcType=VARCHAR},
+        </if>
+        <if test="record.stepTradeStatusExpression!=null" >
+          step_trade_status = ${record.stepTradeStatusExpression},
+        </if>
+        <if test="record.stepPaidFee!=null and record.stepPaidFeeExpression==null" >
+          step_paid_fee = #{record.stepPaidFee,jdbcType=VARCHAR},
+        </if>
+        <if test="record.stepPaidFeeExpression!=null" >
+          step_paid_fee = ${record.stepPaidFeeExpression},
+        </if>
+        <if test="record.markDesc!=null and record.markDescExpression==null" >
+          mark_desc = #{record.markDesc,jdbcType=VARCHAR},
+        </if>
+        <if test="record.markDescExpression!=null" >
+          mark_desc = ${record.markDescExpression},
+        </if>
+        <if test="record.sendTime!=null and record.sendTimeExpression==null" >
+          send_time = #{record.sendTime,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sendTimeExpression!=null" >
+          send_time = ${record.sendTimeExpression},
+        </if>
+        <if test="record.tradeFrom!=null and record.tradeFromExpression==null" >
+          trade_from = #{record.tradeFrom,jdbcType=VARCHAR},
+        </if>
+        <if test="record.tradeFromExpression!=null" >
+          trade_from = ${record.tradeFromExpression},
+        </if>
+        <if test="record.alipayWarnMsg!=null and record.alipayWarnMsgExpression==null" >
+          alipay_warn_msg = #{record.alipayWarnMsg,jdbcType=VARCHAR},
+        </if>
+        <if test="record.alipayWarnMsgExpression!=null" >
+          alipay_warn_msg = ${record.alipayWarnMsgExpression},
+        </if>
+        <if test="record.codStatus!=null and record.codStatusExpression==null" >
+          cod_status = #{record.codStatus,jdbcType=VARCHAR},
+        </if>
+        <if test="record.codStatusExpression!=null" >
+          cod_status = ${record.codStatusExpression},
+        </if>
+        <if test="record.canRate!=null and record.canRateExpression==null" >
+          can_rate = #{record.canRate,jdbcType=VARCHAR},
+        </if>
+        <if test="record.canRateExpression!=null" >
+          can_rate = ${record.canRateExpression},
+        </if>
+        <if test="record.commissionFee!=null and record.commissionFeeExpression==null" >
+          commission_fee = #{record.commissionFee,jdbcType=VARCHAR},
+        </if>
+        <if test="record.commissionFeeExpression!=null" >
+          commission_fee = ${record.commissionFeeExpression},
+        </if>
+        <if test="record.tradeMemo!=null and record.tradeMemoExpression==null" >
+          trade_memo = #{record.tradeMemo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.tradeMemoExpression!=null" >
+          trade_memo = ${record.tradeMemoExpression},
+        </if>
+        <if test="record.buyerRate!=null and record.buyerRateExpression==null" >
+          buyer_rate = #{record.buyerRate,jdbcType=VARCHAR},
+        </if>
+        <if test="record.buyerRateExpression!=null" >
+          buyer_rate = ${record.buyerRateExpression},
+        </if>
+        <if test="record.tradeSource!=null and record.tradeSourceExpression==null" >
+          trade_source = #{record.tradeSource,jdbcType=VARCHAR},
+        </if>
+        <if test="record.tradeSourceExpression!=null" >
+          trade_source = ${record.tradeSourceExpression},
+        </if>
+        <if test="record.isPartConsign!=null and record.isPartConsignExpression==null" >
+          is_part_consign = #{record.isPartConsign,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isPartConsignExpression!=null" >
+          is_part_consign = ${record.isPartConsignExpression},
+        </if>
+        <if test="record.realPointFee!=null and record.realPointFeeExpression==null" >
+          real_point_fee = #{record.realPointFee,jdbcType=INTEGER},
+        </if>
+        <if test="record.realPointFeeExpression!=null" >
+          real_point_fee = ${record.realPointFeeExpression},
+        </if>
+        <if test="record.receiverCity!=null and record.receiverCityExpression==null" >
+          receiver_city = #{record.receiverCity,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverCityExpression!=null" >
+          receiver_city = ${record.receiverCityExpression},
+        </if>
+        <if test="record.receiverDistrict!=null and record.receiverDistrictExpression==null" >
+          receiver_district = #{record.receiverDistrict,jdbcType=VARCHAR},
+        </if>
+        <if test="record.receiverDistrictExpression!=null" >
+          receiver_district = ${record.receiverDistrictExpression},
+        </if>
+        <if test="record.arriveInterval!=null and record.arriveIntervalExpression==null" >
+          arrive_interval = #{record.arriveInterval,jdbcType=INTEGER},
+        </if>
+        <if test="record.arriveIntervalExpression!=null" >
+          arrive_interval = ${record.arriveIntervalExpression},
+        </if>
+        <if test="record.arriveCutTime!=null and record.arriveCutTimeExpression==null" >
+          arrive_cut_time = #{record.arriveCutTime,jdbcType=VARCHAR},
+        </if>
+        <if test="record.arriveCutTimeExpression!=null" >
+          arrive_cut_time = ${record.arriveCutTimeExpression},
+        </if>
+        <if test="record.consignInterval!=null and record.consignIntervalExpression==null" >
+          consign_interval = #{record.consignInterval,jdbcType=INTEGER},
+        </if>
+        <if test="record.consignIntervalExpression!=null" >
+          consign_interval = ${record.consignIntervalExpression},
+        </if>
+        <if test="record.asyncModified!=null and record.asyncModifiedExpression==null" >
+          async_modified = #{record.asyncModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.asyncModifiedExpression!=null" >
+          async_modified = ${record.asyncModifiedExpression},
+        </if>
+        <if test="record.alipayPoint!=null and record.alipayPointExpression==null" >
+          alipay_point = #{record.alipayPoint,jdbcType=INTEGER},
+        </if>
+        <if test="record.alipayPointExpression!=null" >
+          alipay_point = ${record.alipayPointExpression},
+        </if>
+        <if test="record.pccAf!=null and record.pccAfExpression==null" >
+          pcc_af = #{record.pccAf,jdbcType=INTEGER},
+        </if>
+        <if test="record.pccAfExpression!=null" >
+          pcc_af = ${record.pccAfExpression},
+        </if>
+        <if test="record.isWt!=null and record.isWtExpression==null" >
+          is_wt = #{record.isWt,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isWtExpression!=null" >
+          is_wt = ${record.isWtExpression},
+        </if>
+        <if test="record.isExcelImport!=null and record.isExcelImportExpression==null" >
+          is_excel_import = #{record.isExcelImport,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isExcelImportExpression!=null" >
+          is_excel_import = ${record.isExcelImportExpression},
+        </if>
+        <if test="record.tradeCloseReson!=null and record.tradeCloseResonExpression==null" >
+          trade_close_reson = #{record.tradeCloseReson,jdbcType=VARCHAR},
+        </if>
+        <if test="record.tradeCloseResonExpression!=null" >
+          trade_close_reson = ${record.tradeCloseResonExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.trade.TradeTaoBao" >
+    update trade_taobao
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      tid = #{tid,jdbcType=BIGINT},
+      seller_id = #{sellerId,jdbcType=BIGINT},
+      shop_id = #{shopId,jdbcType=BIGINT},
+      user_id_tb = #{userIdTb,jdbcType=BIGINT},
+      receiver_id_tb = #{receiverIdTb,jdbcType=BIGINT},
+      seller_nick = #{sellerNick,jdbcType=VARCHAR},
+      shipping_type = #{shippingType,jdbcType=VARCHAR},
+      payment = #{payment,jdbcType=DECIMAL},
+      seller_rate = #{sellerRate,jdbcType=VARCHAR},
+      buyer_obtain_point_fee = #{buyerObtainPointFee,jdbcType=INTEGER},
+      post_fee = #{postFee,jdbcType=DECIMAL},
+      receiver_name = #{receiverName,jdbcType=VARCHAR},
+      receiver_country = #{receiverCountry,jdbcType=VARCHAR},
+      receiver_state = #{receiverState,jdbcType=VARCHAR},
+      receiver_town = #{receiverTown,jdbcType=VARCHAR},
+      receiver_address = #{receiverAddress,jdbcType=VARCHAR},
+      receiver_zip = #{receiverZip,jdbcType=VARCHAR},
+      receiver_mobile = #{receiverMobile,jdbcType=VARCHAR},
+      receiver_phone = #{receiverPhone,jdbcType=VARCHAR},
+      consign_time = #{consignTime,jdbcType=TIMESTAMP},
+      seller_alipay_no = #{sellerAlipayNo,jdbcType=VARCHAR},
+      seller_mobile = #{sellerMobile,jdbcType=VARCHAR},
+      seller_phone = #{sellerPhone,jdbcType=VARCHAR},
+      seller_name = #{sellerName,jdbcType=VARCHAR},
+      seller_email = #{sellerEmail,jdbcType=VARCHAR},
+      available_confirm_fee = #{availableConfirmFee,jdbcType=DECIMAL},
+      received_payment = #{receivedPayment,jdbcType=DECIMAL},
+      timeout_action_time = #{timeoutActionTime,jdbcType=TIMESTAMP},
+      is_3d = #{is3d,jdbcType=VARCHAR},
+      promotion = #{promotion,jdbcType=VARCHAR},
+      est_con_time = #{estConTime,jdbcType=TIMESTAMP},
+      invoice_kind = #{invoiceKind,jdbcType=VARCHAR},
+      goods_category_num = #{goodsCategoryNum,jdbcType=INTEGER},
+      num = #{num,jdbcType=INTEGER},
+      num_iid = #{numIid,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      seller_cod_fee = #{sellerCodFee,jdbcType=DECIMAL},
+      discount_fee = #{discountFee,jdbcType=DECIMAL},
+      point_fee = #{pointFee,jdbcType=INTEGER},
+      total_fee = #{totalFee,jdbcType=DECIMAL},
+      is_brand_sale = #{isBrandSale,jdbcType=VARCHAR},
+      lg_aging = #{lgAging,jdbcType=DECIMAL},
+      created = #{created,jdbcType=TIMESTAMP},
+      pay_time = #{payTime,jdbcType=TIMESTAMP},
+      modified = #{modified,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      buyer_message = #{buyerMessage,jdbcType=VARCHAR},
+      alipay_id = #{alipayId,jdbcType=BIGINT},
+      alipay_no = #{alipayNo,jdbcType=VARCHAR},
+      buyer_alipay_no = #{buyerAlipayNo,jdbcType=VARCHAR},
+      buyer_memo = #{buyerMemo,jdbcType=VARCHAR},
+      buyer_flag = #{buyerFlag,jdbcType=INTEGER},
+      seller_memo = #{sellerMemo,jdbcType=VARCHAR},
+      seller_flag = #{sellerFlag,jdbcType=INTEGER},
+      buyer_nick = #{buyerNick,jdbcType=VARCHAR},
+      buyer_area = #{buyerArea,jdbcType=VARCHAR},
+      buyer_email = #{buyerEmail,jdbcType=VARCHAR},
+      has_buyer_message = #{hasBuyerMessage,jdbcType=VARCHAR},
+      area_id = #{areaId,jdbcType=VARCHAR},
+      credit_card_fee = #{creditCardFee,jdbcType=VARCHAR},
+      nut_feature = #{nutFeature,jdbcType=VARCHAR},
+      step_trade_status = #{stepTradeStatus,jdbcType=VARCHAR},
+      step_paid_fee = #{stepPaidFee,jdbcType=VARCHAR},
+      mark_desc = #{markDesc,jdbcType=VARCHAR},
+      send_time = #{sendTime,jdbcType=VARCHAR},
+      trade_from = #{tradeFrom,jdbcType=VARCHAR},
+      alipay_warn_msg = #{alipayWarnMsg,jdbcType=VARCHAR},
+      cod_status = #{codStatus,jdbcType=VARCHAR},
+      can_rate = #{canRate,jdbcType=VARCHAR},
+      commission_fee = #{commissionFee,jdbcType=VARCHAR},
+      trade_memo = #{tradeMemo,jdbcType=VARCHAR},
+      buyer_rate = #{buyerRate,jdbcType=VARCHAR},
+      trade_source = #{tradeSource,jdbcType=VARCHAR},
+      is_part_consign = #{isPartConsign,jdbcType=VARCHAR},
+      real_point_fee = #{realPointFee,jdbcType=INTEGER},
+      receiver_city = #{receiverCity,jdbcType=VARCHAR},
+      receiver_district = #{receiverDistrict,jdbcType=VARCHAR},
+      arrive_interval = #{arriveInterval,jdbcType=INTEGER},
+      arrive_cut_time = #{arriveCutTime,jdbcType=VARCHAR},
+      consign_interval = #{consignInterval,jdbcType=INTEGER},
+      async_modified = #{asyncModified,jdbcType=TIMESTAMP},
+      alipay_point = #{alipayPoint,jdbcType=INTEGER},
+      pcc_af = #{pccAf,jdbcType=INTEGER},
+      is_wt = #{isWt,jdbcType=VARCHAR},
+      is_excel_import = #{isExcelImport,jdbcType=VARCHAR},
+      trade_close_reson = #{tradeCloseReson,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

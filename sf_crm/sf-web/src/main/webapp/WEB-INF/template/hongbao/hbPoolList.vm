@@ -1,0 +1,514 @@
+#set($layout = "/layout/blank.vm")
+<div id="web">
+<div class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <div class="BoxStyleA">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <i class="modal-logo interact"></i>
+                    <ul class="breadcrumb" style="margin-left: 2px;">
+                        <li></li>
+                        <li>客户互动</li>
+                        <li>红包</li>
+                        <li class="active">新建红包活动</li>
+                    </ul><!-- .breadcrumb -->
+                </div>
+
+                <div class="widget-body">
+                    <div class="widget-main">
+                        <form class="form-search" id="searchForm">
+                            <div class="row">
+                                <div class="col-xs-16 col-sm-12">
+                                    <div class="input-group">
+                                        <span class="ml20">红包活动名称：<input  type="text" name="name" /></span>
+
+                            <span class="ml20">&nbsp;&nbsp;&nbsp;领取方式：
+                                <select  style="width: 150px;" name="type">
+                                    <option value="">不限</option>
+                                    <option value="point_exchange" >积分兑换红包</option>
+                                    <option value="common">普通红包</option>
+                                    <option value="shake">摇一摇红包</option>
+                                    <option value="praise">好评返红包</option>
+                                    <option value="birthday">生日红包</option>
+                                ##                                    <option value="fx">分享送红包</option>
+                                ##                                    <option value="gw">购物红包</option>
+                                </select>
+                            </span>
+                                        <span class="ml20">&nbsp;&nbsp;创建时间：<input  type="text" name="startDate" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"/></span>
+                                        <span class="ml20">&nbsp;&nbsp;至：<input  type="text" name="endDate" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"/></span>
+                            <span >
+                                <input class="btn_searchA ml20" type="submit" value="搜索"/>
+                            </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div>&nbsp</div>
+            <div class="BoxStyleA">
+                <div class="BoxStyleATop">
+                    <span class="fl">红包活动信息</span>
+                    <div class="icon_box fl">
+                        <a class="icon_add"   onclick="showAddForm()" >添加</a>
+                        <a id="delHbpool" href="" class="icon_del">删除</a>
+                    </div>
+                    <!--<a href="" class="fr">X</a>-->
+                </div>
+                <table id="imgTable" class="table table-striped table-bordered table-hover" style="width: 100%">
+                    <thead>
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="checkbox" class="ace" id="allCheckbox" onclick="javascript:selectAll()" value="true" />
+                                <span class="lbl"></span>
+                            </label>
+                        </td>
+                        <th>红包活动名称</th>
+                        <th style="width: 13%">创建时间</th>
+                        <th>状态</th>
+                        <th>总金额(元)</th>
+                        <th>剩余金额(元)</th>
+                        <th>总数量</th>
+                        <th>领取数量</th>
+                        <th>剩余数量</th>
+                        <th>领取方式</th>
+                    ##                        <th style="width: 13%">结束时间</th>
+                        <th style="width: 15%">操作</th>
+                    </tr>
+
+                    </thead>
+
+                    <tbody id="tbContainer">
+                    </tbody>
+
+                    <tfoot>
+                    <tr>
+                        <th>合计:</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th id="sumTotalAmount"></th>
+                        <th id="sumOverAmount"></th>
+                        <th id="sumNumber"></th>
+                        <th id="sumNumberObtain"></th>
+                        <th id="sumOverNumber"></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </tfoot>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="hbpoolModal" tabindex="-1" role="dialog" aria-labelledby="hbpoolModal" aria-hidden="true" >
+<div class="modal-dialog" style="width: 800px">
+<div class="modal-content" >
+<div class="tiptop"><span>新建红包活动</span><a data-dismiss="modal" aria-hidden="true"></a></div>
+<div class="row">
+    <div class="col-xs-12">
+        <!-- PAGE CONTENT BEGINS -->
+        <form class="form-horizontal" role="form" id="addForm" method="post">
+            <div class="form-group" id="nameValidate">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 红包名称 </label>
+
+                <div class="col-sm-6" style="margin-top: 5px">
+                    <input type="text" id="form-field-1"  class="col-xs-10 col-sm-5" name="name" />
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 红包数量 </label>
+
+                <div class="col-sm-6">
+                    <input type="text" id="form-field-1"  class="col-xs-10 col-sm-5"  name="number" readonly="readonly" />
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 红包类别 </label>
+                <div class="col-sm-12" style="width:495px;margin: 2px 0px 0px -18px ">
+                    <input name="type" type="radio" class="ace" value="common" checked="checked" onclick="change()"/>
+                    <span class="lbl">普通红包</span>
+                    <input name="type" type="radio" class="ace" value="praise"  onclick="change()"/>
+                    <span class="lbl">好评返红包</span>
+                ##                                <input name="type" type="radio" class="ace" value="fxs"  onclick="change()"/>
+                ##                                <span class="lbl">分享送红包</span>
+                    <input name="type" type="radio" class="ace" value="point_exchange"  onclick="change()"/>
+                    <span class="lbl">积分兑换红包</span>
+                    <input name="type" type="radio" class="ace" value="shake"  onclick="change()"/>
+                    <span class="lbl">摇一摇红包</span>
+                    <input name="type" type="radio" class="ace" value="birthday"  onclick="change()"/>
+                    <span class="lbl">生日红包</span>
+                ##                                <input name="type" type="radio" class="ace" value="gw"  onclick="change()"/>
+                ##                                <span class="lbl">购物红包</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12 col-sm-7">
+                    <label class="control-label bolder red" style="margin-left:-90px" >设置红包活动规则</label>
+                    <div class="radio">
+                        <label>
+                            <input name="config" type="radio" class="ace" value="regular" checked="checked" onchange="configChange()" />
+                            <span class="lbl"> 规则设置</span>
+                        </label>
+                    </div>
+                    </br>
+
+                    <div id="rdiv">
+                        <div class="form-group">
+                            <div class="col-sm-12" style="float: left;width: 670px;text-align:left ;margin-left: 128px">
+                                <input type="text" id="form-field-1" class="ammount" name="regularAmmount"  style="width: 90px;margin-left:20px"/>
+                                <label > 元红包,共 </label>
+                                <input type="text" id="form-field-1" class="hb-number"  name="regularNumber" style="width: 90px" onblur="count('hbpoolModal')" />
+                                <label >个 </label>
+                                <div class="jfdh" style="display: inline">
+                                <label>,每个红包需消耗</label>
+                                <input type="text" id="form-field-1" name="pointPerHB" style="width: 90px" onblur="count('hbpoolModal')" />
+                                <label >积分 </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="hpfDiv">
+                        <div class="form-group">
+                            <div class="col-sm-11" style="margin-left:100px">
+                                <label style="width: 172px"> 带字好评,字数(包含标点)需</label>
+                                <input type="text" id="form-field-1" style="width: 90px" name="withWordLimit" />
+                                <label style="width: 30px"> 以上 </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-11 control-label no-padding-right" style="margin-left: -34px" >领取限制:
+                                <input name="limitPostTime" type="checkbox" class="ace" checked="checked" value="true"/> <span class="lbl">&nbsp;&nbsp;每个快递单号领取一次</span>
+                            </label>
+                        </div>
+
+                        <div class="form-group" >
+                            <div class="col-sm-8" style="margin-left: 116px;">
+                                <label class="col-sm-4 control-label no-padding-right" style="margin-top: -5px"> 返现平台：</label>
+                                <label style="margin-left: -23px">
+                                    <input name="platform" type="checkbox" class="ace" value="taobaoAndTmall"/>
+                                    <span class="lbl">淘宝、天猫</span>
+                                </label>
+                                <label>
+                                    <input name="platform" type="checkbox" class="ace" value="jd"/>
+                                    <span class="lbl">京东</span>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div id="show">
+                        <div class="radio">
+                            <label>
+                                <input name="config" type="radio" class="ace" value="irregular" onchange="configChange()"/>
+                                <span class="lbl"> 不规则设置</span>
+                            </label>
+                        </div>
+
+                        <div class="jfdhExcept">
+                            <div class="form-group">
+                                <div class="col-sm-18" style="width:600px " >
+                                    </br>
+                                    <button  type="button" style="margin-left: 150px" onclick="addText()">
+                                        继续添加
+                                    </button>
+                                    <label>(前后数据必须是后者大于前者,顺序递增)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="mdiv">
+                            <div class="form-group" style="margin-top: 5px">
+                                <div class="col-sm-16" style="width: 760px">
+                                    <input type="text" id="form-field-1" class="ammStart" name="ammStart"   style="width: 90px"/>
+                                    <label > --- </label>
+                                    <input type="text" id="form-field-1" class="ammEnd" name="ammEnd"  style="width: 90px"/>
+                                    <label > 元随机红包,共 </label>
+                                    <input type="text" id="form-field-1" class="irNumber"  name="irNumber" style="width: 90px" onblur="count('hbpoolModal')" />
+                                    <label > 个 </label>
+                                </div>
+                            </div>
+
+                            <div class="jfdh">
+                                <div class="form-group">
+                                    <div class="col-sm-8" style="width: 570px;float: left">
+
+                                        <label >每1元红包需消耗&nbsp&nbsp&nbsp&nbsp</label>
+                                        <input type="text" id="form-field-1" name="pointPerYuan"  style="width: 90px"/>
+                                        <label >积分</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="jfdhExcept">
+                                <div class="form-group">
+                                    <div class="col-sm-16" style="width: 760px">
+                                        <input type="text" id="form-field-1" class="ammStart" name="ammStart" style="width: 90px"/>
+                                        <label > --- </label>
+                                        <input type="text" id="form-field-1" class="ammEnd" name="ammEnd"  style="width: 90px"/>
+                                        <label > 元随机红包,共 </label>
+                                        <input type="text" id="form-field-1" class="irNumber" name="irNumber" style="width: 90px" onblur="count('hbpoolModal')"/>
+                                        <label > 个 </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-16" style="width: 760px">
+                                        <input type="text" id="form-field-1" class="ammStart" name="ammStart" style="width: 90px"/>
+                                        <label > --- </label>
+                                        <input type="text" id="form-field-1" class="ammEnd"  name="ammEnd" style="width: 90px"/>
+                                        <label > 元随机红包,共 </label>
+                                        <input type="text" id="form-field-1" class="irNumber" name="irNumber" style="width: 90px" onblur="count('hbpoolModal')"/>
+                                        <label > 个 </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="limitObtainTime">
+                        <label class="col-sm-11 control-label no-padding-right" style="margin-left: 36px" >限领次数:
+                            <input name="limitObtainTime" type="checkbox" class="ace" checked="checked" value="true"/> <span class="lbl">&nbsp;&nbsp;每个微信昵称（openid）限领一个</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group showTime" id="dateValidate">
+                <label class="col-sm-3 control-label no-padding-right" for="form-field-1">活动时间 </label>
+                <div class="col-sm-6" style="float: left;text-align: left">
+                    <input type="text" id="form-field-1"  name="startDate" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+                    <label >至</label>
+                    <input type="text" id="form-field-1"  name="endDate" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <center><input class="sure" type="submit" value="确定" >&nbsp;
+                    <input class="cancel" type="button" data-dismiss="modal" aria-hidden="true" value="取消"></center>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- detailModal -->
+<div class="modal fade" id="hbpoolDetailModal" tabindex="-1" role="dialog" aria-labelledby="hbpoolDetailModal" aria-hidden="true" >
+<div class="modal-dialog" style="width: 800px">
+    <div class="modal-content" >
+        <div class="tiptop"><span>红包活动详细信息</span><a data-dismiss="modal" aria-hidden="true"></a></div>
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- PAGE CONTENT BEGINS -->
+                <form class="form-horizontal" role="form" id="updateForm" method="post">
+                    <input type="hidden" name="id">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 红包名称 </label>
+                        <div class="col-sm-6" style="margin-top: 5px">
+                            <input type="text" id="form-field-1"  class="col-xs-10 col-sm-5" name="name" />
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 红包数量 </label>
+
+                        <div class="col-sm-6">
+                            <input type="text" id="form-field-1"  class="col-xs-10 col-sm-5"  name="number" readonly="readonly" />
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 红包类别 </label>
+                        <div class="col-sm-12" style="width:495px;margin: 2px 0px 0px -18px ">
+                            <input name="type" type="radio" class="ace" value="common" checked="checked" onclick="change1()"/>
+                            <span class="lbl">普通红包</span>
+                            <input name="type" type="radio" class="ace" value="praise"  onclick="change1()"/>
+                            <span class="lbl">好评返红包</span>
+                        ##                                <input name="type" type="radio" class="ace" value="fxs"  onclick="change1()"/>
+                        ##                                <span class="lbl">分享送红包</span>
+                            <input name="type" type="radio" class="ace" value="point_exchange"  onclick="change1()"/>
+                            <span class="lbl">积分兑换红包</span>
+                            <input name="type" type="radio" class="ace" value="shake"  onclick="change1()"/>
+                            <span class="lbl">摇一摇红包</span>
+                            <input name="type" type="radio" class="ace" value="birthday"  onclick="change1()"/>
+                            <span class="lbl">生日红包</span>
+                        ##                                <input name="type" type="radio" class="ace" value="gw"  onclick="change1()"/>
+                        ##                                <span class="lbl">购物红包</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12 col-sm-7">
+                            <label class="control-label bolder red" style="margin-left:-90px" >设置红包活动规则</label>
+                            <div class="radio">
+                                <label>
+                                    <input name="config" type="radio" class="ace" value="regular" checked="checked" onchange="configChange1()" />
+                                    <span class="lbl"> 规则设置</span>
+                                </label>
+                            </div>
+                            </br>
+
+                            <div id="rdiv1">
+                                <div class="form-group">
+                                    <div class="col-sm-12" style="float: left;width: 670px;text-align:left ;margin-left: 128px">
+                                        <input type="text" id="form-field-1" class="ammount" name="irregularAmmount"   style="width: 90px;margin-left:20px"/>
+                                        <label > 元红包,共 </label>
+                                        <input type="text" id="form-field-1" class="hb-number" name="irregularNumber"   style="width: 90px" onblur="count('hbpoolDetailModal')" />
+                                        <label > 个 </label>
+                                             <div class="jfdh" style="display: inline">
+                                            <label>,每个红包需消耗</label>
+                                            <input type="text" id="form-field-1"  name="pointPerHB" style="width: 90px" onblur="count('hbpoolModal')" />
+                                            <label >积分 </label>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="hpfDiv1">
+                                <div class="form-group">
+                                    <div class="col-sm-11" style="margin-left:100px">
+                                        <label style="width: 172px"> 带字好评,字数(包含标点)需</label>
+                                        <input type="text" id="form-field-1" style="width: 90px" name="withWordLimit" />
+                                        <label style="width: 30px"> 以上 </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-11 control-label no-padding-right" style="margin-left: -34px" >领取限制:
+                                        <input name="limitPostTime" type="checkbox" class="ace" checked="checked" value="true"/> <span class="lbl">&nbsp;&nbsp;每个快递单号领取一次</span>
+                                    </label>
+                                </div>
+
+                                <div class="form-group" >
+                                    <div class="col-sm-8" style="margin-left: 116px;">
+                                        <label class="col-sm-4 control-label no-padding-right" style="margin-top: -5px"> 返现平台：</label>
+                                        <label style="margin-left: -23px">
+                                            <input name="platform" type="checkbox" class="ace" value="taobaoAndTmall"/>
+                                            <span class="lbl">淘宝、天猫</span>
+                                        </label>
+                                        <label>
+                                            <input name="platform" type="checkbox" class="ace" value="jd"/>
+                                            <span class="lbl">京东</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div id="show1">
+                                <div class="radio">
+                                    <label>
+                                        <input name="config" type="radio" class="ace" value="irregular" onchange="configChange1()"/>
+                                        <span class="lbl"> 不规则设置</span>
+                                    </label>
+                                </div>
+
+                                <div class="jfdhExcept">
+                                    <div class="form-group">
+                                        <div class="col-sm-18" style="width:600px " >
+                                            <button  type="button" class="addBtn" style="margin-left: 150px" onclick="addText1()">
+                                                继续添加
+                                            </button>
+                                            <label>(前后数据必须是后者大于前者,顺序递增)</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="mdiv1">
+                                    <div class="form-group" style="margin-top: 5px">
+                                        <div class="col-sm-16" style="width: 760px">
+                                            <input type="text" id="form-field-1" class="ammStart"  name="ammStart" style="width: 90px"/>
+                                            <label > --- </label>
+                                            <input type="text" id="form-field-1" class="ammEnd" name="ammEnd"  style="width: 90px"/>
+                                            <label > 元随机红包,共 </label>
+                                            <input type="text" id="form-field-1" class="irNumber" name="irNumber" style="width: 90px" onblur="count('hbpoolDetailModal')" />
+                                            <label > 个 </label>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="jfdh">
+                                        <div class="form-group">
+                                            <div class="col-sm-8" style="width: 570px;float: left">
+
+                                                <label >每1元红包需消耗&nbsp&nbsp&nbsp&nbsp</label>
+                                                <input type="text" id="form-field-1" name="pointPerYuan"  style="width: 90px"/>
+                                                <label >积分</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="jfdhExcept">
+                                        <div class="form-group">
+                                            <div class="col-sm-16" style="width: 760px">
+                                                <input type="text" id="form-field-1" class="ammStart" name="ammStart" style="width: 90px"/>
+                                                <label > --- </label>
+                                                <input type="text" id="form-field-1" class="ammEnd" name="ammEnd" style="width: 90px"/>
+                                                <label > 元随机红包,共 </label>
+                                                <input type="text" id="form-field-1" class="irNumber" name="irNumber" style="width: 90px" onblur="count('hbpoolDetailModal')"/>
+                                                <label > 个 </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-16" style="width: 760px">
+                                                <input type="text" id="form-field-1" class="ammStart"  name="ammStart"  style="width: 90px"/>
+                                                <label > --- </label>
+                                                <input type="text" id="form-field-1" class="ammEnd"  name="ammEnd"  style="width: 90px"/>
+                                                <label > 元随机红包,共 </label>
+                                                <input type="text" id="form-field-1" class="irNumber"  name="irNumber" style="width: 90px" onblur="count('hbpoolDetailModal')"/>
+                                                <label > 个 </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group" id="limitObtainTime1">
+                                <label class="col-sm-11 control-label no-padding-right" style="margin-left: 36px">限领次数:
+                                    <input name="limitObtainTime" type="checkbox" class="ace"  value="true"/> <span class="lbl">&nbsp;&nbsp;每个微信昵称（openid）限领一个</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group  showTime">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">活动时间</label>
+                        <div class="col-sm-8" style="float: left;text-align: left">
+                            <input type="text" id="form-field-1"  name="startDate" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+                            <label >至</label>
+                            <input type="text" id="form-field-1"  name="endDate" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <center><input class="sure" type="submit" value="确定"  >&nbsp;
+                            <input class="cancel" type="button" data-dismiss="modal" aria-hidden="true" value="取消"></center>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<script type="text/javascript" src="${rc.contextPath}/media/js/admin/hongbao/hongbao.js"></script>
+
+</div>

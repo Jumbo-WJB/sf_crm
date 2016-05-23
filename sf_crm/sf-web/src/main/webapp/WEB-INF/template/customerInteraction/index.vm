@@ -1,0 +1,286 @@
+#set($layout = "/layout/blank.vm")
+<style sheet="text/css">
+    .content-text p{margin: 0 0 4px;text-align: left;padding-left: 30px;}
+    .content-text .text{width: 250px;height: auto;background-color: #FE9900;
+                        box-shadow: 10px 10px 5px #888888;float: left;padding: 15px 0;}
+    .content-text .text span{font-size: 16px;font-weight: bold;padding: 0 3px;}
+</style>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <div class="BoxStyleA">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <i class="modal-logo interact"></i>
+                    <ul class="breadcrumb" style="margin-left: 2px">
+                        <li></li>
+                        <li>客户互动</li>
+                        <li>积分</li>
+                        <li class="active">积分兑换统计</li>
+                    </ul>
+                </div>
+                <div class="widget-body">
+                    <div class="widget-main">
+                        <form class="form-horizontal markAct" id="searchForm" role="form">
+                            <div class="row">
+                                <div class="col-xs-16 col-sm-10 no-padding-left" style="margin-top: 15px;margin-left: 40px;">
+                                    <div class="input-group">
+                                        <span style="float: left;margin-left: 20px;">积分兑换曲线图：</span>
+                                        <span style="float: left;">
+                                            <input name="days" type="radio" class="ace" value="7" checked>
+                                            <span class="lbl">最近7天</span>
+                                        </span>
+                                        <span style="float: left;margin-left: 25px;">
+                                            <input name="days" type="radio" class="ace" value="15"/>
+                                            <span class="lbl"> 最近15天</span>
+                                        </span>
+                                        <span style="float: left;margin-left: 25px;">
+                                            <input name="days" type="radio" class="ace" value="30"/>
+                                            <span class="lbl"> 最近30天</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-16 col-sm-12 no-padding-left" style="margin-top: 25px;">
+                                    <div class="col-sm-3"></div>
+                                    <div class="content-text" >
+                                        <div class="text" style="float: left;">
+                                            <p>累计赠送：<span id="totalPresentPoint">0</span>积分</p>
+                                            <p>已经兑换：<span id="exchangedPoint">0</span>积分</p>
+                                            <p>累计兑换红包金额：<span id="totalExchangeHBAmount">0</span>元</p>
+                                            <p>未兑换积分：<span id="nonExchangePoint">0</span>积分</p>
+                                        </div>
+                                        <div class="text" style="margin-left: 70px;">
+                                            <p>累计领取红包数量：<span id="totalReceiveHBNum">0</span>个</p>
+                                            <p>累计领取红包金额：<span id="totalReceiveHBAmount">0</span>元</p>
+                                            <p>最大领取红包金额：<span id="maxReceiveHBAmount">0</span>元</p>
+                                            <p>累计红包领取粉丝人数：<span id="receiveHBFansNum">0</span>人</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="7-interactionChart" class="7_days_info" style="width: 90%; height: 400px; margin: 10px auto;"></div>
+                    <div id="15-interactionChart" class="15_days_info" style="width: 90%; max-width: 1140px;height: 400px; margin: 10px auto;display: none;"></div>
+                    <div id="30-interactionChart" class="30_days_info" style="width: 90%;max-width: 1140px; height: 400px; margin: 10px auto;display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+/**
+ * Dark theme for Highcharts JS
+ * @author Torstein Honsi
+ */
+
+// Load the fonts
+Highcharts.createElement('link', {
+    href: 'http://fonts.googleapis.com/css?family=Unica+One',
+    rel: 'stylesheet',
+    type: 'text/css'
+}, null, document.getElementsByTagName('head')[0]);
+
+Highcharts.theme = {
+    colors: ["#2b908f", "#90ee7e", "#f45b5b", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
+        "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
+    chart: {
+        backgroundColor: {
+            linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
+            stops: [
+                [0, '#2a2a2b'],
+                [1, '#3e3e40']
+            ]
+        },
+        style: {
+            fontFamily: "'Unica One', sans-serif"
+        },
+        plotBorderColor: '#606063'
+    },
+    title: {
+        style: {
+            color: '#E0E0E3',
+            textTransform: 'uppercase',
+            fontSize: '20px'
+        }
+    },
+    subtitle: {
+        style: {
+            color: '#E0E0E3',
+            textTransform: 'uppercase'
+        }
+    },
+    xAxis: {
+        gridLineColor: '#707073',
+        labels: {
+            style: {
+                color: '#E0E0E3'
+            }
+        },
+        lineColor: '#707073',
+        minorGridLineColor: '#505053',
+        tickColor: '#707073',
+        title: {
+            style: {
+                color: '#A0A0A3'
+
+            }
+        }
+    },
+    yAxis: {
+        gridLineColor: '#707073',
+        labels: {
+            style: {
+                color: '#E0E0E3'
+            }
+        },
+        lineColor: '#707073',
+        minorGridLineColor: '#505053',
+        tickColor: '#707073',
+        tickWidth: 1,
+        title: {
+            style: {
+                color: '#A0A0A3'
+            }
+        }
+    },
+    tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.85)',
+        style: {
+            color: '#F0F0F0'
+        }
+    },
+    plotOptions: {
+        series: {
+            dataLabels: {
+                color: '#B0B0B3'
+            },
+            marker: {
+                lineColor: '#333'
+            }
+        },
+        boxplot: {
+            fillColor: '#505053'
+        },
+        candlestick: {
+            lineColor: 'white'
+        },
+        errorbar: {
+            color: 'white'
+        }
+    },
+    legend: {
+        itemStyle: {
+            color: '#E0E0E3'
+        },
+        itemHoverStyle: {
+            color: '#FFF'
+        },
+        itemHiddenStyle: {
+            color: '#606063'
+        }
+    },
+    credits: {
+        style: {
+            color: '#666'
+        }
+    },
+    labels: {
+        style: {
+            color: '#707073'
+        }
+    },
+
+    drilldown: {
+        activeAxisLabelStyle: {
+            color: '#F0F0F3'
+        },
+        activeDataLabelStyle: {
+            color: '#F0F0F3'
+        }
+    },
+
+    navigation: {
+        buttonOptions: {
+            symbolStroke: '#DDDDDD',
+            theme: {
+                fill: '#505053'
+            }
+        }
+    },
+
+    // scroll charts
+    rangeSelector: {
+        buttonTheme: {
+            fill: '#505053',
+            stroke: '#000000',
+            style: {
+                color: '#CCC'
+            },
+            states: {
+                hover: {
+                    fill: '#707073',
+                    stroke: '#000000',
+                    style: {
+                        color: 'white'
+                    }
+                },
+                select: {
+                    fill: '#000003',
+                    stroke: '#000000',
+                    style: {
+                        color: 'white'
+                    }
+                }
+            }
+        },
+        inputBoxBorderColor: '#505053',
+        inputStyle: {
+            backgroundColor: '#333',
+            color: 'silver'
+        },
+        labelStyle: {
+            color: 'silver'
+        }
+    },
+
+    navigator: {
+        handles: {
+            backgroundColor: '#666',
+            borderColor: '#AAA'
+        },
+        outlineColor: '#CCC',
+        maskFill: 'rgba(255,255,255,0.1)',
+        series: {
+            color: '#7798BF',
+            lineColor: '#A6C7ED'
+        },
+        xAxis: {
+            gridLineColor: '#505053'
+        }
+    },
+
+    scrollbar: {
+        barBackgroundColor: '#808083',
+        barBorderColor: '#808083',
+        buttonArrowColor: '#CCC',
+        buttonBackgroundColor: '#606063',
+        buttonBorderColor: '#606063',
+        rifleColor: '#FFF',
+        trackBackgroundColor: '#404043',
+        trackBorderColor: '#404043'
+    },
+
+    // special colors for some of the
+    legendBackgroundColor: 'rgba(0, 0, 0, 0.5)',
+    background2: '#505053',
+    dataLabelsColor: '#B0B0B3',
+    textColor: '#C0C0C0',
+    contrastTextColor: '#F0F0F3',
+    maskColor: 'rgba(255,255,255,0.3)'
+};
+
+// Apply the theme
+Highcharts.setOptions(Highcharts.theme);
+</script>
+
+<script type="text/javascript" src="${rc.contextPath}/media/js/admin/customerInteration/index.js"></script>

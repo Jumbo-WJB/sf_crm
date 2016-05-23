@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.pointMall.UserAccountDao" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.pointMall.UserAccountStaticsDo" >
+    <result column="sid" property="sellerId" jdbcType="BIGINT" />
+    <result column="uid" property="userId" jdbcType="BIGINT" />
+    <result column="ptotal" property="pointTotal" jdbcType="BIGINT" />
+    <result column="pexAmount" property="pointExchangeTotal" jdbcType="BIGINT" />
+    <result column="pamount" property="validPoint" jdbcType="BIGINT" />
+    <result column="pexpired" property="invalidPoint" jdbcType="BIGINT" />
+    <result column="hongbao" property="hongbaoUsedPoints" jdbcType="BIGINT" />
+    <result column="goods" property="goodsUsedPoints" jdbcType="BIGINT" />
+    <result column="rank" property="ranking" jdbcType="BIGINT" />
+
+      <result column="unm" property="userName" jdbcType="VARCHAR" />
+      <result column="wxnim" property="wxNickName" jdbcType="VARCHAR" />
+      <result column="himgurl" property="headImgUrl" jdbcType="VARCHAR" />
+      <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+
+  </resultMap>
+
+    <select id="findUserAccountDo" resultMap="BaseResultMap" parameterType="map">
+        SELECT max(ua.seller_id) sid, max(ua.user_id) uid,max(u.name) unm,max(u.wx_nick_name) wxnim,max(u.wx_headimgurl) himgurl,
+          MAX(ua.point_amount_total) ptotal, MAX(ua.point_amount_exchange) pexAmount,max(u.mobile) mobile,
+        MAX(ua.point_amount) pamount,SUM(CASE WHEN pe.exchange_method='hongbao' THEN pe.point_amount END) hongbao,max(ua.point_amount_expired) pexpired,
+        SUM(CASE WHEN pe.exchange_method='goods' THEN pe.point_amount END) goods
+        FROM user_account ua LEFT JOIN point_exchange pe ON ua.user_id = pe.user_id left join user u on ua.user_id = u.user_id
+        WHERE ua.seller_id = #{sellerId} and ua.user_id = #{userId} and (pe.status='success' or pe.status is null)
+    </select>
+
+    <select id="findUserAccountRanking" resultMap="BaseResultMap" parameterType="map">
+        SELECT a.seller_id sid,a.user_id uid, a.point_amount_total ptotal, COUNT(*) AS rank
+        FROM user_account a ,user_account b
+        WHERE a.seller_id = #{sellerId} AND a.user_id = #{userId} AND a.point_amount_total <![CDATA[ <= ]]> b.point_amount_total GROUP BY a.user_id, a.point_amount_total ORDER BY rank
+    </select>
+
+    <select id="findAllUserAccountsRanking" resultMap="BaseResultMap" parameterType="long">
+        SELECT a.seller_id sid,a.user_id uid, a.point_amount_total ptotal, COUNT(*) AS rank
+        FROM user_account a, user_account b
+        WHERE a.seller_id = #{sellerId} and a.point_amount_total <![CDATA[ <= ]]> b.point_amount_total GROUP BY a.user_id, a.point_amount_total ORDER BY rank
+    </select>
+
+
+
+</mapper>

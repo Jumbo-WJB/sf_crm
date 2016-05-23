@@ -1,0 +1,1134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.shake.ShakeDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.shake.ShakeDetail" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_goods_name" property="maxGoodsName" jdbcType="BIGINT" />
+    <result column="min_goods_name" property="minGoodsName" jdbcType="BIGINT" />
+    <result column="avg_goods_name" property="avgGoodsName" jdbcType="BIGINT" />
+    <result column="count_goods_name" property="countGoodsName" jdbcType="BIGINT" />
+    <result column="sum_goods_name" property="sumGoodsName" jdbcType="VARCHAR" />
+    <result column="max_is_shake_gift" property="maxIsShakeGift" jdbcType="BIGINT" />
+    <result column="min_is_shake_gift" property="minIsShakeGift" jdbcType="BIGINT" />
+    <result column="avg_is_shake_gift" property="avgIsShakeGift" jdbcType="BIGINT" />
+    <result column="count_is_shake_gift" property="countIsShakeGift" jdbcType="BIGINT" />
+    <result column="sum_is_shake_gift" property="sumIsShakeGift" jdbcType="VARCHAR" />
+    <result column="max_is_shake_hb" property="maxIsShakeHb" jdbcType="BIGINT" />
+    <result column="min_is_shake_hb" property="minIsShakeHb" jdbcType="BIGINT" />
+    <result column="avg_is_shake_hb" property="avgIsShakeHb" jdbcType="BIGINT" />
+    <result column="count_is_shake_hb" property="countIsShakeHb" jdbcType="BIGINT" />
+    <result column="sum_is_shake_hb" property="sumIsShakeHb" jdbcType="VARCHAR" />
+    <result column="max_is_shake_point" property="maxIsShakePoint" jdbcType="BIGINT" />
+    <result column="min_is_shake_point" property="minIsShakePoint" jdbcType="BIGINT" />
+    <result column="avg_is_shake_point" property="avgIsShakePoint" jdbcType="BIGINT" />
+    <result column="count_is_shake_point" property="countIsShakePoint" jdbcType="BIGINT" />
+    <result column="sum_is_shake_point" property="sumIsShakePoint" jdbcType="VARCHAR" />
+    <result column="max_status" property="maxStatus" jdbcType="BIGINT" />
+    <result column="min_status" property="minStatus" jdbcType="BIGINT" />
+    <result column="avg_status" property="avgStatus" jdbcType="BIGINT" />
+    <result column="count_status" property="countStatus" jdbcType="BIGINT" />
+    <result column="sum_status" property="sumStatus" jdbcType="VARCHAR" />
+    <result column="max_is_get_point_share" property="maxIsGetPointShare" jdbcType="BIGINT" />
+    <result column="min_is_get_point_share" property="minIsGetPointShare" jdbcType="BIGINT" />
+    <result column="avg_is_get_point_share" property="avgIsGetPointShare" jdbcType="BIGINT" />
+    <result column="count_is_get_point_share" property="countIsGetPointShare" jdbcType="BIGINT" />
+    <result column="sum_is_get_point_share" property="sumIsGetPointShare" jdbcType="VARCHAR" />
+    <result column="max_get_point_num" property="maxGetPointNum" jdbcType="BIGINT" />
+    <result column="min_get_point_num" property="minGetPointNum" jdbcType="BIGINT" />
+    <result column="avg_get_point_num" property="avgGetPointNum" jdbcType="BIGINT" />
+    <result column="count_get_point_num" property="countGetPointNum" jdbcType="BIGINT" />
+    <result column="sum_get_point_num" property="sumGetPointNum" jdbcType="INTEGER" />
+    <result column="max_point_interval_max" property="maxPointIntervalMax" jdbcType="BIGINT" />
+    <result column="min_point_interval_max" property="minPointIntervalMax" jdbcType="BIGINT" />
+    <result column="avg_point_interval_max" property="avgPointIntervalMax" jdbcType="BIGINT" />
+    <result column="count_point_interval_max" property="countPointIntervalMax" jdbcType="BIGINT" />
+    <result column="sum_point_interval_max" property="sumPointIntervalMax" jdbcType="INTEGER" />
+    <result column="max_point_interval_min" property="maxPointIntervalMin" jdbcType="BIGINT" />
+    <result column="min_point_interval_min" property="minPointIntervalMin" jdbcType="BIGINT" />
+    <result column="avg_point_interval_min" property="avgPointIntervalMin" jdbcType="BIGINT" />
+    <result column="count_point_interval_min" property="countPointIntervalMin" jdbcType="BIGINT" />
+    <result column="sum_point_interval_min" property="sumPointIntervalMin" jdbcType="INTEGER" />
+    <result column="max_goods_id" property="maxGoodsId" jdbcType="BIGINT" />
+    <result column="min_goods_id" property="minGoodsId" jdbcType="BIGINT" />
+    <result column="avg_goods_id" property="avgGoodsId" jdbcType="BIGINT" />
+    <result column="count_goods_id" property="countGoodsId" jdbcType="BIGINT" />
+    <result column="sum_goods_id" property="sumGoodsId" jdbcType="VARCHAR" />
+    <result column="max_is_get_gift_share" property="maxIsGetGiftShare" jdbcType="BIGINT" />
+    <result column="min_is_get_gift_share" property="minIsGetGiftShare" jdbcType="BIGINT" />
+    <result column="avg_is_get_gift_share" property="avgIsGetGiftShare" jdbcType="BIGINT" />
+    <result column="count_is_get_gift_share" property="countIsGetGiftShare" jdbcType="BIGINT" />
+    <result column="sum_is_get_gift_share" property="sumIsGetGiftShare" jdbcType="VARCHAR" />
+    <result column="max_get_gift_num" property="maxGetGiftNum" jdbcType="BIGINT" />
+    <result column="min_get_gift_num" property="minGetGiftNum" jdbcType="BIGINT" />
+    <result column="avg_get_gift_num" property="avgGetGiftNum" jdbcType="BIGINT" />
+    <result column="count_get_gift_num" property="countGetGiftNum" jdbcType="BIGINT" />
+    <result column="sum_get_gift_num" property="sumGetGiftNum" jdbcType="INTEGER" />
+    <result column="max_is_get_hb_share" property="maxIsGetHbShare" jdbcType="BIGINT" />
+    <result column="min_is_get_hb_share" property="minIsGetHbShare" jdbcType="BIGINT" />
+    <result column="avg_is_get_hb_share" property="avgIsGetHbShare" jdbcType="BIGINT" />
+    <result column="count_is_get_hb_share" property="countIsGetHbShare" jdbcType="BIGINT" />
+    <result column="sum_is_get_hb_share" property="sumIsGetHbShare" jdbcType="VARCHAR" />
+    <result column="max_get_hb_num" property="maxGetHbNum" jdbcType="BIGINT" />
+    <result column="min_get_hb_num" property="minGetHbNum" jdbcType="BIGINT" />
+    <result column="avg_get_hb_num" property="avgGetHbNum" jdbcType="BIGINT" />
+    <result column="count_get_hb_num" property="countGetHbNum" jdbcType="BIGINT" />
+    <result column="sum_get_hb_num" property="sumGetHbNum" jdbcType="INTEGER" />
+    <result column="max_hb_pool_name" property="maxHbPoolName" jdbcType="BIGINT" />
+    <result column="min_hb_pool_name" property="minHbPoolName" jdbcType="BIGINT" />
+    <result column="avg_hb_pool_name" property="avgHbPoolName" jdbcType="BIGINT" />
+    <result column="count_hb_pool_name" property="countHbPoolName" jdbcType="BIGINT" />
+    <result column="sum_hb_pool_name" property="sumHbPoolName" jdbcType="VARCHAR" />
+    <result column="max_hb_pool_id" property="maxHbPoolId" jdbcType="BIGINT" />
+    <result column="min_hb_pool_id" property="minHbPoolId" jdbcType="BIGINT" />
+    <result column="avg_hb_pool_id" property="avgHbPoolId" jdbcType="BIGINT" />
+    <result column="count_hb_pool_id" property="countHbPoolId" jdbcType="BIGINT" />
+    <result column="sum_hb_pool_id" property="sumHbPoolId" jdbcType="BIGINT" />
+    <result column="max_end_date" property="maxEndDate" jdbcType="BIGINT" />
+    <result column="min_end_date" property="minEndDate" jdbcType="BIGINT" />
+    <result column="avg_end_date" property="avgEndDate" jdbcType="BIGINT" />
+    <result column="count_end_date" property="countEndDate" jdbcType="BIGINT" />
+    <result column="sum_end_date" property="sumEndDate" jdbcType="TIMESTAMP" />
+    <result column="max_start_date" property="maxStartDate" jdbcType="BIGINT" />
+    <result column="min_start_date" property="minStartDate" jdbcType="BIGINT" />
+    <result column="avg_start_date" property="avgStartDate" jdbcType="BIGINT" />
+    <result column="count_start_date" property="countStartDate" jdbcType="BIGINT" />
+    <result column="sum_start_date" property="sumStartDate" jdbcType="TIMESTAMP" />
+    <result column="max_create_time" property="maxCreateTime" jdbcType="BIGINT" />
+    <result column="min_create_time" property="minCreateTime" jdbcType="BIGINT" />
+    <result column="avg_create_time" property="avgCreateTime" jdbcType="BIGINT" />
+    <result column="count_create_time" property="countCreateTime" jdbcType="BIGINT" />
+    <result column="sum_create_time" property="sumCreateTime" jdbcType="TIMESTAMP" />
+    <result column="max_start_config" property="maxStartConfig" jdbcType="BIGINT" />
+    <result column="min_start_config" property="minStartConfig" jdbcType="BIGINT" />
+    <result column="avg_start_config" property="avgStartConfig" jdbcType="BIGINT" />
+    <result column="count_start_config" property="countStartConfig" jdbcType="BIGINT" />
+    <result column="sum_start_config" property="sumStartConfig" jdbcType="INTEGER" />
+    <result column="max_rock_num" property="maxRockNum" jdbcType="BIGINT" />
+    <result column="min_rock_num" property="minRockNum" jdbcType="BIGINT" />
+    <result column="avg_rock_num" property="avgRockNum" jdbcType="BIGINT" />
+    <result column="count_rock_num" property="countRockNum" jdbcType="BIGINT" />
+    <result column="sum_rock_num" property="sumRockNum" jdbcType="INTEGER" />
+    <result column="max_type" property="maxType" jdbcType="BIGINT" />
+    <result column="min_type" property="minType" jdbcType="BIGINT" />
+    <result column="avg_type" property="avgType" jdbcType="BIGINT" />
+    <result column="count_type" property="countType" jdbcType="BIGINT" />
+    <result column="sum_type" property="sumType" jdbcType="VARCHAR" />
+    <result column="max_random_num" property="maxRandomNum" jdbcType="BIGINT" />
+    <result column="min_random_num" property="minRandomNum" jdbcType="BIGINT" />
+    <result column="avg_random_num" property="avgRandomNum" jdbcType="BIGINT" />
+    <result column="count_random_num" property="countRandomNum" jdbcType="BIGINT" />
+    <result column="sum_random_num" property="sumRandomNum" jdbcType="INTEGER" />
+    <result column="max_get_num" property="maxGetNum" jdbcType="BIGINT" />
+    <result column="min_get_num" property="minGetNum" jdbcType="BIGINT" />
+    <result column="avg_get_num" property="avgGetNum" jdbcType="BIGINT" />
+    <result column="count_get_num" property="countGetNum" jdbcType="BIGINT" />
+    <result column="sum_get_num" property="sumGetNum" jdbcType="INTEGER" />
+    <result column="max_is_subscribe" property="maxIsSubscribe" jdbcType="BIGINT" />
+    <result column="min_is_subscribe" property="minIsSubscribe" jdbcType="BIGINT" />
+    <result column="avg_is_subscribe" property="avgIsSubscribe" jdbcType="BIGINT" />
+    <result column="count_is_subscribe" property="countIsSubscribe" jdbcType="BIGINT" />
+    <result column="sum_is_subscribe" property="sumIsSubscribe" jdbcType="VARCHAR" />
+    <result column="max_is_verify" property="maxIsVerify" jdbcType="BIGINT" />
+    <result column="min_is_verify" property="minIsVerify" jdbcType="BIGINT" />
+    <result column="avg_is_verify" property="avgIsVerify" jdbcType="BIGINT" />
+    <result column="count_is_verify" property="countIsVerify" jdbcType="BIGINT" />
+    <result column="sum_is_verify" property="sumIsVerify" jdbcType="VARCHAR" />
+    <result column="max_wx_number" property="maxWxNumber" jdbcType="BIGINT" />
+    <result column="min_wx_number" property="minWxNumber" jdbcType="BIGINT" />
+    <result column="avg_wx_number" property="avgWxNumber" jdbcType="BIGINT" />
+    <result column="count_wx_number" property="countWxNumber" jdbcType="BIGINT" />
+    <result column="sum_wx_number" property="sumWxNumber" jdbcType="VARCHAR" />
+    <result column="max_share_url" property="maxShareUrl" jdbcType="BIGINT" />
+    <result column="min_share_url" property="minShareUrl" jdbcType="BIGINT" />
+    <result column="avg_share_url" property="avgShareUrl" jdbcType="BIGINT" />
+    <result column="count_share_url" property="countShareUrl" jdbcType="BIGINT" />
+    <result column="sum_share_url" property="sumShareUrl" jdbcType="VARCHAR" />
+    <result column="max_rock_title" property="maxRockTitle" jdbcType="BIGINT" />
+    <result column="min_rock_title" property="minRockTitle" jdbcType="BIGINT" />
+    <result column="avg_rock_title" property="avgRockTitle" jdbcType="BIGINT" />
+    <result column="count_rock_title" property="countRockTitle" jdbcType="BIGINT" />
+    <result column="sum_rock_title" property="sumRockTitle" jdbcType="VARCHAR" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="max_rock_id" property="maxRockId" jdbcType="BIGINT" />
+    <result column="min_rock_id" property="minRockId" jdbcType="BIGINT" />
+    <result column="avg_rock_id" property="avgRockId" jdbcType="BIGINT" />
+    <result column="count_rock_id" property="countRockId" jdbcType="BIGINT" />
+    <result column="sum_rock_id" property="sumRockId" jdbcType="VARCHAR" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="rock_id" property="rockId" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+    <result column="rock_title" property="rockTitle" jdbcType="VARCHAR" />
+    <result column="share_url" property="shareUrl" jdbcType="VARCHAR" />
+    <result column="wx_number" property="wxNumber" jdbcType="VARCHAR" />
+    <result column="is_verify" property="isVerify" jdbcType="VARCHAR" />
+    <result column="is_subscribe" property="isSubscribe" jdbcType="VARCHAR" />
+    <result column="get_num" property="getNum" jdbcType="INTEGER" />
+    <result column="random_num" property="randomNum" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="rock_num" property="rockNum" jdbcType="INTEGER" />
+    <result column="start_config" property="startConfig" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="start_date" property="startDate" jdbcType="TIMESTAMP" />
+    <result column="end_date" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="hb_pool_id" property="hbPoolId" jdbcType="BIGINT" />
+    <result column="hb_pool_name" property="hbPoolName" jdbcType="VARCHAR" />
+    <result column="get_hb_num" property="getHbNum" jdbcType="INTEGER" />
+    <result column="is_get_hb_share" property="isGetHbShare" jdbcType="VARCHAR" />
+    <result column="get_gift_num" property="getGiftNum" jdbcType="INTEGER" />
+    <result column="is_get_gift_share" property="isGetGiftShare" jdbcType="VARCHAR" />
+    <result column="goods_id" property="goodsId" jdbcType="VARCHAR" />
+    <result column="point_interval_min" property="pointIntervalMin" jdbcType="INTEGER" />
+    <result column="point_interval_max" property="pointIntervalMax" jdbcType="INTEGER" />
+    <result column="get_point_num" property="getPointNum" jdbcType="INTEGER" />
+    <result column="is_get_point_share" property="isGetPointShare" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="is_shake_point" property="isShakePoint" jdbcType="VARCHAR" />
+    <result column="is_shake_hb" property="isShakeHb" jdbcType="VARCHAR" />
+    <result column="is_shake_gift" property="isShakeGift" jdbcType="VARCHAR" />
+    <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, created_by, modified_by, is_deleted, rock_id, seller_id, 
+    rock_title, share_url, wx_number, is_verify, is_subscribe, get_num, random_num, type, 
+    rock_num, start_config, create_time, start_date, end_date, hb_pool_id, hb_pool_name, 
+    get_hb_num, is_get_hb_share, get_gift_num, is_get_gift_share, goods_id, point_interval_min, 
+    point_interval_max, get_point_num, is_get_point_share, status, is_shake_point, is_shake_hb, 
+    is_shake_gift, goods_name
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.shake.ShakeDetailExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from shake_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from shake_detail
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update shake_detail
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.shake.ShakeDetailExample" >
+    update shake_detail
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.shake.ShakeDetail" useGeneratedKeys="true" keyProperty="id" >
+    insert into shake_detail (id, gmt_created, gmt_modified, 
+      created_by, modified_by, is_deleted, 
+      rock_id, seller_id, rock_title, 
+      share_url, wx_number, is_verify, 
+      is_subscribe, get_num, random_num, 
+      type, rock_num, start_config, 
+      create_time, start_date, end_date, 
+      hb_pool_id, hb_pool_name, get_hb_num, 
+      is_get_hb_share, get_gift_num, is_get_gift_share, 
+      goods_id, point_interval_min, point_interval_max, 
+      get_point_num, is_get_point_share, status, 
+      is_shake_point, is_shake_hb, is_shake_gift, 
+      goods_name)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{rockId,jdbcType=VARCHAR}, #{sellerId,jdbcType=BIGINT}, #{rockTitle,jdbcType=VARCHAR}, 
+      #{shareUrl,jdbcType=VARCHAR}, #{wxNumber,jdbcType=VARCHAR}, #{isVerify,jdbcType=VARCHAR}, 
+      #{isSubscribe,jdbcType=VARCHAR}, #{getNum,jdbcType=INTEGER}, #{randomNum,jdbcType=INTEGER}, 
+      #{type,jdbcType=VARCHAR}, #{rockNum,jdbcType=INTEGER}, #{startConfig,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{startDate,jdbcType=TIMESTAMP}, #{endDate,jdbcType=TIMESTAMP}, 
+      #{hbPoolId,jdbcType=BIGINT}, #{hbPoolName,jdbcType=VARCHAR}, #{getHbNum,jdbcType=INTEGER}, 
+      #{isGetHbShare,jdbcType=VARCHAR}, #{getGiftNum,jdbcType=INTEGER}, #{isGetGiftShare,jdbcType=VARCHAR}, 
+      #{goodsId,jdbcType=VARCHAR}, #{pointIntervalMin,jdbcType=INTEGER}, #{pointIntervalMax,jdbcType=INTEGER}, 
+      #{getPointNum,jdbcType=INTEGER}, #{isGetPointShare,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{isShakePoint,jdbcType=VARCHAR}, #{isShakeHb,jdbcType=VARCHAR}, #{isShakeGift,jdbcType=VARCHAR}, 
+      #{goodsName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.shake.ShakeDetail" useGeneratedKeys="true" keyProperty="id" >
+    insert into shake_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="rockId != null" >
+        rock_id,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="rockTitle != null" >
+        rock_title,
+      </if>
+      <if test="shareUrl != null" >
+        share_url,
+      </if>
+      <if test="wxNumber != null" >
+        wx_number,
+      </if>
+      <if test="isVerify != null" >
+        is_verify,
+      </if>
+      <if test="isSubscribe != null" >
+        is_subscribe,
+      </if>
+      <if test="getNum != null" >
+        get_num,
+      </if>
+      <if test="randomNum != null" >
+        random_num,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="rockNum != null" >
+        rock_num,
+      </if>
+      <if test="startConfig != null" >
+        start_config,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="startDate != null" >
+        start_date,
+      </if>
+      <if test="endDate != null" >
+        end_date,
+      </if>
+      <if test="hbPoolId != null" >
+        hb_pool_id,
+      </if>
+      <if test="hbPoolName != null" >
+        hb_pool_name,
+      </if>
+      <if test="getHbNum != null" >
+        get_hb_num,
+      </if>
+      <if test="isGetHbShare != null" >
+        is_get_hb_share,
+      </if>
+      <if test="getGiftNum != null" >
+        get_gift_num,
+      </if>
+      <if test="isGetGiftShare != null" >
+        is_get_gift_share,
+      </if>
+      <if test="goodsId != null" >
+        goods_id,
+      </if>
+      <if test="pointIntervalMin != null" >
+        point_interval_min,
+      </if>
+      <if test="pointIntervalMax != null" >
+        point_interval_max,
+      </if>
+      <if test="getPointNum != null" >
+        get_point_num,
+      </if>
+      <if test="isGetPointShare != null" >
+        is_get_point_share,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="isShakePoint != null" >
+        is_shake_point,
+      </if>
+      <if test="isShakeHb != null" >
+        is_shake_hb,
+      </if>
+      <if test="isShakeGift != null" >
+        is_shake_gift,
+      </if>
+      <if test="goodsName != null" >
+        goods_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="rockId != null" >
+        #{rockId,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+      <if test="rockTitle != null" >
+        #{rockTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="shareUrl != null" >
+        #{shareUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="wxNumber != null" >
+        #{wxNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="isVerify != null" >
+        #{isVerify,jdbcType=VARCHAR},
+      </if>
+      <if test="isSubscribe != null" >
+        #{isSubscribe,jdbcType=VARCHAR},
+      </if>
+      <if test="getNum != null" >
+        #{getNum,jdbcType=INTEGER},
+      </if>
+      <if test="randomNum != null" >
+        #{randomNum,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="rockNum != null" >
+        #{rockNum,jdbcType=INTEGER},
+      </if>
+      <if test="startConfig != null" >
+        #{startConfig,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hbPoolId != null" >
+        #{hbPoolId,jdbcType=BIGINT},
+      </if>
+      <if test="hbPoolName != null" >
+        #{hbPoolName,jdbcType=VARCHAR},
+      </if>
+      <if test="getHbNum != null" >
+        #{getHbNum,jdbcType=INTEGER},
+      </if>
+      <if test="isGetHbShare != null" >
+        #{isGetHbShare,jdbcType=VARCHAR},
+      </if>
+      <if test="getGiftNum != null" >
+        #{getGiftNum,jdbcType=INTEGER},
+      </if>
+      <if test="isGetGiftShare != null" >
+        #{isGetGiftShare,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsId != null" >
+        #{goodsId,jdbcType=VARCHAR},
+      </if>
+      <if test="pointIntervalMin != null" >
+        #{pointIntervalMin,jdbcType=INTEGER},
+      </if>
+      <if test="pointIntervalMax != null" >
+        #{pointIntervalMax,jdbcType=INTEGER},
+      </if>
+      <if test="getPointNum != null" >
+        #{getPointNum,jdbcType=INTEGER},
+      </if>
+      <if test="isGetPointShare != null" >
+        #{isGetPointShare,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="isShakePoint != null" >
+        #{isShakePoint,jdbcType=VARCHAR},
+      </if>
+      <if test="isShakeHb != null" >
+        #{isShakeHb,jdbcType=VARCHAR},
+      </if>
+      <if test="isShakeGift != null" >
+        #{isShakeGift,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsName != null" >
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.shake.ShakeDetailExample" resultType="java.lang.Integer" >
+    select count(*) from shake_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update shake_detail
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.rockId!=null and record.rockIdExpression==null" >
+          rock_id = #{record.rockId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.rockIdExpression!=null" >
+          rock_id = ${record.rockIdExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.rockTitle!=null and record.rockTitleExpression==null" >
+          rock_title = #{record.rockTitle,jdbcType=VARCHAR},
+        </if>
+        <if test="record.rockTitleExpression!=null" >
+          rock_title = ${record.rockTitleExpression},
+        </if>
+        <if test="record.shareUrl!=null and record.shareUrlExpression==null" >
+          share_url = #{record.shareUrl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shareUrlExpression!=null" >
+          share_url = ${record.shareUrlExpression},
+        </if>
+        <if test="record.wxNumber!=null and record.wxNumberExpression==null" >
+          wx_number = #{record.wxNumber,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxNumberExpression!=null" >
+          wx_number = ${record.wxNumberExpression},
+        </if>
+        <if test="record.isVerify!=null and record.isVerifyExpression==null" >
+          is_verify = #{record.isVerify,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isVerifyExpression!=null" >
+          is_verify = ${record.isVerifyExpression},
+        </if>
+        <if test="record.isSubscribe!=null and record.isSubscribeExpression==null" >
+          is_subscribe = #{record.isSubscribe,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isSubscribeExpression!=null" >
+          is_subscribe = ${record.isSubscribeExpression},
+        </if>
+        <if test="record.getNum!=null and record.getNumExpression==null" >
+          get_num = #{record.getNum,jdbcType=INTEGER},
+        </if>
+        <if test="record.getNumExpression!=null" >
+          get_num = ${record.getNumExpression},
+        </if>
+        <if test="record.randomNum!=null and record.randomNumExpression==null" >
+          random_num = #{record.randomNum,jdbcType=INTEGER},
+        </if>
+        <if test="record.randomNumExpression!=null" >
+          random_num = ${record.randomNumExpression},
+        </if>
+        <if test="record.type!=null and record.typeExpression==null" >
+          type = #{record.type,jdbcType=VARCHAR},
+        </if>
+        <if test="record.typeExpression!=null" >
+          type = ${record.typeExpression},
+        </if>
+        <if test="record.rockNum!=null and record.rockNumExpression==null" >
+          rock_num = #{record.rockNum,jdbcType=INTEGER},
+        </if>
+        <if test="record.rockNumExpression!=null" >
+          rock_num = ${record.rockNumExpression},
+        </if>
+        <if test="record.startConfig!=null and record.startConfigExpression==null" >
+          start_config = #{record.startConfig,jdbcType=INTEGER},
+        </if>
+        <if test="record.startConfigExpression!=null" >
+          start_config = ${record.startConfigExpression},
+        </if>
+        <if test="record.createTime!=null and record.createTimeExpression==null" >
+          create_time = #{record.createTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.createTimeExpression!=null" >
+          create_time = ${record.createTimeExpression},
+        </if>
+        <if test="record.startDate!=null and record.startDateExpression==null" >
+          start_date = #{record.startDate,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.startDateExpression!=null" >
+          start_date = ${record.startDateExpression},
+        </if>
+        <if test="record.endDate!=null and record.endDateExpression==null" >
+          end_date = #{record.endDate,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.endDateExpression!=null" >
+          end_date = ${record.endDateExpression},
+        </if>
+        <if test="record.hbPoolId!=null and record.hbPoolIdExpression==null" >
+          hb_pool_id = #{record.hbPoolId,jdbcType=BIGINT},
+        </if>
+        <if test="record.hbPoolIdExpression!=null" >
+          hb_pool_id = ${record.hbPoolIdExpression},
+        </if>
+        <if test="record.hbPoolName!=null and record.hbPoolNameExpression==null" >
+          hb_pool_name = #{record.hbPoolName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.hbPoolNameExpression!=null" >
+          hb_pool_name = ${record.hbPoolNameExpression},
+        </if>
+        <if test="record.getHbNum!=null and record.getHbNumExpression==null" >
+          get_hb_num = #{record.getHbNum,jdbcType=INTEGER},
+        </if>
+        <if test="record.getHbNumExpression!=null" >
+          get_hb_num = ${record.getHbNumExpression},
+        </if>
+        <if test="record.isGetHbShare!=null and record.isGetHbShareExpression==null" >
+          is_get_hb_share = #{record.isGetHbShare,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isGetHbShareExpression!=null" >
+          is_get_hb_share = ${record.isGetHbShareExpression},
+        </if>
+        <if test="record.getGiftNum!=null and record.getGiftNumExpression==null" >
+          get_gift_num = #{record.getGiftNum,jdbcType=INTEGER},
+        </if>
+        <if test="record.getGiftNumExpression!=null" >
+          get_gift_num = ${record.getGiftNumExpression},
+        </if>
+        <if test="record.isGetGiftShare!=null and record.isGetGiftShareExpression==null" >
+          is_get_gift_share = #{record.isGetGiftShare,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isGetGiftShareExpression!=null" >
+          is_get_gift_share = ${record.isGetGiftShareExpression},
+        </if>
+        <if test="record.goodsId!=null and record.goodsIdExpression==null" >
+          goods_id = #{record.goodsId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.goodsIdExpression!=null" >
+          goods_id = ${record.goodsIdExpression},
+        </if>
+        <if test="record.pointIntervalMin!=null and record.pointIntervalMinExpression==null" >
+          point_interval_min = #{record.pointIntervalMin,jdbcType=INTEGER},
+        </if>
+        <if test="record.pointIntervalMinExpression!=null" >
+          point_interval_min = ${record.pointIntervalMinExpression},
+        </if>
+        <if test="record.pointIntervalMax!=null and record.pointIntervalMaxExpression==null" >
+          point_interval_max = #{record.pointIntervalMax,jdbcType=INTEGER},
+        </if>
+        <if test="record.pointIntervalMaxExpression!=null" >
+          point_interval_max = ${record.pointIntervalMaxExpression},
+        </if>
+        <if test="record.getPointNum!=null and record.getPointNumExpression==null" >
+          get_point_num = #{record.getPointNum,jdbcType=INTEGER},
+        </if>
+        <if test="record.getPointNumExpression!=null" >
+          get_point_num = ${record.getPointNumExpression},
+        </if>
+        <if test="record.isGetPointShare!=null and record.isGetPointShareExpression==null" >
+          is_get_point_share = #{record.isGetPointShare,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isGetPointShareExpression!=null" >
+          is_get_point_share = ${record.isGetPointShareExpression},
+        </if>
+        <if test="record.status!=null and record.statusExpression==null" >
+          status = #{record.status,jdbcType=VARCHAR},
+        </if>
+        <if test="record.statusExpression!=null" >
+          status = ${record.statusExpression},
+        </if>
+        <if test="record.isShakePoint!=null and record.isShakePointExpression==null" >
+          is_shake_point = #{record.isShakePoint,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isShakePointExpression!=null" >
+          is_shake_point = ${record.isShakePointExpression},
+        </if>
+        <if test="record.isShakeHb!=null and record.isShakeHbExpression==null" >
+          is_shake_hb = #{record.isShakeHb,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isShakeHbExpression!=null" >
+          is_shake_hb = ${record.isShakeHbExpression},
+        </if>
+        <if test="record.isShakeGift!=null and record.isShakeGiftExpression==null" >
+          is_shake_gift = #{record.isShakeGift,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isShakeGiftExpression!=null" >
+          is_shake_gift = ${record.isShakeGiftExpression},
+        </if>
+        <if test="record.goodsName!=null and record.goodsNameExpression==null" >
+          goods_name = #{record.goodsName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.goodsNameExpression!=null" >
+          goods_name = ${record.goodsNameExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update shake_detail
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      rock_id = #{record.rockId,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=BIGINT},
+      rock_title = #{record.rockTitle,jdbcType=VARCHAR},
+      share_url = #{record.shareUrl,jdbcType=VARCHAR},
+      wx_number = #{record.wxNumber,jdbcType=VARCHAR},
+      is_verify = #{record.isVerify,jdbcType=VARCHAR},
+      is_subscribe = #{record.isSubscribe,jdbcType=VARCHAR},
+      get_num = #{record.getNum,jdbcType=INTEGER},
+      random_num = #{record.randomNum,jdbcType=INTEGER},
+      type = #{record.type,jdbcType=VARCHAR},
+      rock_num = #{record.rockNum,jdbcType=INTEGER},
+      start_config = #{record.startConfig,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      start_date = #{record.startDate,jdbcType=TIMESTAMP},
+      end_date = #{record.endDate,jdbcType=TIMESTAMP},
+      hb_pool_id = #{record.hbPoolId,jdbcType=BIGINT},
+      hb_pool_name = #{record.hbPoolName,jdbcType=VARCHAR},
+      get_hb_num = #{record.getHbNum,jdbcType=INTEGER},
+      is_get_hb_share = #{record.isGetHbShare,jdbcType=VARCHAR},
+      get_gift_num = #{record.getGiftNum,jdbcType=INTEGER},
+      is_get_gift_share = #{record.isGetGiftShare,jdbcType=VARCHAR},
+      goods_id = #{record.goodsId,jdbcType=VARCHAR},
+      point_interval_min = #{record.pointIntervalMin,jdbcType=INTEGER},
+      point_interval_max = #{record.pointIntervalMax,jdbcType=INTEGER},
+      get_point_num = #{record.getPointNum,jdbcType=INTEGER},
+      is_get_point_share = #{record.isGetPointShare,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=VARCHAR},
+      is_shake_point = #{record.isShakePoint,jdbcType=VARCHAR},
+      is_shake_hb = #{record.isShakeHb,jdbcType=VARCHAR},
+      is_shake_gift = #{record.isShakeGift,jdbcType=VARCHAR},
+      goods_name = #{record.goodsName,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.shake.ShakeDetail" >
+    update shake_detail
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.rockId!=null and record.rockIdExpression==null" >
+          rock_id = #{record.rockId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.rockIdExpression!=null" >
+          rock_id = ${record.rockIdExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.rockTitle!=null and record.rockTitleExpression==null" >
+          rock_title = #{record.rockTitle,jdbcType=VARCHAR},
+        </if>
+        <if test="record.rockTitleExpression!=null" >
+          rock_title = ${record.rockTitleExpression},
+        </if>
+        <if test="record.shareUrl!=null and record.shareUrlExpression==null" >
+          share_url = #{record.shareUrl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shareUrlExpression!=null" >
+          share_url = ${record.shareUrlExpression},
+        </if>
+        <if test="record.wxNumber!=null and record.wxNumberExpression==null" >
+          wx_number = #{record.wxNumber,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxNumberExpression!=null" >
+          wx_number = ${record.wxNumberExpression},
+        </if>
+        <if test="record.isVerify!=null and record.isVerifyExpression==null" >
+          is_verify = #{record.isVerify,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isVerifyExpression!=null" >
+          is_verify = ${record.isVerifyExpression},
+        </if>
+        <if test="record.isSubscribe!=null and record.isSubscribeExpression==null" >
+          is_subscribe = #{record.isSubscribe,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isSubscribeExpression!=null" >
+          is_subscribe = ${record.isSubscribeExpression},
+        </if>
+        <if test="record.getNum!=null and record.getNumExpression==null" >
+          get_num = #{record.getNum,jdbcType=INTEGER},
+        </if>
+        <if test="record.getNumExpression!=null" >
+          get_num = ${record.getNumExpression},
+        </if>
+        <if test="record.randomNum!=null and record.randomNumExpression==null" >
+          random_num = #{record.randomNum,jdbcType=INTEGER},
+        </if>
+        <if test="record.randomNumExpression!=null" >
+          random_num = ${record.randomNumExpression},
+        </if>
+        <if test="record.type!=null and record.typeExpression==null" >
+          type = #{record.type,jdbcType=VARCHAR},
+        </if>
+        <if test="record.typeExpression!=null" >
+          type = ${record.typeExpression},
+        </if>
+        <if test="record.rockNum!=null and record.rockNumExpression==null" >
+          rock_num = #{record.rockNum,jdbcType=INTEGER},
+        </if>
+        <if test="record.rockNumExpression!=null" >
+          rock_num = ${record.rockNumExpression},
+        </if>
+        <if test="record.startConfig!=null and record.startConfigExpression==null" >
+          start_config = #{record.startConfig,jdbcType=INTEGER},
+        </if>
+        <if test="record.startConfigExpression!=null" >
+          start_config = ${record.startConfigExpression},
+        </if>
+        <if test="record.createTime!=null and record.createTimeExpression==null" >
+          create_time = #{record.createTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.createTimeExpression!=null" >
+          create_time = ${record.createTimeExpression},
+        </if>
+        <if test="record.startDate!=null and record.startDateExpression==null" >
+          start_date = #{record.startDate,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.startDateExpression!=null" >
+          start_date = ${record.startDateExpression},
+        </if>
+        <if test="record.endDate!=null and record.endDateExpression==null" >
+          end_date = #{record.endDate,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.endDateExpression!=null" >
+          end_date = ${record.endDateExpression},
+        </if>
+        <if test="record.hbPoolId!=null and record.hbPoolIdExpression==null" >
+          hb_pool_id = #{record.hbPoolId,jdbcType=BIGINT},
+        </if>
+        <if test="record.hbPoolIdExpression!=null" >
+          hb_pool_id = ${record.hbPoolIdExpression},
+        </if>
+        <if test="record.hbPoolName!=null and record.hbPoolNameExpression==null" >
+          hb_pool_name = #{record.hbPoolName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.hbPoolNameExpression!=null" >
+          hb_pool_name = ${record.hbPoolNameExpression},
+        </if>
+        <if test="record.getHbNum!=null and record.getHbNumExpression==null" >
+          get_hb_num = #{record.getHbNum,jdbcType=INTEGER},
+        </if>
+        <if test="record.getHbNumExpression!=null" >
+          get_hb_num = ${record.getHbNumExpression},
+        </if>
+        <if test="record.isGetHbShare!=null and record.isGetHbShareExpression==null" >
+          is_get_hb_share = #{record.isGetHbShare,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isGetHbShareExpression!=null" >
+          is_get_hb_share = ${record.isGetHbShareExpression},
+        </if>
+        <if test="record.getGiftNum!=null and record.getGiftNumExpression==null" >
+          get_gift_num = #{record.getGiftNum,jdbcType=INTEGER},
+        </if>
+        <if test="record.getGiftNumExpression!=null" >
+          get_gift_num = ${record.getGiftNumExpression},
+        </if>
+        <if test="record.isGetGiftShare!=null and record.isGetGiftShareExpression==null" >
+          is_get_gift_share = #{record.isGetGiftShare,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isGetGiftShareExpression!=null" >
+          is_get_gift_share = ${record.isGetGiftShareExpression},
+        </if>
+        <if test="record.goodsId!=null and record.goodsIdExpression==null" >
+          goods_id = #{record.goodsId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.goodsIdExpression!=null" >
+          goods_id = ${record.goodsIdExpression},
+        </if>
+        <if test="record.pointIntervalMin!=null and record.pointIntervalMinExpression==null" >
+          point_interval_min = #{record.pointIntervalMin,jdbcType=INTEGER},
+        </if>
+        <if test="record.pointIntervalMinExpression!=null" >
+          point_interval_min = ${record.pointIntervalMinExpression},
+        </if>
+        <if test="record.pointIntervalMax!=null and record.pointIntervalMaxExpression==null" >
+          point_interval_max = #{record.pointIntervalMax,jdbcType=INTEGER},
+        </if>
+        <if test="record.pointIntervalMaxExpression!=null" >
+          point_interval_max = ${record.pointIntervalMaxExpression},
+        </if>
+        <if test="record.getPointNum!=null and record.getPointNumExpression==null" >
+          get_point_num = #{record.getPointNum,jdbcType=INTEGER},
+        </if>
+        <if test="record.getPointNumExpression!=null" >
+          get_point_num = ${record.getPointNumExpression},
+        </if>
+        <if test="record.isGetPointShare!=null and record.isGetPointShareExpression==null" >
+          is_get_point_share = #{record.isGetPointShare,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isGetPointShareExpression!=null" >
+          is_get_point_share = ${record.isGetPointShareExpression},
+        </if>
+        <if test="record.status!=null and record.statusExpression==null" >
+          status = #{record.status,jdbcType=VARCHAR},
+        </if>
+        <if test="record.statusExpression!=null" >
+          status = ${record.statusExpression},
+        </if>
+        <if test="record.isShakePoint!=null and record.isShakePointExpression==null" >
+          is_shake_point = #{record.isShakePoint,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isShakePointExpression!=null" >
+          is_shake_point = ${record.isShakePointExpression},
+        </if>
+        <if test="record.isShakeHb!=null and record.isShakeHbExpression==null" >
+          is_shake_hb = #{record.isShakeHb,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isShakeHbExpression!=null" >
+          is_shake_hb = ${record.isShakeHbExpression},
+        </if>
+        <if test="record.isShakeGift!=null and record.isShakeGiftExpression==null" >
+          is_shake_gift = #{record.isShakeGift,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isShakeGiftExpression!=null" >
+          is_shake_gift = ${record.isShakeGiftExpression},
+        </if>
+        <if test="record.goodsName!=null and record.goodsNameExpression==null" >
+          goods_name = #{record.goodsName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.goodsNameExpression!=null" >
+          goods_name = ${record.goodsNameExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.shake.ShakeDetail" >
+    update shake_detail
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      rock_id = #{rockId,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=BIGINT},
+      rock_title = #{rockTitle,jdbcType=VARCHAR},
+      share_url = #{shareUrl,jdbcType=VARCHAR},
+      wx_number = #{wxNumber,jdbcType=VARCHAR},
+      is_verify = #{isVerify,jdbcType=VARCHAR},
+      is_subscribe = #{isSubscribe,jdbcType=VARCHAR},
+      get_num = #{getNum,jdbcType=INTEGER},
+      random_num = #{randomNum,jdbcType=INTEGER},
+      type = #{type,jdbcType=VARCHAR},
+      rock_num = #{rockNum,jdbcType=INTEGER},
+      start_config = #{startConfig,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      start_date = #{startDate,jdbcType=TIMESTAMP},
+      end_date = #{endDate,jdbcType=TIMESTAMP},
+      hb_pool_id = #{hbPoolId,jdbcType=BIGINT},
+      hb_pool_name = #{hbPoolName,jdbcType=VARCHAR},
+      get_hb_num = #{getHbNum,jdbcType=INTEGER},
+      is_get_hb_share = #{isGetHbShare,jdbcType=VARCHAR},
+      get_gift_num = #{getGiftNum,jdbcType=INTEGER},
+      is_get_gift_share = #{isGetGiftShare,jdbcType=VARCHAR},
+      goods_id = #{goodsId,jdbcType=VARCHAR},
+      point_interval_min = #{pointIntervalMin,jdbcType=INTEGER},
+      point_interval_max = #{pointIntervalMax,jdbcType=INTEGER},
+      get_point_num = #{getPointNum,jdbcType=INTEGER},
+      is_get_point_share = #{isGetPointShare,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      is_shake_point = #{isShakePoint,jdbcType=VARCHAR},
+      is_shake_hb = #{isShakeHb,jdbcType=VARCHAR},
+      is_shake_gift = #{isShakeGift,jdbcType=VARCHAR},
+      goods_name = #{goodsName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,45 @@
+#set($layout = "/layout/blank.vm")
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <title>领取失败</title>
+    <link rel="stylesheet" type="text/css" href="${rc.contextPath}/media/mobile/assets/css/style.css">
+    <script type="text/javascript" src="${rc.contextPath}/media/mobile/assets/js/jquery.min.js"></script>
+
+</head>
+
+<body>
+<div class="u-body" id="add_receiver" style="margin: 0 0 3em 0">
+    <div class="u-block">
+        <form id="myForm" role="form">
+            <div class="form-grounp" style="text-align: center">
+                $failMessage
+            </div>
+        </form>
+    </div>
+    <div>
+        <a id="submit" href="${rc.contextPath}/mobile/pointmall?sellerId=$sellerId&userId=$userId" class="u-submit">返回商城首页</a>
+    </div>
+</div>
+<!--添加收件人页面结束-->
+
+
+<div class="u-footer">
+    <p>
+        <img src="${rc.contextPath}/media/mobile/assets/images/public/suniu_logo_grey.jpg">
+        <span>技术支持·速牛科技</span>
+    </p>
+##    <ul>
+##        <li><a href="javascript:"><span class="icon icon-home"></span>首页</a></li>
+##        <li><a href="javascript:"><span class="icon icon-select"></span>查询</a></li>
+##        <li><a href="javascript:"><span class="icon icon-my"></span>我的</a></li>
+##    </ul>
+##    <a href="javascript:" class="hide"><</a>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="${rc.contextPath}/media/mobile/assets/js/mall/mall.js"></script>

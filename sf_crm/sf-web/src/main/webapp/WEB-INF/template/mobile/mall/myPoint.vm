@@ -1,0 +1,283 @@
+#set($layout = "/layout/blank.vm")
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <title>我的积分</title>
+    <link rel="stylesheet" type="text/css" href="${rc.contextPath}/media/mobile/assets/css/style.css"/>
+    <script type="text/javascript" src="${rc.contextPath}/media/mobile/assets/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="${rc.contextPath}/media/mobile/assets/css/shake/shakeHB.css"/>
+    <script src="${rc.contextPath}/media/js/zepto.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="${rc.contextPath}/media/mobile/assets/css/signIn/style.css">
+</head>
+<style type="text/css">
+    /*---------------用户样式-----------------------------*/
+    .user {
+        height: 130px;
+        background-color: white;
+        border-bottom: none !important;
+    }
+
+    .user_back {
+        width: 100%;
+        height: 100px;
+        background: url(${rc.contextPath}/media/mobile/assets/images/signIn/bg.png) 0 0 no-repeat;
+        background-size: 100%;
+        background-position: 0px -60px
+    }
+
+    .user_table {
+        margin-top: -44px;
+        vertical-align: middle;
+    }
+
+    .user_tleft {
+        padding-left: 18px;
+        width: 98px;
+    }
+
+    .user_tleft {
+        vertical-align: top;
+    }
+
+    .user_img {
+        background-color: #fff;
+        display: inline-block;
+        overflow: hidden;
+    }
+
+    .user_img img {
+        width: 78px;
+        height: 78px;
+        border-radius: 640px
+    }
+
+    .user_name {
+        top: 65px;
+        color: #fff;
+        position: absolute;
+        font-size: 18px;
+        margin-left: -15px;
+    }
+
+    .user_leve {
+        top: 105px;
+        position: absolute;
+        font-size: 16px;
+        margin-left: -15px;
+    }
+
+    .orange {
+        color: #FF6701!important;
+    }
+
+    .u-footer {
+        background: white;
+        border-top: 1px solid #f3f3f3 !important;
+    }
+
+    /*************************/
+    .myscore-li .li-choose ul{
+        overflow: hidden;
+        margin: 10px 0 10px 5px;
+        height: 40px;;
+    }
+    .myscore-li .li-choose ul li{
+        float: left;
+        width: 33%;
+        text-align: center;
+        height: 30px;
+    }
+
+    .myscore-li .li-choose ul li input{
+        background: #ffffff;
+        /*width: 80px;*/
+        height: 30px;
+        color: #000;
+        margin: 0 5px 0 0;
+        padding :0;
+        font-size:16px;
+        /*border: 1px solid #dfe0e0;*/
+        outline: none;
+        cursor: pointer;
+        padding: 0 10px;
+        border-radius: 5px;
+    }
+
+    .myscore-li .li-choose ul li.checked input{
+        background: #41B61A;
+        color: #fff;
+        margin: 0 5px 0 0;
+        font-size:16px;
+        /*border: 1px solid #dfe0e0;*/
+        outline: none;
+        cursor: pointer;
+        padding: 0 10px;
+        border-radius: 5px;
+        height: 30px;
+    }
+
+    input{
+        border:  0;
+    }
+
+    .u-myscore .form-grounp {
+        height: 40px!important;
+    }
+    .rank-page{
+        padding: 0px 0px;
+        margin-bottom: 50px;
+    }
+    .user-list{
+        padding: 0 0px;
+    }
+    .user-list .zan-btn{
+        width: 6%;
+        text-align: center;
+    }
+
+    .sr-only {
+        color: #999;
+        width: 70px!important;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        display: inline-block;
+    }
+
+</style>
+<body>
+<div class="container " id="J_content">
+    <div class="u-body">
+
+        <div class="user bg_white">
+            <div class="user_back"></div>
+            <table class="user_table">
+                <tr>
+                    <td class="user_tleft">
+                        <div class="user_img rAll">
+                            <img class="rAll" id="wxHeadImgUrl" src="$!user.wxHeadimgurl"
+                                 onerror="this.src='${rc.contextPath}/media/mobile/assets/images/signIn/helpbuy-icon.jpg'"/>
+                        </div>
+                    </td>
+                    <td class="user_tright">
+                        <p class="user_name " id="wxNickName">$!user.wxNickName</p>
+
+                        <p class="user_leve orange">$!user.mobile <span class="j_user_credit" id="totalPoint"></span>
+                        </p>
+                    </td>
+                <tr/>
+            </table>
+        </div>
+
+        <div class="u-block u-myscore" style="border-top: none;border-bottom:none">
+            #if($userAccount)
+                <div class="form-grounp" style="height: 30px; line-height: 30px; border-bottom: 0">
+                    <div class="itemDetail rightBorder" style="border-right: 0">
+                        账户积分余额<span class="orange">$!userAccount.pointAmount</span>
+                    </div>
+                    <div class="itemDetail" style="padding-left: 1%">累计获得积分<span class="orange">$!userAccount.pointAmountTotal</span></div>
+                </div>
+                <div class="form-grounp" style="height: 30px; line-height: 30px; border-bottom: 0">
+                    <div class="itemDetail rightBorder" style="border-right: 0">
+                        累计兑换积分<span class="orange">$!userAccount.pointAmountExchange</span></div>
+                    <div class="itemDetail" style="padding-left: 1%">所有粉丝排名<span class="orange">$!userAccountRank.ranking</span></div>
+                </div>
+            #else
+                <div class="form-grounp" style="height: 30px; line-height: 30px; border-bottom: 0">
+                    <div class="itemDetail rightBorder" style="border-right: 0">账户积分余额<span class="orange">0</span></div>
+                    <div class="itemDetail" style="padding-left: 1%">累计获得积分<span class="orange">0</span></div>
+                </div>
+                <div class="form-grounp" style="height: 30px; line-height: 30px; border-bottom: 0">
+                    <div class="itemDetail rightBorder" style="border-right: 0">累计兑换积分<span class="orange">0</span></div>
+                    <div class="itemDetail" style="padding-left: 1%">所有粉丝排名<span class="orange">0</span></div>
+                </div>
+            #end
+            <div class="form-grounp" style="height: 30px; line-height: 30px; border-bot tom: 0;border-bottom: none">
+                #if($pointExchangeStatics)
+                    <div class="itemDetail rightBorder" style="border-right: 0;border-bottom: none">
+                        兑换红包消耗<span class="orange">$!pointExchangeStatics.hbPoint</span></div>
+                    <div class="itemDetail" style="padding-left: 1%">兑换礼物消耗<span class="orange">$!pointExchangeStatics.goodsPoint</span></div>
+                #else
+                    <div class="itemDetail rightBorder" style="border-right: 0">兑换红包消耗<span class="orange">0</span></div>
+                    <div class="itemDetail" style="padding-left: 1%">兑换礼物消耗<span class="orange">0</span></div>
+                #end
+            </div>
+
+            <div class="form-grounp" style="height: 30px; line-height: 30px; border-bot tom: 0;border-bottom: none">
+                #if($pointObtainStaticsDo)
+                    <div class="itemDetail rightBorder" style="border-right: 0;border-bottom: none">
+                        累计参与人数<span class="orange">$!pointObtainStaticsDo.userTotal</span></div>
+                    <div class="itemDetail" style="padding-left: 1%">累计发放积分<span class="orange">$!pointObtainStaticsDo.pointTotal</span></div>
+                #else
+                    <div class="itemDetail rightBorder" style="border-right: 0">累计参与人数<span class="orange">0</span></div>
+                    <div class="itemDetail" style="padding-left: 1%">累计发放积分<span class="orange">0</span></div>
+                #end
+            </div>
+
+        </div>
+
+        <div class="myscore-li" style="margin-top:10px">
+            <div class="li-choose">
+                <ul style="margin-top: 10px">
+##                    <li class="checked" id="li1" style="border-right: 0"><a href="javascript:">积分兑换排行</a></li>
+##                    <li id="li2" style="border-right: 0"><a href="javascript:">积分兑换</a></li>
+##                    <li class="pull-right" id="li3"><a href="javascript:">积分获取</a></li>
+                    <li class="checked" id="li1" style="border-right: 0"><input type="button" value="兑换排行"/></li>
+                    <li id="li2" style="border-right: 0"><input type="button" value="积分兑换"/></li>
+                    <li class="pull-right" id="li3"><input type="button" value="积分获取"/></li>
+
+                </ul>
+            </div>
+            <div class="goodsPanle" id="my_point_content"></div>
+        </div>
+
+    </div>
+
+    <div class="u-footer">
+        <p>
+            <img src="${rc.contextPath}/media/mobile/assets/images/public/suniu_logo_grey.jpg">
+            <span>技术支持·速牛科技</span>
+        </p>
+    </div>
+
+</div>
+<script type="text/javascript" src="${rc.contextPath}/media/mobile/assets/js/public/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="${rc.contextPath}/media/mobile/assets/js/public/static.js"></script>
+<script type="text/javascript" src="${rc.contextPath}/media/mobile/assets/js/mall/mall.js"></script>
+
+<script type="text/javascript">
+
+    function initExchangeList(){
+        $('#li1').removeClass('checked');
+        $('#li2').addClass('checked');
+        $('#li3').removeClass('checked');
+    }
+
+    $('.myscore-li .li-choose ul li input').click(function(){
+        $(this).parent().parent().find('.checked').removeClass('checked');
+        $(this).parent().addClass('checked');
+        var idStr = $(this).parent().attr('id')
+            if ('li1' == idStr) {
+                pointRank('$sellerId', '$userId');
+            } else if ('li2' == idStr) {
+                pointExchangeDetail('$sellerId', '$userId');
+            } else if ('li3' == idStr) {
+                pointObtainDetail('$sellerId', '$userId');
+            }
+    });
+    #if($type)
+        initExchangeList();
+        pointExchangeDetail('$sellerId', '$userId');
+    #else
+        pointRank('$sellerId', '$userId');
+    #end
+
+</script>
+</body>
+</html>

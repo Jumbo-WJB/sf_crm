@@ -1,0 +1,647 @@
+#set($layout = "/layout/mobileBlank.vm")
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <script src="${rc.contextPath}/media/mobile/assets/js/signIn/iscroll.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="${rc.contextPath}/media/mobile/assets/css/signIn/style.css">
+    <title>每日签到</title>
+
+    <style>
+        body{background-color:#f2f2f2;}
+        .main{margin-bottom: 20px;}
+        /*自定义样式*/
+
+        /*自定义顶部信息*/
+        .nav{background-color:#00bd93;}
+
+        /*foot背景色*/
+        .foot{ bottom:50px!important;z-index:-1;}
+
+        /*用户样式*/
+        .user{height:160px;}
+        .user_back {
+            width: 100%;
+            height: 100px;
+            background: url(${rc.contextPath}/media/mobile/assets/images/signIn/bg.png) 0 0 no-repeat;
+            background-size: 100%;
+            background-position: 0px -60px
+        }
+        .user_table{margin-top:-44px;vertical-align:middle;}
+        .user_tleft{padding-left:18px;width:98px;}
+        .user_tleft{vertical-align:top;}
+        .user_img{background-color:#fff;display:inline-block;overflow:hidden;}
+        .user_img img{width:78px;height:78px;}
+        .user_name{margin-top:0px;color:#fff;}
+        .user_leve{margin-top:0px;}
+
+        /*横栏信息*/
+        .infors{}
+        .infors .t_center{width:33.3%;}
+        .infors .infor_item{border-right:1px solid #eee;margin:8px 0;}
+
+
+        /*按钮*/
+        .btn_wap{margin:8px;}
+
+        /*排名切换*/
+        .taps .t_center{width:33.3%;}
+        .taps .infor_item{padding:12px 0;}
+        .taps .tap_link{position:relative; display:inline-block;padding:2px 8px;border-radius:5px; -webkit-border-radius:5px;}
+        /*.tap_link:after{content:""; height:0; width:0; position:absolute; bottom:-16px; left:50%; margin-left:-8px;
+            border-width:8px; border-style:solid; border-color:#fff transparent transparent transparent;}*/
+
+        .taps .tap_link.active{color:#fff; background-color:#41B61A;}
+        /*.tap_link.active:after{border-color:#41B61A transparent transparent transparent;}*/
+
+        .tap_link.touch, .tap_link:active{background-color:#ddd;}
+        .tap_link.active.touch, .tap_link.active:active{color:#fff; background-color:#218300;}
+        /*.tap_link.touch:after, .tap_link:active:after{ border-color:#ddd transparent transparent transparent;}
+        .tap_link.active.touch:after, .tap_link.active:active:after{ border-color:#218300 transparent transparent transparent;}*/
+
+        .tap_link, .tap_link:after{-webkit-transition: background-color .2s ease, border-color .1s ease; transition: background-color .1s ease,  border-color .1s ease;}
+        /*排名列表*/
+        .pm_list{padding-bottom: 30px;}
+        .pm_list tr{border-bottom:1px solid #efefef;line-height:42px;vertical-align:middle;}
+        .pm_list th{color:#888; font-weight:normal;line-height:26px;}
+        .pm_num{width:36px;}
+        .pm_name{overflow:hidden;}
+        .pm_num span, .pm_day span,	.pm_time span{white-space: nowrap;}
+        .pm_name span{width:90px;overflow: hidden; -webkit-box-orient: vertical; text-overflow: ellipsis;-webkit-line-clamp:1; display:-webkit-box; height:38px;word-break:break-all;}
+        .pm_day{width:70px;}
+        .pm_time{width:170px;}
+        .num1, .num2, .num3{font-size:13px;color:#fff;background-color:#ff5d5d;border-radius:50px;-webkit-border-radius:50px;
+            line-height:20px;width:20px;display:inline-block;}
+        .num2{background-color:#FF8800;}
+        .num3{background-color:#FFAE00;}
+
+        .border_b{border-bottom:1px solid #eee;}
+        .border_t{border-top:1px solid #eee;}
+
+        /**/
+        .list_cont{position:relative;}
+        /*.list_div{padding-bottom:40px;}*/
+        #pullUp {
+            height:40px;text-align:center;background-color:#fff;
+            line-height:40px;font-size:12px; color:#888;
+        }
+        #pullUp .pullUpLabel,
+        #pullUp .icon-pullUp,
+        #pullUp .img_loading{ position:absolute; left:50%; margin-left:-20px;
+            line-height:40px;display:inline-block;height:40px;}
+        #pullUp .icon-pullUp {
+            margin-left:-55px;
+            display:inline-block;text-align:center;
+            width:40px;	font-size:22px;color:#aaa;
+            -webkit-transition-property:-webkit-transform;
+            -webkit-transition-duration:250ms;
+        }
+        #pullUp .icon-pullUp  {
+            -webkit-transform:rotate(0deg) translateZ(0);
+        }
+
+        #pullUp.flip .icon-pullUp {
+            -webkit-transform:rotate(180deg) translateZ(0);
+        }
+        #pullUp .img_loading{
+            display:none;margin-left: -45px; margin-top: 9px;
+            height:21px;width:21px;
+        }
+        #pullUp.none .icon-pullUp ,#pullUp.loading .icon-pullUp {display:none;}
+        #pullUp.loading .img_loading{display:inline-block;}
+
+        @-webkit-keyframes loading {
+            from { -webkit-transform:rotate(0deg) translateZ(0); }
+            to { -webkit-transform:rotate(360deg) translateZ(0); }
+        }
+        .navbar{width:100%; overflow:hidden;max-width:640px; min-width:320px;margin:0 auto;}
+        .nav_fix_top, .nav_fix_bottom {position:fixed;left:0;right:0;z-index:20;overflow:hidden;}
+        .nav_fix_top {top:0;} .nav_fix_bottom {bottom:0;}
+        .blank_top{height:44px;} .blank_bottom{height:44px;}
+
+        .nav{width:100%; height:44px; display:table; border-spacing:0px; line-height:1.3;}
+        .nav h3{ font-weight:normal}
+        .nav_center {display:table-cell;vertical-align:middle; height:44px;}
+        .nav_item{display:table-cell; vertical-align:middle; height:44px;
+            width:10px; padding:0 8px; white-space:nowrap;}
+        .logo{height:32px;  max-width: none;}
+        /*底部导航*/
+        .nav_fix_bottom	 .nav{background-color:#fafafa; height:44px;}
+        .n_item{
+            display:table-cell; min-width:34px; position:relative;
+            height:100%; vertical-align:middle; text-align:center;
+            font-size:20px; border-left:1px solid #eee;
+        }
+        .n_item .nav_icon {display:table; width:100%; height:44px;}
+        .icons{display:table-cell; vertical-align:middle; color:#777;}
+        .nav_tit{font-size:10px; display:block;}
+        .nav_icon.touch , .nav_icon:active{background-color:#e5e5e5;}
+        /*导航按钮*/
+        .n_item .btn_cont{border-spacing:8px 0;}
+        .nav .nav_icon.shown{background-color:#eee;}
+        .nav.sub_nav{margin-bottom:-44px; border-top:1px solid #eee; background-color:#eee;}
+        .nav.sub_nav.open{margin-bottom:0px;}
+        .word-hidden p{white-space:nowrap;}
+    </style>
+
+</head>
+<body id="body">
+<div class="container " id="J_content">
+    <!-- 主体内容 start  -->
+    <div class="main">
+
+        <div class="user bg_white">
+            <div class="user_back"></div>
+
+            <table class="user_table"><tr>
+                <td class="user_tleft">
+                    <div class="user_img rAll">
+                        <img class="rAll" id="wxHeadImgUrl" src="" onerror="this.src='${rc.contextPath}/media/mobile/assets/images/signIn/helpbuy-icon.jpg'"/>
+                    </div>
+                </td>
+                <td class="user_tright">
+                    <p class="user_name " id="wxNickName"></p>
+                    <p class="user_leve red"> 积分: <span class="j_user_credit" id="totalPoint"></span></p>
+                </td>
+                <tr/></table>
+        </div>
+        <div class="bg_gray btn_wap" id="onClickSignIn">
+            <a id="sign_true" class="btn btn_big b_yellow gray r6 j_sign_act_true" href="javascript:void(0);" style="display:none;"> 已签到 </a>
+            <a id="sign_false" class="btn btn_big b_green r6 j_sign_act_false"  href="javascript:void(0);"> 点击签到 </a>
+        </div>
+
+        <table class="bg_white infors"><tr>
+            <td class="t_center">
+                <div class="infor_item">
+                    <p class="f12 gray">今日排名</p>
+                    <p class=""><span class="f24 red j_sign_rank_num" id="currentDayMySignInRank"></span></p>
+                </div>
+            </td>
+            <td class="t_center">
+                <div class="infor_item no_border ">
+                    <p class="f12 gray">累计签到</p>
+                    <p class=""><span class="f24 yellow j_sign_history_num" id="signInTotalTimes"></span>天</p>
+                </div>
+            </td>
+
+            <tr/></table>
+
+        <table class="bg_white border_t taps tab_a"><tr>
+            <td class="t_center">
+                <div class="infor_item">
+                    <a class="tap_link f16 j_sign_list active" name="day" href="javascript:void(0);">今日排行</a>
+                </div>
+            </td>
+            <td class="t_center">
+                <div class="infor_item">
+                    <a class="tap_link f16 j_sign_list" name="month"  href="javascript:void(0);">本月排行</a>
+                </div>
+            </td>
+            <td class="t_center">
+                <div class="infor_item">
+                    <a class="tap_link f16 j_sign_list" name="history"  href="javascript:void(0);">总排行</a>
+                </div>
+            </td>
+
+            <tr/></table>
+
+        <table class="bg_gray pm_list">
+            <tr>
+                <th class="t_center pm_name">排名</th>
+                <th class="t_center pm_day">签到天数</th>
+                <th class="t_center pm_time">签到时间</th>
+            <tr/>
+        </table>
+        <div class="pm_list list_cont tab_1" id="J_pm_list_1">
+            <div class="list_div" >
+                <table class="bg_white" id="J_list">
+
+                <tr id="dayMy" style="background: #ffcb31;display: none;">
+                    <td class="t_center pm_num" >
+                        <span class="num1" id="dayMySignRanke"></span>
+                    </td>
+                    <td class="t_left pm_name">
+                        <span id="dayMySignWxNickName"></span>
+                    </td>
+                    <td class="t_center pm_day" >
+                        <span id="dayMySignInTimes"></span>
+                    </td>
+                    <td class="t_center pm_time word-hidden">
+                        <p id="dayMySignInDate"></p>
+                    </td>
+                </tr>
+                    #if($currentDaySignInRank)
+                #set ($i=1)
+                #foreach($daySignInRank in $currentDaySignInRank)
+
+                        <tr>
+
+                        <td class="t_center pm_num" >
+                            <span class="num1">$i</span>
+                        </td>
+                        <td class="t_left pm_name">
+                            <span>$!daySignInRank.wxNickName</span>
+                        </td>
+                        <td class="t_center pm_day">
+                            <span>$!daySignInRank.signInTimes</span>
+                        </td>
+                        <td class="t_center pm_time word-hidden">
+                            <p>$!daySignInRank.signInDate.substring(0,19)</p>
+
+                        </td>
+                    </tr>
+
+                    #set($i=$i+1)
+                #end
+                #end
+                </table>
+            </div>
+        </div>
+        <div class="pm_list list_cont tab_2" id="J_pm_list_2" style="display: none;">
+            <div class="list_div" >
+                <table class="bg_white" id="J_list">
+                    <tr id="monthMy" style="background: #ffcb31;display: none;">
+                        <td class="t_center pm_num" >
+                            <span class="num1" id="monthMySignInRank"></span>
+                        </td>
+                        <td class="t_left pm_name">
+                            <span id="monthMySignInWxNickName"></span>
+                        </td>
+                        <td class="t_center pm_day" >
+                            <span id="monthMySignInTimes"></span>
+                        </td>
+                        <td class="t_center pm_time word-hidden">
+                            <p id="monthMySignInDate"></p>
+                        </td>
+                    </tr>
+                    #if($currentMonthSignInRank)
+                        #set ($i=1)
+                        #foreach($monthSignInRank in $currentMonthSignInRank)
+
+                          <tr>
+                                <td class="t_center pm_num">
+                                    <span class="num1">$i</span>
+                                </td>
+                                <td class="t_left pm_name">
+                                    <span>$!monthSignInRank.wxNickName</span>
+                                </td>
+                                <td class="t_center pm_day">
+                                    <span>$!monthSignInRank.signInTimes</span>
+                                </td>
+                                <td class="t_center pm_time word-hidden">
+                                    <p>$!monthSignInRank.signInDate.substring(0,19)</p>
+                                </td>
+                            </tr>
+
+                            #set($i=$i+1)
+                        #end
+                    #end
+                </table>
+            </div>
+        </div>
+        <div class="pm_list list_cont tab_3" id="J_pm_list_3" style="display: none;">
+            <div class="list_div" >
+                <table class="bg_white" id="J_list">
+                    <tr id="totalMy" style="background: #ffcb31;display: none;">
+                        <td class="t_center pm_num" >
+                            <span class="num1" id="totalMySignInRank"></span>
+                        </td>
+                        <td class="t_left pm_name">
+                            <span id="totalMySignInWxNickName"></span>
+                        </td>
+                        <td class="t_center pm_day" >
+                            <span id="totalMySignInTimes"></span>
+                        </td>
+                        <td class="t_center pm_time word-hidden">
+                            <p id="totalMySignInDate"></p>
+                        </td>
+                    </tr>
+                    #if($totalSignInRank)
+                        #set ($i=1)
+                        #foreach($totalSignInRank in $totalSignInRank)
+
+
+                            <tr>
+
+                                <td class="t_center pm_num">
+                                    <span class="num1">$i</span>
+                                </td>
+                                <td class="t_left pm_name">
+                                    <span>$!totalSignInRank.wxNickName</span>
+                                </td>
+                                <td class="t_center pm_day">
+                                    <span>$!totalSignInRank.signInTimes</span>
+                                </td>
+                                <td class="t_center pm_time word-hidden">
+                                    <p>$!totalSignInRank.signInDate.substring(0,19)</p>
+                                </td>
+                            </tr>
+
+                            #set($i=$i+1)
+                        #end
+                    #end
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- 主体内容 end -->
+    <div class="u-footer">
+        <p>
+            <img src="${rc.contextPath}/media/mobile/assets/images/public/suniu_logo_grey.jpg">
+            <span>技术支持·速牛科技</span>
+        </p>
+    </div>
+</div>
+
+<!-- 底部导航 end -->
+</div>
+<script language="JavaScript">
+
+
+
+    var userId = $!userId;
+
+    var isSignIn = $!isSignIn;
+
+    if (isSignIn == 1){
+        $('#sign_false').hide();
+        $('#sign_true').show();
+    }
+
+    querySignInInfo(userId);
+
+
+
+    //createToken('signTokenForm');
+
+
+    function querySignInInfo(userId){
+
+        var sellerId = getArgs().sellerId;
+
+
+
+
+
+        $.ajax({
+            type:'POST',
+            url:baseUrl+"/mobile/signIn/querySignInInfo",
+            data:{userId:userId,sellerId:sellerId},
+            dataType:'json',
+            success:function(data){
+                if(data.errorCode == 0){
+//                    console.dir(data);
+                    $('#signInTotalTimes').text(data.info.signInTimes);
+                    $('#totalPoint').text(data.info.totalPoint);
+                    $('#wxNickName').text(data.info.wxNickName);
+                    $("#wxHeadImgUrl").attr("src",data.info.wxHeadImgUrl);
+
+
+//                    if (data.info.currentDayMySignInRank!=undefined){
+//                        $('#currentDayMySignInRank').text(data.info.currentDayMySignInRank.signInRank);
+//                        $('#dayMySignRanke').text(data.info.currentDayMySignInRank.signInRank);
+//                        $('#dayMySignWxNickName').text(data.info.currentDayMySignInRank.wxNickName);
+//                        $('#dayMySignInTimes').text(data.info.currentDayMySignInRank.signInTimes);
+//                        if(!isNullOrEmpty(data.info.currentDayMySignInRank.signInDate)){
+//                            $('#dayMySignInDate').text(data.info.currentDayMySignInRank.signInDate.substring(0,19));
+//                        }
+//                    }
+
+//                    if (data.info.myDayRankFlag == '1'){
+//                        $('#dayMy').show();
+//                    }else{
+//                        $('#dayMy').hide();
+//                    }
+//
+//                    if (data.info.myMonthRankFlag == '1'){
+//                        $('#monthMy').show();
+//                    }
+//
+//                    if (data.info.myTotalRankFlag == '1'){
+//                        $('#totalMy').show();
+//                    }
+
+
+
+
+
+
+//                    if (data.info.currentMonthMySignInRank!=undefined){
+//                        $('#monthMySignInRank').text(data.info.currentMonthMySignInRank.signInRank);
+//                        $('#monthMySignInWxNickName').text(data.info.currentMonthMySignInRank.wxNickName);
+//                        $('#monthMySignInTimes').text(data.info.currentMonthMySignInRank.signInTimes);
+//                        if(!isNullOrEmpty(data.info.currentMonthMySignInRank.signInDate)) {
+//                            $('#monthMySignInDate').text(data.info.currentMonthMySignInRank.signInDate.substring(0, 19));
+//                        }
+//                    }
+//
+//                    if (data.info.totalMySignInRank!=undefined){
+//                        $('#totalMySignInRank').text(data.info.totalMySignInRank.signInRank);
+//                        $('#totalMySignInWxNickName').text(data.info.totalMySignInRank.wxNickName);
+//                        $('#totalMySignInTimes').text(data.info.totalMySignInRank.signInTimes);
+//                        if(!isNullOrEmpty(data.info.totalMySignInRank.signInDate)) {
+//                            $('#totalMySignInDate').text(data.info.totalMySignInRank.signInDate.substring(0, 19));
+//                        }
+//
+//                    }
+                    //当天排行
+                    var html = '';
+                    html += '<div class="list_div" >';
+                    html += '<table class="bg_white" id="J_list">';
+                    if (data.info.currentDayMySignInRank != undefined && data.info.myDayRankFlag == '1') {
+                        $('#currentDayMySignInRank').text(data.info.currentDayMySignInRank.signInRank);
+                        html += '<tr id="dayMy" style="background: #ffcb31;display: ;">';
+                        html += '<td class="t_center pm_num" ><span class="num1" id="dayMySignRanke">'+ data.info.currentDayMySignInRank.signInRank + '</span></td>';
+                        html += '<td class="t_left pm_name"><span id="dayMySignWxNickName">'+ data.info.currentDayMySignInRank.wxNickName + '</span></td>';
+                        html += '<td class="t_center pm_day" ><span id="dayMySignInTimes">' + data.info.currentDayMySignInRank.signInTimes + '</span></td>';
+                        if(!isNullOrEmpty(data.info.currentDayMySignInRank.signInDate)) {
+                            html += '<td class="t_center pm_time word-hidden"><p id="dayMySignInDate">' + data.info.currentDayMySignInRank.signInDate.substring(0, 19) + '</p></td>';
+                        }else{
+                            html += '<td class="t_center pm_time word-hidden"><p id="dayMySignInDate">' + '' + '</p></td>';
+                        }
+                        html += '</tr>';
+                    }
+                    $.each(data.info.currentDaySignInRank, function(index, obj){
+                        html += '<tr><td class="t_center pm_num" ><span class="num1">' + (index+1) + '</span></td>';
+                        html += '<td class="t_left pm_name"><span>' + obj.wxNickName + '</span></td>';
+                        html += '<td class="t_center pm_day"><span>' + obj.signInTimes + '</span></td>';
+                        if(!isNullOrEmpty(obj.signInDate)) {
+                            html += '<td class="t_center pm_time word-hidden"><p>' + obj.signInDate.substring(0, 19) + '</p></td>';
+                        }else{
+                            html += '<td class="t_center pm_day"><span>' + '' + '</span></td>';
+                        }
+                        html += '</tr>';
+                    });
+                    html += '</table>';
+                    $('#J_pm_list_1').html(html);
+                    //当月排行
+                    var monthHtml = '';
+                    monthHtml += '<div class="list_div" >';
+                    monthHtml += '<table class="bg_white" id="J_list">';
+                    if (data.info.currentMonthMySignInRank != undefined && data.info.myMonthRankFlag == '1'){
+                        monthHtml += '<tr id="monthMy" style="background: #ffcb31;display: ;">';
+                        monthHtml += '<td class="t_center pm_num" ><span class="num1" id="monthMySignInRank">' + data.info.currentMonthMySignInRank.signInRank + '</span></td>';
+                        monthHtml += '<td class="t_left pm_name"><span id="monthMySignInWxNickName">' + data.info.currentMonthMySignInRank.wxNickName + '</span></td>';
+                        monthHtml += '<td class="t_center pm_day" ><span id="monthMySignInTimes">' + data.info.currentMonthMySignInRank.signInTimes + '</span></td>';
+                        monthHtml += '<td class="t_center pm_time word-hidden"><p id="monthMySignInDate">' + data.info.currentMonthMySignInRank.signInDate.substring(0,19) + '</span></td>';
+                        monthHtml += '</tr>';
+                    }
+                    $.each(data.info.currentMonthSignInRank, function(index, obj){
+                        monthHtml += '<tr><td class="t_center pm_num"><span class="num1">' + (index+1) + '</span></td>';
+                        monthHtml += '<td class="t_left pm_name"><span>' + obj.wxNickName + '</span></td>';
+                        monthHtml += '<td class="t_center pm_day"><span>' + obj.signInTimes + '</span></td>';
+                        monthHtml += '<td class="t_center pm_time word-hidden"><p>' + obj.signInDate.substring(0,19) + '</p></td>';
+                        monthHtml += '</tr>';
+                    });
+                    monthHtml += '</table>';
+                    $('#J_pm_list_2').html(monthHtml);
+                    //总排行
+                    var totalHtml = '';
+                    totalHtml += '<div class="list_div" >';
+                    totalHtml += '<table class="bg_white" id="J_list">';
+                    if (data.info.totalMySignInRank!=undefined && data.info.myTotalRankFlag == '1'){
+                        totalHtml += '<tr id="totalMy" style="background: #ffcb31;display: ;">';
+                        totalHtml += '<td class="t_center pm_num"><span class="num1" id="totalMySignInRank">' + data.info.totalMySignInRank.signInRank + '</span></td>';
+                        totalHtml += '<td class="t_left pm_name"><span id="totalMySignInWxNickName">' + data.info.totalMySignInRank.wxNickName + '</span></td>';
+                        totalHtml += '<td class="t_center pm_day" ><span id="totalMySignInTimes">' + data.info.totalMySignInRank.signInTimes + '</span></td>';
+                        totalHtml += '<td class="t_center pm_time word-hidden"><p id="totalMySignInDate">' + data.info.totalMySignInRank.signInDate.substring(0,19) + '</p></td>';
+                        totalHtml += '</tr>';
+                    }
+                    $.each(data.info.totalSignInRank, function(index, obj){
+                        totalHtml += '<tr><td class="t_center pm_num"><span class="num1">' + (index+1) + '</span></td>';
+                        totalHtml += '<td class="t_left pm_name"><span>' + obj.wxNickName + '</span></td>';
+                        totalHtml += '<td class="t_center pm_day"><span>' + obj.signInTimes + '</span></td>';
+                        totalHtml += '<td class="t_center pm_time word-hidden"><p>' + obj.signInDate.substring(0,19) + '</p></td>';
+                        totalHtml += '</tr>';
+                    });
+                    totalHtml += '</table>';
+                    $('#J_pm_list_3').html(totalHtml);
+
+                }
+            }
+        });
+
+    }
+
+
+
+    $("#sign_false").click(function(){
+
+
+        var userId = $userId;
+
+
+        var token = '$token';
+
+        onClickSignIn(userId,token);
+
+    });
+
+    function onClickSignIn(userId,token){
+
+        var sellerId = getArgs().sellerId;
+        //var data = $('#signTokenForm').serialize();
+
+        //var token = $('#token').val();
+
+        $.ajax({
+            type:'POST',
+            url:baseUrl+"mobile/signIn/doSignIn",
+            data:{userId:userId,sellerId:sellerId,token:token},
+            dataType:'json',
+            success:function(data){
+                if(data.errorCode == 0){
+
+                    if (data.info == 1){
+                        alert('您已经签过到了，明天再来。');
+                        $('#sign_false').hide();
+                        $('#sign_true').show();
+
+                        return;
+                    }
+
+
+                    querySignInInfo(userId);
+
+
+                    alert('今日签到成功，恭喜您获得' + data.info.point + '积分。');
+                    $('#sign_false').hide();
+                    $('#sign_true').show();
+                    return;
+
+
+                }
+            }
+        });
+    }
+
+
+
+
+
+    $('.tap_link').click(function(){
+        var ref = $(this).attr("name");
+        $(this).addClass("active").parent().parent().siblings().find("a").removeClass("active");
+        if (ref == "day"){
+            $(".tab_1").show();
+            $(".tab_2").hide();
+            $(".tab_3").hide();
+        }else if (ref == "month"){
+            $(".tab_1").hide();
+            $(".tab_2").show();
+            $(".tab_3").hide();
+        }else if (ref == "history"){
+            $(".tab_1").hide();
+            $(".tab_2").hide();
+            $(".tab_3").show();
+        }
+    });
+
+
+    $(".j_sign_act_false").bind("click",function(){
+        if(!subscribe){
+            My.showAlert({
+                text: "您要先关注我们才可以签到哦~",
+                yesText: "立即关注",
+                yesStyle: "b_dred",
+                onYes: function(){
+                    My.showFollow();
+                    My.hideAlert();
+                    My.hideMask();
+                },
+                noText: "再看看"
+            });
+            return false;
+        }
+        My.showLoad();
+        $.ajax({
+            url:'http://youwuku.cn/egou/index.php/act/normal/signaction?sid=2559971200',
+            dataType:'json',
+            success:function(json){
+                if(json.code==0){
+                    My.hideLoad();
+                    showAward(json.data);
+                }else{
+                    My.hideLoad();
+                    My.showAlert({
+                        text: json.reason,
+                        yesText: "好的"
+                    });
+                }
+            }
+        });
+    })
+</script>
+
+</body>
+</html>
+
+
+<script src="${rc.contextPath}/media/mobile/assets/js/signIn/signIn.js"></script>

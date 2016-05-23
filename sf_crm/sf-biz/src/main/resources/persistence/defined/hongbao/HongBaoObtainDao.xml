@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.hongbao.HongBaoObtainDao" >
+    <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.hongbao.HBObtainDO" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="max_id" property="maxId" jdbcType="BIGINT" />
+        <result column="min_id" property="minId" jdbcType="BIGINT" />
+        <result column="max_id" property="maxId" jdbcType="BIGINT" />
+        <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+        <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+        <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+        <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+        <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+        <result column="hongbao_obtain_id" property="hongbaoObtainId" jdbcType="BIGINT" />
+        <result column="user_id" property="userId" jdbcType="BIGINT" />
+        <result column="amount" property="amount" jdbcType="BIGINT" />
+        <result column="open_id" property="openId" jdbcType="VARCHAR" />
+        <result column="obtain_method" property="obtainMethod" jdbcType="VARCHAR" />
+        <result column="pool_id" property="poolId" jdbcType="BIGINT" />
+        <result column="pool_name" property="poolName" jdbcType="VARCHAR" />
+        <result column="obtain_datatime" property="obtainDatatime" jdbcType="TIMESTAMP" />
+        <result column="amount_range" property="amountRange" jdbcType="VARCHAR" />
+        <result column="obtain_post_number" property="obtainPostNumber" jdbcType="VARCHAR" />
+        <result column="status" property="status" jdbcType="VARCHAR" />
+        <result column="wx_nick_name" property="wxNickName" jdbcType="VARCHAR" />
+        <result column="sex" property="sex" jdbcType="VARCHAR" />
+        <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+        <result column="is_old_user" property="isOldUser" jdbcType="VARCHAR" />
+        <result column="is_verify" property="isVerify" jdbcType="VARCHAR" />
+        <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+    </resultMap>
+
+    <select id="findHBObtain" resultMap="BaseResultMap" parameterType="map">
+        select * from hongbao_obtain ho left join
+        (
+          select max(hoo.amount) maxAmount from hongbao_obtain hoo
+          <where>
+              <trim prefixOverrides="and">
+                  <if test="sellerId!=null">
+                      and hoo.seller_id =#{sellerId}
+                  </if>
+                  <if test="poolId != null">
+                      and hoo.pool_id = #{poolId}
+                  </if>
+                  <if test="amount != null">
+                      and hoo.amount <![CDATA[ <= ]]> #{amount}
+                  </if>
+                      and hoo.status = 'toReceive' and hoo.user_id is null
+              </trim>
+          </where>
+        ) temp on ho.amount = temp.maxAmount
+        <where>
+            <trim prefixOverrides="and">
+                <if test="sellerId!=null">
+                    and ho.seller_id =#{sellerId}
+                </if>
+                <if test="poolId != null">
+                    and ho.pool_id = #{poolId}
+                </if>
+                <if test="amount != null">
+                    and ho.amount <![CDATA[ <= ]]> #{amount} and ho.amount = temp.maxAmount
+                </if>
+                and ho.status = 'toReceive' and ho.user_id is null
+            </trim>
+
+        </where>
+
+    </select>
+
+
+    <select id="getHBObtainWithUser" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.defined.hongbao.HBObtainDO">
+        select
+        a.id, a.gmt_created, a.created_by, a.gmt_modified, a.modified_by, a.is_deleted, a.hongbao_obtain_id,
+        a.user_id, a.amount, a.open_id, a.hongbao_type, a.pool_id, a.pool_name, a.obtain_datatime, a.amount_range,
+        a.obtain_post_number, a.status, b.wx_nick_name,b.sex,b.mobile,b.is_old_user,b.is_verify
+        from hongbao_obtain a , user b
+        <where>
+            <trim prefixOverrides="and">
+                <if test="sellerId!=null">
+                    and a.seller_id =#{sellerId} and  b.seller_id =#{sellerId}
+                </if>
+                <if test="poolId!=null">
+                    and a.pool_id =#{poolId}
+                </if>
+                <if test="wxNickName!=null">
+                    and b.wx_nick_name like '%${wxNickName}%'
+                </if>
+                <if test="startDate!=null and endDate!=null">
+                    and a.obtain_datatime between #{startDate} and #{endDate}
+                </if>
+                <if test="startDate!=null and endDate==null">
+                    and a.obtain_datatime >= #{startDate}
+                </if>
+                <if test="startDate==null and endDate!=null">
+                    and a.obtain_datatime >= #{endDate}
+                </if>
+                <if test="userId!=null">
+                    and a.user_id= #{userId}
+                </if>
+                and a.user_id = b.user_id and a.status='received'
+            </trim>
+        </where>
+
+        <if test="orderByClause != null" >
+            order by a.${orderByClause}
+        </if>
+
+    </select>
+
+</mapper>

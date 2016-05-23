@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.trade.TradeDAO">
+    <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.trade.TradeDO">
+        <result column="tid" property="tid" jdbcType="BIGINT"/>
+        <result column="shop_id" property="shopId" jdbcType="BIGINT"/>
+        <result column="buyer_nick" property="buyerNick" jdbcType="VARCHAR"/>
+        <result column="receiver_mobile" property="mobile" jdbcType="VARCHAR"/>
+        <result column="receiver_state" property="province" jdbcType="VARCHAR"/>
+        <result column="receiver_city" property="city" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="VARCHAR"/>
+        <result column="created" property="created" jdbcType="TIMESTAMP"/>
+        <result column="price" property="price" jdbcType="DECIMAL"/>
+        <result column="trade_source" property="tradeSource" jdbcType="VARCHAR"/>
+        <result column="receiver_name" property="receiverName" jdbcType="VARCHAR"/>
+        <result column="receiver_id" property="receiverId" jdbcType="VARCHAR"/>
+        <result column="seller_id" property="sellerId" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <select id="selectTradeFromAll" resultMap="BaseResultMap"
+            parameterType="com.shufensoft.crm.biz.domain.defined.trade.TradeDO">
+
+        select *
+        from (
+        <if test="tradeSource=='TB' or tradeSource=='TMALL'">
+            select receiver_id_tb receiver_id,tid,shop_id,buyer_nick,receiver_mobile,receiver_state,receiver_city,
+            status,created,payment price,'TB' trade_source,receiver_name,trade_taobao.seller_id
+            from trade_taobao
+            <include refid="taobaoCondition"/>
+
+        </if>
+
+        <if test="tradeSource=='YZ'">
+            select receiver_id_yz receiver_id,tid,shop_id,buyer_nick,receiver_mobile,receiver_state,receiver_city,
+            status,created,payment price,'YZ' trade_source,receiver_name,seller_id
+            from trade_yz
+            <include refid="youzanCondition"/>
+        </if>
+
+        <if test="tradeSource==null or tradeSource=='' ">
+            select receiver_id_tb receiver_id,tid,shop_id,buyer_nick,receiver_mobile,receiver_state,receiver_city,
+            status,created,payment price,'TB' trade_source,receiver_name,trade_taobao.seller_id
+            from trade_taobao
+            <include refid="taobaoCondition"/>
+            union all
+            select order_jd.receiver_id_jd receiver_id,order_id tid,shop_id,pin buyer_nick,mobile receiver_mobile,province receiver_state,city receiver_city,
+            order_state status,order_start_time created,order_payment price,'JD' trade_source,fullname receiver_name,order_jd.seller_id
+            from order_jd, receiver_jd
+            <include refid="jdCondition"/>
+        </if>
+
+        <if test="tradeSource=='JD'">
+            select order_jd.receiver_id_jd receiver_id,order_id tid,shop_id,pin buyer_nick,mobile receiver_mobile,province receiver_state,city receiver_city,
+            order_state status,order_start_time created,order_payment price,'JD' trade_source,fullname receiver_name,order_jd.seller_id
+            from order_jd, receiver_jd
+            <include refid="jdCondition"/>
+        </if>) trade
+
+
+        <if test="hasMobile!=null and hasMobile=='1'">
+            where receiver_mobile is not null and receiver_mobile != ''
+        </if>
+
+        <if test="orderClause!=null and orderClause!=''">
+            order by ${orderClause}
+        </if>
+
+    </select>
+
+    <sql id="taobaoCondition">
+
+        <where>
+
+            <trim prefixOverrides="and">
+
+                <if test="keyword!=null and keyword!=''">
+                    and (trade_taobao.buyer_nick like '%${keyword}%'
+                    or trade_taobao.receiver_name like '%${keyword}%')
+                </if>
+
+                <if test="receiverId!=null">
+                    and trade_taobao.receiver_id_tb = #{receiverId}
+                </if>
+
+                <if test="receiverName!=null and receiverName!=''">
+
+                    and trade_taobao.receiver_name like '%${receiverName}%'
+                </if>
+
+                <if test="created != null">
+                    <![CDATA[
+                        and trade_taobao.created >= #{created}
+                     ]]>
+                </if>
+
+                <if test="minPrice!=null">
+                    and trade_taobao.payment>=#{minPrice}
+                </if>
+
+                <if test="maxPrice!=null">
+                  <![CDATA[
+                    and trade_taobao.payment<=#{maxPrice}
+                    ]]>
+                </if>
+
+                <if test="shopIdList != null">
+                    AND trade_taobao.shop_id IN
+                    <foreach collection="shopIdList" item="shopIds" open="(" separator="," close=")">
+                        #{shopIds}
+                    </foreach>
+                </if>
+
+                <if test="sellerId != null">
+                    and trade_taobao.seller_id = #{sellerId}
+                </if>
+
+                and status in ('TRADE_CLOSED','TRADE_CLOSED_BY_TAOBAO','WAIT_BUYER_PAY')
+
+            </trim>
+
+        </where>
+
+    </sql>
+
+    <sql id="youzanCondition">
+
+        <where>
+
+            <trim prefixOverrides="and">
+
+                <if test="keyword!=null and keyword!=''">
+                    and (trade_yz.buyer_nick like '%${keyword}%'
+                    or trade_yz.receiver_name like '%${keyword}%')
+                </if>
+
+                <if test="receiverId!=null">
+                    and trade_yz.receiver_id_tb = #{receiverId}
+                </if>
+
+                <if test="receiverName!=null and receiverName!=''">
+
+                    and trade_yz.receiver_name like '%${receiverName}%'
+                </if>
+
+                <if test="created != null">
+                    <![CDATA[
+                        and trade_yz.created >= #{created}
+                     ]]>
+                </if>
+
+                <if test="minPrice!=null">
+                    and trade_yz.payment>=#{minPrice}
+                </if>
+
+                <if test="maxPrice!=null">
+                    <![CDATA[
+                    and trade_yz.payment<=#{maxPrice}
+                    ]]>
+                </if>
+
+                <if test="shopIdList != null">
+                    AND trade_yz.shop_id IN
+                    <foreach collection="shopIdList" item="shopIds" open="(" separator="," close=")">
+                        #{shopIds}
+                    </foreach>
+                </if>
+
+                <if test="sellerId != null">
+                    and trade_yz.seller_id = #{sellerId}
+                </if>
+
+                and status in ('TRADE_CLOSED','TRADE_CLOSED_BY_TAOBAO','WAIT_BUYER_PAY')
+
+            </trim>
+
+        </where>
+
+    </sql>
+
+    <sql id="jdCondition">
+
+        <where>
+
+            <trim prefixOverrides="and">
+
+                <if test="keyword!=null and keyword!=''">
+                    and order_jd.pin like '%${keyword}%'
+                    and (order_jd.pin like '%${keyword}%'
+                    or order_jd.fullname like '%${keyword}%')
+                </if>
+
+                <if test="receiverId!=null">
+                    and order_jd.receiver_id_jd = #{receiverId}
+                </if>
+
+                <if test="receiverName!=null and receiverName!=''">
+                    and receiver_jd.fullname like '%${receiverName}%'
+                </if>
+
+                <if test="created != null">
+                    <![CDATA[
+                    and order_jd.order_start_time >= #{created}
+                     ]]>
+                </if>
+
+                <if test="minPrice!=null">
+                    and order_jd.order_total_price>=#{minPrice}
+                </if>
+
+                <if test="maxPrice!=null">
+                    <![CDATA[
+                    and order_jd.order_total_price<=#{maxPrice}
+                     ]]>
+                </if>
+
+                <if test="shopIdList != null">
+                    AND order_jd.shop_id IN
+                    <foreach collection="shopIdList" item="shopIds" open="(" separator="," close=")">
+                        #{shopIds}
+                    </foreach>
+                </if>
+
+                <if test="sellerId != null">
+                    and order_jd.seller_id = #{sellerId}
+                    and receiver_jd.seller_id = #{sellerId}
+                </if>
+
+                and order_state='trade_canceled'
+                and order_jd.receiver_id_jd = receiver_jd.receiver_id_jd
+            </trim>
+
+        </where>
+
+    </sql>
+
+
+</mapper>

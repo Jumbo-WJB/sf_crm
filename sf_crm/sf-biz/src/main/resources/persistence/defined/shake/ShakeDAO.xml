@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.shake.ShakeQueryDAO" >
+
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.shake.ShakeQueryDO" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="wx_nick_name" property="wxNickName" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="user_portrait_id" property="userPortraitId" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="rock_title" property="rockTitle" jdbcType="VARCHAR" />
+    <result column="rock_result" property="rockResult" jdbcType="VARCHAR" />
+    <result column="shake_status" property="shakeStatus" jdbcType="VARCHAR" />
+    <result column="rock_id" property="rockId" jdbcType="VARCHAR" />
+    <result column="shake_date" property="shakeDate" jdbcType="TIMESTAMP" />
+    <result column="obtain_date" property="obtainDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+
+    <select id="selectUserShakeDetail" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.defined.shake.ShakeQueryDO">
+
+        select
+            u.user_portrait_id,
+            u.user_id,
+            u.wx_nick_name,
+            u.mobile,
+            o.rock_title,
+            o.shake_date,
+            o.obtain_date,
+            o.shake_status,
+            o.rock_result,
+            o.rock_id
+
+        from
+            user u,
+            shake_obtain o
+
+        <where>
+
+            <trim prefixOverrides="and">
+                u.user_id = o.user_id
+
+                <if test="wxNickName!=null">
+                    and u.wx_nick_name like '%${wxNickName}%'
+                </if>
+                <if test="mobile!=null">
+                    and u.mobile = #{mobile}
+                </if>
+
+                <if test="rockId!=null">
+                    and o.rock_id = #{rockId}
+                </if>
+
+                <if test="sellerId!=null">
+                    and u.seller_id = #{sellerId}
+                </if>
+                order by o.obtain_date desc
+            </trim>
+        </where>
+    </select>
+
+
+
+
+</mapper>

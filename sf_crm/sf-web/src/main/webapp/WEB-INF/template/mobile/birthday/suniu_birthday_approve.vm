@@ -1,0 +1,102 @@
+#set($layout = "/layout/mobileBlank.vm")
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <title>我的生日</title>
+    <link rel="stylesheet" type="text/css" href="${rc.contextPath}/media/mobile/assets/css/mobileStyle.css">
+    <script type="text/javascript" src="${rc.contextPath}/media/mobile/assets/js/birthday/birthday.js"></script>
+    <style>
+
+        *{font-family:"Microsoft YaHei";}
+        .t_center{text-align: center;margin: 0 6px;}
+        .t_left{text-align: left;}
+        .pm_list{font-size: 13px;}
+        .pm_list tr{border-bottom:1px solid #efefef;line-height:42px;vertical-align:middle;}
+        .pm_list th{color:#888; font-weight:normal;line-height:35px;}
+        .pm_num{overflow:hidden;}
+        .pm_name{width:70px;}
+        .pm_day{width:50px;}
+        .pm_time{width:50px;}
+        .pm_state{width:70px;}
+        .pm_no{width:70px;}
+        .pm_4{width:25%;}
+        .col_title{padding: 4px 5px;overflow: hidden}
+        .col_title span{margin: 0 4px;}
+        .col_title img{width:60px;height:60px;vertical-align: middle;border-radius: 50%;float:left;}
+        .col_title a{width:150px;overflow: hidden;margin-left: 10px;text-overflow:ellipsis;}
+        .myscore-li .li-choose ul li.li-all-column{width: 100%;}
+        .word-hidden p{width:110px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;float:left;padding: 18px 0 0 10px;}
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="u-body">
+        <div class="user bg_white">
+            <div class="user_back"></div>
+            <table class="user_table">
+                <tr>
+                    <td class="user_tleft">
+                        <div class="user_img rAll">
+                            <img class="rAll" id="wxHeadImgUrl" src="$!uv.wxHeadimgurl"
+                                 onerror="this.src='${rc.contextPath}/media/mobile/assets/images/signIn/helpbuy-icon.jpg'"/>
+                        </div>
+                    </td>
+                    <td class="user_tright">
+                        <p class="user_name " id="wxNickName">
+                            #if($uv.wxNickName) ${uv.wxNickName}
+                            #else 游客
+                            #end
+                        </p>
+                        <p class="user_leve red">
+                            #if($uv.mobile)
+                                ${uv.mobile}
+                            #else
+                                未认证
+                            #end
+                        </p>
+                    </td>
+                <tr/>
+            </table>
+        </div>
+        <div class="u-block u-myscore">
+            <div class="form-grounp">
+                <div>
+                    <p style="font-size: 12px;color: #000;text-align: center">公众号回复“生日”信息可以直接查看</p>
+                    <input type="hidden" name="sellerId" value="${uv.sellerId}"/>
+                </div>
+            </div>
+        </div>
+        <div class="myscore-li" style="padding: 15px 0;">
+            <center>
+                <div>
+                    对不起，你还没有进行生日登记哦,<br/>
+                    请告诉我们，您以及您家人的生日，<br/>
+                    生日当前购物享受优惠,并且还有生
+                    日礼物请点击认证
+                </div>
+            </center>
+            <div class="bg_gray btn_wap" id="onClickHongbaoCash" >
+                <a class="btn btn_big b_green r6 j_sign_act_false"
+                   href="${rc.contextPath}/mobile/identify?userId=$!uv.userId&sellerId=$!uv.sellerId" > 立即认证 </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="u-footer">
+        <p>
+            <img src="${rc.contextPath}/media/mobile/assets/images/public/suniu_logo_grey.jpg">
+            <span>技术支持·速牛科技</span>
+        </p>
+    </div>
+</div>
+
+</body>
+</html>

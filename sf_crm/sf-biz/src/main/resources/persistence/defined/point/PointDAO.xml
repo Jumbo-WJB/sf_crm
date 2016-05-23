@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.point.PointDAO" >
+
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.point.PointMultipleDO" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="interactions_times" property="interactionsTimes" jdbcType="INTEGER" />
+    <result column="point_amount_total" property="pointAmountTotal" jdbcType="BIGINT" />
+    <result column="point_amount_expired" property="pointAmountExpired" jdbcType="BIGINT" />
+    <result column="point_amount" property="pointAmount" jdbcType="BIGINT" />
+    <result column="point_amount_exchange" property="pointAmountExchange" jdbcType="BIGINT" />
+    <result column="user_portrait_id" property="userPortraitId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="wx_subscribe" property="wxSubscribe" jdbcType="VARCHAR" />
+    <result column="wx_nick_name" property="wxNickName" jdbcType="VARCHAR" />
+    <result column="obtain_method" property="obtainMethod" jdbcType="VARCHAR" />
+    <result column="exchange_method" property="exchangMethod" jdbcType="VARCHAR" />
+  </resultMap>
+
+
+    <select id="selectUserPointDetails" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.defined.point.PointMultipleDO">
+
+        SELECT * FROM (
+            SELECT
+            u.wx_nick_name,
+            u.user_id,
+            u.name,
+            u.wx_subscribe,
+            a.point_amount_total,
+            a.point_amount_expired,
+            a.point_amount,
+            a.point_amount_exchange,
+            a.seller_id,
+            p.interactions_times,
+            p.user_portrait_id,
+
+            (
+            select
+              group_concat(distinct o.obtain_method) as obtain_method
+            from  point_obtain o
+            where
+              u.user_id = o.user_id
+            group by o.user_id
+            ) as obtain_method,
+            (
+            select
+              group_concat(distinct e.exchange_method) as exchange_method
+            from
+              point_exchange e
+            where
+              u.user_id = e.user_id
+            group by e.user_id
+            ) as exchange_method,
+            (
+            select
+              max(o.gmt_created) as gmt_created
+            from
+              point_obtain o
+            where
+              u.user_id = o.user_id
+            group by o.user_id
+            ) as gmt_created
+
+            from
+              user u
+            left join user_portrait p on u.user_portrait_id = p.user_portrait_id,
+            user_account a
+
+            where
+              u.user_id = a.user_id
+        ) a
+        <where>
+            <trim prefixOverrides="and">
+
+                <if test="name!=null">
+                    and a.name like '%${name}%'
+                </if>
+                <if test="obtainMethod!=null">
+                    and a.obtain_method like '%${obtainMethod}%'
+                </if>
+                <if test="exchangMethod!=null">
+                    and a.exchange_method like '%${exchangMethod}%'
+                </if>
+                <if test="obtainStartDate!=null and obtainEndDate!=null">
+                    and a.gmt_created between #{obtainStartDate} and #{obtainEndDate}
+                </if>
+                <if test="sellerId!=null">
+                    and a.seller_id =  #{sellerId}
+                </if>
+
+                and gmt_created > '1971-01-01 00:00:00'
+            </trim>
+        </where>
+    </select>
+
+
+
+
+</mapper>

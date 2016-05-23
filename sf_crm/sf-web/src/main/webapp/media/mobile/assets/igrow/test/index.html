@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>core</title>
+    <meta name="apple-touch-fullscreen" content="YES">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="pragram" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    
+    <link rel="stylesheet" href="../css/igrow.css">
+    <link rel="stylesheet" href="../css/igrow.plugins.css">
+    <link rel="stylesheet" href="../css/app.css?v=1">
+    <script src="../external/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../igrow.js"></script>
+    
+
+    <style>
+    .container {
+        padding: 20px;
+    }
+    .result {
+        padding-left: 2em;
+    }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>IGrow.js</h1>
+
+        <div class="module-list">
+            <div class="module-item" id="ua">
+                <h4>IGrow.ua</h4>
+
+                <div class="result">
+                    
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+        
+
+
+
+    <script>
+    $(function(){
+        // ua
+        var buffer = [];
+        for(var key in IGrow.ua){
+            buffer.push("<p>"+key+":"+IGrow.ua[key]+"</p>");
+        }
+        $('#ua .result').html(buffer.join(' '));
+
+
+    });
+
+
+    </script>
+</body>
+</html>

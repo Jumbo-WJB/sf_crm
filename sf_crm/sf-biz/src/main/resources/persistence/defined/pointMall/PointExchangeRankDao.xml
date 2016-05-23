@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.pointMall.PointExchangeRankDao" >
+    <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.pointMall.PointExchangeRankDo" >
+        <result column="sd" property="sellerId" jdbcType="BIGINT" />
+        <result column="ud" property="userId" jdbcType="BIGINT" />
+        <result column="extotal" property="pointExchangeTotal" jdbcType="BIGINT" />
+        <result column="zannum" property="zanTotal" jdbcType="BIGINT" />
+        <result column="wximg" property="wxImgUrl" jdbcType="VARCHAR" />
+        <result column="unm" property="name" jdbcType="VARCHAR" />
+        <result column="ninm" property="wxNickName" jdbcType="VARCHAR" />
+        <result column="rank" property="rank" jdbcType="BIGINT" />
+    </resultMap>
+
+    <select id="findPointExchangeRankDoBySeller" resultMap="BaseResultMap" parameterType="map">
+
+        SELECT aa.ud,aa.sd,aa.unm,aa.ninm,aa.wximg,aa.extotal,aa.zannum, COUNT(*) AS rank FROM
+        (
+        SELECT a.peuid ud,a.pesid sd,a.pename unm,a.penick ninm,a.pewximgurl wximg,a.peamount extotal,b.uinum zannum
+        FROM
+        (SELECT pe.user_id peuid, MAX(u.name) pename,MAX(u.wx_nick_name) penick,MAX(u.wx_headimgurl) pewximgurl,
+        SUM(pe.point_amount) peamount, MAX(pe.seller_id) pesid FROM point_exchange pe LEFT JOIN USER u ON pe.user_id = u.user_id
+        <where>
+            <trim prefixOverrides="and">
+                <if test="sellerId != null">
+                    and pe.seller_id = #{sellerId}
+                </if>
+                <if test="exchangeMethod != null">
+                    and pe.exchange_method = #{exchangeMethod}
+                </if>
+                group by pe.user_id ORDER BY pe.gmt_created DESC
+            </trim>
+        </where>
+        ) a
+        LEFT JOIN
+        (SELECT COUNT(pr.b_user_id) uinum, MAX(pr.b_user_id) uid FROM praise_records pr
+            <where>
+                <trim prefixOverrides="and">
+                    <if test="praiseEntry != null">
+                        and pr.praise_entry = #{praiseEntry}
+                    </if>
+                </trim>
+            </where>
+            group by pr.b_user_id
+        ) b
+        ON a.peuid = b.uid
+        ) aa,
+        (
+        SELECT c.peuid ud,c.pesid sd,c.pename unm,c.penick ninm,c.pewximgurl wximg,c.peamount extotal,d.uinum zannum
+        FROM
+        (SELECT pe.user_id peuid, MAX(u.name) pename,MAX(u.wx_nick_name) penick,MAX(u.wx_headimgurl) pewximgurl,
+        SUM(pe.point_amount) peamount, MAX(pe.seller_id) pesid FROM point_exchange pe LEFT JOIN USER u ON pe.user_id = u.user_id
+        <where>
+            <trim prefixOverrides="and">
+                <if test="sellerId != null">
+                    and pe.seller_id = #{sellerId}
+                </if>
+                <if test="exchangeMethod != null">
+                    and pe.exchange_method = #{exchangeMethod}
+                </if>
+                group by pe.user_id ORDER BY pe.gmt_created DESC
+            </trim>
+        </where>
+        ) c
+        LEFT JOIN
+        (SELECT COUNT(pr.b_user_id) uinum, MAX(pr.b_user_id) uid FROM praise_records pr
+            <where>
+                <trim prefixOverrides="and">
+                    <if test="praiseEntry != null">
+                        and pr.praise_entry = #{praiseEntry}
+                    </if>
+                </trim>
+            </where>
+            group by pr.b_user_id
+        ) d
+        ON c.peuid = d.uid
+        ) bb
+        <where>
+            <trim prefixOverrides="and">
+                <if test="userId != null">
+                    and aa.ud = #{userId}
+                </if>
+                <if test="excludeUserId != null">
+                    and aa.ud != #{excludeUserId}
+                </if>
+                  and aa.extotal <![CDATA[ <= ]]> bb.extotal GROUP BY aa.ud, aa.extotal ORDER BY rank
+            </trim>
+        </where>
+    </select>
+
+</mapper>

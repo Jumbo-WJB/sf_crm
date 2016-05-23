@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.user.UserAccountMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.user.UserAccount" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_user_account_version" property="maxUserAccountVersion" jdbcType="BIGINT" />
+    <result column="min_user_account_version" property="minUserAccountVersion" jdbcType="BIGINT" />
+    <result column="avg_user_account_version" property="avgUserAccountVersion" jdbcType="BIGINT" />
+    <result column="count_user_account_version" property="countUserAccountVersion" jdbcType="BIGINT" />
+    <result column="sum_user_account_version" property="sumUserAccountVersion" jdbcType="BIGINT" />
+    <result column="max_point_amount_transferred" property="maxPointAmountTransferred" jdbcType="BIGINT" />
+    <result column="min_point_amount_transferred" property="minPointAmountTransferred" jdbcType="BIGINT" />
+    <result column="avg_point_amount_transferred" property="avgPointAmountTransferred" jdbcType="BIGINT" />
+    <result column="count_point_amount_transferred" property="countPointAmountTransferred" jdbcType="BIGINT" />
+    <result column="sum_point_amount_transferred" property="sumPointAmountTransferred" jdbcType="BIGINT" />
+    <result column="max_point_amount_expired" property="maxPointAmountExpired" jdbcType="BIGINT" />
+    <result column="min_point_amount_expired" property="minPointAmountExpired" jdbcType="BIGINT" />
+    <result column="avg_point_amount_expired" property="avgPointAmountExpired" jdbcType="BIGINT" />
+    <result column="count_point_amount_expired" property="countPointAmountExpired" jdbcType="BIGINT" />
+    <result column="sum_point_amount_expired" property="sumPointAmountExpired" jdbcType="BIGINT" />
+    <result column="max_point_amount_exchange" property="maxPointAmountExchange" jdbcType="BIGINT" />
+    <result column="min_point_amount_exchange" property="minPointAmountExchange" jdbcType="BIGINT" />
+    <result column="avg_point_amount_exchange" property="avgPointAmountExchange" jdbcType="BIGINT" />
+    <result column="count_point_amount_exchange" property="countPointAmountExchange" jdbcType="BIGINT" />
+    <result column="sum_point_amount_exchange" property="sumPointAmountExchange" jdbcType="BIGINT" />
+    <result column="max_point_amount_total" property="maxPointAmountTotal" jdbcType="BIGINT" />
+    <result column="min_point_amount_total" property="minPointAmountTotal" jdbcType="BIGINT" />
+    <result column="avg_point_amount_total" property="avgPointAmountTotal" jdbcType="BIGINT" />
+    <result column="count_point_amount_total" property="countPointAmountTotal" jdbcType="BIGINT" />
+    <result column="sum_point_amount_total" property="sumPointAmountTotal" jdbcType="BIGINT" />
+    <result column="max_point_amount" property="maxPointAmount" jdbcType="BIGINT" />
+    <result column="min_point_amount" property="minPointAmount" jdbcType="BIGINT" />
+    <result column="avg_point_amount" property="avgPointAmount" jdbcType="BIGINT" />
+    <result column="count_point_amount" property="countPointAmount" jdbcType="BIGINT" />
+    <result column="sum_point_amount" property="sumPointAmount" jdbcType="BIGINT" />
+    <result column="max_hbcash_number" property="maxHbcashNumber" jdbcType="BIGINT" />
+    <result column="min_hbcash_number" property="minHbcashNumber" jdbcType="BIGINT" />
+    <result column="avg_hbcash_number" property="avgHbcashNumber" jdbcType="BIGINT" />
+    <result column="count_hbcash_number" property="countHbcashNumber" jdbcType="BIGINT" />
+    <result column="sum_hbcash_number" property="sumHbcashNumber" jdbcType="BIGINT" />
+    <result column="max_hbcash_date" property="maxHbcashDate" jdbcType="BIGINT" />
+    <result column="min_hbcash_date" property="minHbcashDate" jdbcType="BIGINT" />
+    <result column="avg_hbcash_date" property="avgHbcashDate" jdbcType="BIGINT" />
+    <result column="count_hbcash_date" property="countHbcashDate" jdbcType="BIGINT" />
+    <result column="sum_hbcash_date" property="sumHbcashDate" jdbcType="TIMESTAMP" />
+    <result column="max_hbcash_amount" property="maxHbcashAmount" jdbcType="BIGINT" />
+    <result column="min_hbcash_amount" property="minHbcashAmount" jdbcType="BIGINT" />
+    <result column="avg_hbcash_amount" property="avgHbcashAmount" jdbcType="BIGINT" />
+    <result column="count_hbcash_amount" property="countHbcashAmount" jdbcType="BIGINT" />
+    <result column="sum_hbcash_amount" property="sumHbcashAmount" jdbcType="BIGINT" />
+    <result column="max_hbobtain_date" property="maxHbobtainDate" jdbcType="BIGINT" />
+    <result column="min_hbobtain_date" property="minHbobtainDate" jdbcType="BIGINT" />
+    <result column="avg_hbobtain_date" property="avgHbobtainDate" jdbcType="BIGINT" />
+    <result column="count_hbobtain_date" property="countHbobtainDate" jdbcType="BIGINT" />
+    <result column="sum_hbobtain_date" property="sumHbobtainDate" jdbcType="TIMESTAMP" />
+    <result column="max_hongbao_shop_amount" property="maxHongbaoShopAmount" jdbcType="BIGINT" />
+    <result column="min_hongbao_shop_amount" property="minHongbaoShopAmount" jdbcType="BIGINT" />
+    <result column="avg_hongbao_shop_amount" property="avgHongbaoShopAmount" jdbcType="BIGINT" />
+    <result column="count_hongbao_shop_amount" property="countHongbaoShopAmount" jdbcType="BIGINT" />
+    <result column="sum_hongbao_shop_amount" property="sumHongbaoShopAmount" jdbcType="BIGINT" />
+    <result column="max_hongbao_praise_amount" property="maxHongbaoPraiseAmount" jdbcType="BIGINT" />
+    <result column="min_hongbao_praise_amount" property="minHongbaoPraiseAmount" jdbcType="BIGINT" />
+    <result column="avg_hongbao_praise_amount" property="avgHongbaoPraiseAmount" jdbcType="BIGINT" />
+    <result column="count_hongbao_praise_amount" property="countHongbaoPraiseAmount" jdbcType="BIGINT" />
+    <result column="sum_hongbao_praise_amount" property="sumHongbaoPraiseAmount" jdbcType="BIGINT" />
+    <result column="max_hbobtain_amount" property="maxHbobtainAmount" jdbcType="BIGINT" />
+    <result column="min_hbobtain_amount" property="minHbobtainAmount" jdbcType="BIGINT" />
+    <result column="avg_hbobtain_amount" property="avgHbobtainAmount" jdbcType="BIGINT" />
+    <result column="count_hbobtain_amount" property="countHbobtainAmount" jdbcType="BIGINT" />
+    <result column="sum_hbobtain_amount" property="sumHbobtainAmount" jdbcType="BIGINT" />
+    <result column="max_hbtotal_number" property="maxHbtotalNumber" jdbcType="BIGINT" />
+    <result column="min_hbtotal_number" property="minHbtotalNumber" jdbcType="BIGINT" />
+    <result column="avg_hbtotal_number" property="avgHbtotalNumber" jdbcType="BIGINT" />
+    <result column="count_hbtotal_number" property="countHbtotalNumber" jdbcType="BIGINT" />
+    <result column="sum_hbtotal_number" property="sumHbtotalNumber" jdbcType="BIGINT" />
+    <result column="max_hongbao_amount" property="maxHongbaoAmount" jdbcType="BIGINT" />
+    <result column="min_hongbao_amount" property="minHongbaoAmount" jdbcType="BIGINT" />
+    <result column="avg_hongbao_amount" property="avgHongbaoAmount" jdbcType="BIGINT" />
+    <result column="count_hongbao_amount" property="countHongbaoAmount" jdbcType="BIGINT" />
+    <result column="sum_hongbao_amount" property="sumHongbaoAmount" jdbcType="BIGINT" />
+    <result column="max_user_id" property="maxUserId" jdbcType="BIGINT" />
+    <result column="min_user_id" property="minUserId" jdbcType="BIGINT" />
+    <result column="avg_user_id" property="avgUserId" jdbcType="BIGINT" />
+    <result column="count_user_id" property="countUserId" jdbcType="BIGINT" />
+    <result column="sum_user_id" property="sumUserId" jdbcType="BIGINT" />
+    <result column="max_account_id" property="maxAccountId" jdbcType="BIGINT" />
+    <result column="min_account_id" property="minAccountId" jdbcType="BIGINT" />
+    <result column="avg_account_id" property="avgAccountId" jdbcType="BIGINT" />
+    <result column="count_account_id" property="countAccountId" jdbcType="BIGINT" />
+    <result column="sum_account_id" property="sumAccountId" jdbcType="BIGINT" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+    <result column="account_id" property="accountId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="hongbao_amount" property="hongbaoAmount" jdbcType="BIGINT" />
+    <result column="hbtotal_number" property="hbtotalNumber" jdbcType="BIGINT" />
+    <result column="hbobtain_amount" property="hbobtainAmount" jdbcType="BIGINT" />
+    <result column="hongbao_praise_amount" property="hongbaoPraiseAmount" jdbcType="BIGINT" />
+    <result column="hongbao_shop_amount" property="hongbaoShopAmount" jdbcType="BIGINT" />
+    <result column="hbobtain_date" property="hbobtainDate" jdbcType="TIMESTAMP" />
+    <result column="hbcash_amount" property="hbcashAmount" jdbcType="BIGINT" />
+    <result column="hbcash_date" property="hbcashDate" jdbcType="TIMESTAMP" />
+    <result column="hbcash_number" property="hbcashNumber" jdbcType="BIGINT" />
+    <result column="point_amount" property="pointAmount" jdbcType="BIGINT" />
+    <result column="point_amount_total" property="pointAmountTotal" jdbcType="BIGINT" />
+    <result column="point_amount_exchange" property="pointAmountExchange" jdbcType="BIGINT" />
+    <result column="point_amount_expired" property="pointAmountExpired" jdbcType="BIGINT" />
+    <result column="point_amount_transferred" property="pointAmountTransferred" jdbcType="BIGINT" />
+    <result column="user_account_version" property="userAccountVersion" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, created_by, modified_by, is_deleted, seller_id, account_id, 
+    user_id, hongbao_amount, hbtotal_number, hbobtain_amount, hongbao_praise_amount, 
+    hongbao_shop_amount, hbobtain_date, hbcash_amount, hbcash_date, hbcash_number, point_amount, 
+    point_amount_total, point_amount_exchange, point_amount_expired, point_amount_transferred, 
+    user_account_version
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserAccountExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from user_account
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_account
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update user_account
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserAccountExample" >
+    update user_account
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserAccount" useGeneratedKeys="true" keyProperty="id" >
+    insert into user_account (id, gmt_created, gmt_modified, 
+      created_by, modified_by, is_deleted, 
+      seller_id, account_id, user_id, 
+      hongbao_amount, hbtotal_number, hbobtain_amount, 
+      hongbao_praise_amount, hongbao_shop_amount, hbobtain_date, 
+      hbcash_amount, hbcash_date, hbcash_number, 
+      point_amount, point_amount_total, point_amount_exchange, 
+      point_amount_expired, point_amount_transferred, 
+      user_account_version)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{sellerId,jdbcType=BIGINT}, #{accountId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
+      #{hongbaoAmount,jdbcType=BIGINT}, #{hbtotalNumber,jdbcType=BIGINT}, #{hbobtainAmount,jdbcType=BIGINT}, 
+      #{hongbaoPraiseAmount,jdbcType=BIGINT}, #{hongbaoShopAmount,jdbcType=BIGINT}, #{hbobtainDate,jdbcType=TIMESTAMP}, 
+      #{hbcashAmount,jdbcType=BIGINT}, #{hbcashDate,jdbcType=TIMESTAMP}, #{hbcashNumber,jdbcType=BIGINT}, 
+      #{pointAmount,jdbcType=BIGINT}, #{pointAmountTotal,jdbcType=BIGINT}, #{pointAmountExchange,jdbcType=BIGINT}, 
+      #{pointAmountExpired,jdbcType=BIGINT}, #{pointAmountTransferred,jdbcType=BIGINT}, 
+      #{userAccountVersion,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserAccount" useGeneratedKeys="true" keyProperty="id" >
+    insert into user_account
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="accountId != null" >
+        account_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="hongbaoAmount != null" >
+        hongbao_amount,
+      </if>
+      <if test="hbtotalNumber != null" >
+        hbtotal_number,
+      </if>
+      <if test="hbobtainAmount != null" >
+        hbobtain_amount,
+      </if>
+      <if test="hongbaoPraiseAmount != null" >
+        hongbao_praise_amount,
+      </if>
+      <if test="hongbaoShopAmount != null" >
+        hongbao_shop_amount,
+      </if>
+      <if test="hbobtainDate != null" >
+        hbobtain_date,
+      </if>
+      <if test="hbcashAmount != null" >
+        hbcash_amount,
+      </if>
+      <if test="hbcashDate != null" >
+        hbcash_date,
+      </if>
+      <if test="hbcashNumber != null" >
+        hbcash_number,
+      </if>
+      <if test="pointAmount != null" >
+        point_amount,
+      </if>
+      <if test="pointAmountTotal != null" >
+        point_amount_total,
+      </if>
+      <if test="pointAmountExchange != null" >
+        point_amount_exchange,
+      </if>
+      <if test="pointAmountExpired != null" >
+        point_amount_expired,
+      </if>
+      <if test="pointAmountTransferred != null" >
+        point_amount_transferred,
+      </if>
+      <if test="userAccountVersion != null" >
+        user_account_version,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+      <if test="accountId != null" >
+        #{accountId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="hongbaoAmount != null" >
+        #{hongbaoAmount,jdbcType=BIGINT},
+      </if>
+      <if test="hbtotalNumber != null" >
+        #{hbtotalNumber,jdbcType=BIGINT},
+      </if>
+      <if test="hbobtainAmount != null" >
+        #{hbobtainAmount,jdbcType=BIGINT},
+      </if>
+      <if test="hongbaoPraiseAmount != null" >
+        #{hongbaoPraiseAmount,jdbcType=BIGINT},
+      </if>
+      <if test="hongbaoShopAmount != null" >
+        #{hongbaoShopAmount,jdbcType=BIGINT},
+      </if>
+      <if test="hbobtainDate != null" >
+        #{hbobtainDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hbcashAmount != null" >
+        #{hbcashAmount,jdbcType=BIGINT},
+      </if>
+      <if test="hbcashDate != null" >
+        #{hbcashDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hbcashNumber != null" >
+        #{hbcashNumber,jdbcType=BIGINT},
+      </if>
+      <if test="pointAmount != null" >
+        #{pointAmount,jdbcType=BIGINT},
+      </if>
+      <if test="pointAmountTotal != null" >
+        #{pointAmountTotal,jdbcType=BIGINT},
+      </if>
+      <if test="pointAmountExchange != null" >
+        #{pointAmountExchange,jdbcType=BIGINT},
+      </if>
+      <if test="pointAmountExpired != null" >
+        #{pointAmountExpired,jdbcType=BIGINT},
+      </if>
+      <if test="pointAmountTransferred != null" >
+        #{pointAmountTransferred,jdbcType=BIGINT},
+      </if>
+      <if test="userAccountVersion != null" >
+        #{userAccountVersion,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserAccountExample" resultType="java.lang.Integer" >
+    select count(*) from user_account
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update user_account
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.accountId!=null and record.accountIdExpression==null" >
+          account_id = #{record.accountId,jdbcType=BIGINT},
+        </if>
+        <if test="record.accountIdExpression!=null" >
+          account_id = ${record.accountIdExpression},
+        </if>
+        <if test="record.userId!=null and record.userIdExpression==null" >
+          user_id = #{record.userId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdExpression!=null" >
+          user_id = ${record.userIdExpression},
+        </if>
+        <if test="record.hongbaoAmount!=null and record.hongbaoAmountExpression==null" >
+          hongbao_amount = #{record.hongbaoAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.hongbaoAmountExpression!=null" >
+          hongbao_amount = ${record.hongbaoAmountExpression},
+        </if>
+        <if test="record.hbtotalNumber!=null and record.hbtotalNumberExpression==null" >
+          hbtotal_number = #{record.hbtotalNumber,jdbcType=BIGINT},
+        </if>
+        <if test="record.hbtotalNumberExpression!=null" >
+          hbtotal_number = ${record.hbtotalNumberExpression},
+        </if>
+        <if test="record.hbobtainAmount!=null and record.hbobtainAmountExpression==null" >
+          hbobtain_amount = #{record.hbobtainAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.hbobtainAmountExpression!=null" >
+          hbobtain_amount = ${record.hbobtainAmountExpression},
+        </if>
+        <if test="record.hongbaoPraiseAmount!=null and record.hongbaoPraiseAmountExpression==null" >
+          hongbao_praise_amount = #{record.hongbaoPraiseAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.hongbaoPraiseAmountExpression!=null" >
+          hongbao_praise_amount = ${record.hongbaoPraiseAmountExpression},
+        </if>
+        <if test="record.hongbaoShopAmount!=null and record.hongbaoShopAmountExpression==null" >
+          hongbao_shop_amount = #{record.hongbaoShopAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.hongbaoShopAmountExpression!=null" >
+          hongbao_shop_amount = ${record.hongbaoShopAmountExpression},
+        </if>
+        <if test="record.hbobtainDate!=null and record.hbobtainDateExpression==null" >
+          hbobtain_date = #{record.hbobtainDate,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.hbobtainDateExpression!=null" >
+          hbobtain_date = ${record.hbobtainDateExpression},
+        </if>
+        <if test="record.hbcashAmount!=null and record.hbcashAmountExpression==null" >
+          hbcash_amount = #{record.hbcashAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.hbcashAmountExpression!=null" >
+          hbcash_amount = ${record.hbcashAmountExpression},
+        </if>
+        <if test="record.hbcashDate!=null and record.hbcashDateExpression==null" >
+          hbcash_date = #{record.hbcashDate,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.hbcashDateExpression!=null" >
+          hbcash_date = ${record.hbcashDateExpression},
+        </if>
+        <if test="record.hbcashNumber!=null and record.hbcashNumberExpression==null" >
+          hbcash_number = #{record.hbcashNumber,jdbcType=BIGINT},
+        </if>
+        <if test="record.hbcashNumberExpression!=null" >
+          hbcash_number = ${record.hbcashNumberExpression},
+        </if>
+        <if test="record.pointAmount!=null and record.pointAmountExpression==null" >
+          point_amount = #{record.pointAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.pointAmountExpression!=null" >
+          point_amount = ${record.pointAmountExpression},
+        </if>
+        <if test="record.pointAmountTotal!=null and record.pointAmountTotalExpression==null" >
+          point_amount_total = #{record.pointAmountTotal,jdbcType=BIGINT},
+        </if>
+        <if test="record.pointAmountTotalExpression!=null" >
+          point_amount_total = ${record.pointAmountTotalExpression},
+        </if>
+        <if test="record.pointAmountExchange!=null and record.pointAmountExchangeExpression==null" >
+          point_amount_exchange = #{record.pointAmountExchange,jdbcType=BIGINT},
+        </if>
+        <if test="record.pointAmountExchangeExpression!=null" >
+          point_amount_exchange = ${record.pointAmountExchangeExpression},
+        </if>
+        <if test="record.pointAmountExpired!=null and record.pointAmountExpiredExpression==null" >
+          point_amount_expired = #{record.pointAmountExpired,jdbcType=BIGINT},
+        </if>
+        <if test="record.pointAmountExpiredExpression!=null" >
+          point_amount_expired = ${record.pointAmountExpiredExpression},
+        </if>
+        <if test="record.pointAmountTransferred!=null and record.pointAmountTransferredExpression==null" >
+          point_amount_transferred = #{record.pointAmountTransferred,jdbcType=BIGINT},
+        </if>
+        <if test="record.pointAmountTransferredExpression!=null" >
+          point_amount_transferred = ${record.pointAmountTransferredExpression},
+        </if>
+        <if test="record.userAccountVersion!=null and record.userAccountVersionExpression==null" >
+          user_account_version = #{record.userAccountVersion,jdbcType=BIGINT},
+        </if>
+        <if test="record.userAccountVersionExpression!=null" >
+          user_account_version = ${record.userAccountVersionExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update user_account
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=BIGINT},
+      account_id = #{record.accountId,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      hongbao_amount = #{record.hongbaoAmount,jdbcType=BIGINT},
+      hbtotal_number = #{record.hbtotalNumber,jdbcType=BIGINT},
+      hbobtain_amount = #{record.hbobtainAmount,jdbcType=BIGINT},
+      hongbao_praise_amount = #{record.hongbaoPraiseAmount,jdbcType=BIGINT},
+      hongbao_shop_amount = #{record.hongbaoShopAmount,jdbcType=BIGINT},
+      hbobtain_date = #{record.hbobtainDate,jdbcType=TIMESTAMP},
+      hbcash_amount = #{record.hbcashAmount,jdbcType=BIGINT},
+      hbcash_date = #{record.hbcashDate,jdbcType=TIMESTAMP},
+      hbcash_number = #{record.hbcashNumber,jdbcType=BIGINT},
+      point_amount = #{record.pointAmount,jdbcType=BIGINT},
+      point_amount_total = #{record.pointAmountTotal,jdbcType=BIGINT},
+      point_amount_exchange = #{record.pointAmountExchange,jdbcType=BIGINT},
+      point_amount_expired = #{record.pointAmountExpired,jdbcType=BIGINT},
+      point_amount_transferred = #{record.pointAmountTransferred,jdbcType=BIGINT},
+      user_account_version = #{record.userAccountVersion,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserAccount" >
+    update user_account
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.accountId!=null and record.accountIdExpression==null" >
+          account_id = #{record.accountId,jdbcType=BIGINT},
+        </if>
+        <if test="record.accountIdExpression!=null" >
+          account_id = ${record.accountIdExpression},
+        </if>
+        <if test="record.userId!=null and record.userIdExpression==null" >
+          user_id = #{record.userId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdExpression!=null" >
+          user_id = ${record.userIdExpression},
+        </if>
+        <if test="record.hongbaoAmount!=null and record.hongbaoAmountExpression==null" >
+          hongbao_amount = #{record.hongbaoAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.hongbaoAmountExpression!=null" >
+          hongbao_amount = ${record.hongbaoAmountExpression},
+        </if>
+        <if test="record.hbtotalNumber!=null and record.hbtotalNumberExpression==null" >
+          hbtotal_number = #{record.hbtotalNumber,jdbcType=BIGINT},
+        </if>
+        <if test="record.hbtotalNumberExpression!=null" >
+          hbtotal_number = ${record.hbtotalNumberExpression},
+        </if>
+        <if test="record.hbobtainAmount!=null and record.hbobtainAmountExpression==null" >
+          hbobtain_amount = #{record.hbobtainAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.hbobtainAmountExpression!=null" >
+          hbobtain_amount = ${record.hbobtainAmountExpression},
+        </if>
+        <if test="record.hongbaoPraiseAmount!=null and record.hongbaoPraiseAmountExpression==null" >
+          hongbao_praise_amount = #{record.hongbaoPraiseAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.hongbaoPraiseAmountExpression!=null" >
+          hongbao_praise_amount = ${record.hongbaoPraiseAmountExpression},
+        </if>
+        <if test="record.hongbaoShopAmount!=null and record.hongbaoShopAmountExpression==null" >
+          hongbao_shop_amount = #{record.hongbaoShopAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.hongbaoShopAmountExpression!=null" >
+          hongbao_shop_amount = ${record.hongbaoShopAmountExpression},
+        </if>
+        <if test="record.hbobtainDate!=null and record.hbobtainDateExpression==null" >
+          hbobtain_date = #{record.hbobtainDate,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.hbobtainDateExpression!=null" >
+          hbobtain_date = ${record.hbobtainDateExpression},
+        </if>
+        <if test="record.hbcashAmount!=null and record.hbcashAmountExpression==null" >
+          hbcash_amount = #{record.hbcashAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.hbcashAmountExpression!=null" >
+          hbcash_amount = ${record.hbcashAmountExpression},
+        </if>
+        <if test="record.hbcashDate!=null and record.hbcashDateExpression==null" >
+          hbcash_date = #{record.hbcashDate,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.hbcashDateExpression!=null" >
+          hbcash_date = ${record.hbcashDateExpression},
+        </if>
+        <if test="record.hbcashNumber!=null and record.hbcashNumberExpression==null" >
+          hbcash_number = #{record.hbcashNumber,jdbcType=BIGINT},
+        </if>
+        <if test="record.hbcashNumberExpression!=null" >
+          hbcash_number = ${record.hbcashNumberExpression},
+        </if>
+        <if test="record.pointAmount!=null and record.pointAmountExpression==null" >
+          point_amount = #{record.pointAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.pointAmountExpression!=null" >
+          point_amount = ${record.pointAmountExpression},
+        </if>
+        <if test="record.pointAmountTotal!=null and record.pointAmountTotalExpression==null" >
+          point_amount_total = #{record.pointAmountTotal,jdbcType=BIGINT},
+        </if>
+        <if test="record.pointAmountTotalExpression!=null" >
+          point_amount_total = ${record.pointAmountTotalExpression},
+        </if>
+        <if test="record.pointAmountExchange!=null and record.pointAmountExchangeExpression==null" >
+          point_amount_exchange = #{record.pointAmountExchange,jdbcType=BIGINT},
+        </if>
+        <if test="record.pointAmountExchangeExpression!=null" >
+          point_amount_exchange = ${record.pointAmountExchangeExpression},
+        </if>
+        <if test="record.pointAmountExpired!=null and record.pointAmountExpiredExpression==null" >
+          point_amount_expired = #{record.pointAmountExpired,jdbcType=BIGINT},
+        </if>
+        <if test="record.pointAmountExpiredExpression!=null" >
+          point_amount_expired = ${record.pointAmountExpiredExpression},
+        </if>
+        <if test="record.pointAmountTransferred!=null and record.pointAmountTransferredExpression==null" >
+          point_amount_transferred = #{record.pointAmountTransferred,jdbcType=BIGINT},
+        </if>
+        <if test="record.pointAmountTransferredExpression!=null" >
+          point_amount_transferred = ${record.pointAmountTransferredExpression},
+        </if>
+        <if test="record.userAccountVersion!=null and record.userAccountVersionExpression==null" >
+          user_account_version = #{record.userAccountVersion,jdbcType=BIGINT},
+        </if>
+        <if test="record.userAccountVersionExpression!=null" >
+          user_account_version = ${record.userAccountVersionExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserAccount" >
+    update user_account
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=BIGINT},
+      account_id = #{accountId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      hongbao_amount = #{hongbaoAmount,jdbcType=BIGINT},
+      hbtotal_number = #{hbtotalNumber,jdbcType=BIGINT},
+      hbobtain_amount = #{hbobtainAmount,jdbcType=BIGINT},
+      hongbao_praise_amount = #{hongbaoPraiseAmount,jdbcType=BIGINT},
+      hongbao_shop_amount = #{hongbaoShopAmount,jdbcType=BIGINT},
+      hbobtain_date = #{hbobtainDate,jdbcType=TIMESTAMP},
+      hbcash_amount = #{hbcashAmount,jdbcType=BIGINT},
+      hbcash_date = #{hbcashDate,jdbcType=TIMESTAMP},
+      hbcash_number = #{hbcashNumber,jdbcType=BIGINT},
+      point_amount = #{pointAmount,jdbcType=BIGINT},
+      point_amount_total = #{pointAmountTotal,jdbcType=BIGINT},
+      point_amount_exchange = #{pointAmountExchange,jdbcType=BIGINT},
+      point_amount_expired = #{pointAmountExpired,jdbcType=BIGINT},
+      point_amount_transferred = #{pointAmountTransferred,jdbcType=BIGINT},
+      user_account_version = #{userAccountVersion,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

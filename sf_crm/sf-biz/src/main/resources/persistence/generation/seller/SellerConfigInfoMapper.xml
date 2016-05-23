@@ -1,0 +1,1144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.seller.SellerConfigInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.seller.SellerConfigInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_datasource_id" property="maxDatasourceId" jdbcType="BIGINT" />
+    <result column="min_datasource_id" property="minDatasourceId" jdbcType="BIGINT" />
+    <result column="avg_datasource_id" property="avgDatasourceId" jdbcType="BIGINT" />
+    <result column="count_datasource_id" property="countDatasourceId" jdbcType="BIGINT" />
+    <result column="sum_datasource_id" property="sumDatasourceId" jdbcType="BIGINT" />
+    <result column="count_distinct_datasource_id" property="countDistinctDatasourceId" jdbcType="BIGINT" />
+    <result column="max_email_from_name" property="maxEmailFromName" jdbcType="BIGINT" />
+    <result column="min_email_from_name" property="minEmailFromName" jdbcType="BIGINT" />
+    <result column="avg_email_from_name" property="avgEmailFromName" jdbcType="BIGINT" />
+    <result column="count_email_from_name" property="countEmailFromName" jdbcType="BIGINT" />
+    <result column="sum_email_from_name" property="sumEmailFromName" jdbcType="VARCHAR" />
+    <result column="count_distinct_email_from_name" property="countDistinctEmailFromName" jdbcType="BIGINT" />
+    <result column="max_email_sign" property="maxEmailSign" jdbcType="BIGINT" />
+    <result column="min_email_sign" property="minEmailSign" jdbcType="BIGINT" />
+    <result column="avg_email_sign" property="avgEmailSign" jdbcType="BIGINT" />
+    <result column="count_email_sign" property="countEmailSign" jdbcType="BIGINT" />
+    <result column="sum_email_sign" property="sumEmailSign" jdbcType="VARCHAR" />
+    <result column="count_distinct_email_sign" property="countDistinctEmailSign" jdbcType="BIGINT" />
+    <result column="max_sms_sale_sign" property="maxSmsSaleSign" jdbcType="BIGINT" />
+    <result column="min_sms_sale_sign" property="minSmsSaleSign" jdbcType="BIGINT" />
+    <result column="avg_sms_sale_sign" property="avgSmsSaleSign" jdbcType="BIGINT" />
+    <result column="count_sms_sale_sign" property="countSmsSaleSign" jdbcType="BIGINT" />
+    <result column="sum_sms_sale_sign" property="sumSmsSaleSign" jdbcType="VARCHAR" />
+    <result column="count_distinct_sms_sale_sign" property="countDistinctSmsSaleSign" jdbcType="BIGINT" />
+    <result column="max_sms_notify_sign" property="maxSmsNotifySign" jdbcType="BIGINT" />
+    <result column="min_sms_notify_sign" property="minSmsNotifySign" jdbcType="BIGINT" />
+    <result column="avg_sms_notify_sign" property="avgSmsNotifySign" jdbcType="BIGINT" />
+    <result column="count_sms_notify_sign" property="countSmsNotifySign" jdbcType="BIGINT" />
+    <result column="sum_sms_notify_sign" property="sumSmsNotifySign" jdbcType="VARCHAR" />
+    <result column="count_distinct_sms_notify_sign" property="countDistinctSmsNotifySign" jdbcType="BIGINT" />
+    <result column="max_sms_serial" property="maxSmsSerial" jdbcType="BIGINT" />
+    <result column="min_sms_serial" property="minSmsSerial" jdbcType="BIGINT" />
+    <result column="avg_sms_serial" property="avgSmsSerial" jdbcType="BIGINT" />
+    <result column="count_sms_serial" property="countSmsSerial" jdbcType="BIGINT" />
+    <result column="sum_sms_serial" property="sumSmsSerial" jdbcType="VARCHAR" />
+    <result column="count_distinct_sms_serial" property="countDistinctSmsSerial" jdbcType="BIGINT" />
+    <result column="max_wx_qrcode" property="maxWxQrcode" jdbcType="BIGINT" />
+    <result column="min_wx_qrcode" property="minWxQrcode" jdbcType="BIGINT" />
+    <result column="avg_wx_qrcode" property="avgWxQrcode" jdbcType="BIGINT" />
+    <result column="count_wx_qrcode" property="countWxQrcode" jdbcType="BIGINT" />
+    <result column="sum_wx_qrcode" property="sumWxQrcode" jdbcType="VARCHAR" />
+    <result column="count_distinct_wx_qrcode" property="countDistinctWxQrcode" jdbcType="BIGINT" />
+    <result column="max_wx_img_url" property="maxWxImgUrl" jdbcType="BIGINT" />
+    <result column="min_wx_img_url" property="minWxImgUrl" jdbcType="BIGINT" />
+    <result column="avg_wx_img_url" property="avgWxImgUrl" jdbcType="BIGINT" />
+    <result column="count_wx_img_url" property="countWxImgUrl" jdbcType="BIGINT" />
+    <result column="sum_wx_img_url" property="sumWxImgUrl" jdbcType="VARCHAR" />
+    <result column="count_distinct_wx_img_url" property="countDistinctWxImgUrl" jdbcType="BIGINT" />
+    <result column="max_wx_app_key" property="maxWxAppKey" jdbcType="BIGINT" />
+    <result column="min_wx_app_key" property="minWxAppKey" jdbcType="BIGINT" />
+    <result column="avg_wx_app_key" property="avgWxAppKey" jdbcType="BIGINT" />
+    <result column="count_wx_app_key" property="countWxAppKey" jdbcType="BIGINT" />
+    <result column="sum_wx_app_key" property="sumWxAppKey" jdbcType="VARCHAR" />
+    <result column="count_distinct_wx_app_key" property="countDistinctWxAppKey" jdbcType="BIGINT" />
+    <result column="max_wx_ticket_expire" property="maxWxTicketExpire" jdbcType="BIGINT" />
+    <result column="min_wx_ticket_expire" property="minWxTicketExpire" jdbcType="BIGINT" />
+    <result column="avg_wx_ticket_expire" property="avgWxTicketExpire" jdbcType="BIGINT" />
+    <result column="count_wx_ticket_expire" property="countWxTicketExpire" jdbcType="BIGINT" />
+    <result column="sum_wx_ticket_expire" property="sumWxTicketExpire" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_wx_ticket_expire" property="countDistinctWxTicketExpire" jdbcType="BIGINT" />
+    <result column="max_wx_secrte_url" property="maxWxSecrteUrl" jdbcType="BIGINT" />
+    <result column="min_wx_secrte_url" property="minWxSecrteUrl" jdbcType="BIGINT" />
+    <result column="avg_wx_secrte_url" property="avgWxSecrteUrl" jdbcType="BIGINT" />
+    <result column="count_wx_secrte_url" property="countWxSecrteUrl" jdbcType="BIGINT" />
+    <result column="sum_wx_secrte_url" property="sumWxSecrteUrl" jdbcType="VARCHAR" />
+    <result column="count_distinct_wx_secrte_url" property="countDistinctWxSecrteUrl" jdbcType="BIGINT" />
+    <result column="max_wx_mchid" property="maxWxMchid" jdbcType="BIGINT" />
+    <result column="min_wx_mchid" property="minWxMchid" jdbcType="BIGINT" />
+    <result column="avg_wx_mchid" property="avgWxMchid" jdbcType="BIGINT" />
+    <result column="count_wx_mchid" property="countWxMchid" jdbcType="BIGINT" />
+    <result column="sum_wx_mchid" property="sumWxMchid" jdbcType="VARCHAR" />
+    <result column="count_distinct_wx_mchid" property="countDistinctWxMchid" jdbcType="BIGINT" />
+    <result column="max_refresh_token" property="maxRefreshToken" jdbcType="BIGINT" />
+    <result column="min_refresh_token" property="minRefreshToken" jdbcType="BIGINT" />
+    <result column="avg_refresh_token" property="avgRefreshToken" jdbcType="BIGINT" />
+    <result column="count_refresh_token" property="countRefreshToken" jdbcType="BIGINT" />
+    <result column="sum_refresh_token" property="sumRefreshToken" jdbcType="VARCHAR" />
+    <result column="count_distinct_refresh_token" property="countDistinctRefreshToken" jdbcType="BIGINT" />
+    <result column="max_access_token" property="maxAccessToken" jdbcType="BIGINT" />
+    <result column="min_access_token" property="minAccessToken" jdbcType="BIGINT" />
+    <result column="avg_access_token" property="avgAccessToken" jdbcType="BIGINT" />
+    <result column="count_access_token" property="countAccessToken" jdbcType="BIGINT" />
+    <result column="sum_access_token" property="sumAccessToken" jdbcType="VARCHAR" />
+    <result column="count_distinct_access_token" property="countDistinctAccessToken" jdbcType="BIGINT" />
+    <result column="max_app_secret" property="maxAppSecret" jdbcType="BIGINT" />
+    <result column="min_app_secret" property="minAppSecret" jdbcType="BIGINT" />
+    <result column="avg_app_secret" property="avgAppSecret" jdbcType="BIGINT" />
+    <result column="count_app_secret" property="countAppSecret" jdbcType="BIGINT" />
+    <result column="sum_app_secret" property="sumAppSecret" jdbcType="VARCHAR" />
+    <result column="count_distinct_app_secret" property="countDistinctAppSecret" jdbcType="BIGINT" />
+    <result column="max_app_id" property="maxAppId" jdbcType="BIGINT" />
+    <result column="min_app_id" property="minAppId" jdbcType="BIGINT" />
+    <result column="avg_app_id" property="avgAppId" jdbcType="BIGINT" />
+    <result column="count_app_id" property="countAppId" jdbcType="BIGINT" />
+    <result column="sum_app_id" property="sumAppId" jdbcType="VARCHAR" />
+    <result column="count_distinct_app_id" property="countDistinctAppId" jdbcType="BIGINT" />
+    <result column="max_wx_token_expire" property="maxWxTokenExpire" jdbcType="BIGINT" />
+    <result column="min_wx_token_expire" property="minWxTokenExpire" jdbcType="BIGINT" />
+    <result column="avg_wx_token_expire" property="avgWxTokenExpire" jdbcType="BIGINT" />
+    <result column="count_wx_token_expire" property="countWxTokenExpire" jdbcType="BIGINT" />
+    <result column="sum_wx_token_expire" property="sumWxTokenExpire" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_wx_token_expire" property="countDistinctWxTokenExpire" jdbcType="BIGINT" />
+    <result column="max_wx_jsapi_ticket" property="maxWxJsapiTicket" jdbcType="BIGINT" />
+    <result column="min_wx_jsapi_ticket" property="minWxJsapiTicket" jdbcType="BIGINT" />
+    <result column="avg_wx_jsapi_ticket" property="avgWxJsapiTicket" jdbcType="BIGINT" />
+    <result column="count_wx_jsapi_ticket" property="countWxJsapiTicket" jdbcType="BIGINT" />
+    <result column="sum_wx_jsapi_ticket" property="sumWxJsapiTicket" jdbcType="VARCHAR" />
+    <result column="count_distinct_wx_jsapi_ticket" property="countDistinctWxJsapiTicket" jdbcType="BIGINT" />
+    <result column="max_wx_refresh_token" property="maxWxRefreshToken" jdbcType="BIGINT" />
+    <result column="min_wx_refresh_token" property="minWxRefreshToken" jdbcType="BIGINT" />
+    <result column="avg_wx_refresh_token" property="avgWxRefreshToken" jdbcType="BIGINT" />
+    <result column="count_wx_refresh_token" property="countWxRefreshToken" jdbcType="BIGINT" />
+    <result column="sum_wx_refresh_token" property="sumWxRefreshToken" jdbcType="VARCHAR" />
+    <result column="count_distinct_wx_refresh_token" property="countDistinctWxRefreshToken" jdbcType="BIGINT" />
+    <result column="max_wx_access_token" property="maxWxAccessToken" jdbcType="BIGINT" />
+    <result column="min_wx_access_token" property="minWxAccessToken" jdbcType="BIGINT" />
+    <result column="avg_wx_access_token" property="avgWxAccessToken" jdbcType="BIGINT" />
+    <result column="count_wx_access_token" property="countWxAccessToken" jdbcType="BIGINT" />
+    <result column="sum_wx_access_token" property="sumWxAccessToken" jdbcType="VARCHAR" />
+    <result column="count_distinct_wx_access_token" property="countDistinctWxAccessToken" jdbcType="BIGINT" />
+    <result column="max_wx_app_secret" property="maxWxAppSecret" jdbcType="BIGINT" />
+    <result column="min_wx_app_secret" property="minWxAppSecret" jdbcType="BIGINT" />
+    <result column="avg_wx_app_secret" property="avgWxAppSecret" jdbcType="BIGINT" />
+    <result column="count_wx_app_secret" property="countWxAppSecret" jdbcType="BIGINT" />
+    <result column="sum_wx_app_secret" property="sumWxAppSecret" jdbcType="VARCHAR" />
+    <result column="count_distinct_wx_app_secret" property="countDistinctWxAppSecret" jdbcType="BIGINT" />
+    <result column="max_wx_app_id" property="maxWxAppId" jdbcType="BIGINT" />
+    <result column="min_wx_app_id" property="minWxAppId" jdbcType="BIGINT" />
+    <result column="avg_wx_app_id" property="avgWxAppId" jdbcType="BIGINT" />
+    <result column="count_wx_app_id" property="countWxAppId" jdbcType="BIGINT" />
+    <result column="sum_wx_app_id" property="sumWxAppId" jdbcType="VARCHAR" />
+    <result column="count_distinct_wx_app_id" property="countDistinctWxAppId" jdbcType="BIGINT" />
+    <result column="max_wx_no" property="maxWxNo" jdbcType="BIGINT" />
+    <result column="min_wx_no" property="minWxNo" jdbcType="BIGINT" />
+    <result column="avg_wx_no" property="avgWxNo" jdbcType="BIGINT" />
+    <result column="count_wx_no" property="countWxNo" jdbcType="BIGINT" />
+    <result column="sum_wx_no" property="sumWxNo" jdbcType="VARCHAR" />
+    <result column="count_distinct_wx_no" property="countDistinctWxNo" jdbcType="BIGINT" />
+    <result column="max_address" property="maxAddress" jdbcType="BIGINT" />
+    <result column="min_address" property="minAddress" jdbcType="BIGINT" />
+    <result column="avg_address" property="avgAddress" jdbcType="BIGINT" />
+    <result column="count_address" property="countAddress" jdbcType="BIGINT" />
+    <result column="sum_address" property="sumAddress" jdbcType="VARCHAR" />
+    <result column="count_distinct_address" property="countDistinctAddress" jdbcType="BIGINT" />
+    <result column="max_email" property="maxEmail" jdbcType="BIGINT" />
+    <result column="min_email" property="minEmail" jdbcType="BIGINT" />
+    <result column="avg_email" property="avgEmail" jdbcType="BIGINT" />
+    <result column="count_email" property="countEmail" jdbcType="BIGINT" />
+    <result column="sum_email" property="sumEmail" jdbcType="VARCHAR" />
+    <result column="count_distinct_email" property="countDistinctEmail" jdbcType="BIGINT" />
+    <result column="max_phone" property="maxPhone" jdbcType="BIGINT" />
+    <result column="min_phone" property="minPhone" jdbcType="BIGINT" />
+    <result column="avg_phone" property="avgPhone" jdbcType="BIGINT" />
+    <result column="count_phone" property="countPhone" jdbcType="BIGINT" />
+    <result column="sum_phone" property="sumPhone" jdbcType="VARCHAR" />
+    <result column="count_distinct_phone" property="countDistinctPhone" jdbcType="BIGINT" />
+    <result column="max_mobile" property="maxMobile" jdbcType="BIGINT" />
+    <result column="min_mobile" property="minMobile" jdbcType="BIGINT" />
+    <result column="avg_mobile" property="avgMobile" jdbcType="BIGINT" />
+    <result column="count_mobile" property="countMobile" jdbcType="BIGINT" />
+    <result column="sum_mobile" property="sumMobile" jdbcType="VARCHAR" />
+    <result column="count_distinct_mobile" property="countDistinctMobile" jdbcType="BIGINT" />
+    <result column="max_seller_name" property="maxSellerName" jdbcType="BIGINT" />
+    <result column="min_seller_name" property="minSellerName" jdbcType="BIGINT" />
+    <result column="avg_seller_name" property="avgSellerName" jdbcType="BIGINT" />
+    <result column="count_seller_name" property="countSellerName" jdbcType="BIGINT" />
+    <result column="sum_seller_name" property="sumSellerName" jdbcType="VARCHAR" />
+    <result column="count_distinct_seller_name" property="countDistinctSellerName" jdbcType="BIGINT" />
+    <result column="max_seller_type" property="maxSellerType" jdbcType="BIGINT" />
+    <result column="min_seller_type" property="minSellerType" jdbcType="BIGINT" />
+    <result column="avg_seller_type" property="avgSellerType" jdbcType="BIGINT" />
+    <result column="count_seller_type" property="countSellerType" jdbcType="BIGINT" />
+    <result column="sum_seller_type" property="sumSellerType" jdbcType="VARCHAR" />
+    <result column="count_distinct_seller_type" property="countDistinctSellerType" jdbcType="BIGINT" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="count_distinct_seller_id" property="countDistinctSellerId" jdbcType="BIGINT" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="count_distinct_is_deleted" property="countDistinctIsDeleted" jdbcType="BIGINT" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="count_distinct_modified_by" property="countDistinctModifiedBy" jdbcType="BIGINT" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="count_distinct_created_by" property="countDistinctCreatedBy" jdbcType="BIGINT" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_gmt_modified" property="countDistinctGmtModified" jdbcType="BIGINT" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_gmt_created" property="countDistinctGmtCreated" jdbcType="BIGINT" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="count_distinct_id" property="countDistinctId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+    <result column="seller_type" property="sellerType" jdbcType="VARCHAR" />
+    <result column="seller_name" property="sellerName" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="wx_no" property="wxNo" jdbcType="VARCHAR" />
+    <result column="wx_app_id" property="wxAppId" jdbcType="VARCHAR" />
+    <result column="wx_app_secret" property="wxAppSecret" jdbcType="VARCHAR" />
+    <result column="wx_access_token" property="wxAccessToken" jdbcType="VARCHAR" />
+    <result column="wx_refresh_token" property="wxRefreshToken" jdbcType="VARCHAR" />
+    <result column="wx_jsapi_ticket" property="wxJsapiTicket" jdbcType="VARCHAR" />
+    <result column="wx_token_expire" property="wxTokenExpire" jdbcType="TIMESTAMP" />
+    <result column="app_id" property="appId" jdbcType="VARCHAR" />
+    <result column="app_secret" property="appSecret" jdbcType="VARCHAR" />
+    <result column="access_token" property="accessToken" jdbcType="VARCHAR" />
+    <result column="refresh_token" property="refreshToken" jdbcType="VARCHAR" />
+    <result column="wx_mchid" property="wxMchid" jdbcType="VARCHAR" />
+    <result column="wx_secrte_url" property="wxSecrteUrl" jdbcType="VARCHAR" />
+    <result column="wx_ticket_expire" property="wxTicketExpire" jdbcType="TIMESTAMP" />
+    <result column="wx_app_key" property="wxAppKey" jdbcType="VARCHAR" />
+    <result column="wx_img_url" property="wxImgUrl" jdbcType="VARCHAR" />
+    <result column="wx_qrcode" property="wxQrcode" jdbcType="VARCHAR" />
+    <result column="sms_serial" property="smsSerial" jdbcType="VARCHAR" />
+    <result column="sms_notify_sign" property="smsNotifySign" jdbcType="VARCHAR" />
+    <result column="sms_sale_sign" property="smsSaleSign" jdbcType="VARCHAR" />
+    <result column="email_sign" property="emailSign" jdbcType="VARCHAR" />
+    <result column="email_from_name" property="emailFromName" jdbcType="VARCHAR" />
+    <result column="datasource_id" property="datasourceId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, created_by, modified_by, is_deleted, seller_id, seller_type, 
+    seller_name, mobile, phone, email, address, wx_no, wx_app_id, wx_app_secret, wx_access_token, 
+    wx_refresh_token, wx_jsapi_ticket, wx_token_expire, app_id, app_secret, access_token, 
+    refresh_token, wx_mchid, wx_secrte_url, wx_ticket_expire, wx_app_key, wx_img_url, 
+    wx_qrcode, sms_serial, sms_notify_sign, sms_sale_sign, email_sign, email_from_name, 
+    datasource_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerConfigInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from seller_config_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from seller_config_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update seller_config_info
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerConfigInfoExample" >
+    update seller_config_info
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerConfigInfo" useGeneratedKeys="true" keyProperty="id" >
+    insert into seller_config_info (id, gmt_created, gmt_modified, 
+      created_by, modified_by, is_deleted, 
+      seller_id, seller_type, seller_name, 
+      mobile, phone, email, 
+      address, wx_no, wx_app_id, 
+      wx_app_secret, wx_access_token, wx_refresh_token, 
+      wx_jsapi_ticket, wx_token_expire, app_id, 
+      app_secret, access_token, refresh_token, 
+      wx_mchid, wx_secrte_url, wx_ticket_expire, 
+      wx_app_key, wx_img_url, wx_qrcode, 
+      sms_serial, sms_notify_sign, sms_sale_sign, 
+      email_sign, email_from_name, datasource_id
+      )
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{sellerId,jdbcType=BIGINT}, #{sellerType,jdbcType=VARCHAR}, #{sellerName,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{wxNo,jdbcType=VARCHAR}, #{wxAppId,jdbcType=VARCHAR}, 
+      #{wxAppSecret,jdbcType=VARCHAR}, #{wxAccessToken,jdbcType=VARCHAR}, #{wxRefreshToken,jdbcType=VARCHAR}, 
+      #{wxJsapiTicket,jdbcType=VARCHAR}, #{wxTokenExpire,jdbcType=TIMESTAMP}, #{appId,jdbcType=VARCHAR}, 
+      #{appSecret,jdbcType=VARCHAR}, #{accessToken,jdbcType=VARCHAR}, #{refreshToken,jdbcType=VARCHAR}, 
+      #{wxMchid,jdbcType=VARCHAR}, #{wxSecrteUrl,jdbcType=VARCHAR}, #{wxTicketExpire,jdbcType=TIMESTAMP}, 
+      #{wxAppKey,jdbcType=VARCHAR}, #{wxImgUrl,jdbcType=VARCHAR}, #{wxQrcode,jdbcType=VARCHAR}, 
+      #{smsSerial,jdbcType=VARCHAR}, #{smsNotifySign,jdbcType=VARCHAR}, #{smsSaleSign,jdbcType=VARCHAR}, 
+      #{emailSign,jdbcType=VARCHAR}, #{emailFromName,jdbcType=VARCHAR}, #{datasourceId,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerConfigInfo" useGeneratedKeys="true" keyProperty="id" >
+    insert into seller_config_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="sellerType != null" >
+        seller_type,
+      </if>
+      <if test="sellerName != null" >
+        seller_name,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="wxNo != null" >
+        wx_no,
+      </if>
+      <if test="wxAppId != null" >
+        wx_app_id,
+      </if>
+      <if test="wxAppSecret != null" >
+        wx_app_secret,
+      </if>
+      <if test="wxAccessToken != null" >
+        wx_access_token,
+      </if>
+      <if test="wxRefreshToken != null" >
+        wx_refresh_token,
+      </if>
+      <if test="wxJsapiTicket != null" >
+        wx_jsapi_ticket,
+      </if>
+      <if test="wxTokenExpire != null" >
+        wx_token_expire,
+      </if>
+      <if test="appId != null" >
+        app_id,
+      </if>
+      <if test="appSecret != null" >
+        app_secret,
+      </if>
+      <if test="accessToken != null" >
+        access_token,
+      </if>
+      <if test="refreshToken != null" >
+        refresh_token,
+      </if>
+      <if test="wxMchid != null" >
+        wx_mchid,
+      </if>
+      <if test="wxSecrteUrl != null" >
+        wx_secrte_url,
+      </if>
+      <if test="wxTicketExpire != null" >
+        wx_ticket_expire,
+      </if>
+      <if test="wxAppKey != null" >
+        wx_app_key,
+      </if>
+      <if test="wxImgUrl != null" >
+        wx_img_url,
+      </if>
+      <if test="wxQrcode != null" >
+        wx_qrcode,
+      </if>
+      <if test="smsSerial != null" >
+        sms_serial,
+      </if>
+      <if test="smsNotifySign != null" >
+        sms_notify_sign,
+      </if>
+      <if test="smsSaleSign != null" >
+        sms_sale_sign,
+      </if>
+      <if test="emailSign != null" >
+        email_sign,
+      </if>
+      <if test="emailFromName != null" >
+        email_from_name,
+      </if>
+      <if test="datasourceId != null" >
+        datasource_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+      <if test="sellerType != null" >
+        #{sellerType,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerName != null" >
+        #{sellerName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="wxNo != null" >
+        #{wxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="wxAppId != null" >
+        #{wxAppId,jdbcType=VARCHAR},
+      </if>
+      <if test="wxAppSecret != null" >
+        #{wxAppSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="wxAccessToken != null" >
+        #{wxAccessToken,jdbcType=VARCHAR},
+      </if>
+      <if test="wxRefreshToken != null" >
+        #{wxRefreshToken,jdbcType=VARCHAR},
+      </if>
+      <if test="wxJsapiTicket != null" >
+        #{wxJsapiTicket,jdbcType=VARCHAR},
+      </if>
+      <if test="wxTokenExpire != null" >
+        #{wxTokenExpire,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appId != null" >
+        #{appId,jdbcType=VARCHAR},
+      </if>
+      <if test="appSecret != null" >
+        #{appSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="accessToken != null" >
+        #{accessToken,jdbcType=VARCHAR},
+      </if>
+      <if test="refreshToken != null" >
+        #{refreshToken,jdbcType=VARCHAR},
+      </if>
+      <if test="wxMchid != null" >
+        #{wxMchid,jdbcType=VARCHAR},
+      </if>
+      <if test="wxSecrteUrl != null" >
+        #{wxSecrteUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="wxTicketExpire != null" >
+        #{wxTicketExpire,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wxAppKey != null" >
+        #{wxAppKey,jdbcType=VARCHAR},
+      </if>
+      <if test="wxImgUrl != null" >
+        #{wxImgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="wxQrcode != null" >
+        #{wxQrcode,jdbcType=VARCHAR},
+      </if>
+      <if test="smsSerial != null" >
+        #{smsSerial,jdbcType=VARCHAR},
+      </if>
+      <if test="smsNotifySign != null" >
+        #{smsNotifySign,jdbcType=VARCHAR},
+      </if>
+      <if test="smsSaleSign != null" >
+        #{smsSaleSign,jdbcType=VARCHAR},
+      </if>
+      <if test="emailSign != null" >
+        #{emailSign,jdbcType=VARCHAR},
+      </if>
+      <if test="emailFromName != null" >
+        #{emailFromName,jdbcType=VARCHAR},
+      </if>
+      <if test="datasourceId != null" >
+        #{datasourceId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerConfigInfoExample" resultType="java.lang.Integer" >
+    select count(*) from seller_config_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update seller_config_info
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.sellerType!=null and record.sellerTypeExpression==null" >
+          seller_type = #{record.sellerType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerTypeExpression!=null" >
+          seller_type = ${record.sellerTypeExpression},
+        </if>
+        <if test="record.sellerName!=null and record.sellerNameExpression==null" >
+          seller_name = #{record.sellerName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerNameExpression!=null" >
+          seller_name = ${record.sellerNameExpression},
+        </if>
+        <if test="record.mobile!=null and record.mobileExpression==null" >
+          mobile = #{record.mobile,jdbcType=VARCHAR},
+        </if>
+        <if test="record.mobileExpression!=null" >
+          mobile = ${record.mobileExpression},
+        </if>
+        <if test="record.phone!=null and record.phoneExpression==null" >
+          phone = #{record.phone,jdbcType=VARCHAR},
+        </if>
+        <if test="record.phoneExpression!=null" >
+          phone = ${record.phoneExpression},
+        </if>
+        <if test="record.email!=null and record.emailExpression==null" >
+          email = #{record.email,jdbcType=VARCHAR},
+        </if>
+        <if test="record.emailExpression!=null" >
+          email = ${record.emailExpression},
+        </if>
+        <if test="record.address!=null and record.addressExpression==null" >
+          address = #{record.address,jdbcType=VARCHAR},
+        </if>
+        <if test="record.addressExpression!=null" >
+          address = ${record.addressExpression},
+        </if>
+        <if test="record.wxNo!=null and record.wxNoExpression==null" >
+          wx_no = #{record.wxNo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxNoExpression!=null" >
+          wx_no = ${record.wxNoExpression},
+        </if>
+        <if test="record.wxAppId!=null and record.wxAppIdExpression==null" >
+          wx_app_id = #{record.wxAppId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxAppIdExpression!=null" >
+          wx_app_id = ${record.wxAppIdExpression},
+        </if>
+        <if test="record.wxAppSecret!=null and record.wxAppSecretExpression==null" >
+          wx_app_secret = #{record.wxAppSecret,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxAppSecretExpression!=null" >
+          wx_app_secret = ${record.wxAppSecretExpression},
+        </if>
+        <if test="record.wxAccessToken!=null and record.wxAccessTokenExpression==null" >
+          wx_access_token = #{record.wxAccessToken,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxAccessTokenExpression!=null" >
+          wx_access_token = ${record.wxAccessTokenExpression},
+        </if>
+        <if test="record.wxRefreshToken!=null and record.wxRefreshTokenExpression==null" >
+          wx_refresh_token = #{record.wxRefreshToken,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxRefreshTokenExpression!=null" >
+          wx_refresh_token = ${record.wxRefreshTokenExpression},
+        </if>
+        <if test="record.wxJsapiTicket!=null and record.wxJsapiTicketExpression==null" >
+          wx_jsapi_ticket = #{record.wxJsapiTicket,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxJsapiTicketExpression!=null" >
+          wx_jsapi_ticket = ${record.wxJsapiTicketExpression},
+        </if>
+        <if test="record.wxTokenExpire!=null and record.wxTokenExpireExpression==null" >
+          wx_token_expire = #{record.wxTokenExpire,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.wxTokenExpireExpression!=null" >
+          wx_token_expire = ${record.wxTokenExpireExpression},
+        </if>
+        <if test="record.appId!=null and record.appIdExpression==null" >
+          app_id = #{record.appId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.appIdExpression!=null" >
+          app_id = ${record.appIdExpression},
+        </if>
+        <if test="record.appSecret!=null and record.appSecretExpression==null" >
+          app_secret = #{record.appSecret,jdbcType=VARCHAR},
+        </if>
+        <if test="record.appSecretExpression!=null" >
+          app_secret = ${record.appSecretExpression},
+        </if>
+        <if test="record.accessToken!=null and record.accessTokenExpression==null" >
+          access_token = #{record.accessToken,jdbcType=VARCHAR},
+        </if>
+        <if test="record.accessTokenExpression!=null" >
+          access_token = ${record.accessTokenExpression},
+        </if>
+        <if test="record.refreshToken!=null and record.refreshTokenExpression==null" >
+          refresh_token = #{record.refreshToken,jdbcType=VARCHAR},
+        </if>
+        <if test="record.refreshTokenExpression!=null" >
+          refresh_token = ${record.refreshTokenExpression},
+        </if>
+        <if test="record.wxMchid!=null and record.wxMchidExpression==null" >
+          wx_mchid = #{record.wxMchid,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxMchidExpression!=null" >
+          wx_mchid = ${record.wxMchidExpression},
+        </if>
+        <if test="record.wxSecrteUrl!=null and record.wxSecrteUrlExpression==null" >
+          wx_secrte_url = #{record.wxSecrteUrl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxSecrteUrlExpression!=null" >
+          wx_secrte_url = ${record.wxSecrteUrlExpression},
+        </if>
+        <if test="record.wxTicketExpire!=null and record.wxTicketExpireExpression==null" >
+          wx_ticket_expire = #{record.wxTicketExpire,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.wxTicketExpireExpression!=null" >
+          wx_ticket_expire = ${record.wxTicketExpireExpression},
+        </if>
+        <if test="record.wxAppKey!=null and record.wxAppKeyExpression==null" >
+          wx_app_key = #{record.wxAppKey,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxAppKeyExpression!=null" >
+          wx_app_key = ${record.wxAppKeyExpression},
+        </if>
+        <if test="record.wxImgUrl!=null and record.wxImgUrlExpression==null" >
+          wx_img_url = #{record.wxImgUrl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxImgUrlExpression!=null" >
+          wx_img_url = ${record.wxImgUrlExpression},
+        </if>
+        <if test="record.wxQrcode!=null and record.wxQrcodeExpression==null" >
+          wx_qrcode = #{record.wxQrcode,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxQrcodeExpression!=null" >
+          wx_qrcode = ${record.wxQrcodeExpression},
+        </if>
+        <if test="record.smsSerial!=null and record.smsSerialExpression==null" >
+          sms_serial = #{record.smsSerial,jdbcType=VARCHAR},
+        </if>
+        <if test="record.smsSerialExpression!=null" >
+          sms_serial = ${record.smsSerialExpression},
+        </if>
+        <if test="record.smsNotifySign!=null and record.smsNotifySignExpression==null" >
+          sms_notify_sign = #{record.smsNotifySign,jdbcType=VARCHAR},
+        </if>
+        <if test="record.smsNotifySignExpression!=null" >
+          sms_notify_sign = ${record.smsNotifySignExpression},
+        </if>
+        <if test="record.smsSaleSign!=null and record.smsSaleSignExpression==null" >
+          sms_sale_sign = #{record.smsSaleSign,jdbcType=VARCHAR},
+        </if>
+        <if test="record.smsSaleSignExpression!=null" >
+          sms_sale_sign = ${record.smsSaleSignExpression},
+        </if>
+        <if test="record.emailSign!=null and record.emailSignExpression==null" >
+          email_sign = #{record.emailSign,jdbcType=VARCHAR},
+        </if>
+        <if test="record.emailSignExpression!=null" >
+          email_sign = ${record.emailSignExpression},
+        </if>
+        <if test="record.emailFromName!=null and record.emailFromNameExpression==null" >
+          email_from_name = #{record.emailFromName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.emailFromNameExpression!=null" >
+          email_from_name = ${record.emailFromNameExpression},
+        </if>
+        <if test="record.datasourceId!=null and record.datasourceIdExpression==null" >
+          datasource_id = #{record.datasourceId,jdbcType=BIGINT},
+        </if>
+        <if test="record.datasourceIdExpression!=null" >
+          datasource_id = ${record.datasourceIdExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update seller_config_info
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=BIGINT},
+      seller_type = #{record.sellerType,jdbcType=VARCHAR},
+      seller_name = #{record.sellerName,jdbcType=VARCHAR},
+      mobile = #{record.mobile,jdbcType=VARCHAR},
+      phone = #{record.phone,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      address = #{record.address,jdbcType=VARCHAR},
+      wx_no = #{record.wxNo,jdbcType=VARCHAR},
+      wx_app_id = #{record.wxAppId,jdbcType=VARCHAR},
+      wx_app_secret = #{record.wxAppSecret,jdbcType=VARCHAR},
+      wx_access_token = #{record.wxAccessToken,jdbcType=VARCHAR},
+      wx_refresh_token = #{record.wxRefreshToken,jdbcType=VARCHAR},
+      wx_jsapi_ticket = #{record.wxJsapiTicket,jdbcType=VARCHAR},
+      wx_token_expire = #{record.wxTokenExpire,jdbcType=TIMESTAMP},
+      app_id = #{record.appId,jdbcType=VARCHAR},
+      app_secret = #{record.appSecret,jdbcType=VARCHAR},
+      access_token = #{record.accessToken,jdbcType=VARCHAR},
+      refresh_token = #{record.refreshToken,jdbcType=VARCHAR},
+      wx_mchid = #{record.wxMchid,jdbcType=VARCHAR},
+      wx_secrte_url = #{record.wxSecrteUrl,jdbcType=VARCHAR},
+      wx_ticket_expire = #{record.wxTicketExpire,jdbcType=TIMESTAMP},
+      wx_app_key = #{record.wxAppKey,jdbcType=VARCHAR},
+      wx_img_url = #{record.wxImgUrl,jdbcType=VARCHAR},
+      wx_qrcode = #{record.wxQrcode,jdbcType=VARCHAR},
+      sms_serial = #{record.smsSerial,jdbcType=VARCHAR},
+      sms_notify_sign = #{record.smsNotifySign,jdbcType=VARCHAR},
+      sms_sale_sign = #{record.smsSaleSign,jdbcType=VARCHAR},
+      email_sign = #{record.emailSign,jdbcType=VARCHAR},
+      email_from_name = #{record.emailFromName,jdbcType=VARCHAR},
+      datasource_id = #{record.datasourceId,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerConfigInfo" >
+    update seller_config_info
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.sellerType!=null and record.sellerTypeExpression==null" >
+          seller_type = #{record.sellerType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerTypeExpression!=null" >
+          seller_type = ${record.sellerTypeExpression},
+        </if>
+        <if test="record.sellerName!=null and record.sellerNameExpression==null" >
+          seller_name = #{record.sellerName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerNameExpression!=null" >
+          seller_name = ${record.sellerNameExpression},
+        </if>
+        <if test="record.mobile!=null and record.mobileExpression==null" >
+          mobile = #{record.mobile,jdbcType=VARCHAR},
+        </if>
+        <if test="record.mobileExpression!=null" >
+          mobile = ${record.mobileExpression},
+        </if>
+        <if test="record.phone!=null and record.phoneExpression==null" >
+          phone = #{record.phone,jdbcType=VARCHAR},
+        </if>
+        <if test="record.phoneExpression!=null" >
+          phone = ${record.phoneExpression},
+        </if>
+        <if test="record.email!=null and record.emailExpression==null" >
+          email = #{record.email,jdbcType=VARCHAR},
+        </if>
+        <if test="record.emailExpression!=null" >
+          email = ${record.emailExpression},
+        </if>
+        <if test="record.address!=null and record.addressExpression==null" >
+          address = #{record.address,jdbcType=VARCHAR},
+        </if>
+        <if test="record.addressExpression!=null" >
+          address = ${record.addressExpression},
+        </if>
+        <if test="record.wxNo!=null and record.wxNoExpression==null" >
+          wx_no = #{record.wxNo,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxNoExpression!=null" >
+          wx_no = ${record.wxNoExpression},
+        </if>
+        <if test="record.wxAppId!=null and record.wxAppIdExpression==null" >
+          wx_app_id = #{record.wxAppId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxAppIdExpression!=null" >
+          wx_app_id = ${record.wxAppIdExpression},
+        </if>
+        <if test="record.wxAppSecret!=null and record.wxAppSecretExpression==null" >
+          wx_app_secret = #{record.wxAppSecret,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxAppSecretExpression!=null" >
+          wx_app_secret = ${record.wxAppSecretExpression},
+        </if>
+        <if test="record.wxAccessToken!=null and record.wxAccessTokenExpression==null" >
+          wx_access_token = #{record.wxAccessToken,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxAccessTokenExpression!=null" >
+          wx_access_token = ${record.wxAccessTokenExpression},
+        </if>
+        <if test="record.wxRefreshToken!=null and record.wxRefreshTokenExpression==null" >
+          wx_refresh_token = #{record.wxRefreshToken,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxRefreshTokenExpression!=null" >
+          wx_refresh_token = ${record.wxRefreshTokenExpression},
+        </if>
+        <if test="record.wxJsapiTicket!=null and record.wxJsapiTicketExpression==null" >
+          wx_jsapi_ticket = #{record.wxJsapiTicket,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxJsapiTicketExpression!=null" >
+          wx_jsapi_ticket = ${record.wxJsapiTicketExpression},
+        </if>
+        <if test="record.wxTokenExpire!=null and record.wxTokenExpireExpression==null" >
+          wx_token_expire = #{record.wxTokenExpire,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.wxTokenExpireExpression!=null" >
+          wx_token_expire = ${record.wxTokenExpireExpression},
+        </if>
+        <if test="record.appId!=null and record.appIdExpression==null" >
+          app_id = #{record.appId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.appIdExpression!=null" >
+          app_id = ${record.appIdExpression},
+        </if>
+        <if test="record.appSecret!=null and record.appSecretExpression==null" >
+          app_secret = #{record.appSecret,jdbcType=VARCHAR},
+        </if>
+        <if test="record.appSecretExpression!=null" >
+          app_secret = ${record.appSecretExpression},
+        </if>
+        <if test="record.accessToken!=null and record.accessTokenExpression==null" >
+          access_token = #{record.accessToken,jdbcType=VARCHAR},
+        </if>
+        <if test="record.accessTokenExpression!=null" >
+          access_token = ${record.accessTokenExpression},
+        </if>
+        <if test="record.refreshToken!=null and record.refreshTokenExpression==null" >
+          refresh_token = #{record.refreshToken,jdbcType=VARCHAR},
+        </if>
+        <if test="record.refreshTokenExpression!=null" >
+          refresh_token = ${record.refreshTokenExpression},
+        </if>
+        <if test="record.wxMchid!=null and record.wxMchidExpression==null" >
+          wx_mchid = #{record.wxMchid,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxMchidExpression!=null" >
+          wx_mchid = ${record.wxMchidExpression},
+        </if>
+        <if test="record.wxSecrteUrl!=null and record.wxSecrteUrlExpression==null" >
+          wx_secrte_url = #{record.wxSecrteUrl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxSecrteUrlExpression!=null" >
+          wx_secrte_url = ${record.wxSecrteUrlExpression},
+        </if>
+        <if test="record.wxTicketExpire!=null and record.wxTicketExpireExpression==null" >
+          wx_ticket_expire = #{record.wxTicketExpire,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.wxTicketExpireExpression!=null" >
+          wx_ticket_expire = ${record.wxTicketExpireExpression},
+        </if>
+        <if test="record.wxAppKey!=null and record.wxAppKeyExpression==null" >
+          wx_app_key = #{record.wxAppKey,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxAppKeyExpression!=null" >
+          wx_app_key = ${record.wxAppKeyExpression},
+        </if>
+        <if test="record.wxImgUrl!=null and record.wxImgUrlExpression==null" >
+          wx_img_url = #{record.wxImgUrl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxImgUrlExpression!=null" >
+          wx_img_url = ${record.wxImgUrlExpression},
+        </if>
+        <if test="record.wxQrcode!=null and record.wxQrcodeExpression==null" >
+          wx_qrcode = #{record.wxQrcode,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxQrcodeExpression!=null" >
+          wx_qrcode = ${record.wxQrcodeExpression},
+        </if>
+        <if test="record.smsSerial!=null and record.smsSerialExpression==null" >
+          sms_serial = #{record.smsSerial,jdbcType=VARCHAR},
+        </if>
+        <if test="record.smsSerialExpression!=null" >
+          sms_serial = ${record.smsSerialExpression},
+        </if>
+        <if test="record.smsNotifySign!=null and record.smsNotifySignExpression==null" >
+          sms_notify_sign = #{record.smsNotifySign,jdbcType=VARCHAR},
+        </if>
+        <if test="record.smsNotifySignExpression!=null" >
+          sms_notify_sign = ${record.smsNotifySignExpression},
+        </if>
+        <if test="record.smsSaleSign!=null and record.smsSaleSignExpression==null" >
+          sms_sale_sign = #{record.smsSaleSign,jdbcType=VARCHAR},
+        </if>
+        <if test="record.smsSaleSignExpression!=null" >
+          sms_sale_sign = ${record.smsSaleSignExpression},
+        </if>
+        <if test="record.emailSign!=null and record.emailSignExpression==null" >
+          email_sign = #{record.emailSign,jdbcType=VARCHAR},
+        </if>
+        <if test="record.emailSignExpression!=null" >
+          email_sign = ${record.emailSignExpression},
+        </if>
+        <if test="record.emailFromName!=null and record.emailFromNameExpression==null" >
+          email_from_name = #{record.emailFromName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.emailFromNameExpression!=null" >
+          email_from_name = ${record.emailFromNameExpression},
+        </if>
+        <if test="record.datasourceId!=null and record.datasourceIdExpression==null" >
+          datasource_id = #{record.datasourceId,jdbcType=BIGINT},
+        </if>
+        <if test="record.datasourceIdExpression!=null" >
+          datasource_id = ${record.datasourceIdExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerConfigInfo" >
+    update seller_config_info
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=BIGINT},
+      seller_type = #{sellerType,jdbcType=VARCHAR},
+      seller_name = #{sellerName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      wx_no = #{wxNo,jdbcType=VARCHAR},
+      wx_app_id = #{wxAppId,jdbcType=VARCHAR},
+      wx_app_secret = #{wxAppSecret,jdbcType=VARCHAR},
+      wx_access_token = #{wxAccessToken,jdbcType=VARCHAR},
+      wx_refresh_token = #{wxRefreshToken,jdbcType=VARCHAR},
+      wx_jsapi_ticket = #{wxJsapiTicket,jdbcType=VARCHAR},
+      wx_token_expire = #{wxTokenExpire,jdbcType=TIMESTAMP},
+      app_id = #{appId,jdbcType=VARCHAR},
+      app_secret = #{appSecret,jdbcType=VARCHAR},
+      access_token = #{accessToken,jdbcType=VARCHAR},
+      refresh_token = #{refreshToken,jdbcType=VARCHAR},
+      wx_mchid = #{wxMchid,jdbcType=VARCHAR},
+      wx_secrte_url = #{wxSecrteUrl,jdbcType=VARCHAR},
+      wx_ticket_expire = #{wxTicketExpire,jdbcType=TIMESTAMP},
+      wx_app_key = #{wxAppKey,jdbcType=VARCHAR},
+      wx_img_url = #{wxImgUrl,jdbcType=VARCHAR},
+      wx_qrcode = #{wxQrcode,jdbcType=VARCHAR},
+      sms_serial = #{smsSerial,jdbcType=VARCHAR},
+      sms_notify_sign = #{smsNotifySign,jdbcType=VARCHAR},
+      sms_sale_sign = #{smsSaleSign,jdbcType=VARCHAR},
+      email_sign = #{emailSign,jdbcType=VARCHAR},
+      email_from_name = #{emailFromName,jdbcType=VARCHAR},
+      datasource_id = #{datasourceId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

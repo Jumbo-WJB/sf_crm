@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.user.UserContributionModelDAO">
+
+    <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.user.ContributionModelDO">
+
+        <result column="user_count" property="userCount" jdbcType="BIGINT"/>
+        <result column="fans_count" property="fansCount" jdbcType="BIGINT"/>
+        <result column="count" property="count" jdbcType="BIGINT"/>
+
+    </resultMap>
+
+    <select id="queryUserContributionModel" resultMap="BaseResultMap" parameterType="map">
+        SELECT count(*) user_count,
+            (SELECT count(*)
+             FROM user_portrait user_portrait_a,user user_a
+             <include refid="fansContributionModel_Where_Clause"/>
+             ) fans_count,
+            (SELECT count(*)
+             FROM  user_portrait user_portrait_b,user user_b
+             <include refid="allUserModel_Where_Clause"/>
+           ) count
+        FROM
+        user_portrait user_portrait_c,user user_c
+        <include refid="contributionModel_Where_Clause"/>
+    </select>
+
+    <sql id="contributionModel_Where_Clause">
+        <where>
+
+            <trim prefixOverrides="and">
+
+                <if test="source != null">
+
+                    <if test="source=='TMALL'">
+                        <![CDATA[
+                                and user_c.user_id_tb >0
+                        ]]>
+                        <if test="startContribution != null and endContribution != null ">
+                            <![CDATA[
+                                and user_portrait_c.contribution_tmall >= #{startContribution}
+                                and user_portrait_c.contribution_tmall <= #{endContribution}
+                             ]]>
+                        </if>
+                        <if test="startContribution != null and endContribution == null">
+                            <![CDATA[
+                                and user_portrait_c.contribution_tmall > #{startContribution}
+                            ]]>
+                        </if>
+                        <if test="startContribution == null and endContribution != null">
+                            <![CDATA[
+                                and user_portrait_c.contribution_tmall < #{endContribution}
+                            ]]>
+                        </if>
+                    </if>
+
+                    <if test=" source=='TB'">
+                        <![CDATA[
+                                and user_c.user_id_tb >0
+                        ]]>
+                        <if test="startContribution != null and endContribution != null ">
+                            <![CDATA[
+                                and user_portrait_c.contribution_tb >= #{startContribution}
+                                and user_portrait_c.contribution_tb <= #{endContribution}
+                             ]]>
+                        </if>
+                        <if test="startContribution != null and endContribution == null">
+                            <![CDATA[
+                                and user_portrait_c.contribution_tb > #{startContribution}
+                            ]]>
+                        </if>
+                        <if test="startContribution == null and endContribution != null">
+                            <![CDATA[
+                                and user_portrait_c.contribution_tb < #{endContribution}
+                            ]]>
+                        </if>
+                    </if>
+
+                    <if test="source=='JD'">
+                        <![CDATA[
+                                and user_c.user_id_jd >0
+                        ]]>
+                        <if test="startContribution != null and endContribution != null ">
+                            <![CDATA[
+                                and user_portrait_c.contribution_jd >= #{startContribution}
+                                and user_portrait_c.contribution_jd <= #{endContribution}
+                             ]]>
+                        </if>
+                        <if test="startContribution != null and endContribution == null">
+                            <![CDATA[
+                                and user_portrait_c.contribution_jd > #{startContribution}
+                            ]]>
+                        </if>
+                        <if test="startContribution == null and endContribution != null">
+                            <![CDATA[
+                                and user_portrait_c.contribution_jd < #{endContribution}
+                            ]]>
+                        </if>
+                    </if>
+
+                    <if test="source=='YZ'">
+                        <![CDATA[
+                                and user_c.user_id_yz >0
+                        ]]>
+                        <if test="startContribution != null and endContribution != null ">
+                            <![CDATA[
+                                and user_portrait_c.contribution_yz >= #{startContribution}
+                                and user_portrait_c.contribution_yz <= #{endContribution}
+                             ]]>
+                        </if>
+                        <if test="startContribution != null and endContribution == null">
+                            <![CDATA[
+                                and user_portrait_c.contribution_yz > #{startContribution}
+                            ]]>
+                        </if>
+                        <if test="startContribution == null and endContribution != null">
+                            <![CDATA[
+                                and user_portrait_c.contribution_yz < #{endContribution}
+                            ]]>
+                        </if>
+                    </if>
+
+                </if>
+
+                <if test="source == null">
+
+                    <if test="startContribution != null and endContribution != null ">
+                        <![CDATA[
+                                and user_portrait_c.contribution >= #{startContribution}
+                                and user_portrait_c.contribution <= #{endContribution}
+                             ]]>
+                    </if>
+                    <if test="startContribution != null and endContribution == null">
+                        <![CDATA[
+                                and user_portrait_c.contribution > #{startContribution}
+                            ]]>
+                    </if>
+                    <if test="startContribution == null and endContribution != null">
+                        <![CDATA[
+                                and user_portrait_c.contribution < #{endContribution}
+                            ]]>
+                    </if>
+
+                </if>
+
+                AND user_c.user_portrait_id = user_portrait_c.user_portrait_id
+                AND user_c.seller_id = #{sellerId}
+
+            </trim>
+        </where>
+    </sql>
+
+    <sql id="allUserModel_Where_Clause">
+        <where>
+
+            <trim prefixOverrides="and">
+
+                <if test="source != null">
+
+                    <if test="source=='TMALL'">
+
+                        <![CDATA[
+                                and user_b.user_id_tb >0
+                                and user_portrait_b.contribution_tmall >=0
+                        ]]>
+
+                    </if>
+
+                    <if test=" source=='TB'">
+                        <![CDATA[
+                                and user_b.user_id_tb >0
+                                and user_portrait_b.contribution_tb >=0
+                        ]]>
+                    </if>
+
+                    <if test="source=='JD'">
+                        <![CDATA[
+                                and user_b.user_id_jd >0
+                                and user_portrait_b.contribution_jd >=0
+                        ]]>
+                    </if>
+                    <if test="source=='YZ'">
+                        <![CDATA[
+                                and user_b.user_id_yz >0
+                                and user_portrait_b.contribution_yz >=0
+                        ]]>
+                    </if>
+                </if>
+
+                <if test="source == null">
+
+                    <![CDATA[
+                                and user_portrait_b.contribution >=0
+                     ]]>
+
+                </if>
+
+                AND user_b.user_portrait_id = user_portrait_b.user_portrait_id
+                AND user_b.seller_id = #{sellerId}
+
+            </trim>
+        </where>
+    </sql>
+
+
+    <sql id="fansContributionModel_Where_Clause">
+        <where>
+            <trim prefixOverrides="and">
+
+                <if test="source != null">
+
+                    <if test="source=='TMALL'">
+                        <![CDATA[
+                                and user_a.user_id_tb >0
+                        ]]>
+                        <if test="startContribution != null and endContribution != null ">
+                            <![CDATA[
+                                and user_portrait_a.contribution_tmall >= #{startContribution}
+                                and user_portrait_a.contribution_tmall <= #{endContribution}
+                             ]]>
+                        </if>
+                        <if test="startContribution != null and endContribution == null">
+                            <![CDATA[
+                                and user_portrait_a.contribution_tmall > #{startContribution}
+                            ]]>
+                        </if>
+                        <if test="startContribution == null and endContribution != null">
+                            <![CDATA[
+                                and user_portrait_a.contribution_tmall < #{endContribution}
+                            ]]>
+                        </if>
+                    </if>
+
+                    <if test=" source=='TB'">
+                        <![CDATA[
+                                and user_a.user_id_tb >0
+                        ]]>
+                        <if test="startContribution != null and endContribution != null ">
+                            <![CDATA[
+                                and user_portrait_a.contribution_tb >= #{startContribution}
+                                and user_portrait_a.contribution_tb <= #{endContribution}
+                             ]]>
+                        </if>
+                        <if test="startContribution != null and endContribution == null">
+                            <![CDATA[
+                                and user_portrait_a.contribution_tb > #{startContribution}
+                            ]]>
+                        </if>
+                        <if test="startContribution == null and endContribution != null">
+                            <![CDATA[
+                                and user_portrait_a.contribution_tb < #{endContribution}
+                            ]]>
+                        </if>
+                    </if>
+
+                    <if test="source=='JD'">
+                        <![CDATA[
+                                and user_a.user_id_jd >0
+                        ]]>
+                        <if test="startContribution != null and endContribution != null ">
+                            <![CDATA[
+                                and user_portrait_a.contribution_jd >= #{startContribution}
+                                and user_portrait_a.contribution_jd <= #{endContribution}
+                             ]]>
+                        </if>
+                        <if test="startContribution != null and endContribution == null">
+                            <![CDATA[
+                                and user_portrait_a.contribution_jd > #{startContribution}
+                            ]]>
+                        </if>
+                        <if test="startContribution == null and endContribution != null">
+                            <![CDATA[
+                                and user_portrait_a.contribution_jd < #{endContribution}
+                            ]]>
+                        </if>
+                    </if>
+
+                    <if test="source=='YZ'">
+                        <![CDATA[
+                                and user_a.user_id_yz >0
+                        ]]>
+                        <if test="startContribution != null and endContribution != null ">
+                            <![CDATA[
+                                and user_portrait_a.contribution_yz >= #{startContribution}
+                                and user_portrait_a.contribution_yz <= #{endContribution}
+                             ]]>
+                        </if>
+                        <if test="startContribution != null and endContribution == null">
+                            <![CDATA[
+                                and user_portrait_a.contribution_yz > #{startContribution}
+                            ]]>
+                        </if>
+                        <if test="startContribution == null and endContribution != null">
+                            <![CDATA[
+                                and user_portrait_a.contribution_yz < #{endContribution}
+                            ]]>
+                        </if>
+                    </if>
+
+                </if>
+
+                <if test="source == null">
+
+                    <if test="startContribution != null and endContribution != null ">
+                        <![CDATA[
+                                and user_portrait_a.contribution >= #{startContribution}
+                                and user_portrait_a.contribution <= #{endContribution}
+                             ]]>
+                    </if>
+                    <if test="startContribution != null and endContribution == null">
+                        <![CDATA[
+                                and user_portrait_a.contribution > #{startContribution}
+                            ]]>
+                    </if>
+                    <if test="startContribution == null and endContribution != null">
+                        <![CDATA[
+                                and user_portrait_a.contribution < #{endContribution}
+                            ]]>
+                    </if>
+
+                </if>
+                AND user_a.wx_subscribe = '1'
+                AND user_portrait_a.user_portrait_id = user_a.user_portrait_id
+                AND user_a.seller_id = #{sellerId}
+
+            </trim>
+        </where>
+    </sql>
+</mapper>

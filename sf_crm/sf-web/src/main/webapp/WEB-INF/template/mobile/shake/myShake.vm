@@ -1,0 +1,252 @@
+#set($layout = "/layout/mobileBlank.vm")
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <title>我的摇一摇</title>
+    <style>
+
+        * {
+            font-family: "Microsoft YaHei";
+        }
+
+        .t_center {
+            text-align: center;
+        }
+
+        .t_left {
+            text-align: left;
+        }
+
+        .pm_list {
+            font-size: 13px;
+        }
+
+        .pm_list tr {
+            border-bottom: 1px solid #efefef;
+            line-height: 42px;
+            vertical-align: middle;
+        }
+
+        .pm_list th {
+            color: #888;
+            font-weight: normal;
+            line-height: 26px;
+        }
+
+        .pm_num {
+            width: 55%;
+        }
+
+        .pm_name {
+            width: 20%;
+        }
+
+        .pm_count {
+            width: 25%;
+        }
+
+        .pm_day {
+            width: 50px;
+        }
+
+        .pm_time {
+            width: 50px;
+        }
+
+        .pm_4 {
+            width: 25%;
+        }
+
+        .pm_activity_name {
+            width: 50%;
+        }
+
+        .pm_status {
+            width: 25%;
+        }
+
+        .pm_way {
+            width: 25%;
+        }
+
+        .col_title {
+            padding: 4px 5px;
+            overflow: hidden
+        }
+
+        .col_title span {
+            margin: 0 4px;
+        }
+
+        .col_title img {
+            width: 40px;
+            height: 40px;
+            vertical-align: middle;
+            border-radius: 50%;
+            float: left;
+        }
+
+        .col_title a {
+            width: 120px;
+            overflow: hidden;
+            margin-left: 10px;
+            text-overflow: ellipsis;
+        }
+
+        .word-hidden p {
+            width: 60%;
+            text-align: center;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            font-size: 15px;
+            vertical-align: middle;
+        }
+
+        .list_div{
+            margin-bottom: 10px
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container " id="J_content">
+    <div class="u-body">
+        <div class="user bg_white" style="border-bottom: none">
+            <div class="user_back"></div>
+
+            <table class="user_table">
+                <tr>
+                    <td class="user_tleft">
+                        <div class="user_img rAll">
+                            <img class="rAll" id="wxHeadImgUrl" src="$!user.wxHeadimgurl"
+                                 onerror="this.src='${rc.contextPath}/media/mobile/assets/images/signIn/helpbuy-icon.jpg'"/>
+                        </div>
+                    </td>
+                    <td class="user_tright">
+                        <p class="user_name " id="wxNickName">$!user.wxNickName</p>
+
+                        <p class="user_leve red">$!user.mobile <span class="j_user_credit" id="totalPoint"></span>
+                        </p>
+                    </td>
+                <tr/>
+            </table>
+
+            <div class="form-grounp" style="padding: 0;height: 30px;margin-top: -4px">
+                <p style="text-align: center;line-height: 35px;background-color: white">您在 <span style="font-size: 15px;font-weight: bold;">$!sellerConfigName</span> 摇一摇互动</p>
+            </div>
+        </div>
+
+        <table class="bg_white border_t taps tab_a" style="border-top: none;margin-top: 40px">
+            <tr>
+                <td class="t_center">
+                    <div class="infor_item">
+                        <a class="tap_link f16 j_sign_list active" name="activity"
+                           href="javascript:void(0);">摇一摇活动</a>
+                    </div>
+                </td>
+                <td class="t_center">
+                    <div class="infor_item">
+                        <a class="tap_link f16 j_sign_list" name="records" href="javascript:void(0);">领取记录</a>
+                    </div>
+                </td>
+            <tr/>
+        </table>
+
+
+        <div class="pm_list list_cont tab_1" id="J_pm_list_1">
+            <table class="bg_gray pm_list">
+                <tr>
+                    <th class="t_center pm_name">序号</th>
+                    <th class="t_center pm_num">活动名称</th>
+                    <th class="t_center pm_count">可参与人数</th>
+                <tr/>
+            </table>
+
+            <div class="list_div">
+                <table class="bg_white" id="J_list" >
+                    #foreach( $shakeDetail in $shakeDetails)
+                        <tr>
+
+                            <td class="t_center"><span class="num1" style="margin-left:80%">$!{velocityCount}</span>
+                            </td>
+                            <td class="t_center word-hidden"><a
+                                    href="${rc.contextPath}/mobile/doShake?sellerId=$!sellerId&userId=$!user.userId&rockId=$!shakeDetail.rockId"
+                                    ><p style="margin-left: 15%;margin-right: 5%">$!shakeDetail.rockTitle</p></a></td>
+                            <td class="t_center" style="width:50px!important;"><span
+                                    style="right: 30px;position: relative">#set($num=0) #if($!shakeDetail.getHbNum)#set($num=$num+$!shakeDetail.getHbNum)#end #if($!shakeDetail.getGiftNum)#set($num=$num+$!shakeDetail.getGiftNum)#end  #if($!shakeDetail.getPointNum)#set($num=$num+$!shakeDetail.getPointNum)#end $!num </span>
+                            </td>
+                        </tr>
+                    #end
+                </table>
+            </div>
+        </div>
+
+        <div class="pm_list list_cont tab_2" id="J_pm_list_2" style="display: none;">
+
+            <table class="bg_gray pm_list">
+                <tr>
+                    <th class="t_center pm_activity_name">活动名称</th>
+                    <th class="t_center pm_way">奖励方式</th>
+                    <th class="t_center pm_status">领取状态</th>
+                <tr/>
+            </table>
+            <div class="list_div">
+                <table class="bg_white" id="J_list" style="font-size: 14px">
+                    #foreach( $shakeObtain in $shakeObtains)
+                        <tr>
+                            <td class="t_left col_title word-hidden" >
+                                #if($!shakeObtain.rockType=="point")<img
+                                        src="${rc.contextPath}/media/mobile/assets/images/public/jf-pic.jpg"/> #else #if($!shakeObtain.rockType=="hongbao" )
+                                    <img src="${rc.contextPath}/media/mobile/assets/images/public/hb-pic.jpg"/> #else #if($!shakeObtain.rockType=="gift" )
+                                    <img src="${rc.contextPath}/media/mobile/assets/images/public/lw-pic.jpg"/>
+                                #end #end #end
+                                <span style="display: block;width: 70%;height:40px;overflow: hidden; text-align:center;text-overflow: ellipsis;">$!shakeObtain.rockTitle</span>
+                            </td>
+                            <td class="t_center1"
+                                style="width: 20%;text-align: left;">#set($rockType='') #if($!shakeObtain.rockType=="point" ) #set($rockType="积分")#else #if($!shakeObtain.rockType=="hongbao" ) #set($rockType="红包")#else #if($!shakeObtain.rockType=="gift" ) #set($rockType="礼物")
+                            #end #end #end $!rockType</td>
+                            <td class="t_center1"
+                                style="width: 20%;text-align: center">#set($shakeStatus='') #if($!shakeObtain.shakeStatus=="received" ) #set($shakeStatus="已领")#else #if($!shakeObtain.shakeStatus=="toReceive" ) #set($shakeStatus="未领")#else #if($!shakeObtain.shakeStatus=="expire" ) #set($shakeStatus="过期")
+                            #end #end #end $!shakeStatus</td>
+                        </tr>
+                    #end
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="u-footer">
+        <p>
+            <img src="${rc.contextPath}/media/mobile/assets/images/public/suniu_logo_grey.jpg">
+            <span>技术支持·速牛科技</span>
+        </p>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $('.tap_link').click(function () {
+        var ref = $(this).attr("name");
+        $(this).addClass("active").parent().parent().siblings().find("a").removeClass("active");
+        if (ref == "activity") {
+            $(".tab_1").show();
+            $(".tab_2").hide();
+        } else if (ref == "records") {
+            $(".tab_1").hide();
+            $(".tab_2").show();
+        }
+    });
+
+</script>
+</body>
+</html>

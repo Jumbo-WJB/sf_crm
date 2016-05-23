@@ -1,0 +1,866 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.pointmall.MallGoodsMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.pointmall.MallGoods" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_version" property="maxVersion" jdbcType="BIGINT" />
+    <result column="min_version" property="minVersion" jdbcType="BIGINT" />
+    <result column="avg_version" property="avgVersion" jdbcType="BIGINT" />
+    <result column="count_version" property="countVersion" jdbcType="BIGINT" />
+    <result column="sum_version" property="sumVersion" jdbcType="BIGINT" />
+    <result column="max_outer_id" property="maxOuterId" jdbcType="BIGINT" />
+    <result column="min_outer_id" property="minOuterId" jdbcType="BIGINT" />
+    <result column="avg_outer_id" property="avgOuterId" jdbcType="BIGINT" />
+    <result column="count_outer_id" property="countOuterId" jdbcType="BIGINT" />
+    <result column="sum_outer_id" property="sumOuterId" jdbcType="VARCHAR" />
+    <result column="max_props_name" property="maxPropsName" jdbcType="BIGINT" />
+    <result column="min_props_name" property="minPropsName" jdbcType="BIGINT" />
+    <result column="avg_props_name" property="avgPropsName" jdbcType="BIGINT" />
+    <result column="count_props_name" property="countPropsName" jdbcType="BIGINT" />
+    <result column="sum_props_name" property="sumPropsName" jdbcType="VARCHAR" />
+    <result column="max_props" property="maxProps" jdbcType="BIGINT" />
+    <result column="min_props" property="minProps" jdbcType="BIGINT" />
+    <result column="avg_props" property="avgProps" jdbcType="BIGINT" />
+    <result column="count_props" property="countProps" jdbcType="BIGINT" />
+    <result column="sum_props" property="sumProps" jdbcType="VARCHAR" />
+    <result column="max_skus" property="maxSkus" jdbcType="BIGINT" />
+    <result column="min_skus" property="minSkus" jdbcType="BIGINT" />
+    <result column="avg_skus" property="avgSkus" jdbcType="BIGINT" />
+    <result column="count_skus" property="countSkus" jdbcType="BIGINT" />
+    <result column="sum_skus" property="sumSkus" jdbcType="VARCHAR" />
+    <result column="max_thumbnail" property="maxThumbnail" jdbcType="BIGINT" />
+    <result column="min_thumbnail" property="minThumbnail" jdbcType="BIGINT" />
+    <result column="avg_thumbnail" property="avgThumbnail" jdbcType="BIGINT" />
+    <result column="count_thumbnail" property="countThumbnail" jdbcType="BIGINT" />
+    <result column="sum_thumbnail" property="sumThumbnail" jdbcType="VARCHAR" />
+    <result column="max_imgs_url" property="maxImgsUrl" jdbcType="BIGINT" />
+    <result column="min_imgs_url" property="minImgsUrl" jdbcType="BIGINT" />
+    <result column="avg_imgs_url" property="avgImgsUrl" jdbcType="BIGINT" />
+    <result column="count_imgs_url" property="countImgsUrl" jdbcType="BIGINT" />
+    <result column="sum_imgs_url" property="sumImgsUrl" jdbcType="VARCHAR" />
+    <result column="max_qr_url" property="maxQrUrl" jdbcType="BIGINT" />
+    <result column="min_qr_url" property="minQrUrl" jdbcType="BIGINT" />
+    <result column="avg_qr_url" property="avgQrUrl" jdbcType="BIGINT" />
+    <result column="count_qr_url" property="countQrUrl" jdbcType="BIGINT" />
+    <result column="sum_qr_url" property="sumQrUrl" jdbcType="VARCHAR" />
+    <result column="max_detail_url" property="maxDetailUrl" jdbcType="BIGINT" />
+    <result column="min_detail_url" property="minDetailUrl" jdbcType="BIGINT" />
+    <result column="avg_detail_url" property="avgDetailUrl" jdbcType="BIGINT" />
+    <result column="count_detail_url" property="countDetailUrl" jdbcType="BIGINT" />
+    <result column="sum_detail_url" property="sumDetailUrl" jdbcType="VARCHAR" />
+    <result column="max_exchange_amount" property="maxExchangeAmount" jdbcType="BIGINT" />
+    <result column="min_exchange_amount" property="minExchangeAmount" jdbcType="BIGINT" />
+    <result column="avg_exchange_amount" property="avgExchangeAmount" jdbcType="BIGINT" />
+    <result column="count_exchange_amount" property="countExchangeAmount" jdbcType="BIGINT" />
+    <result column="sum_exchange_amount" property="sumExchangeAmount" jdbcType="BIGINT" />
+    <result column="max_point" property="maxPoint" jdbcType="BIGINT" />
+    <result column="min_point" property="minPoint" jdbcType="BIGINT" />
+    <result column="avg_point" property="avgPoint" jdbcType="BIGINT" />
+    <result column="count_point" property="countPoint" jdbcType="BIGINT" />
+    <result column="sum_point" property="sumPoint" jdbcType="BIGINT" />
+    <result column="max_price" property="maxPrice" jdbcType="BIGINT" />
+    <result column="min_price" property="minPrice" jdbcType="BIGINT" />
+    <result column="avg_price" property="avgPrice" jdbcType="BIGINT" />
+    <result column="count_price" property="countPrice" jdbcType="BIGINT" />
+    <result column="sum_price" property="sumPrice" jdbcType="BIGINT" />
+    <result column="max_quantity" property="maxQuantity" jdbcType="BIGINT" />
+    <result column="min_quantity" property="minQuantity" jdbcType="BIGINT" />
+    <result column="avg_quantity" property="avgQuantity" jdbcType="BIGINT" />
+    <result column="count_quantity" property="countQuantity" jdbcType="BIGINT" />
+    <result column="sum_quantity" property="sumQuantity" jdbcType="BIGINT" />
+    <result column="max_status" property="maxStatus" jdbcType="BIGINT" />
+    <result column="min_status" property="minStatus" jdbcType="BIGINT" />
+    <result column="avg_status" property="avgStatus" jdbcType="BIGINT" />
+    <result column="count_status" property="countStatus" jdbcType="BIGINT" />
+    <result column="sum_status" property="sumStatus" jdbcType="VARCHAR" />
+    <result column="max_delist_time" property="maxDelistTime" jdbcType="BIGINT" />
+    <result column="min_delist_time" property="minDelistTime" jdbcType="BIGINT" />
+    <result column="avg_delist_time" property="avgDelistTime" jdbcType="BIGINT" />
+    <result column="count_delist_time" property="countDelistTime" jdbcType="BIGINT" />
+    <result column="sum_delist_time" property="sumDelistTime" jdbcType="TIMESTAMP" />
+    <result column="max_list_time" property="maxListTime" jdbcType="BIGINT" />
+    <result column="min_list_time" property="minListTime" jdbcType="BIGINT" />
+    <result column="avg_list_time" property="avgListTime" jdbcType="BIGINT" />
+    <result column="count_list_time" property="countListTime" jdbcType="BIGINT" />
+    <result column="sum_list_time" property="sumListTime" jdbcType="TIMESTAMP" />
+    <result column="max_is_virtual" property="maxIsVirtual" jdbcType="BIGINT" />
+    <result column="min_is_virtual" property="minIsVirtual" jdbcType="BIGINT" />
+    <result column="avg_is_virtual" property="avgIsVirtual" jdbcType="BIGINT" />
+    <result column="count_is_virtual" property="countIsVirtual" jdbcType="BIGINT" />
+    <result column="sum_is_virtual" property="sumIsVirtual" jdbcType="VARCHAR" />
+    <result column="max_category_id" property="maxCategoryId" jdbcType="BIGINT" />
+    <result column="min_category_id" property="minCategoryId" jdbcType="BIGINT" />
+    <result column="avg_category_id" property="avgCategoryId" jdbcType="BIGINT" />
+    <result column="count_category_id" property="countCategoryId" jdbcType="BIGINT" />
+    <result column="sum_category_id" property="sumCategoryId" jdbcType="BIGINT" />
+    <result column="max_title" property="maxTitle" jdbcType="BIGINT" />
+    <result column="min_title" property="minTitle" jdbcType="BIGINT" />
+    <result column="avg_title" property="avgTitle" jdbcType="BIGINT" />
+    <result column="count_title" property="countTitle" jdbcType="BIGINT" />
+    <result column="sum_title" property="sumTitle" jdbcType="VARCHAR" />
+    <result column="max_goods_id" property="maxGoodsId" jdbcType="BIGINT" />
+    <result column="min_goods_id" property="minGoodsId" jdbcType="BIGINT" />
+    <result column="avg_goods_id" property="avgGoodsId" jdbcType="BIGINT" />
+    <result column="count_goods_id" property="countGoodsId" jdbcType="BIGINT" />
+    <result column="sum_goods_id" property="sumGoodsId" jdbcType="BIGINT" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+    <result column="goods_id" property="goodsId" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="category_id" property="categoryId" jdbcType="BIGINT" />
+    <result column="is_virtual" property="isVirtual" jdbcType="VARCHAR" />
+    <result column="list_time" property="listTime" jdbcType="TIMESTAMP" />
+    <result column="delist_time" property="delistTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="quantity" property="quantity" jdbcType="BIGINT" />
+    <result column="price" property="price" jdbcType="BIGINT" />
+    <result column="point" property="point" jdbcType="BIGINT" />
+    <result column="exchange_amount" property="exchangeAmount" jdbcType="BIGINT" />
+    <result column="detail_url" property="detailUrl" jdbcType="VARCHAR" />
+    <result column="qr_url" property="qrUrl" jdbcType="VARCHAR" />
+    <result column="imgs_url" property="imgsUrl" jdbcType="VARCHAR" />
+    <result column="thumbnail" property="thumbnail" jdbcType="VARCHAR" />
+    <result column="skus" property="skus" jdbcType="VARCHAR" />
+    <result column="props" property="props" jdbcType="VARCHAR" />
+    <result column="props_name" property="propsName" jdbcType="VARCHAR" />
+    <result column="outer_id" property="outerId" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, created_by, modified_by, is_deleted, seller_id, goods_id, 
+    title, category_id, is_virtual, list_time, delist_time, status, quantity, price, 
+    point, exchange_amount, detail_url, qr_url, imgs_url, thumbnail, skus, props, props_name, 
+    outer_id, version
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.pointmall.MallGoodsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from mall_goods
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from mall_goods
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update mall_goods
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.pointmall.MallGoodsExample" >
+    update mall_goods
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.pointmall.MallGoods" useGeneratedKeys="true" keyProperty="id" >
+    insert into mall_goods (id, gmt_created, gmt_modified, 
+      created_by, modified_by, is_deleted, 
+      seller_id, goods_id, title, 
+      category_id, is_virtual, list_time, 
+      delist_time, status, quantity, 
+      price, point, exchange_amount, 
+      detail_url, qr_url, imgs_url, 
+      thumbnail, skus, props, 
+      props_name, outer_id, version
+      )
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{sellerId,jdbcType=BIGINT}, #{goodsId,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, 
+      #{categoryId,jdbcType=BIGINT}, #{isVirtual,jdbcType=VARCHAR}, #{listTime,jdbcType=TIMESTAMP}, 
+      #{delistTime,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{quantity,jdbcType=BIGINT}, 
+      #{price,jdbcType=BIGINT}, #{point,jdbcType=BIGINT}, #{exchangeAmount,jdbcType=BIGINT}, 
+      #{detailUrl,jdbcType=VARCHAR}, #{qrUrl,jdbcType=VARCHAR}, #{imgsUrl,jdbcType=VARCHAR}, 
+      #{thumbnail,jdbcType=VARCHAR}, #{skus,jdbcType=VARCHAR}, #{props,jdbcType=VARCHAR}, 
+      #{propsName,jdbcType=VARCHAR}, #{outerId,jdbcType=VARCHAR}, #{version,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.pointmall.MallGoods" useGeneratedKeys="true" keyProperty="id" >
+    insert into mall_goods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="goodsId != null" >
+        goods_id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="categoryId != null" >
+        category_id,
+      </if>
+      <if test="isVirtual != null" >
+        is_virtual,
+      </if>
+      <if test="listTime != null" >
+        list_time,
+      </if>
+      <if test="delistTime != null" >
+        delist_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="quantity != null" >
+        quantity,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="point != null" >
+        point,
+      </if>
+      <if test="exchangeAmount != null" >
+        exchange_amount,
+      </if>
+      <if test="detailUrl != null" >
+        detail_url,
+      </if>
+      <if test="qrUrl != null" >
+        qr_url,
+      </if>
+      <if test="imgsUrl != null" >
+        imgs_url,
+      </if>
+      <if test="thumbnail != null" >
+        thumbnail,
+      </if>
+      <if test="skus != null" >
+        skus,
+      </if>
+      <if test="props != null" >
+        props,
+      </if>
+      <if test="propsName != null" >
+        props_name,
+      </if>
+      <if test="outerId != null" >
+        outer_id,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+      <if test="goodsId != null" >
+        #{goodsId,jdbcType=BIGINT},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryId != null" >
+        #{categoryId,jdbcType=BIGINT},
+      </if>
+      <if test="isVirtual != null" >
+        #{isVirtual,jdbcType=VARCHAR},
+      </if>
+      <if test="listTime != null" >
+        #{listTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delistTime != null" >
+        #{delistTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity != null" >
+        #{quantity,jdbcType=BIGINT},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=BIGINT},
+      </if>
+      <if test="point != null" >
+        #{point,jdbcType=BIGINT},
+      </if>
+      <if test="exchangeAmount != null" >
+        #{exchangeAmount,jdbcType=BIGINT},
+      </if>
+      <if test="detailUrl != null" >
+        #{detailUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="qrUrl != null" >
+        #{qrUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="imgsUrl != null" >
+        #{imgsUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbnail != null" >
+        #{thumbnail,jdbcType=VARCHAR},
+      </if>
+      <if test="skus != null" >
+        #{skus,jdbcType=VARCHAR},
+      </if>
+      <if test="props != null" >
+        #{props,jdbcType=VARCHAR},
+      </if>
+      <if test="propsName != null" >
+        #{propsName,jdbcType=VARCHAR},
+      </if>
+      <if test="outerId != null" >
+        #{outerId,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.pointmall.MallGoodsExample" resultType="java.lang.Integer" >
+    select count(*) from mall_goods
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update mall_goods
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.goodsId!=null and record.goodsIdExpression==null" >
+          goods_id = #{record.goodsId,jdbcType=BIGINT},
+        </if>
+        <if test="record.goodsIdExpression!=null" >
+          goods_id = ${record.goodsIdExpression},
+        </if>
+        <if test="record.title!=null and record.titleExpression==null" >
+          title = #{record.title,jdbcType=VARCHAR},
+        </if>
+        <if test="record.titleExpression!=null" >
+          title = ${record.titleExpression},
+        </if>
+        <if test="record.categoryId!=null and record.categoryIdExpression==null" >
+          category_id = #{record.categoryId,jdbcType=BIGINT},
+        </if>
+        <if test="record.categoryIdExpression!=null" >
+          category_id = ${record.categoryIdExpression},
+        </if>
+        <if test="record.isVirtual!=null and record.isVirtualExpression==null" >
+          is_virtual = #{record.isVirtual,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isVirtualExpression!=null" >
+          is_virtual = ${record.isVirtualExpression},
+        </if>
+        <if test="record.listTime!=null and record.listTimeExpression==null" >
+          list_time = #{record.listTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.listTimeExpression!=null" >
+          list_time = ${record.listTimeExpression},
+        </if>
+        <if test="record.delistTime!=null and record.delistTimeExpression==null" >
+          delist_time = #{record.delistTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.delistTimeExpression!=null" >
+          delist_time = ${record.delistTimeExpression},
+        </if>
+        <if test="record.status!=null and record.statusExpression==null" >
+          status = #{record.status,jdbcType=VARCHAR},
+        </if>
+        <if test="record.statusExpression!=null" >
+          status = ${record.statusExpression},
+        </if>
+        <if test="record.quantity!=null and record.quantityExpression==null" >
+          quantity = #{record.quantity,jdbcType=BIGINT},
+        </if>
+        <if test="record.quantityExpression!=null" >
+          quantity = ${record.quantityExpression},
+        </if>
+        <if test="record.price!=null and record.priceExpression==null" >
+          price = #{record.price,jdbcType=BIGINT},
+        </if>
+        <if test="record.priceExpression!=null" >
+          price = ${record.priceExpression},
+        </if>
+        <if test="record.point!=null and record.pointExpression==null" >
+          point = #{record.point,jdbcType=BIGINT},
+        </if>
+        <if test="record.pointExpression!=null" >
+          point = ${record.pointExpression},
+        </if>
+        <if test="record.exchangeAmount!=null and record.exchangeAmountExpression==null" >
+          exchange_amount = #{record.exchangeAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.exchangeAmountExpression!=null" >
+          exchange_amount = ${record.exchangeAmountExpression},
+        </if>
+        <if test="record.detailUrl!=null and record.detailUrlExpression==null" >
+          detail_url = #{record.detailUrl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.detailUrlExpression!=null" >
+          detail_url = ${record.detailUrlExpression},
+        </if>
+        <if test="record.qrUrl!=null and record.qrUrlExpression==null" >
+          qr_url = #{record.qrUrl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.qrUrlExpression!=null" >
+          qr_url = ${record.qrUrlExpression},
+        </if>
+        <if test="record.imgsUrl!=null and record.imgsUrlExpression==null" >
+          imgs_url = #{record.imgsUrl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.imgsUrlExpression!=null" >
+          imgs_url = ${record.imgsUrlExpression},
+        </if>
+        <if test="record.thumbnail!=null and record.thumbnailExpression==null" >
+          thumbnail = #{record.thumbnail,jdbcType=VARCHAR},
+        </if>
+        <if test="record.thumbnailExpression!=null" >
+          thumbnail = ${record.thumbnailExpression},
+        </if>
+        <if test="record.skus!=null and record.skusExpression==null" >
+          skus = #{record.skus,jdbcType=VARCHAR},
+        </if>
+        <if test="record.skusExpression!=null" >
+          skus = ${record.skusExpression},
+        </if>
+        <if test="record.props!=null and record.propsExpression==null" >
+          props = #{record.props,jdbcType=VARCHAR},
+        </if>
+        <if test="record.propsExpression!=null" >
+          props = ${record.propsExpression},
+        </if>
+        <if test="record.propsName!=null and record.propsNameExpression==null" >
+          props_name = #{record.propsName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.propsNameExpression!=null" >
+          props_name = ${record.propsNameExpression},
+        </if>
+        <if test="record.outerId!=null and record.outerIdExpression==null" >
+          outer_id = #{record.outerId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.outerIdExpression!=null" >
+          outer_id = ${record.outerIdExpression},
+        </if>
+        <if test="record.version!=null and record.versionExpression==null" >
+          version = #{record.version,jdbcType=BIGINT},
+        </if>
+        <if test="record.versionExpression!=null" >
+          version = ${record.versionExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update mall_goods
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=BIGINT},
+      goods_id = #{record.goodsId,jdbcType=BIGINT},
+      title = #{record.title,jdbcType=VARCHAR},
+      category_id = #{record.categoryId,jdbcType=BIGINT},
+      is_virtual = #{record.isVirtual,jdbcType=VARCHAR},
+      list_time = #{record.listTime,jdbcType=TIMESTAMP},
+      delist_time = #{record.delistTime,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=VARCHAR},
+      quantity = #{record.quantity,jdbcType=BIGINT},
+      price = #{record.price,jdbcType=BIGINT},
+      point = #{record.point,jdbcType=BIGINT},
+      exchange_amount = #{record.exchangeAmount,jdbcType=BIGINT},
+      detail_url = #{record.detailUrl,jdbcType=VARCHAR},
+      qr_url = #{record.qrUrl,jdbcType=VARCHAR},
+      imgs_url = #{record.imgsUrl,jdbcType=VARCHAR},
+      thumbnail = #{record.thumbnail,jdbcType=VARCHAR},
+      skus = #{record.skus,jdbcType=VARCHAR},
+      props = #{record.props,jdbcType=VARCHAR},
+      props_name = #{record.propsName,jdbcType=VARCHAR},
+      outer_id = #{record.outerId,jdbcType=VARCHAR},
+      version = #{record.version,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.pointmall.MallGoods" >
+    update mall_goods
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.goodsId!=null and record.goodsIdExpression==null" >
+          goods_id = #{record.goodsId,jdbcType=BIGINT},
+        </if>
+        <if test="record.goodsIdExpression!=null" >
+          goods_id = ${record.goodsIdExpression},
+        </if>
+        <if test="record.title!=null and record.titleExpression==null" >
+          title = #{record.title,jdbcType=VARCHAR},
+        </if>
+        <if test="record.titleExpression!=null" >
+          title = ${record.titleExpression},
+        </if>
+        <if test="record.categoryId!=null and record.categoryIdExpression==null" >
+          category_id = #{record.categoryId,jdbcType=BIGINT},
+        </if>
+        <if test="record.categoryIdExpression!=null" >
+          category_id = ${record.categoryIdExpression},
+        </if>
+        <if test="record.isVirtual!=null and record.isVirtualExpression==null" >
+          is_virtual = #{record.isVirtual,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isVirtualExpression!=null" >
+          is_virtual = ${record.isVirtualExpression},
+        </if>
+        <if test="record.listTime!=null and record.listTimeExpression==null" >
+          list_time = #{record.listTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.listTimeExpression!=null" >
+          list_time = ${record.listTimeExpression},
+        </if>
+        <if test="record.delistTime!=null and record.delistTimeExpression==null" >
+          delist_time = #{record.delistTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.delistTimeExpression!=null" >
+          delist_time = ${record.delistTimeExpression},
+        </if>
+        <if test="record.status!=null and record.statusExpression==null" >
+          status = #{record.status,jdbcType=VARCHAR},
+        </if>
+        <if test="record.statusExpression!=null" >
+          status = ${record.statusExpression},
+        </if>
+        <if test="record.quantity!=null and record.quantityExpression==null" >
+          quantity = #{record.quantity,jdbcType=BIGINT},
+        </if>
+        <if test="record.quantityExpression!=null" >
+          quantity = ${record.quantityExpression},
+        </if>
+        <if test="record.price!=null and record.priceExpression==null" >
+          price = #{record.price,jdbcType=BIGINT},
+        </if>
+        <if test="record.priceExpression!=null" >
+          price = ${record.priceExpression},
+        </if>
+        <if test="record.point!=null and record.pointExpression==null" >
+          point = #{record.point,jdbcType=BIGINT},
+        </if>
+        <if test="record.pointExpression!=null" >
+          point = ${record.pointExpression},
+        </if>
+        <if test="record.exchangeAmount!=null and record.exchangeAmountExpression==null" >
+          exchange_amount = #{record.exchangeAmount,jdbcType=BIGINT},
+        </if>
+        <if test="record.exchangeAmountExpression!=null" >
+          exchange_amount = ${record.exchangeAmountExpression},
+        </if>
+        <if test="record.detailUrl!=null and record.detailUrlExpression==null" >
+          detail_url = #{record.detailUrl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.detailUrlExpression!=null" >
+          detail_url = ${record.detailUrlExpression},
+        </if>
+        <if test="record.qrUrl!=null and record.qrUrlExpression==null" >
+          qr_url = #{record.qrUrl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.qrUrlExpression!=null" >
+          qr_url = ${record.qrUrlExpression},
+        </if>
+        <if test="record.imgsUrl!=null and record.imgsUrlExpression==null" >
+          imgs_url = #{record.imgsUrl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.imgsUrlExpression!=null" >
+          imgs_url = ${record.imgsUrlExpression},
+        </if>
+        <if test="record.thumbnail!=null and record.thumbnailExpression==null" >
+          thumbnail = #{record.thumbnail,jdbcType=VARCHAR},
+        </if>
+        <if test="record.thumbnailExpression!=null" >
+          thumbnail = ${record.thumbnailExpression},
+        </if>
+        <if test="record.skus!=null and record.skusExpression==null" >
+          skus = #{record.skus,jdbcType=VARCHAR},
+        </if>
+        <if test="record.skusExpression!=null" >
+          skus = ${record.skusExpression},
+        </if>
+        <if test="record.props!=null and record.propsExpression==null" >
+          props = #{record.props,jdbcType=VARCHAR},
+        </if>
+        <if test="record.propsExpression!=null" >
+          props = ${record.propsExpression},
+        </if>
+        <if test="record.propsName!=null and record.propsNameExpression==null" >
+          props_name = #{record.propsName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.propsNameExpression!=null" >
+          props_name = ${record.propsNameExpression},
+        </if>
+        <if test="record.outerId!=null and record.outerIdExpression==null" >
+          outer_id = #{record.outerId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.outerIdExpression!=null" >
+          outer_id = ${record.outerIdExpression},
+        </if>
+        <if test="record.version!=null and record.versionExpression==null" >
+          version = #{record.version,jdbcType=BIGINT},
+        </if>
+        <if test="record.versionExpression!=null" >
+          version = ${record.versionExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.pointmall.MallGoods" >
+    update mall_goods
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=BIGINT},
+      goods_id = #{goodsId,jdbcType=BIGINT},
+      title = #{title,jdbcType=VARCHAR},
+      category_id = #{categoryId,jdbcType=BIGINT},
+      is_virtual = #{isVirtual,jdbcType=VARCHAR},
+      list_time = #{listTime,jdbcType=TIMESTAMP},
+      delist_time = #{delistTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR},
+      quantity = #{quantity,jdbcType=BIGINT},
+      price = #{price,jdbcType=BIGINT},
+      point = #{point,jdbcType=BIGINT},
+      exchange_amount = #{exchangeAmount,jdbcType=BIGINT},
+      detail_url = #{detailUrl,jdbcType=VARCHAR},
+      qr_url = #{qrUrl,jdbcType=VARCHAR},
+      imgs_url = #{imgsUrl,jdbcType=VARCHAR},
+      thumbnail = #{thumbnail,jdbcType=VARCHAR},
+      skus = #{skus,jdbcType=VARCHAR},
+      props = #{props,jdbcType=VARCHAR},
+      props_name = #{propsName,jdbcType=VARCHAR},
+      outer_id = #{outerId,jdbcType=VARCHAR},
+      version = #{version,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

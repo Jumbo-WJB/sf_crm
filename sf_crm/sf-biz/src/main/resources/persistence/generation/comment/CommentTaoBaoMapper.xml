@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.comment.CommentTaoBaoMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.comment.CommentTaoBao" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_valid_score" property="maxValidScore" jdbcType="BIGINT" />
+    <result column="min_valid_score" property="minValidScore" jdbcType="BIGINT" />
+    <result column="avg_valid_score" property="avgValidScore" jdbcType="BIGINT" />
+    <result column="count_valid_score" property="countValidScore" jdbcType="BIGINT" />
+    <result column="sum_valid_score" property="sumValidScore" jdbcType="BIT" />
+    <result column="max_num_iid" property="maxNumIid" jdbcType="BIGINT" />
+    <result column="min_num_iid" property="minNumIid" jdbcType="BIGINT" />
+    <result column="avg_num_iid" property="avgNumIid" jdbcType="BIGINT" />
+    <result column="count_num_iid" property="countNumIid" jdbcType="BIGINT" />
+    <result column="sum_num_iid" property="sumNumIid" jdbcType="BIGINT" />
+    <result column="max_reply" property="maxReply" jdbcType="BIGINT" />
+    <result column="min_reply" property="minReply" jdbcType="BIGINT" />
+    <result column="avg_reply" property="avgReply" jdbcType="BIGINT" />
+    <result column="count_reply" property="countReply" jdbcType="BIGINT" />
+    <result column="sum_reply" property="sumReply" jdbcType="VARCHAR" />
+    <result column="max_content" property="maxContent" jdbcType="BIGINT" />
+    <result column="min_content" property="minContent" jdbcType="BIGINT" />
+    <result column="avg_content" property="avgContent" jdbcType="BIGINT" />
+    <result column="count_content" property="countContent" jdbcType="BIGINT" />
+    <result column="sum_content" property="sumContent" jdbcType="VARCHAR" />
+    <result column="max_item_price" property="maxItemPrice" jdbcType="BIGINT" />
+    <result column="min_item_price" property="minItemPrice" jdbcType="BIGINT" />
+    <result column="avg_item_price" property="avgItemPrice" jdbcType="BIGINT" />
+    <result column="count_item_price" property="countItemPrice" jdbcType="BIGINT" />
+    <result column="sum_item_price" property="sumItemPrice" jdbcType="VARCHAR" />
+    <result column="max_item_title" property="maxItemTitle" jdbcType="BIGINT" />
+    <result column="min_item_title" property="minItemTitle" jdbcType="BIGINT" />
+    <result column="avg_item_title" property="avgItemTitle" jdbcType="BIGINT" />
+    <result column="count_item_title" property="countItemTitle" jdbcType="BIGINT" />
+    <result column="sum_item_title" property="sumItemTitle" jdbcType="VARCHAR" />
+    <result column="max_rated_nick" property="maxRatedNick" jdbcType="BIGINT" />
+    <result column="min_rated_nick" property="minRatedNick" jdbcType="BIGINT" />
+    <result column="avg_rated_nick" property="avgRatedNick" jdbcType="BIGINT" />
+    <result column="count_rated_nick" property="countRatedNick" jdbcType="BIGINT" />
+    <result column="sum_rated_nick" property="sumRatedNick" jdbcType="VARCHAR" />
+    <result column="max_created" property="maxCreated" jdbcType="BIGINT" />
+    <result column="min_created" property="minCreated" jdbcType="BIGINT" />
+    <result column="avg_created" property="avgCreated" jdbcType="BIGINT" />
+    <result column="count_created" property="countCreated" jdbcType="BIGINT" />
+    <result column="sum_created" property="sumCreated" jdbcType="TIMESTAMP" />
+    <result column="max_result" property="maxResult" jdbcType="BIGINT" />
+    <result column="min_result" property="minResult" jdbcType="BIGINT" />
+    <result column="avg_result" property="avgResult" jdbcType="BIGINT" />
+    <result column="count_result" property="countResult" jdbcType="BIGINT" />
+    <result column="sum_result" property="sumResult" jdbcType="VARCHAR" />
+    <result column="max_nick" property="maxNick" jdbcType="BIGINT" />
+    <result column="min_nick" property="minNick" jdbcType="BIGINT" />
+    <result column="avg_nick" property="avgNick" jdbcType="BIGINT" />
+    <result column="count_nick" property="countNick" jdbcType="BIGINT" />
+    <result column="sum_nick" property="sumNick" jdbcType="VARCHAR" />
+    <result column="max_role" property="maxRole" jdbcType="BIGINT" />
+    <result column="min_role" property="minRole" jdbcType="BIGINT" />
+    <result column="avg_role" property="avgRole" jdbcType="BIGINT" />
+    <result column="count_role" property="countRole" jdbcType="BIGINT" />
+    <result column="sum_role" property="sumRole" jdbcType="VARCHAR" />
+    <result column="max_oid" property="maxOid" jdbcType="BIGINT" />
+    <result column="min_oid" property="minOid" jdbcType="BIGINT" />
+    <result column="avg_oid" property="avgOid" jdbcType="BIGINT" />
+    <result column="count_oid" property="countOid" jdbcType="BIGINT" />
+    <result column="sum_oid" property="sumOid" jdbcType="BIGINT" />
+    <result column="max_tid" property="maxTid" jdbcType="BIGINT" />
+    <result column="min_tid" property="minTid" jdbcType="BIGINT" />
+    <result column="avg_tid" property="avgTid" jdbcType="BIGINT" />
+    <result column="count_tid" property="countTid" jdbcType="BIGINT" />
+    <result column="sum_tid" property="sumTid" jdbcType="BIGINT" />
+    <result column="max_comment_id_tb" property="maxCommentIdTb" jdbcType="BIGINT" />
+    <result column="min_comment_id_tb" property="minCommentIdTb" jdbcType="BIGINT" />
+    <result column="avg_comment_id_tb" property="avgCommentIdTb" jdbcType="BIGINT" />
+    <result column="count_comment_id_tb" property="countCommentIdTb" jdbcType="BIGINT" />
+    <result column="sum_comment_id_tb" property="sumCommentIdTb" jdbcType="BIGINT" />
+    <result column="max_user_id_tb" property="maxUserIdTb" jdbcType="BIGINT" />
+    <result column="min_user_id_tb" property="minUserIdTb" jdbcType="BIGINT" />
+    <result column="avg_user_id_tb" property="avgUserIdTb" jdbcType="BIGINT" />
+    <result column="count_user_id_tb" property="countUserIdTb" jdbcType="BIGINT" />
+    <result column="sum_user_id_tb" property="sumUserIdTb" jdbcType="BIGINT" />
+    <result column="max_shop_id" property="maxShopId" jdbcType="BIGINT" />
+    <result column="min_shop_id" property="minShopId" jdbcType="BIGINT" />
+    <result column="avg_shop_id" property="avgShopId" jdbcType="BIGINT" />
+    <result column="count_shop_id" property="countShopId" jdbcType="BIGINT" />
+    <result column="sum_shop_id" property="sumShopId" jdbcType="BIGINT" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+    <result column="shop_id" property="shopId" jdbcType="BIGINT" />
+    <result column="user_id_tb" property="userIdTb" jdbcType="BIGINT" />
+    <result column="comment_id_tb" property="commentIdTb" jdbcType="BIGINT" />
+    <result column="tid" property="tid" jdbcType="BIGINT" />
+    <result column="oid" property="oid" jdbcType="BIGINT" />
+    <result column="role" property="role" jdbcType="VARCHAR" />
+    <result column="nick" property="nick" jdbcType="VARCHAR" />
+    <result column="result" property="result" jdbcType="VARCHAR" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="rated_nick" property="ratedNick" jdbcType="VARCHAR" />
+    <result column="item_title" property="itemTitle" jdbcType="VARCHAR" />
+    <result column="item_price" property="itemPrice" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="reply" property="reply" jdbcType="VARCHAR" />
+    <result column="num_iid" property="numIid" jdbcType="BIGINT" />
+    <result column="valid_score" property="validScore" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, is_deleted, seller_id, shop_id, user_id_tb, comment_id_tb, 
+    tid, oid, role, nick, result, created, rated_nick, item_title, item_price, content, 
+    reply, num_iid, valid_score
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.comment.CommentTaoBaoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from comment_taobao
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from comment_taobao
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update comment_taobao
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.comment.CommentTaoBaoExample" >
+    update comment_taobao
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.comment.CommentTaoBao" useGeneratedKeys="true" keyProperty="id" >
+    insert into comment_taobao (id, gmt_created, gmt_modified, 
+      is_deleted, seller_id, shop_id, 
+      user_id_tb, comment_id_tb, tid, 
+      oid, role, nick, result, 
+      created, rated_nick, item_title, 
+      item_price, content, reply, 
+      num_iid, valid_score)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{isDeleted,jdbcType=VARCHAR}, #{sellerId,jdbcType=BIGINT}, #{shopId,jdbcType=BIGINT}, 
+      #{userIdTb,jdbcType=BIGINT}, #{commentIdTb,jdbcType=BIGINT}, #{tid,jdbcType=BIGINT}, 
+      #{oid,jdbcType=BIGINT}, #{role,jdbcType=VARCHAR}, #{nick,jdbcType=VARCHAR}, #{result,jdbcType=VARCHAR}, 
+      #{created,jdbcType=TIMESTAMP}, #{ratedNick,jdbcType=VARCHAR}, #{itemTitle,jdbcType=VARCHAR}, 
+      #{itemPrice,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{reply,jdbcType=VARCHAR}, 
+      #{numIid,jdbcType=BIGINT}, #{validScore,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.comment.CommentTaoBao" useGeneratedKeys="true" keyProperty="id" >
+    insert into comment_taobao
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="shopId != null" >
+        shop_id,
+      </if>
+      <if test="userIdTb != null" >
+        user_id_tb,
+      </if>
+      <if test="commentIdTb != null" >
+        comment_id_tb,
+      </if>
+      <if test="tid != null" >
+        tid,
+      </if>
+      <if test="oid != null" >
+        oid,
+      </if>
+      <if test="role != null" >
+        role,
+      </if>
+      <if test="nick != null" >
+        nick,
+      </if>
+      <if test="result != null" >
+        result,
+      </if>
+      <if test="created != null" >
+        created,
+      </if>
+      <if test="ratedNick != null" >
+        rated_nick,
+      </if>
+      <if test="itemTitle != null" >
+        item_title,
+      </if>
+      <if test="itemPrice != null" >
+        item_price,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="reply != null" >
+        reply,
+      </if>
+      <if test="numIid != null" >
+        num_iid,
+      </if>
+      <if test="validScore != null" >
+        valid_score,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+      <if test="shopId != null" >
+        #{shopId,jdbcType=BIGINT},
+      </if>
+      <if test="userIdTb != null" >
+        #{userIdTb,jdbcType=BIGINT},
+      </if>
+      <if test="commentIdTb != null" >
+        #{commentIdTb,jdbcType=BIGINT},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=BIGINT},
+      </if>
+      <if test="oid != null" >
+        #{oid,jdbcType=BIGINT},
+      </if>
+      <if test="role != null" >
+        #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="nick != null" >
+        #{nick,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null" >
+        #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ratedNick != null" >
+        #{ratedNick,jdbcType=VARCHAR},
+      </if>
+      <if test="itemTitle != null" >
+        #{itemTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="itemPrice != null" >
+        #{itemPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="reply != null" >
+        #{reply,jdbcType=VARCHAR},
+      </if>
+      <if test="numIid != null" >
+        #{numIid,jdbcType=BIGINT},
+      </if>
+      <if test="validScore != null" >
+        #{validScore,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.comment.CommentTaoBaoExample" resultType="java.lang.Integer" >
+    select count(*) from comment_taobao
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update comment_taobao
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.shopId!=null and record.shopIdExpression==null" >
+          shop_id = #{record.shopId,jdbcType=BIGINT},
+        </if>
+        <if test="record.shopIdExpression!=null" >
+          shop_id = ${record.shopIdExpression},
+        </if>
+        <if test="record.userIdTb!=null and record.userIdTbExpression==null" >
+          user_id_tb = #{record.userIdTb,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdTbExpression!=null" >
+          user_id_tb = ${record.userIdTbExpression},
+        </if>
+        <if test="record.commentIdTb!=null and record.commentIdTbExpression==null" >
+          comment_id_tb = #{record.commentIdTb,jdbcType=BIGINT},
+        </if>
+        <if test="record.commentIdTbExpression!=null" >
+          comment_id_tb = ${record.commentIdTbExpression},
+        </if>
+        <if test="record.tid!=null and record.tidExpression==null" >
+          tid = #{record.tid,jdbcType=BIGINT},
+        </if>
+        <if test="record.tidExpression!=null" >
+          tid = ${record.tidExpression},
+        </if>
+        <if test="record.oid!=null and record.oidExpression==null" >
+          oid = #{record.oid,jdbcType=BIGINT},
+        </if>
+        <if test="record.oidExpression!=null" >
+          oid = ${record.oidExpression},
+        </if>
+        <if test="record.role!=null and record.roleExpression==null" >
+          role = #{record.role,jdbcType=VARCHAR},
+        </if>
+        <if test="record.roleExpression!=null" >
+          role = ${record.roleExpression},
+        </if>
+        <if test="record.nick!=null and record.nickExpression==null" >
+          nick = #{record.nick,jdbcType=VARCHAR},
+        </if>
+        <if test="record.nickExpression!=null" >
+          nick = ${record.nickExpression},
+        </if>
+        <if test="record.result!=null and record.resultExpression==null" >
+          result = #{record.result,jdbcType=VARCHAR},
+        </if>
+        <if test="record.resultExpression!=null" >
+          result = ${record.resultExpression},
+        </if>
+        <if test="record.created!=null and record.createdExpression==null" >
+          created = #{record.created,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.createdExpression!=null" >
+          created = ${record.createdExpression},
+        </if>
+        <if test="record.ratedNick!=null and record.ratedNickExpression==null" >
+          rated_nick = #{record.ratedNick,jdbcType=VARCHAR},
+        </if>
+        <if test="record.ratedNickExpression!=null" >
+          rated_nick = ${record.ratedNickExpression},
+        </if>
+        <if test="record.itemTitle!=null and record.itemTitleExpression==null" >
+          item_title = #{record.itemTitle,jdbcType=VARCHAR},
+        </if>
+        <if test="record.itemTitleExpression!=null" >
+          item_title = ${record.itemTitleExpression},
+        </if>
+        <if test="record.itemPrice!=null and record.itemPriceExpression==null" >
+          item_price = #{record.itemPrice,jdbcType=VARCHAR},
+        </if>
+        <if test="record.itemPriceExpression!=null" >
+          item_price = ${record.itemPriceExpression},
+        </if>
+        <if test="record.content!=null and record.contentExpression==null" >
+          content = #{record.content,jdbcType=VARCHAR},
+        </if>
+        <if test="record.contentExpression!=null" >
+          content = ${record.contentExpression},
+        </if>
+        <if test="record.reply!=null and record.replyExpression==null" >
+          reply = #{record.reply,jdbcType=VARCHAR},
+        </if>
+        <if test="record.replyExpression!=null" >
+          reply = ${record.replyExpression},
+        </if>
+        <if test="record.numIid!=null and record.numIidExpression==null" >
+          num_iid = #{record.numIid,jdbcType=BIGINT},
+        </if>
+        <if test="record.numIidExpression!=null" >
+          num_iid = ${record.numIidExpression},
+        </if>
+        <if test="record.validScore!=null and record.validScoreExpression==null" >
+          valid_score = #{record.validScore,jdbcType=BIT},
+        </if>
+        <if test="record.validScoreExpression!=null" >
+          valid_score = ${record.validScoreExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update comment_taobao
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=BIGINT},
+      shop_id = #{record.shopId,jdbcType=BIGINT},
+      user_id_tb = #{record.userIdTb,jdbcType=BIGINT},
+      comment_id_tb = #{record.commentIdTb,jdbcType=BIGINT},
+      tid = #{record.tid,jdbcType=BIGINT},
+      oid = #{record.oid,jdbcType=BIGINT},
+      role = #{record.role,jdbcType=VARCHAR},
+      nick = #{record.nick,jdbcType=VARCHAR},
+      result = #{record.result,jdbcType=VARCHAR},
+      created = #{record.created,jdbcType=TIMESTAMP},
+      rated_nick = #{record.ratedNick,jdbcType=VARCHAR},
+      item_title = #{record.itemTitle,jdbcType=VARCHAR},
+      item_price = #{record.itemPrice,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=VARCHAR},
+      reply = #{record.reply,jdbcType=VARCHAR},
+      num_iid = #{record.numIid,jdbcType=BIGINT},
+      valid_score = #{record.validScore,jdbcType=BIT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.comment.CommentTaoBao" >
+    update comment_taobao
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.shopId!=null and record.shopIdExpression==null" >
+          shop_id = #{record.shopId,jdbcType=BIGINT},
+        </if>
+        <if test="record.shopIdExpression!=null" >
+          shop_id = ${record.shopIdExpression},
+        </if>
+        <if test="record.userIdTb!=null and record.userIdTbExpression==null" >
+          user_id_tb = #{record.userIdTb,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdTbExpression!=null" >
+          user_id_tb = ${record.userIdTbExpression},
+        </if>
+        <if test="record.commentIdTb!=null and record.commentIdTbExpression==null" >
+          comment_id_tb = #{record.commentIdTb,jdbcType=BIGINT},
+        </if>
+        <if test="record.commentIdTbExpression!=null" >
+          comment_id_tb = ${record.commentIdTbExpression},
+        </if>
+        <if test="record.tid!=null and record.tidExpression==null" >
+          tid = #{record.tid,jdbcType=BIGINT},
+        </if>
+        <if test="record.tidExpression!=null" >
+          tid = ${record.tidExpression},
+        </if>
+        <if test="record.oid!=null and record.oidExpression==null" >
+          oid = #{record.oid,jdbcType=BIGINT},
+        </if>
+        <if test="record.oidExpression!=null" >
+          oid = ${record.oidExpression},
+        </if>
+        <if test="record.role!=null and record.roleExpression==null" >
+          role = #{record.role,jdbcType=VARCHAR},
+        </if>
+        <if test="record.roleExpression!=null" >
+          role = ${record.roleExpression},
+        </if>
+        <if test="record.nick!=null and record.nickExpression==null" >
+          nick = #{record.nick,jdbcType=VARCHAR},
+        </if>
+        <if test="record.nickExpression!=null" >
+          nick = ${record.nickExpression},
+        </if>
+        <if test="record.result!=null and record.resultExpression==null" >
+          result = #{record.result,jdbcType=VARCHAR},
+        </if>
+        <if test="record.resultExpression!=null" >
+          result = ${record.resultExpression},
+        </if>
+        <if test="record.created!=null and record.createdExpression==null" >
+          created = #{record.created,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.createdExpression!=null" >
+          created = ${record.createdExpression},
+        </if>
+        <if test="record.ratedNick!=null and record.ratedNickExpression==null" >
+          rated_nick = #{record.ratedNick,jdbcType=VARCHAR},
+        </if>
+        <if test="record.ratedNickExpression!=null" >
+          rated_nick = ${record.ratedNickExpression},
+        </if>
+        <if test="record.itemTitle!=null and record.itemTitleExpression==null" >
+          item_title = #{record.itemTitle,jdbcType=VARCHAR},
+        </if>
+        <if test="record.itemTitleExpression!=null" >
+          item_title = ${record.itemTitleExpression},
+        </if>
+        <if test="record.itemPrice!=null and record.itemPriceExpression==null" >
+          item_price = #{record.itemPrice,jdbcType=VARCHAR},
+        </if>
+        <if test="record.itemPriceExpression!=null" >
+          item_price = ${record.itemPriceExpression},
+        </if>
+        <if test="record.content!=null and record.contentExpression==null" >
+          content = #{record.content,jdbcType=VARCHAR},
+        </if>
+        <if test="record.contentExpression!=null" >
+          content = ${record.contentExpression},
+        </if>
+        <if test="record.reply!=null and record.replyExpression==null" >
+          reply = #{record.reply,jdbcType=VARCHAR},
+        </if>
+        <if test="record.replyExpression!=null" >
+          reply = ${record.replyExpression},
+        </if>
+        <if test="record.numIid!=null and record.numIidExpression==null" >
+          num_iid = #{record.numIid,jdbcType=BIGINT},
+        </if>
+        <if test="record.numIidExpression!=null" >
+          num_iid = ${record.numIidExpression},
+        </if>
+        <if test="record.validScore!=null and record.validScoreExpression==null" >
+          valid_score = #{record.validScore,jdbcType=BIT},
+        </if>
+        <if test="record.validScoreExpression!=null" >
+          valid_score = ${record.validScoreExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.comment.CommentTaoBao" >
+    update comment_taobao
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=BIGINT},
+      shop_id = #{shopId,jdbcType=BIGINT},
+      user_id_tb = #{userIdTb,jdbcType=BIGINT},
+      comment_id_tb = #{commentIdTb,jdbcType=BIGINT},
+      tid = #{tid,jdbcType=BIGINT},
+      oid = #{oid,jdbcType=BIGINT},
+      role = #{role,jdbcType=VARCHAR},
+      nick = #{nick,jdbcType=VARCHAR},
+      result = #{result,jdbcType=VARCHAR},
+      created = #{created,jdbcType=TIMESTAMP},
+      rated_nick = #{ratedNick,jdbcType=VARCHAR},
+      item_title = #{itemTitle,jdbcType=VARCHAR},
+      item_price = #{itemPrice,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      reply = #{reply,jdbcType=VARCHAR},
+      num_iid = #{numIid,jdbcType=BIGINT},
+      valid_score = #{validScore,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

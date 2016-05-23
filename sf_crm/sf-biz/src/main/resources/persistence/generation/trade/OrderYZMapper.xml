@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.trade.OrderYZMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.trade.OrderYZ" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_shop_id" property="maxShopId" jdbcType="BIGINT" />
+    <result column="min_shop_id" property="minShopId" jdbcType="BIGINT" />
+    <result column="avg_shop_id" property="avgShopId" jdbcType="BIGINT" />
+    <result column="count_shop_id" property="countShopId" jdbcType="BIGINT" />
+    <result column="sum_shop_id" property="sumShopId" jdbcType="BIGINT" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="max_item_type" property="maxItemType" jdbcType="BIGINT" />
+    <result column="min_item_type" property="minItemType" jdbcType="BIGINT" />
+    <result column="avg_item_type" property="avgItemType" jdbcType="BIGINT" />
+    <result column="count_item_type" property="countItemType" jdbcType="BIGINT" />
+    <result column="sum_item_type" property="sumItemType" jdbcType="INTEGER" />
+    <result column="max_sku_properties_name" property="maxSkuPropertiesName" jdbcType="BIGINT" />
+    <result column="min_sku_properties_name" property="minSkuPropertiesName" jdbcType="BIGINT" />
+    <result column="avg_sku_properties_name" property="avgSkuPropertiesName" jdbcType="BIGINT" />
+    <result column="count_sku_properties_name" property="countSkuPropertiesName" jdbcType="BIGINT" />
+    <result column="sum_sku_properties_name" property="sumSkuPropertiesName" jdbcType="VARCHAR" />
+    <result column="max_payment" property="maxPayment" jdbcType="BIGINT" />
+    <result column="min_payment" property="minPayment" jdbcType="BIGINT" />
+    <result column="avg_payment" property="avgPayment" jdbcType="BIGINT" />
+    <result column="count_payment" property="countPayment" jdbcType="BIGINT" />
+    <result column="sum_payment" property="sumPayment" jdbcType="DECIMAL" />
+    <result column="max_discount_fee" property="maxDiscountFee" jdbcType="BIGINT" />
+    <result column="min_discount_fee" property="minDiscountFee" jdbcType="BIGINT" />
+    <result column="avg_discount_fee" property="avgDiscountFee" jdbcType="BIGINT" />
+    <result column="count_discount_fee" property="countDiscountFee" jdbcType="BIGINT" />
+    <result column="sum_discount_fee" property="sumDiscountFee" jdbcType="DECIMAL" />
+    <result column="max_total_fee" property="maxTotalFee" jdbcType="BIGINT" />
+    <result column="min_total_fee" property="minTotalFee" jdbcType="BIGINT" />
+    <result column="avg_total_fee" property="avgTotalFee" jdbcType="BIGINT" />
+    <result column="count_total_fee" property="countTotalFee" jdbcType="BIGINT" />
+    <result column="sum_total_fee" property="sumTotalFee" jdbcType="DECIMAL" />
+    <result column="max_price" property="maxPrice" jdbcType="BIGINT" />
+    <result column="min_price" property="minPrice" jdbcType="BIGINT" />
+    <result column="avg_price" property="avgPrice" jdbcType="BIGINT" />
+    <result column="count_price" property="countPrice" jdbcType="BIGINT" />
+    <result column="sum_price" property="sumPrice" jdbcType="VARCHAR" />
+    <result column="max_seller_nick" property="maxSellerNick" jdbcType="BIGINT" />
+    <result column="min_seller_nick" property="minSellerNick" jdbcType="BIGINT" />
+    <result column="avg_seller_nick" property="avgSellerNick" jdbcType="BIGINT" />
+    <result column="count_seller_nick" property="countSellerNick" jdbcType="BIGINT" />
+    <result column="sum_seller_nick" property="sumSellerNick" jdbcType="VARCHAR" />
+    <result column="max_title" property="maxTitle" jdbcType="BIGINT" />
+    <result column="min_title" property="minTitle" jdbcType="BIGINT" />
+    <result column="avg_title" property="avgTitle" jdbcType="BIGINT" />
+    <result column="count_title" property="countTitle" jdbcType="BIGINT" />
+    <result column="sum_title" property="sumTitle" jdbcType="VARCHAR" />
+    <result column="max_outer_item_id" property="maxOuterItemId" jdbcType="BIGINT" />
+    <result column="min_outer_item_id" property="minOuterItemId" jdbcType="BIGINT" />
+    <result column="avg_outer_item_id" property="avgOuterItemId" jdbcType="BIGINT" />
+    <result column="count_outer_item_id" property="countOuterItemId" jdbcType="BIGINT" />
+    <result column="sum_outer_item_id" property="sumOuterItemId" jdbcType="VARCHAR" />
+    <result column="max_user_id_yz" property="maxUserIdYz" jdbcType="BIGINT" />
+    <result column="min_user_id_yz" property="minUserIdYz" jdbcType="BIGINT" />
+    <result column="avg_user_id_yz" property="avgUserIdYz" jdbcType="BIGINT" />
+    <result column="count_user_id_yz" property="countUserIdYz" jdbcType="BIGINT" />
+    <result column="sum_user_id_yz" property="sumUserIdYz" jdbcType="BIGINT" />
+    <result column="max_outer_sku_id" property="maxOuterSkuId" jdbcType="BIGINT" />
+    <result column="min_outer_sku_id" property="minOuterSkuId" jdbcType="BIGINT" />
+    <result column="avg_outer_sku_id" property="avgOuterSkuId" jdbcType="BIGINT" />
+    <result column="count_outer_sku_id" property="countOuterSkuId" jdbcType="BIGINT" />
+    <result column="sum_outer_sku_id" property="sumOuterSkuId" jdbcType="VARCHAR" />
+    <result column="max_num" property="maxNum" jdbcType="BIGINT" />
+    <result column="min_num" property="minNum" jdbcType="BIGINT" />
+    <result column="avg_num" property="avgNum" jdbcType="BIGINT" />
+    <result column="count_num" property="countNum" jdbcType="BIGINT" />
+    <result column="sum_num" property="sumNum" jdbcType="INTEGER" />
+    <result column="max_sku_unique_code" property="maxSkuUniqueCode" jdbcType="BIGINT" />
+    <result column="min_sku_unique_code" property="minSkuUniqueCode" jdbcType="BIGINT" />
+    <result column="avg_sku_unique_code" property="avgSkuUniqueCode" jdbcType="BIGINT" />
+    <result column="count_sku_unique_code" property="countSkuUniqueCode" jdbcType="BIGINT" />
+    <result column="sum_sku_unique_code" property="sumSkuUniqueCode" jdbcType="VARCHAR" />
+    <result column="max_sku_id" property="maxSkuId" jdbcType="BIGINT" />
+    <result column="min_sku_id" property="minSkuId" jdbcType="BIGINT" />
+    <result column="avg_sku_id" property="avgSkuId" jdbcType="BIGINT" />
+    <result column="count_sku_id" property="countSkuId" jdbcType="BIGINT" />
+    <result column="sum_sku_id" property="sumSkuId" jdbcType="BIGINT" />
+    <result column="max_tid" property="maxTid" jdbcType="BIGINT" />
+    <result column="min_tid" property="minTid" jdbcType="BIGINT" />
+    <result column="avg_tid" property="avgTid" jdbcType="BIGINT" />
+    <result column="count_tid" property="countTid" jdbcType="BIGINT" />
+    <result column="sum_tid" property="sumTid" jdbcType="VARCHAR" />
+    <result column="max_oid" property="maxOid" jdbcType="BIGINT" />
+    <result column="min_oid" property="minOid" jdbcType="BIGINT" />
+    <result column="avg_oid" property="avgOid" jdbcType="BIGINT" />
+    <result column="count_oid" property="countOid" jdbcType="BIGINT" />
+    <result column="sum_oid" property="sumOid" jdbcType="BIGINT" />
+    <result column="max_num_iid" property="maxNumIid" jdbcType="BIGINT" />
+    <result column="min_num_iid" property="minNumIid" jdbcType="BIGINT" />
+    <result column="avg_num_iid" property="avgNumIid" jdbcType="BIGINT" />
+    <result column="count_num_iid" property="countNumIid" jdbcType="BIGINT" />
+    <result column="sum_num_iid" property="sumNumIid" jdbcType="BIGINT" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="num_iid" property="numIid" jdbcType="BIGINT" />
+    <result column="oid" property="oid" jdbcType="BIGINT" />
+    <result column="tid" property="tid" jdbcType="VARCHAR" />
+    <result column="sku_id" property="skuId" jdbcType="BIGINT" />
+    <result column="sku_unique_code" property="skuUniqueCode" jdbcType="VARCHAR" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="outer_sku_id" property="outerSkuId" jdbcType="VARCHAR" />
+    <result column="user_id_yz" property="userIdYz" jdbcType="BIGINT" />
+    <result column="outer_item_id" property="outerItemId" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="seller_nick" property="sellerNick" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="VARCHAR" />
+    <result column="total_fee" property="totalFee" jdbcType="DECIMAL" />
+    <result column="discount_fee" property="discountFee" jdbcType="DECIMAL" />
+    <result column="payment" property="payment" jdbcType="DECIMAL" />
+    <result column="sku_properties_name" property="skuPropertiesName" jdbcType="VARCHAR" />
+    <result column="item_type" property="itemType" jdbcType="INTEGER" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+    <result column="shop_id" property="shopId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, is_deleted, num_iid, oid, tid, sku_id, sku_unique_code, 
+    num, outer_sku_id, user_id_yz, outer_item_id, title, seller_nick, price, total_fee, 
+    discount_fee, payment, sku_properties_name, item_type, seller_id, shop_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.trade.OrderYZExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from order_yz
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from order_yz
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update order_yz
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.trade.OrderYZExample" >
+    update order_yz
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.trade.OrderYZ" useGeneratedKeys="true" keyProperty="id" >
+    insert into order_yz (id, gmt_created, gmt_modified, 
+      is_deleted, num_iid, oid, 
+      tid, sku_id, sku_unique_code, 
+      num, outer_sku_id, user_id_yz, 
+      outer_item_id, title, seller_nick, 
+      price, total_fee, discount_fee, 
+      payment, sku_properties_name, item_type, 
+      seller_id, shop_id)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{isDeleted,jdbcType=VARCHAR}, #{numIid,jdbcType=BIGINT}, #{oid,jdbcType=BIGINT}, 
+      #{tid,jdbcType=VARCHAR}, #{skuId,jdbcType=BIGINT}, #{skuUniqueCode,jdbcType=VARCHAR}, 
+      #{num,jdbcType=INTEGER}, #{outerSkuId,jdbcType=VARCHAR}, #{userIdYz,jdbcType=BIGINT}, 
+      #{outerItemId,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{sellerNick,jdbcType=VARCHAR}, 
+      #{price,jdbcType=VARCHAR}, #{totalFee,jdbcType=DECIMAL}, #{discountFee,jdbcType=DECIMAL}, 
+      #{payment,jdbcType=DECIMAL}, #{skuPropertiesName,jdbcType=VARCHAR}, #{itemType,jdbcType=INTEGER}, 
+      #{sellerId,jdbcType=BIGINT}, #{shopId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.trade.OrderYZ" useGeneratedKeys="true" keyProperty="id" >
+    insert into order_yz
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="numIid != null" >
+        num_iid,
+      </if>
+      <if test="oid != null" >
+        oid,
+      </if>
+      <if test="tid != null" >
+        tid,
+      </if>
+      <if test="skuId != null" >
+        sku_id,
+      </if>
+      <if test="skuUniqueCode != null" >
+        sku_unique_code,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="outerSkuId != null" >
+        outer_sku_id,
+      </if>
+      <if test="userIdYz != null" >
+        user_id_yz,
+      </if>
+      <if test="outerItemId != null" >
+        outer_item_id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="sellerNick != null" >
+        seller_nick,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="totalFee != null" >
+        total_fee,
+      </if>
+      <if test="discountFee != null" >
+        discount_fee,
+      </if>
+      <if test="payment != null" >
+        payment,
+      </if>
+      <if test="skuPropertiesName != null" >
+        sku_properties_name,
+      </if>
+      <if test="itemType != null" >
+        item_type,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="shopId != null" >
+        shop_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="numIid != null" >
+        #{numIid,jdbcType=BIGINT},
+      </if>
+      <if test="oid != null" >
+        #{oid,jdbcType=BIGINT},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=VARCHAR},
+      </if>
+      <if test="skuId != null" >
+        #{skuId,jdbcType=BIGINT},
+      </if>
+      <if test="skuUniqueCode != null" >
+        #{skuUniqueCode,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="outerSkuId != null" >
+        #{outerSkuId,jdbcType=VARCHAR},
+      </if>
+      <if test="userIdYz != null" >
+        #{userIdYz,jdbcType=BIGINT},
+      </if>
+      <if test="outerItemId != null" >
+        #{outerItemId,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerNick != null" >
+        #{sellerNick,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="totalFee != null" >
+        #{totalFee,jdbcType=DECIMAL},
+      </if>
+      <if test="discountFee != null" >
+        #{discountFee,jdbcType=DECIMAL},
+      </if>
+      <if test="payment != null" >
+        #{payment,jdbcType=DECIMAL},
+      </if>
+      <if test="skuPropertiesName != null" >
+        #{skuPropertiesName,jdbcType=VARCHAR},
+      </if>
+      <if test="itemType != null" >
+        #{itemType,jdbcType=INTEGER},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+      <if test="shopId != null" >
+        #{shopId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.trade.OrderYZExample" resultType="java.lang.Integer" >
+    select count(*) from order_yz
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update order_yz
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.numIid!=null and record.numIidExpression==null" >
+          num_iid = #{record.numIid,jdbcType=BIGINT},
+        </if>
+        <if test="record.numIidExpression!=null" >
+          num_iid = ${record.numIidExpression},
+        </if>
+        <if test="record.oid!=null and record.oidExpression==null" >
+          oid = #{record.oid,jdbcType=BIGINT},
+        </if>
+        <if test="record.oidExpression!=null" >
+          oid = ${record.oidExpression},
+        </if>
+        <if test="record.tid!=null and record.tidExpression==null" >
+          tid = #{record.tid,jdbcType=VARCHAR},
+        </if>
+        <if test="record.tidExpression!=null" >
+          tid = ${record.tidExpression},
+        </if>
+        <if test="record.skuId!=null and record.skuIdExpression==null" >
+          sku_id = #{record.skuId,jdbcType=BIGINT},
+        </if>
+        <if test="record.skuIdExpression!=null" >
+          sku_id = ${record.skuIdExpression},
+        </if>
+        <if test="record.skuUniqueCode!=null and record.skuUniqueCodeExpression==null" >
+          sku_unique_code = #{record.skuUniqueCode,jdbcType=VARCHAR},
+        </if>
+        <if test="record.skuUniqueCodeExpression!=null" >
+          sku_unique_code = ${record.skuUniqueCodeExpression},
+        </if>
+        <if test="record.num!=null and record.numExpression==null" >
+          num = #{record.num,jdbcType=INTEGER},
+        </if>
+        <if test="record.numExpression!=null" >
+          num = ${record.numExpression},
+        </if>
+        <if test="record.outerSkuId!=null and record.outerSkuIdExpression==null" >
+          outer_sku_id = #{record.outerSkuId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.outerSkuIdExpression!=null" >
+          outer_sku_id = ${record.outerSkuIdExpression},
+        </if>
+        <if test="record.userIdYz!=null and record.userIdYzExpression==null" >
+          user_id_yz = #{record.userIdYz,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdYzExpression!=null" >
+          user_id_yz = ${record.userIdYzExpression},
+        </if>
+        <if test="record.outerItemId!=null and record.outerItemIdExpression==null" >
+          outer_item_id = #{record.outerItemId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.outerItemIdExpression!=null" >
+          outer_item_id = ${record.outerItemIdExpression},
+        </if>
+        <if test="record.title!=null and record.titleExpression==null" >
+          title = #{record.title,jdbcType=VARCHAR},
+        </if>
+        <if test="record.titleExpression!=null" >
+          title = ${record.titleExpression},
+        </if>
+        <if test="record.sellerNick!=null and record.sellerNickExpression==null" >
+          seller_nick = #{record.sellerNick,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerNickExpression!=null" >
+          seller_nick = ${record.sellerNickExpression},
+        </if>
+        <if test="record.price!=null and record.priceExpression==null" >
+          price = #{record.price,jdbcType=VARCHAR},
+        </if>
+        <if test="record.priceExpression!=null" >
+          price = ${record.priceExpression},
+        </if>
+        <if test="record.totalFee!=null and record.totalFeeExpression==null" >
+          total_fee = #{record.totalFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.totalFeeExpression!=null" >
+          total_fee = ${record.totalFeeExpression},
+        </if>
+        <if test="record.discountFee!=null and record.discountFeeExpression==null" >
+          discount_fee = #{record.discountFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.discountFeeExpression!=null" >
+          discount_fee = ${record.discountFeeExpression},
+        </if>
+        <if test="record.payment!=null and record.paymentExpression==null" >
+          payment = #{record.payment,jdbcType=DECIMAL},
+        </if>
+        <if test="record.paymentExpression!=null" >
+          payment = ${record.paymentExpression},
+        </if>
+        <if test="record.skuPropertiesName!=null and record.skuPropertiesNameExpression==null" >
+          sku_properties_name = #{record.skuPropertiesName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.skuPropertiesNameExpression!=null" >
+          sku_properties_name = ${record.skuPropertiesNameExpression},
+        </if>
+        <if test="record.itemType!=null and record.itemTypeExpression==null" >
+          item_type = #{record.itemType,jdbcType=INTEGER},
+        </if>
+        <if test="record.itemTypeExpression!=null" >
+          item_type = ${record.itemTypeExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.shopId!=null and record.shopIdExpression==null" >
+          shop_id = #{record.shopId,jdbcType=BIGINT},
+        </if>
+        <if test="record.shopIdExpression!=null" >
+          shop_id = ${record.shopIdExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update order_yz
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      num_iid = #{record.numIid,jdbcType=BIGINT},
+      oid = #{record.oid,jdbcType=BIGINT},
+      tid = #{record.tid,jdbcType=VARCHAR},
+      sku_id = #{record.skuId,jdbcType=BIGINT},
+      sku_unique_code = #{record.skuUniqueCode,jdbcType=VARCHAR},
+      num = #{record.num,jdbcType=INTEGER},
+      outer_sku_id = #{record.outerSkuId,jdbcType=VARCHAR},
+      user_id_yz = #{record.userIdYz,jdbcType=BIGINT},
+      outer_item_id = #{record.outerItemId,jdbcType=VARCHAR},
+      title = #{record.title,jdbcType=VARCHAR},
+      seller_nick = #{record.sellerNick,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=VARCHAR},
+      total_fee = #{record.totalFee,jdbcType=DECIMAL},
+      discount_fee = #{record.discountFee,jdbcType=DECIMAL},
+      payment = #{record.payment,jdbcType=DECIMAL},
+      sku_properties_name = #{record.skuPropertiesName,jdbcType=VARCHAR},
+      item_type = #{record.itemType,jdbcType=INTEGER},
+      seller_id = #{record.sellerId,jdbcType=BIGINT},
+      shop_id = #{record.shopId,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.trade.OrderYZ" >
+    update order_yz
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.numIid!=null and record.numIidExpression==null" >
+          num_iid = #{record.numIid,jdbcType=BIGINT},
+        </if>
+        <if test="record.numIidExpression!=null" >
+          num_iid = ${record.numIidExpression},
+        </if>
+        <if test="record.oid!=null and record.oidExpression==null" >
+          oid = #{record.oid,jdbcType=BIGINT},
+        </if>
+        <if test="record.oidExpression!=null" >
+          oid = ${record.oidExpression},
+        </if>
+        <if test="record.tid!=null and record.tidExpression==null" >
+          tid = #{record.tid,jdbcType=VARCHAR},
+        </if>
+        <if test="record.tidExpression!=null" >
+          tid = ${record.tidExpression},
+        </if>
+        <if test="record.skuId!=null and record.skuIdExpression==null" >
+          sku_id = #{record.skuId,jdbcType=BIGINT},
+        </if>
+        <if test="record.skuIdExpression!=null" >
+          sku_id = ${record.skuIdExpression},
+        </if>
+        <if test="record.skuUniqueCode!=null and record.skuUniqueCodeExpression==null" >
+          sku_unique_code = #{record.skuUniqueCode,jdbcType=VARCHAR},
+        </if>
+        <if test="record.skuUniqueCodeExpression!=null" >
+          sku_unique_code = ${record.skuUniqueCodeExpression},
+        </if>
+        <if test="record.num!=null and record.numExpression==null" >
+          num = #{record.num,jdbcType=INTEGER},
+        </if>
+        <if test="record.numExpression!=null" >
+          num = ${record.numExpression},
+        </if>
+        <if test="record.outerSkuId!=null and record.outerSkuIdExpression==null" >
+          outer_sku_id = #{record.outerSkuId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.outerSkuIdExpression!=null" >
+          outer_sku_id = ${record.outerSkuIdExpression},
+        </if>
+        <if test="record.userIdYz!=null and record.userIdYzExpression==null" >
+          user_id_yz = #{record.userIdYz,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdYzExpression!=null" >
+          user_id_yz = ${record.userIdYzExpression},
+        </if>
+        <if test="record.outerItemId!=null and record.outerItemIdExpression==null" >
+          outer_item_id = #{record.outerItemId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.outerItemIdExpression!=null" >
+          outer_item_id = ${record.outerItemIdExpression},
+        </if>
+        <if test="record.title!=null and record.titleExpression==null" >
+          title = #{record.title,jdbcType=VARCHAR},
+        </if>
+        <if test="record.titleExpression!=null" >
+          title = ${record.titleExpression},
+        </if>
+        <if test="record.sellerNick!=null and record.sellerNickExpression==null" >
+          seller_nick = #{record.sellerNick,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerNickExpression!=null" >
+          seller_nick = ${record.sellerNickExpression},
+        </if>
+        <if test="record.price!=null and record.priceExpression==null" >
+          price = #{record.price,jdbcType=VARCHAR},
+        </if>
+        <if test="record.priceExpression!=null" >
+          price = ${record.priceExpression},
+        </if>
+        <if test="record.totalFee!=null and record.totalFeeExpression==null" >
+          total_fee = #{record.totalFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.totalFeeExpression!=null" >
+          total_fee = ${record.totalFeeExpression},
+        </if>
+        <if test="record.discountFee!=null and record.discountFeeExpression==null" >
+          discount_fee = #{record.discountFee,jdbcType=DECIMAL},
+        </if>
+        <if test="record.discountFeeExpression!=null" >
+          discount_fee = ${record.discountFeeExpression},
+        </if>
+        <if test="record.payment!=null and record.paymentExpression==null" >
+          payment = #{record.payment,jdbcType=DECIMAL},
+        </if>
+        <if test="record.paymentExpression!=null" >
+          payment = ${record.paymentExpression},
+        </if>
+        <if test="record.skuPropertiesName!=null and record.skuPropertiesNameExpression==null" >
+          sku_properties_name = #{record.skuPropertiesName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.skuPropertiesNameExpression!=null" >
+          sku_properties_name = ${record.skuPropertiesNameExpression},
+        </if>
+        <if test="record.itemType!=null and record.itemTypeExpression==null" >
+          item_type = #{record.itemType,jdbcType=INTEGER},
+        </if>
+        <if test="record.itemTypeExpression!=null" >
+          item_type = ${record.itemTypeExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.shopId!=null and record.shopIdExpression==null" >
+          shop_id = #{record.shopId,jdbcType=BIGINT},
+        </if>
+        <if test="record.shopIdExpression!=null" >
+          shop_id = ${record.shopIdExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.trade.OrderYZ" >
+    update order_yz
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      num_iid = #{numIid,jdbcType=BIGINT},
+      oid = #{oid,jdbcType=BIGINT},
+      tid = #{tid,jdbcType=VARCHAR},
+      sku_id = #{skuId,jdbcType=BIGINT},
+      sku_unique_code = #{skuUniqueCode,jdbcType=VARCHAR},
+      num = #{num,jdbcType=INTEGER},
+      outer_sku_id = #{outerSkuId,jdbcType=VARCHAR},
+      user_id_yz = #{userIdYz,jdbcType=BIGINT},
+      outer_item_id = #{outerItemId,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      seller_nick = #{sellerNick,jdbcType=VARCHAR},
+      price = #{price,jdbcType=VARCHAR},
+      total_fee = #{totalFee,jdbcType=DECIMAL},
+      discount_fee = #{discountFee,jdbcType=DECIMAL},
+      payment = #{payment,jdbcType=DECIMAL},
+      sku_properties_name = #{skuPropertiesName,jdbcType=VARCHAR},
+      item_type = #{itemType,jdbcType=INTEGER},
+      seller_id = #{sellerId,jdbcType=BIGINT},
+      shop_id = #{shopId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

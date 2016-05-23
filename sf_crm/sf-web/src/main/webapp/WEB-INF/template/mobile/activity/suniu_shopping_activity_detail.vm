@@ -1,0 +1,162 @@
+#set($layout = "/layout/mobileBlank.vm")
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <title>详情</title>
+    <link rel="stylesheet" type="text/css" href="../skin/css/style.css">
+</head>
+<body>
+<style type="text/css">
+
+    #yzmWindow .box .window{
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        margin-top: -135px;
+        margin-left: -150px;
+        background-color:#F0F0F0;
+        font-size: 16px;
+        color: #666;
+        text-align: center;
+    }
+
+    .describej .form-grounp .label.title {
+        font-size: 14px;
+        color: #666;
+    }
+
+</style>
+<div class="u-body">
+    <div class="u-block describej">
+        <div class="form-grounp">
+            <label class="label title">活动标题</label>
+            <div class="label-info">
+                新品上新优惠来袭，属于你的专享
+            </div>
+        </div>
+        <div class="form-grounp">
+            <label class="label title">商品名称</label>
+            <div class="label-info">
+                2014春季新款儿童卫衣两件套
+            </div>
+        </div>
+        <div class="form-grounp">
+            <label class="label title" style="border-right: none">商品图片</label>
+            <div class="label-info">
+                <img class="goods-img" src="../skin/images/goods.png">
+            </div>
+        </div>
+        <div class="form-grounp">
+            <label class="label title">商品链接</label>
+            <div class="label-info" style="width: 100%">https://item.taobao.com/item.htm?spm=a219r.lm894.14.1.tdkg2H&id=522084792633&ns=1&abbucket=8#detail</div>
+        </div>
+        <div class="form-grounp">
+            <label class="label title">店铺价格</label>
+            <div class="label-info">99</div>
+        </div>
+        <div class="form-grounp">
+            <label class="label title">限量数量</label>
+            <div class="label-info">天猫店</div>
+        </div>
+        <div class="form-grounp">
+            <label class="label title">商品来自</label>
+            <div class="label-info">200件</div>
+        </div>
+        <div class="form-grounp noBorder">
+            <label class="label title">店铺名称</label>
+            <div class="label-info">yimishu</div>
+        </div>
+        <div class="form-grounp noBorder">
+            <label class="label title">活动时间</label>
+            <div class="label-info">截止 2015-02-04 23:59:33</div>
+        </div>
+    </div>
+    <div class="robPack">
+
+        <div class="item title">
+            抢红包后再购买，红包总金额：3000元
+        </div>
+
+        <div class="item rob" >
+            <a href="javascript:getHongbao()" id="getHongbao">抢现金红包¥15</a>
+            <a href="javascript:"  style="margin-left: 20%">立即购买</a>
+        </div>
+
+    </div>
+
+    <div class="u-block describejLi">
+        <marquee direction="up" scrollamount=2 vspace="0" hspace="0" height="200px">
+        <div class="info-li">
+            <div class="item">
+                <img src="../skin/images/user.png" />董小姐 ----13点领取<span class="u-fontAtv">50元</span>红包，未购买冻结中
+            </div>
+            <div class="item">
+                <img src="../skin/images/user.png" />董小姐 ----13点领取<span class="u-fontAtv">50元</span>红包，未购买冻结中
+            </div>
+            <div class="item">
+                <img src="../skin/images/user.png" />董小姐 ----13点领取<span class="u-fontAtv">50元</span>红包，未购买冻结中
+            </div>
+            <div class="item">
+                <img src="../skin/images/user.png" />董小姐 ----13点领取<span class="u-fontAtv">50元</span>红包，未购买冻结中
+            </div>
+        </div>
+            </marquee>
+    </div>
+
+    <div class="u-block parameter mg-bottom50">
+        <div class="form-grounp title">
+            <div class="label-info  bg-right"><span class="icon"></span>详细介绍</div>
+        </div>
+        <div class="pInfo">
+            <div class="item">
+                <span>1</span>
+                <p>针对粉丝的活动与操作指南包括如何提现，收货确认成功之后24小时内可以提现</p>
+            </div>
+            <div class="item">
+                <span>2</span>
+                <p>商品介绍</p>
+            </div>
+            <div class="item">
+                <span>3</span>
+                <p>加入社区二维码</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="yzmWindow">
+    <div class="box">
+        <div class="window">
+            <h2 id="result" style="font-size: 1.2em">恭喜你获得15元现金购物红包<i>!</i></h2>
+            到店铺购买以上指定商品，确认收货成功之后
+            24小时内，红包自动解冻。
+            <div >
+                <a href="javascript:" style="float: left;width: 40%;margin:10% 5%">立即购买</a>
+                <a href="javascript:"  style="float: right;width:40%;margin:10% 5%">查询余额</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+    function  getHongbao(){
+        $('#yzmWindow').fadeIn();
+    }
+
+    $('#yzmWindow .box .window a').click(function () {
+        $(this).parent().parent().parent().hide();
+//        $('#phonenumber').focus();
+//        $('#phonenumber').select();
+    });
+
+</script>
+</body>
+</html>

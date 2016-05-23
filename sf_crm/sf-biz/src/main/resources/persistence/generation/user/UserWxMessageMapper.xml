@@ -1,0 +1,866 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.user.UserWxMessageMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.user.UserWxMessage" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="max_pic_url" property="maxPicUrl" jdbcType="BIGINT" />
+    <result column="min_pic_url" property="minPicUrl" jdbcType="BIGINT" />
+    <result column="avg_pic_url" property="avgPicUrl" jdbcType="BIGINT" />
+    <result column="count_pic_url" property="countPicUrl" jdbcType="BIGINT" />
+    <result column="sum_pic_url" property="sumPicUrl" jdbcType="VARCHAR" />
+    <result column="max_url" property="maxUrl" jdbcType="BIGINT" />
+    <result column="min_url" property="minUrl" jdbcType="BIGINT" />
+    <result column="avg_url" property="avgUrl" jdbcType="BIGINT" />
+    <result column="count_url" property="countUrl" jdbcType="BIGINT" />
+    <result column="sum_url" property="sumUrl" jdbcType="VARCHAR" />
+    <result column="max_description" property="maxDescription" jdbcType="BIGINT" />
+    <result column="min_description" property="minDescription" jdbcType="BIGINT" />
+    <result column="avg_description" property="avgDescription" jdbcType="BIGINT" />
+    <result column="count_description" property="countDescription" jdbcType="BIGINT" />
+    <result column="sum_description" property="sumDescription" jdbcType="VARCHAR" />
+    <result column="max_title" property="maxTitle" jdbcType="BIGINT" />
+    <result column="min_title" property="minTitle" jdbcType="BIGINT" />
+    <result column="avg_title" property="avgTitle" jdbcType="BIGINT" />
+    <result column="count_title" property="countTitle" jdbcType="BIGINT" />
+    <result column="sum_title" property="sumTitle" jdbcType="VARCHAR" />
+    <result column="max_media_id" property="maxMediaId" jdbcType="BIGINT" />
+    <result column="min_media_id" property="minMediaId" jdbcType="BIGINT" />
+    <result column="avg_media_id" property="avgMediaId" jdbcType="BIGINT" />
+    <result column="count_media_id" property="countMediaId" jdbcType="BIGINT" />
+    <result column="sum_media_id" property="sumMediaId" jdbcType="VARCHAR" />
+    <result column="max_content" property="maxContent" jdbcType="BIGINT" />
+    <result column="min_content" property="minContent" jdbcType="BIGINT" />
+    <result column="avg_content" property="avgContent" jdbcType="BIGINT" />
+    <result column="count_content" property="countContent" jdbcType="BIGINT" />
+    <result column="sum_content" property="sumContent" jdbcType="VARCHAR" />
+    <result column="max_create_time" property="maxCreateTime" jdbcType="BIGINT" />
+    <result column="min_create_time" property="minCreateTime" jdbcType="BIGINT" />
+    <result column="avg_create_time" property="avgCreateTime" jdbcType="BIGINT" />
+    <result column="count_create_time" property="countCreateTime" jdbcType="BIGINT" />
+    <result column="sum_create_time" property="sumCreateTime" jdbcType="TIMESTAMP" />
+    <result column="max_from_user_name" property="maxFromUserName" jdbcType="BIGINT" />
+    <result column="min_from_user_name" property="minFromUserName" jdbcType="BIGINT" />
+    <result column="avg_from_user_name" property="avgFromUserName" jdbcType="BIGINT" />
+    <result column="count_from_user_name" property="countFromUserName" jdbcType="BIGINT" />
+    <result column="sum_from_user_name" property="sumFromUserName" jdbcType="VARCHAR" />
+    <result column="max_to_user_name" property="maxToUserName" jdbcType="BIGINT" />
+    <result column="min_to_user_name" property="minToUserName" jdbcType="BIGINT" />
+    <result column="avg_to_user_name" property="avgToUserName" jdbcType="BIGINT" />
+    <result column="count_to_user_name" property="countToUserName" jdbcType="BIGINT" />
+    <result column="sum_to_user_name" property="sumToUserName" jdbcType="VARCHAR" />
+    <result column="max_send_type" property="maxSendType" jdbcType="BIGINT" />
+    <result column="min_send_type" property="minSendType" jdbcType="BIGINT" />
+    <result column="avg_send_type" property="avgSendType" jdbcType="BIGINT" />
+    <result column="count_send_type" property="countSendType" jdbcType="BIGINT" />
+    <result column="sum_send_type" property="sumSendType" jdbcType="VARCHAR" />
+    <result column="max_reply_type" property="maxReplyType" jdbcType="BIGINT" />
+    <result column="min_reply_type" property="minReplyType" jdbcType="BIGINT" />
+    <result column="avg_reply_type" property="avgReplyType" jdbcType="BIGINT" />
+    <result column="count_reply_type" property="countReplyType" jdbcType="BIGINT" />
+    <result column="sum_reply_type" property="sumReplyType" jdbcType="VARCHAR" />
+    <result column="max_mobile" property="maxMobile" jdbcType="BIGINT" />
+    <result column="min_mobile" property="minMobile" jdbcType="BIGINT" />
+    <result column="avg_mobile" property="avgMobile" jdbcType="BIGINT" />
+    <result column="count_mobile" property="countMobile" jdbcType="BIGINT" />
+    <result column="sum_mobile" property="sumMobile" jdbcType="VARCHAR" />
+    <result column="max_wx_nick_name" property="maxWxNickName" jdbcType="BIGINT" />
+    <result column="min_wx_nick_name" property="minWxNickName" jdbcType="BIGINT" />
+    <result column="avg_wx_nick_name" property="avgWxNickName" jdbcType="BIGINT" />
+    <result column="count_wx_nick_name" property="countWxNickName" jdbcType="BIGINT" />
+    <result column="sum_wx_nick_name" property="sumWxNickName" jdbcType="VARCHAR" />
+    <result column="max_wx_openid" property="maxWxOpenid" jdbcType="BIGINT" />
+    <result column="min_wx_openid" property="minWxOpenid" jdbcType="BIGINT" />
+    <result column="avg_wx_openid" property="avgWxOpenid" jdbcType="BIGINT" />
+    <result column="count_wx_openid" property="countWxOpenid" jdbcType="BIGINT" />
+    <result column="sum_wx_openid" property="sumWxOpenid" jdbcType="VARCHAR" />
+    <result column="max_first_source" property="maxFirstSource" jdbcType="BIGINT" />
+    <result column="min_first_source" property="minFirstSource" jdbcType="BIGINT" />
+    <result column="avg_first_source" property="avgFirstSource" jdbcType="BIGINT" />
+    <result column="count_first_source" property="countFirstSource" jdbcType="BIGINT" />
+    <result column="sum_first_source" property="sumFirstSource" jdbcType="VARCHAR" />
+    <result column="max_user_id" property="maxUserId" jdbcType="BIGINT" />
+    <result column="min_user_id" property="minUserId" jdbcType="BIGINT" />
+    <result column="avg_user_id" property="avgUserId" jdbcType="BIGINT" />
+    <result column="count_user_id" property="countUserId" jdbcType="BIGINT" />
+    <result column="sum_user_id" property="sumUserId" jdbcType="BIGINT" />
+    <result column="max_biz_type" property="maxBizType" jdbcType="BIGINT" />
+    <result column="min_biz_type" property="minBizType" jdbcType="BIGINT" />
+    <result column="avg_biz_type" property="avgBizType" jdbcType="BIGINT" />
+    <result column="count_biz_type" property="countBizType" jdbcType="BIGINT" />
+    <result column="sum_biz_type" property="sumBizType" jdbcType="VARCHAR" />
+    <result column="max_key_word_config_id" property="maxKeyWordConfigId" jdbcType="BIGINT" />
+    <result column="min_key_word_config_id" property="minKeyWordConfigId" jdbcType="BIGINT" />
+    <result column="avg_key_word_config_id" property="avgKeyWordConfigId" jdbcType="BIGINT" />
+    <result column="count_key_word_config_id" property="countKeyWordConfigId" jdbcType="BIGINT" />
+    <result column="sum_key_word_config_id" property="sumKeyWordConfigId" jdbcType="BIGINT" />
+    <result column="max_msg_type" property="maxMsgType" jdbcType="BIGINT" />
+    <result column="min_msg_type" property="minMsgType" jdbcType="BIGINT" />
+    <result column="avg_msg_type" property="avgMsgType" jdbcType="BIGINT" />
+    <result column="count_msg_type" property="countMsgType" jdbcType="BIGINT" />
+    <result column="sum_msg_type" property="sumMsgType" jdbcType="VARCHAR" />
+    <result column="max_msg_id" property="maxMsgId" jdbcType="BIGINT" />
+    <result column="min_msg_id" property="minMsgId" jdbcType="BIGINT" />
+    <result column="avg_msg_id" property="avgMsgId" jdbcType="BIGINT" />
+    <result column="count_msg_id" property="countMsgId" jdbcType="BIGINT" />
+    <result column="sum_msg_id" property="sumMsgId" jdbcType="VARCHAR" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="msg_id" property="msgId" jdbcType="VARCHAR" />
+    <result column="msg_type" property="msgType" jdbcType="VARCHAR" />
+    <result column="key_word_config_id" property="keyWordConfigId" jdbcType="BIGINT" />
+    <result column="biz_type" property="bizType" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="first_source" property="firstSource" jdbcType="VARCHAR" />
+    <result column="wx_openid" property="wxOpenid" jdbcType="VARCHAR" />
+    <result column="wx_nick_name" property="wxNickName" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="reply_type" property="replyType" jdbcType="VARCHAR" />
+    <result column="send_type" property="sendType" jdbcType="VARCHAR" />
+    <result column="to_user_name" property="toUserName" jdbcType="VARCHAR" />
+    <result column="from_user_name" property="fromUserName" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="media_id" property="mediaId" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="pic_url" property="picUrl" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, created_by, modified_by, is_deleted, msg_id, msg_type, 
+    key_word_config_id, biz_type, user_id, first_source, wx_openid, wx_nick_name, mobile, 
+    reply_type, send_type, to_user_name, from_user_name, create_time, content, media_id, 
+    title, description, url, pic_url, seller_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserWxMessageExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from user_wx_message
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_wx_message
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update user_wx_message
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserWxMessageExample" >
+    update user_wx_message
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserWxMessage" useGeneratedKeys="true" keyProperty="id" >
+    insert into user_wx_message (id, gmt_created, gmt_modified, 
+      created_by, modified_by, is_deleted, 
+      msg_id, msg_type, key_word_config_id, 
+      biz_type, user_id, first_source, 
+      wx_openid, wx_nick_name, mobile, 
+      reply_type, send_type, to_user_name, 
+      from_user_name, create_time, content, 
+      media_id, title, description, 
+      url, pic_url, seller_id
+      )
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{msgId,jdbcType=VARCHAR}, #{msgType,jdbcType=VARCHAR}, #{keyWordConfigId,jdbcType=BIGINT}, 
+      #{bizType,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, #{firstSource,jdbcType=VARCHAR}, 
+      #{wxOpenid,jdbcType=VARCHAR}, #{wxNickName,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{replyType,jdbcType=VARCHAR}, #{sendType,jdbcType=VARCHAR}, #{toUserName,jdbcType=VARCHAR}, 
+      #{fromUserName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{content,jdbcType=VARCHAR}, 
+      #{mediaId,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{picUrl,jdbcType=VARCHAR}, #{sellerId,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserWxMessage" useGeneratedKeys="true" keyProperty="id" >
+    insert into user_wx_message
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="msgId != null" >
+        msg_id,
+      </if>
+      <if test="msgType != null" >
+        msg_type,
+      </if>
+      <if test="keyWordConfigId != null" >
+        key_word_config_id,
+      </if>
+      <if test="bizType != null" >
+        biz_type,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="firstSource != null" >
+        first_source,
+      </if>
+      <if test="wxOpenid != null" >
+        wx_openid,
+      </if>
+      <if test="wxNickName != null" >
+        wx_nick_name,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="replyType != null" >
+        reply_type,
+      </if>
+      <if test="sendType != null" >
+        send_type,
+      </if>
+      <if test="toUserName != null" >
+        to_user_name,
+      </if>
+      <if test="fromUserName != null" >
+        from_user_name,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="mediaId != null" >
+        media_id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="picUrl != null" >
+        pic_url,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="msgId != null" >
+        #{msgId,jdbcType=VARCHAR},
+      </if>
+      <if test="msgType != null" >
+        #{msgType,jdbcType=VARCHAR},
+      </if>
+      <if test="keyWordConfigId != null" >
+        #{keyWordConfigId,jdbcType=BIGINT},
+      </if>
+      <if test="bizType != null" >
+        #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="firstSource != null" >
+        #{firstSource,jdbcType=VARCHAR},
+      </if>
+      <if test="wxOpenid != null" >
+        #{wxOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="wxNickName != null" >
+        #{wxNickName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="replyType != null" >
+        #{replyType,jdbcType=VARCHAR},
+      </if>
+      <if test="sendType != null" >
+        #{sendType,jdbcType=VARCHAR},
+      </if>
+      <if test="toUserName != null" >
+        #{toUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="fromUserName != null" >
+        #{fromUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaId != null" >
+        #{mediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="picUrl != null" >
+        #{picUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserWxMessageExample" resultType="java.lang.Integer" >
+    select count(*) from user_wx_message
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update user_wx_message
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.msgId!=null and record.msgIdExpression==null" >
+          msg_id = #{record.msgId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.msgIdExpression!=null" >
+          msg_id = ${record.msgIdExpression},
+        </if>
+        <if test="record.msgType!=null and record.msgTypeExpression==null" >
+          msg_type = #{record.msgType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.msgTypeExpression!=null" >
+          msg_type = ${record.msgTypeExpression},
+        </if>
+        <if test="record.keyWordConfigId!=null and record.keyWordConfigIdExpression==null" >
+          key_word_config_id = #{record.keyWordConfigId,jdbcType=BIGINT},
+        </if>
+        <if test="record.keyWordConfigIdExpression!=null" >
+          key_word_config_id = ${record.keyWordConfigIdExpression},
+        </if>
+        <if test="record.bizType!=null and record.bizTypeExpression==null" >
+          biz_type = #{record.bizType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.bizTypeExpression!=null" >
+          biz_type = ${record.bizTypeExpression},
+        </if>
+        <if test="record.userId!=null and record.userIdExpression==null" >
+          user_id = #{record.userId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdExpression!=null" >
+          user_id = ${record.userIdExpression},
+        </if>
+        <if test="record.firstSource!=null and record.firstSourceExpression==null" >
+          first_source = #{record.firstSource,jdbcType=VARCHAR},
+        </if>
+        <if test="record.firstSourceExpression!=null" >
+          first_source = ${record.firstSourceExpression},
+        </if>
+        <if test="record.wxOpenid!=null and record.wxOpenidExpression==null" >
+          wx_openid = #{record.wxOpenid,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxOpenidExpression!=null" >
+          wx_openid = ${record.wxOpenidExpression},
+        </if>
+        <if test="record.wxNickName!=null and record.wxNickNameExpression==null" >
+          wx_nick_name = #{record.wxNickName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxNickNameExpression!=null" >
+          wx_nick_name = ${record.wxNickNameExpression},
+        </if>
+        <if test="record.mobile!=null and record.mobileExpression==null" >
+          mobile = #{record.mobile,jdbcType=VARCHAR},
+        </if>
+        <if test="record.mobileExpression!=null" >
+          mobile = ${record.mobileExpression},
+        </if>
+        <if test="record.replyType!=null and record.replyTypeExpression==null" >
+          reply_type = #{record.replyType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.replyTypeExpression!=null" >
+          reply_type = ${record.replyTypeExpression},
+        </if>
+        <if test="record.sendType!=null and record.sendTypeExpression==null" >
+          send_type = #{record.sendType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sendTypeExpression!=null" >
+          send_type = ${record.sendTypeExpression},
+        </if>
+        <if test="record.toUserName!=null and record.toUserNameExpression==null" >
+          to_user_name = #{record.toUserName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.toUserNameExpression!=null" >
+          to_user_name = ${record.toUserNameExpression},
+        </if>
+        <if test="record.fromUserName!=null and record.fromUserNameExpression==null" >
+          from_user_name = #{record.fromUserName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.fromUserNameExpression!=null" >
+          from_user_name = ${record.fromUserNameExpression},
+        </if>
+        <if test="record.createTime!=null and record.createTimeExpression==null" >
+          create_time = #{record.createTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.createTimeExpression!=null" >
+          create_time = ${record.createTimeExpression},
+        </if>
+        <if test="record.content!=null and record.contentExpression==null" >
+          content = #{record.content,jdbcType=VARCHAR},
+        </if>
+        <if test="record.contentExpression!=null" >
+          content = ${record.contentExpression},
+        </if>
+        <if test="record.mediaId!=null and record.mediaIdExpression==null" >
+          media_id = #{record.mediaId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.mediaIdExpression!=null" >
+          media_id = ${record.mediaIdExpression},
+        </if>
+        <if test="record.title!=null and record.titleExpression==null" >
+          title = #{record.title,jdbcType=VARCHAR},
+        </if>
+        <if test="record.titleExpression!=null" >
+          title = ${record.titleExpression},
+        </if>
+        <if test="record.description!=null and record.descriptionExpression==null" >
+          description = #{record.description,jdbcType=VARCHAR},
+        </if>
+        <if test="record.descriptionExpression!=null" >
+          description = ${record.descriptionExpression},
+        </if>
+        <if test="record.url!=null and record.urlExpression==null" >
+          url = #{record.url,jdbcType=VARCHAR},
+        </if>
+        <if test="record.urlExpression!=null" >
+          url = ${record.urlExpression},
+        </if>
+        <if test="record.picUrl!=null and record.picUrlExpression==null" >
+          pic_url = #{record.picUrl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.picUrlExpression!=null" >
+          pic_url = ${record.picUrlExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update user_wx_message
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      msg_id = #{record.msgId,jdbcType=VARCHAR},
+      msg_type = #{record.msgType,jdbcType=VARCHAR},
+      key_word_config_id = #{record.keyWordConfigId,jdbcType=BIGINT},
+      biz_type = #{record.bizType,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      first_source = #{record.firstSource,jdbcType=VARCHAR},
+      wx_openid = #{record.wxOpenid,jdbcType=VARCHAR},
+      wx_nick_name = #{record.wxNickName,jdbcType=VARCHAR},
+      mobile = #{record.mobile,jdbcType=VARCHAR},
+      reply_type = #{record.replyType,jdbcType=VARCHAR},
+      send_type = #{record.sendType,jdbcType=VARCHAR},
+      to_user_name = #{record.toUserName,jdbcType=VARCHAR},
+      from_user_name = #{record.fromUserName,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      content = #{record.content,jdbcType=VARCHAR},
+      media_id = #{record.mediaId,jdbcType=VARCHAR},
+      title = #{record.title,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR},
+      url = #{record.url,jdbcType=VARCHAR},
+      pic_url = #{record.picUrl,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserWxMessage" >
+    update user_wx_message
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.msgId!=null and record.msgIdExpression==null" >
+          msg_id = #{record.msgId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.msgIdExpression!=null" >
+          msg_id = ${record.msgIdExpression},
+        </if>
+        <if test="record.msgType!=null and record.msgTypeExpression==null" >
+          msg_type = #{record.msgType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.msgTypeExpression!=null" >
+          msg_type = ${record.msgTypeExpression},
+        </if>
+        <if test="record.keyWordConfigId!=null and record.keyWordConfigIdExpression==null" >
+          key_word_config_id = #{record.keyWordConfigId,jdbcType=BIGINT},
+        </if>
+        <if test="record.keyWordConfigIdExpression!=null" >
+          key_word_config_id = ${record.keyWordConfigIdExpression},
+        </if>
+        <if test="record.bizType!=null and record.bizTypeExpression==null" >
+          biz_type = #{record.bizType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.bizTypeExpression!=null" >
+          biz_type = ${record.bizTypeExpression},
+        </if>
+        <if test="record.userId!=null and record.userIdExpression==null" >
+          user_id = #{record.userId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdExpression!=null" >
+          user_id = ${record.userIdExpression},
+        </if>
+        <if test="record.firstSource!=null and record.firstSourceExpression==null" >
+          first_source = #{record.firstSource,jdbcType=VARCHAR},
+        </if>
+        <if test="record.firstSourceExpression!=null" >
+          first_source = ${record.firstSourceExpression},
+        </if>
+        <if test="record.wxOpenid!=null and record.wxOpenidExpression==null" >
+          wx_openid = #{record.wxOpenid,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxOpenidExpression!=null" >
+          wx_openid = ${record.wxOpenidExpression},
+        </if>
+        <if test="record.wxNickName!=null and record.wxNickNameExpression==null" >
+          wx_nick_name = #{record.wxNickName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxNickNameExpression!=null" >
+          wx_nick_name = ${record.wxNickNameExpression},
+        </if>
+        <if test="record.mobile!=null and record.mobileExpression==null" >
+          mobile = #{record.mobile,jdbcType=VARCHAR},
+        </if>
+        <if test="record.mobileExpression!=null" >
+          mobile = ${record.mobileExpression},
+        </if>
+        <if test="record.replyType!=null and record.replyTypeExpression==null" >
+          reply_type = #{record.replyType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.replyTypeExpression!=null" >
+          reply_type = ${record.replyTypeExpression},
+        </if>
+        <if test="record.sendType!=null and record.sendTypeExpression==null" >
+          send_type = #{record.sendType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sendTypeExpression!=null" >
+          send_type = ${record.sendTypeExpression},
+        </if>
+        <if test="record.toUserName!=null and record.toUserNameExpression==null" >
+          to_user_name = #{record.toUserName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.toUserNameExpression!=null" >
+          to_user_name = ${record.toUserNameExpression},
+        </if>
+        <if test="record.fromUserName!=null and record.fromUserNameExpression==null" >
+          from_user_name = #{record.fromUserName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.fromUserNameExpression!=null" >
+          from_user_name = ${record.fromUserNameExpression},
+        </if>
+        <if test="record.createTime!=null and record.createTimeExpression==null" >
+          create_time = #{record.createTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.createTimeExpression!=null" >
+          create_time = ${record.createTimeExpression},
+        </if>
+        <if test="record.content!=null and record.contentExpression==null" >
+          content = #{record.content,jdbcType=VARCHAR},
+        </if>
+        <if test="record.contentExpression!=null" >
+          content = ${record.contentExpression},
+        </if>
+        <if test="record.mediaId!=null and record.mediaIdExpression==null" >
+          media_id = #{record.mediaId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.mediaIdExpression!=null" >
+          media_id = ${record.mediaIdExpression},
+        </if>
+        <if test="record.title!=null and record.titleExpression==null" >
+          title = #{record.title,jdbcType=VARCHAR},
+        </if>
+        <if test="record.titleExpression!=null" >
+          title = ${record.titleExpression},
+        </if>
+        <if test="record.description!=null and record.descriptionExpression==null" >
+          description = #{record.description,jdbcType=VARCHAR},
+        </if>
+        <if test="record.descriptionExpression!=null" >
+          description = ${record.descriptionExpression},
+        </if>
+        <if test="record.url!=null and record.urlExpression==null" >
+          url = #{record.url,jdbcType=VARCHAR},
+        </if>
+        <if test="record.urlExpression!=null" >
+          url = ${record.urlExpression},
+        </if>
+        <if test="record.picUrl!=null and record.picUrlExpression==null" >
+          pic_url = #{record.picUrl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.picUrlExpression!=null" >
+          pic_url = ${record.picUrlExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserWxMessage" >
+    update user_wx_message
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      msg_id = #{msgId,jdbcType=VARCHAR},
+      msg_type = #{msgType,jdbcType=VARCHAR},
+      key_word_config_id = #{keyWordConfigId,jdbcType=BIGINT},
+      biz_type = #{bizType,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=BIGINT},
+      first_source = #{firstSource,jdbcType=VARCHAR},
+      wx_openid = #{wxOpenid,jdbcType=VARCHAR},
+      wx_nick_name = #{wxNickName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      reply_type = #{replyType,jdbcType=VARCHAR},
+      send_type = #{sendType,jdbcType=VARCHAR},
+      to_user_name = #{toUserName,jdbcType=VARCHAR},
+      from_user_name = #{fromUserName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      content = #{content,jdbcType=VARCHAR},
+      media_id = #{mediaId,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      pic_url = #{picUrl,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

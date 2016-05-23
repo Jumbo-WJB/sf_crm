@@ -1,0 +1,199 @@
+#set($layout = "/layout/mobileBlank.vm")
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <title>红包提现</title>
+</head>
+
+<body>
+
+<div class="u-body">
+
+    #set($limitAmount=(${userAccount.hongbaoAmount}-${userAccount.hongbaoPraiseAmount})/100.00)
+
+    <div class="u-block balanceMy" style="margin-top: 10px;">
+        <div class="form-grounp noBorder">
+            <label class="label">当前余额</label>
+            #set($hongbaoAmount=$!userAccount.hongbaoAmount/100.00)
+            <div class="label-info  bg-right u-fontAtv">¥#if(!$hongbaoAmount)0.0#else$!hongbaoAmount#end 元</div>
+        </div>
+    </div>
+
+    <div class="u-block denom">
+        #set($start='')
+        #set($end='')
+        #if($dayOfMonth!=""||$dayOfMont!=0)每月#set($start=$dayOfMonth.split(",")[0])$!start#if($dayOfMonth.split(",").size()>1)
+            至#set($end=$dayOfMonth.split(",")[1])$!end 号#else 无限制#end#end  可提现总面额 #if(!$limitAmount)0.0#else$!limitAmount#end
+        元,请选择:
+        <ul class="limit">
+            <li value="1"><a href="javascript:">1元</a></li>
+
+           #if($hbCurrentCashAmount&&$hbCurrentCashAmount.split(",").size()>1)
+                #foreach($ammount in $hbCurrentCashAmount.split(","))
+                    <li value="$ammount"><a href="javascript:"> $ammount元</a></li>
+                #end
+            #end
+
+        </ul>
+        不限制提现面额如下,请选择：
+        <ul class="unLimit">
+            #set($hongbaoPraiseAmount=$!userAccount.hongbaoPraiseAmount/100.00)
+            <li value="$!hongbaoPraiseAmount"><a href="javascript:unLimit()"
+                                                 style="width: 100px">好评返 #if(!$hongbaoPraiseAmount)
+                0.0#else$!hongbaoPraiseAmount#end 元</a></li>
+        </ul>
+    </div>
+
+    #set($limitAmount=(${userAccount.hongbaoAmount}-${userAccount.hongbaoPraiseAmount})/100.00)
+
+    <div class="packetSubmit">
+        <a id="submit" href="javascript:" class="u-submit">提现到微信零钱</a>
+
+        <div class="ps">
+            1、系统设置#if($dayOfMonth==""||$dayOfMont==0)无限制#else#set($start=$dayOfMonth.split(",")[0])
+            每月$!start#if($dayOfMonth.split(",").size()>1)至#set($end=$dayOfMonth.split(",")[1])$!end号#end#end 提现日期<br>
+            2、新手可提现1元，只能提现1次<br>
+            3、红包活动定期在公众号发出，请关注公众号哦
+        </div>
+    </div>
+
+    <div id="yzmWindow">
+        <div class="box">
+            <div class="window">
+                <h2 id="result">提现失败<i>!</i></h2>
+
+                <p id="errorMessage"></p>
+                <a href="javascript:">确定</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="u-footer">
+        <p>
+            <img src="${rc.contextPath}/media/mobile/assets/images/public/suniu_logo_grey.jpg">
+            <span>技术支持·速牛科技</span>
+        </p>
+    </div>
+
+    <script type="text/javascript">
+
+        wx.config({
+            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: '$wxJsConfig.appId',  // 必填，公众号的唯一标识
+            timestamp: '$wxJsConfig.timestamp', // 必填，生成签名的时间戳
+            nonceStr: '$wxJsConfig.nonceStr', // 必填，生成签名的随机串
+            signature: '$wxJsConfig.signature',// 必填，签名，见附录1
+            jsApiList: ['hideOptionMenu'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        wx.ready(function(){
+            wx.hideOptionMenu();
+        });
+
+
+        function unLimit() {
+            $('.limit').find('.checked').removeClass('checked');
+            $('.unLimit li').addClass('checked');
+        }
+
+        $('.limit  a').click(function () {
+            $(this).parent().parent().find('.checked').removeClass('checked');
+            $('.unLimit').find('.checked').removeClass('checked');
+            $(this).parent().addClass('checked');
+        });
+
+
+        $('#submit').click(function () {
+
+            var errorCode = 0;
+            var actionType;
+            var hongbaoCashAmount;
+
+            var d = new Date()
+            var vDay = d.getDate();
+
+            if ((!isNullOrEmpty($start)) && ($('.limit .checked').length != 0)) {
+                if ( vDay < '$!start') {
+                    $('#errorMessage').html('亲,现在不在活动提现日期范围哦!');
+                    errorCode = -1;
+                }
+            }
+
+            if ((!isNullOrEmpty($end)) && ($('.limit .checked').length != 0)) {
+                if (vDay >'$end') {
+                    $('#errorMessage').html('亲,现在不在活动提现日期范围哦!');
+                    errorCode = -1;
+                }
+            }
+
+            if (($('.unLimit .checked').length == 0 && $('.limit .checked').length == 0)) {
+                $('#errorMessage').html('亲,请先选择金额!');
+                errorCode = -1;
+            }
+
+            if (($('.limit .checked').length > 0)) {
+
+                actionType = 'limit';
+                hongbaoCashAmount = $('.limit .checked').val();
+
+                if (#if(!$limitAmount)0#else$!limitAmount#end  < $('.limit .checked').val()) {
+                    $('#errorMessage').html('亲,您的可提现金额小于所选金额!');
+                    errorCode = -1;
+                }
+            }
+
+            if (($('.unLimit .checked').length > 0)) {
+
+                if (#if(!$limitAmount)0#else$!limitAmount#end== 0) {
+                    $('#errorMessage').html('亲,您的提现额不能为零哦!');
+                    errorCode = -1;
+                }
+
+                actionType = 'unLimit';
+                hongbaoCashAmount = $('.unLimit .checked').val();
+            }
+
+            if (errorCode == -1) {
+                $('#yzmWindow').fadeIn();
+                return;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: '${rc.contextPath}/mobile/hongbao/cash?sellerId=$sellerId&userId=$userId',
+                data: {'hongbaoCashAmount': hongbaoCashAmount * 100, 'actionType': actionType},
+                dataType: "json",
+                success: function (d) {
+
+                    if (d.errorCode == -1) {
+                        $('#errorMessage').html(d.errorMessage);
+                        $('#yzmWindow').fadeIn();
+                    } else {
+                        $('#errorMessage').html(d.info);
+                        $('#result').html("提现成功!");
+                        $('#yzmWindow').fadeIn();
+                    }
+
+                }
+            });
+
+        });
+        $('#yzmWindow .box .window a').click(function () {
+            $(this).parent().parent().parent().hide();
+            $('#phonenumber').focus();
+            $('#phonenumber').select();
+        });
+
+
+    </script>
+</body>
+</html>
+
+
+
+

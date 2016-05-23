@@ -1,0 +1,101 @@
+#set($layout = "/layout/blank.vm")
+<!--jtopo-->
+<script src="${rc.contextPath}/media/js/jquery-2.0.3.min.js" language="javascript"></script>
+<script src="${rc.contextPath}/media/js/jtopo-0.4.8-min.js"></script>
+<script src="${rc.contextPath}/media/js/bootstrap.min.js"></script>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <div class="BoxStyleA">
+                <div class="widget-body">
+                    <div style="width: 900px;height: auto;float: left;margin-top:20px;">
+                        <canvas style="background: url(${rc.contextPath}/media/images/index-bg.jpg) repeat-x; border: 1px solid rgb(68, 68, 68); cursor: default;margin-left: 10px;" width="1150" height="690" id="canvas">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //性别
+    var sex;
+    switch ('$!user.sex'){
+        case '1': sex = '男' ; break;
+        case '2': sex = '女' ; break;
+        default : sex = '未填写';
+    }
+    var purchaseAverageAmount = (($!user.purchaseAverageAmount)/100).toFixed(2);
+    if (purchaseAverageAmount < 0){
+        purchaseAverageAmount = 0;
+    }
+    var totalPurchaseAmount = (($!user.totalPurchaseAmount)/100).toFixed(2);
+    if (totalPurchaseAmount < 0){
+        totalPurchaseAmount = 0;
+    }
+    var lastPurchaseAmount = (($!user.lastPurchaseAmount)/100).toFixed(2);
+    if (lastPurchaseAmount < 0){
+        lastPurchaseAmount = 0;
+    }
+    var area;
+    if ('$!user.city' != ''){
+        area = '$!user.province' +'/'+'$!user.city';
+    }else{
+        area = '$!user.province';
+    }
+    var firstSource;
+    if ('$!user.firstSource' == 'TB'){
+        firstSource = '淘宝';
+    }else if ('$!user.firstSource' == 'TMALL'){
+        firstSource = '天猫';
+    }else if ('$!user.firstSource' == 'JD'){
+        firstSource = '京东';
+    }else if ('$!user.firstSource' == 'WX'){
+        firstSource = '微信';
+    }else if ('$!user.firstSource' == 'YZ'){
+        firstSource = '有赞';
+    }
+
+
+    var purchaseAverageCycle = '$!user.purchaseAverageCycle';
+    if ( purchaseAverageCycle < 0){
+        purchaseAverageCycle = '0';
+    }
+    var goodsRate = '$!user.goodsRate';
+    if ( goodsRate < 0){
+        goodsRate = '0';
+    }
+
+    var mobileRate = '$!user.mobilePurchaseRate';
+    if (mobileRate != ''){
+        mobileRate = mobileRate*100 + '%';
+    }
+
+    var isSubcribe = '$!user.wxSubscribe';
+    if (isSubcribe == '0'){
+        isSubcribe = '否';
+    }else{
+        isSubcribe = '是';
+    }
+
+    var totalPurchaseTimes = '$!user.totalPurchaseTimes';
+    if ( totalPurchaseTimes < 0){
+        totalPurchaseTimes = 0;
+    }
+
+    var person = ['$!user.name'];
+
+    //位置数组
+    var position = [[60,10,'$!user.mobile','电话','yellow'],[220,10,'$!user.wxNickName','微信号','yellow'],
+        [360,10+55,'$!user.email','邮箱','yellow',"big"],[200,550,sex,'性别'],[550,550,area,'地域'],[800,10,totalPurchaseAmount+'元','累计购买金额','yellow'],
+        [680,10,totalPurchaseTimes+'次','累计购买次数','yellow'],[800,550,'$!user.interactionsTimes','互动次数'],[800,415,mobileRate,'手机购买率'],
+        [820,280,purchaseAverageCycle,'平均购买周期'],[50,145,firstSource,'客户来自','yellow'],[50,280,goodsRate,'好评率'],
+        [350,500,'$!user.time','最后购买时间',"","big"],[50,550,lastPurchaseAmount+'元','最后购买金额'],[800,145,purchaseAverageAmount+'元','平均购买金额','yellow'],
+        [50,410,'$!user.liveness','客户活跃度'],[530,10,'$!user.contribution','客户贡献度','yellow'],[670,550-50,isSubcribe,'微信粉丝']];
+    var Xaxis = 60; //x轴位移
+    for (var i=0; i<position.length; i++){
+        position[i][0] += Xaxis;
+    }
+</script>
+
+<script type="text/javascript" src="${rc.contextPath}/media/js/admin/knowCustomer/userPortrait.js"></script>

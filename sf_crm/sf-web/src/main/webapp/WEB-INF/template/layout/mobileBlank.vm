@@ -1,0 +1,74 @@
+<!--手机端通用css引入-->
+<link rel="stylesheet" href="${rc.contextPath}/media/mobile/assets/css/mobileStyle.css">
+<link rel="stylesheet" href="${rc.contextPath}/media/mobile/assets/igrow/css/igrow.css">
+<link rel="stylesheet" href="${rc.contextPath}/media/mobile/assets/igrow/css/igrow.plugins.css">
+<link rel="stylesheet" href="${rc.contextPath}/media/mobile/assets/css/suniu.css?t=20150519">
+<link rel="stylesheet" href="${rc.contextPath}/media/mobile/assets/vendor/jqueryDateBox/css/mobiscroll.css">
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/media/mobile/assets/css/signIn/style.css">
+
+<!--手机端通用js引入-->
+<script src="${rc.contextPath}/media/mobile/assets/vendor/jquery/1.11.1/jquery.min.js"></script>
+<script src="${rc.contextPath}/media/mobile/assets/igrow/igrow.js"></script>
+<script src="${rc.contextPath}/media/mobile/assets/js/static.js"></script>
+<script src="${rc.contextPath}/media/js/My97DatePicker/WdatePicker.js"></script>
+<script src="${rc.contextPath}/media/js/zepto.min.js"></script>
+<script src="${rc.contextPath}/media/mobile/assets/js/jweixin-1.0.0.js"></script>
+
+<script src="${rc.contextPath}/media/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+    .ui-loader-fakefix{
+        display: none;
+    }
+    .ui-loader-default{
+        display: none;
+    }
+</style>
+
+<script type="text/javascript">
+    //获取时间函数
+    function getLocalTime(nS) {
+        return new Date(parseInt(nS)).toLocaleString().replace(/年|月/g, "-").replace(/日/g, " ");
+    }
+    //获取年月日
+    function getYMDTime(time) {
+        var date = new Date(parseInt(time));
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        return year + '-' + month + '-' + day;
+    }
+
+    //判断时间是否为空参数
+    function isNullOrEmpty(strVal) {
+        return strVal == '' || strVal == null || strVal == undefined || strVal == "undefined"
+    }
+    //定义根目录
+    baseUrl = getRootPath();
+    //获取请求根目录
+    function getRootPath()
+    {
+        var pathName = window.location.pathname.substring(1);
+        var webName = pathName == '' ? '' : pathName.substring(0, pathName.indexOf('/'));
+        return window.location.protocol + '//' + window.location.host + '/'+ webName + '/';
+    }
+
+    //获取当前url中的参数，如http://suniusoft.com?sellerId=1,getArgs().sellerId即取到sellerId
+    function getArgs()
+    {
+        var args = new Object( ); //声明一个空对象
+        var query = window.location.search.substring(1); // 取查询字符串，如从 http://www.snowpeak.org/testjs.htm?a1=v1&a2=&a3=v3#anchor 中截出 a1=v1&a2=&a3=v3。
+        var pairs = query.split("&"); // 以 & 符分开成数组
+        for(var i = 0; i < pairs.length; i++) {
+            var pos = pairs[i].indexOf('='); // 查找 "name=value" 对
+            if (pos == -1) continue; // 若不成对，则跳出循环继续下一对
+            var argname = pairs[i].substring(0,pos); // 取参数名
+            var value = pairs[i].substring(pos+1); // 取参数值
+            value = decodeURIComponent(value); // 若需要，则解码
+            args[argname] = value; // 存成对象的一个属性
+        }
+        return args; // 返回此对象
+    }
+</script>
+
+$screen_content

@@ -1,0 +1,401 @@
+#set($layout = "/layout/blank.vm")
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit">
+    <title>积分商城</title>
+    <link rel="stylesheet" href="${rc.contextPath}/media/mobile/assets/css/shake/shakeHB.css"/>
+    <link rel="stylesheet" type="text/css" href="${rc.contextPath}/media/mobile/assets/css/style.css">
+    <script type="text/javascript" src="${rc.contextPath}/media/mobile/assets/js/jquery.min.js"></script>
+
+    <!--  cmb  -->
+    <script src="${rc.contextPath}/media/mobile/assets/js/index/hammer.js"></script>
+    <script src="${rc.contextPath}/media/mobile/assets/js/index/Fx.js"></script>
+    <script src="${rc.contextPath}/media/mobile/assets/js/index/app_zd.js"></script>
+    <script src="${rc.contextPath}/media/mobile/assets/js/index/js.js"></script>
+
+    <link href="${rc.contextPath}/media/mobile/assets/css/home/index.css" rel="stylesheet" type="text/css">
+    <link href="${rc.contextPath}/media/mobile/assets/css/home/animations.css" rel="stylesheet" type="text/css">
+    <script src="${rc.contextPath}/media/js/zepto.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
+
+</head>
+
+<style type="text/css">
+    * {
+        font-family: 'Microsoft YaHei';
+    }
+
+    .index_scroll {
+        height: 130px;
+    }
+
+    .point-img img {
+        height: 18px;
+        width: 18px;
+    }
+
+    .record-img img {
+        height: 18px;
+        width: 18px;
+    }
+
+    .break-line {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        height: 31px;
+        background: #f0f0f0;
+    }
+
+    .break-title {
+        width: 100%;
+        height: 14px;
+        border-bottom: 1px solid #e5e5e5;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .break-title span {
+        font-size: 13px;
+        background: #f0f0f0;
+        display: inline-block;
+        position: relative;
+        padding: 0 5px;
+        top: 7px;
+        color: #333;
+    }
+
+</style>
+<body>
+
+<div class="u-body" style="margin: 0 0 3em 0">
+<div class="points-img" style="margin: 0">
+    <div id="hengping"></div>
+    <section>
+        <div class="box index_scroll"
+             style="-webkit-user-select: none; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); width: 100%;">
+            #if( $sellerMobileMenus)
+                #set ($i=1)
+                #foreach($sellerMobileMenu in $sellerMobileMenus)
+                    #if($!sellerMobileMenu.functionType=="advertisement"&&$!sellerMobileMenu.url!='')
+                        <div class="liuliang_pages
+                                    #if($i==1)
+                                    pages_current
+                                     #end
+                                      "
+                             style="-webkit-user-select: none; touch-action: pan-y ; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                            <a href="#"><img src="${rc.contextPath}$!sellerMobileMenu.url" style="height: 125px;"></a>
+                        </div>
+                        #set($i=$i+1)
+                    #end
+                #end
+            #end
+            <!--按钮-->
+            <div class="dot" style="width: 100%;bottom: 20px;"><span class="hover"
+                                                                     style="height: 8px;width: 8px;"></span> <span
+                    class="" style="height: 8px;width: 8px;"></span> <span class=""
+                                                                           style="height: 8px;width: 8px;"></span></div>
+        </div>
+    </section>
+    <div style="width:0; height:0; overflow:hidden;">
+        <script>
+            window.app.index();
+        </script>
+    </div>
+</div>
+
+<div class="points-title">
+    <ul>
+        <li style="width: 49%; color: #000000">
+            <a href="${rc.contextPath}/mobile/point?sellerId=$sellerId&userId=$userId">
+                <span class="point-img"><img src="${rc.contextPath}/media/mobile/assets/images/mall/count.png" alt=""/></span>
+                <span style="color: #000000;font-size: 13px">积分:</span><span class="u-fontAtv"
+                                                                             style="color: #ff6701; font-weight: normal;font-size: 13px;">$!userAccount.pointAmount</span>
+            </a>
+        </li>
+        <li style="width: 49%; color: black">
+            <span class="icon-allScore"></span>
+            <a href="${rc.contextPath}/mobile/point?sellerId=$sellerId&userId=$userId&type=exchange">
+                <span class="record-img"><img src="${rc.contextPath}/media/mobile/assets/images/mall/my_record.png"
+                                              alt=""/></span>
+                <span style="color: #000000;font-size: 13px">兑换记录</span>
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+<div class="u-goods-li">
+    <div class="u-panle">
+        <div class="title">
+            热门推荐
+            <a href="${rc.contextPath}/mobile/mall/goods/list?sellerId=$sellerId&userId=$userId" class="more">更多</a>
+        </div>
+        <div class="goods-li">
+            <ul>
+                #set($flag = "/")
+                #foreach($goods in $products)
+                    #set($firstImg = $goods.thumbnail)
+                    #set($pri = $math.div($goods.price , 100))
+                    <li>
+                        <div class="goods-info" style="text-align: center">
+                            <div>
+                                <div style="width: 100%;">
+                                    <div class="goods-name" style="border: 0;">
+                                        <p style="width: 100px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;color: #333;line-height: 20px;display: inline-block;">$!goods.title</p>
+                                        <a href="${rc.contextPath}/mobile/mall/goods/detail?sellerId=$sellerId&userId=$userId&gid=$goods.goodsId"
+                                           class="u-btn-exchange"
+                                           style="font-size: 12px;float: right;margin-right: 8px;">兑换</a>
+                                    </div>
+                                    <!--<div class="goods-score" style="font-size: 12px;text-align: left;">
+                                        <span class="u-fontAtv" style="font-size: 12px;">￥$numTool.format($pri)</span>
+                                    </div>-->
+                                    <div class="goods-score" style="font-size: 12px;text-align: left;">
+                                        <font style="color: #8f8f8f">积分:</font><span class="u-fontAtv"
+                                                                                     style="font-size: 12px;">$!goods.point</span>
+                                        <img src="${rc.contextPath}/media/mobile/assets/images/mall/count.png"
+                                             style="width: 14px;height: 14px;" alt=""/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="${rc.contextPath}/mobile/mall/goods/detail?sellerId=$sellerId&userId=$userId&gid=$goods.goodsId">
+                                    #if($firstImg)
+                                        <img src="${rc.contextPath}$flag$!firstImg" title="$!goods.title"
+                                             alt="$!goods.title" style="width: 80%; max-height:120px;margin-top: 10px;">
+                                    ##                                          <img src="${rc.contextPath}/media/mobile/assets/images/mall/test1.BMP" style="width: 80%; max-height:130px;margin-top: 10px;">
+                                    #else
+                                        <img src="${rc.contextPath}/media/mobile/assets/images/mall/good-img.jpeg"
+                                             style="width: 80%; max-height:120px;margin-top: 10px;">
+                                    #end
+                                ##                                <div class="goods-name" style="border: 0">$!goods.title</div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                #end
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="break-line">
+    <div class="break-title">
+        <span>实时兑换信息</span>
+    </div>
+</div>
+<div class="u-exchange">
+    <div class="u-panle">
+        <div class="goodsPanle" style="">
+            <marquee direction="up" scrollamount=2 vspace="0" hspace="0" height="200px">
+            ##                    <ul>
+                #if($!{exchangeInfo.size()} > 0)
+                    #foreach($exInfo in $exchangeInfo)
+
+                        #if($exInfo.secInterval < 60)
+                            #set($interval = "刚刚")
+                        #elseif($exInfo.secInterval < 3600)
+                            #set($temp = $exInfo.secInterval/60)
+                            #set($interval = "$temp分钟前")
+                        #elseif($exInfo.secInterval < 86400)
+                            #set($temp = $exInfo.secInterval/3600)
+                            #set($interval = "$temp小时前")
+                        #else
+                            #set($temp = $exInfo.secInterval/86400)
+                            #set($interval = "$temp天前")
+                        #end
+
+
+
+                        <div class="itemLi" style="height:56px;margin: 5px 0; padding: 2px 20px">
+                            #if($exInfo.wxImgUrl)
+                                <img src="$!exInfo.wxImgUrl"
+                                     style="border-radius: 50%; width: 50px; height: 50px; overflow: hidden; border: 1px solid #c4c4c4">
+                            #else
+                                <img src="${rc.contextPath}/media/images/photo.jpg"
+                                     style="border-radius: 50%; width: 50px; height: 50px"/>
+                            #end
+                            <div class="info" style="margin: 0 60px">
+                                <div class="name" style="line-height: 50px">$!exInfo.wxNickName</div>
+                            </div>
+                            <div class="pull-right" style="width:100%"><span class="u-fontAtv"
+                                                                             style="line-height: 50px; font-size: 14px;">$!interval兑换$exInfo.amount积分</span>
+                            </div>
+                        </div>
+
+                    #end
+                #else
+                    <li><img src="${rc.contextPath}/media/images/photo.jpg" width="50px" height="50px"
+                             style="border-radius: 50%"/>董小姐 ---------------3分钟前兑换了150积分
+                    </li>
+                    <li><img src="${rc.contextPath}/media/images/photo.jpg" width="50px" height="50px"
+                             style="border-radius: 50%"/>董小姐 ---------------20分钟前兑换了50积分
+                    </li>
+                    <li><img src="${rc.contextPath}/media/images/photo.jpg" width="50px" height="50px"
+                             style="border-radius: 50%"/>董小姐 ---------------1小时前兑换了50积分
+                    </li>
+                    <li><img src="${rc.contextPath}/media/images/photo.jpg" width="50px" height="50px"
+                             style="border-radius: 50%"/>董小姐 ---------------1天前兑换了200积分
+                    </li>
+                    <li><img src="${rc.contextPath}/media/images/photo.jpg" width="50px" height="50px"
+                             style="border-radius: 50%"/>董小姐 ---------------3分钟前兑换了150积分
+                    </li>
+                    <li><img src="${rc.contextPath}/media/images/photo.jpg" width="50px" height="50px"
+                             style="border-radius: 50%"/>董小姐 ---------------20分钟前兑换了50积分
+                    </li>
+                    <li><img src="${rc.contextPath}/media/images/photo.jpg" width="50px" height="50px"
+                             style="border-radius: 50%"/>董小姐 ---------------1小时前兑换了50积分
+                    </li>
+                #end
+            ##                    </ul>
+            </marquee>
+        </div>
+    </div>
+</div>
+
+<div class="u-exchange">
+    <div class="u-panle">
+        <div class="title" style="padding: 10px 8px;"><span>积分兑换排行榜</span><a
+                href="${rc.contextPath}/mobile/mall/pr/list?sellerId=$sellerId&userId=$userId" class="more"
+                style="color: #666">更多</a></div>
+        <div class="goodsPanle" style="height: auto;">
+            <div class="wap rank-page" style="background: #ffffff">
+                <ul class="user-list" style="padding: 0">
+                    #if($myRank)
+                        #set($rank = $myRank)
+                        #set($percent = 0)
+                        #if($maxExchangePoint != 0)
+                            #set($percent = ($!rank.pointExchangeTotal * 100) / $maxExchangePoint)
+                        #end
+                        <li>
+                            <span class="rank-num">$!rank.rank </span>
+                            <a href="javascript:;" class="zan-btn" data-buid="$!rank.userId">$!rank.zanTotal</a>
+                            #if($rank.wxImgUrl)
+                                <span class="user-photo"><img src="$!rank.wxImgUrl"
+                                                              style="border-radius: 50%; width: 50px; height: 50px"></span>
+                            #else
+                                <span class="user-photo"><img src="${rc.contextPath}/media/images/photo.jpg"
+                                                              style="border-radius: 50%; width: 50px; height: 50px"></span>
+                            #end
+                            <div class="progress-text"><span class="sr-only" style="width: 70px!important;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: inline-block;">$!rank.wxNickName</span><span class="num"
+                                                                                                           style="color: #ff6701; font-weight: bold">$!rank.pointExchangeTotal积分</span>
+                            </div>
+                            <div class="progress">
+
+                                <div class="progress-bar" style="width:$percent%;"></div>
+                            </div>
+                        </li>
+                    #end
+                    #foreach($rank in $!exchangeRankInfo)
+                        #set($percent = 0)
+                        #if($maxExchangePoint != 0)
+                            #set($percent = ($!rank.pointExchangeTotal * 100) / $maxExchangePoint)
+                        #end
+                        <li>
+                            <span class="rank-num">$!rank.rank </span>
+                            <a href="javascript:;" class="zan-btn" data-buid="$!rank.userId">$!rank.zanTotal</a>
+                            #if($rank.wxImgUrl)
+                                <span class="user-photo"><img src="$!rank.wxImgUrl"
+                                                              style="border-radius: 50%; width: 50px; height: 50px"></span>
+                            #else
+                                <span class="user-photo"><img src="${rc.contextPath}/media/images/photo.jpg"
+                                                              style="border-radius: 50%; width: 50px; height: 50px"></span>
+                            #end
+                            <div class="progress-text"><span class="sr-only" style="width: 70px!important;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: inline-block;">$!rank.wxNickName</span><span class="num"
+                                                                                                           style="color: #ff6701; font-weight: bold">$!rank.pointExchangeTotal积分</span>
+                            </div>
+                            <div class="progress">
+
+                                <div class="progress-bar" style="width:$percent%;"></div>
+                            </div>
+                        </li>
+                    #end
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+<div class="u-footer">
+    <p>
+        <img src="${rc.contextPath}/media/mobile/assets/images/public/suniu_logo_grey.jpg">
+        <span>技术支持·速牛科技</span>
+    </p>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="${rc.contextPath}/media/mobile/assets/js/mall/mall.js"></script>
+<script type="text/javascript">
+
+    /**
+     * 点赞
+     * @param buid 被点赞的人
+     * @param uid 点赞的人
+     * */
+    function dz(buid, uid, num, obj) {
+        $.ajax({
+            type: "POST",
+            url: '${rc.contextPath}/mobile/dianzan?sellerId=$sellerId',
+            data: {'buid': buid, 'uid': uid, 'interactionEntry': 'MALL_DIANZAN'},
+            dataType: "json",
+            success: function (d) {
+                if (d.errorCode == 0) {
+                    num += 1;
+                    var text = num + '赞';
+//                    alert(text);
+                    obj.innerHTML = text;
+                } else {
+                    alert(d.errorMessage);
+                }
+            }
+        });
+    }
+
+    Zepto(function ($) {
+        $('.zan-btn').bind('click', function (event) {
+            var target = $(this);
+            var buid = target.data('buid');
+            if (buid == '$!userId') {
+                alert('不能对自己点赞');
+                return;
+            }
+            if (!target.hasClass('active')) {
+                $.post('${rc.contextPath}/mobile/dianzan?sellerId=$sellerId', {buid: buid, uid: '$!userId', interactionEntry: 'point_exchange_rank'}, function (data) {
+                    if (data.errorCode == 0) {
+                        target.text(parseInt(target.text()) + 1);
+                        target.addClass('active')
+                        var countNode = target.siblings('.progress-text').find('.num');
+                    } else {
+                        alert(data.errorMessage);
+                    }
+                }, 'json');
+            }
+        });
+    })
+##    wx.config({
+##        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+##        appId: '$wxJsConfig.appId',         //必填，公众号的唯一标识
+##        timestamp: '$wxJsConfig.timestamp', // 必填，生成签名的时间戳
+##        nonceStr: '$wxJsConfig.nonceStr',   // 必填，生成签名的随机串
+##        signature: '$wxJsConfig.signature', // 必填，签名
+##        jsApiList: ['onMenuShareAppMessage','onMenuShareTimeline','hideOptionMenu'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+##    });
+##
+##    wx.ready(function(){
+##//        var isShare = $("#isShare").val();
+##        var sellerId = getArgs().sellerId;
+##        var userId = getArgs().userId;
+##//        var shakeName = $("#shakeName").val();
+##        console.dir(sellerId + "<-->" + userId);
+##        alert(window.location.href.split('#')[0]);
+##        wx.hideOptionMenu();
+##
+##    });
+</script>

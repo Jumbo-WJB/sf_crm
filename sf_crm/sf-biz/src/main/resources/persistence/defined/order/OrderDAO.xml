@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.order.OrderDAO" >
+
+    <resultMap id="tbOrderMap" type="com.shufensoft.crm.biz.domain.defined.trade.OrderTaoBaoDO">
+        <result column="logistics_company" property="logisticsCompany"></result>
+        <result column="count" property="count"></result>
+    </resultMap>
+    <resultMap id="ordersMap" type="com.shufensoft.crm.biz.domain.defined.express.OrdersInfoDO">
+        <result column="user_id" property="userId"/>
+        <result column="order_from" property="orderFrom"/>
+        <result column="title" property="title"/>
+        <result column="status" property="status"/>
+        <result column="oid" property="orderNumber"/>
+        <result column="trade_id" property="tradeId"/>
+        <result column="invoice_no" property="invoiceNo"/>
+        <result column="logistics_company" property="logisticsCompany"/>
+        <result column="shop_id" property="shopId"/>
+    </resultMap>
+    <select id="selectCount" parameterType="com.shufensoft.crm.biz.domain.defined.user.UserDO" resultType="java.lang.Integer">
+        select count(*) from user
+        <where>
+            <trim prefixOverrides="or">
+                <if test="Eqq != null">
+                    email like '%${Eqq}%'
+                </if>
+                <if test="E163 != null">
+                    or email like '%${E163}%'
+                </if>
+                <if test="Eyahoo != null">
+                    or email like '%${Eyahoo}%'
+                </if>
+                <if test="E126 != null">
+                    or email like '%${E126}%'
+                </if>
+            </trim>
+        </where>
+    </select>
+
+    <select id="selectOrdersByUserId" resultMap="ordersMap">
+
+        SELECT u.user_id,'TB' AS order_from,ot.title,ot.status,ot.tid trade_id,ot.oid,ot.invoice_no,ot.logistics_company,ot.shop_id
+        FROM user u,order_taobao ot
+        WHERE u.user_id=#{userId}
+        AND ot.seller_id=#{sellerId}
+        AND invoice_no IS NOT NULL
+        AND invoice_no !=''
+        AND ot.is_deleted='0'
+        AND u.is_deleted='0'
+        AND u.user_id_tb=ot.user_id_tb
+
+        UNION
+
+        SELECT u.user_id,'JD' AS order_from,inj.sku_name AS title,order_state AS status,oj.order_id trade_id,oj.order_id AS oid,oj.waybill AS invoice_no,
+			 oj.logistics_name AS logistics_company,oj.shop_id
+        FROM user u, order_jd oj, item_info_jd inj
+        WHERE u.user_id=#{userId}
+        AND oj.seller_id=#{sellerId}
+        AND oj.waybill IS NOT NULL
+        AND oj.waybill != ''
+        AND u.user_id_jd=inj.user_id_jd
+        AND oj.is_deleted='0'
+        AND u.is_deleted='0'
+        AND u.user_id_jd=oj.user_id_jd
+
+        UNION
+
+        SELECT u.user_id,'YZ' AS order_from,oy.title,tyz.status AS status,oy.tid AS trade_id,oy.oid,'' invoice_no,'' AS logistics_company,oy.shop_id
+        FROM user u, order_yz oy,trade_yz tyz
+        WHERE u.user_id=#{userId}
+        AND oy.seller_id=#{sellerId}
+        AND oy.is_deleted='0'
+        AND u.is_deleted='0'
+        AND u.user_id_yz=oy.user_id_yz
+        AND tyz.tid = oy.tid
+
+    </select>
+
+    <select id="selectTbOrderNum" resultType="java.lang.Long">
+        SELECT count(u.user_id_tb) AS orderNumbers
+        FROM user u
+        RIGHT JOIN order_taobao ot
+        ON u.user_id_tb=ot.user_id_tb
+        WHERE u.user_id=#{userId}
+        AND u.seller_id=#{sellerId}
+        AND ot.is_deleted='0'
+        AND u.is_deleted='0'
+    </select>
+    <select id="selectJdOrderNum" resultType="java.lang.Long">
+        SELECT count(u.user_id_jd) AS orderNumbers
+        FROM user u, order_jd oj, item_info_jd inj
+        WHERE u.user_id_jd=oj.user_id_jd
+        AND u.user_id=#{userId}
+        AND u.user_id_jd=inj.user_id_jd
+        AND oj.is_deleted='0'
+        AND u.is_deleted='0'
+    </select>
+    <select id="selectYzOrderNum" resultType="java.lang.Long">
+        SELECT count(u.user_id_yz) AS orderNumbers
+        FROM user u
+        RIGHT JOIN order_yz oy
+        ON u.user_id_yz=oy.user_id_yz
+        WHERE u.user_id=#{userId}
+        AND u.seller_id=#{sellerId}
+        AND oy.is_deleted='0'
+        AND u.is_deleted='0'
+    </select>
+    <select id="selectLogisticesGroup" resultMap="tbOrderMap">
+      SELECT logistics_company, count(*) AS count
+      FROM order_taobao
+      WHERE user_id_tb = #{userIdTb}
+      GROUP BY logistics_company
+      ORDER BY count DESC
+    </select>
+
+    <select id="onTheRoadOrderNum" resultType="java.lang.Long">
+      SELECT COUNT(ot.oid)
+      FROM user u
+      LEFT JOIN order_taobao ot
+      ON u.user_id_tb=ot.user_id_tb
+      WHERE u.user_id=#{userId}
+      AND ot.status='WAIT_BUYER_CONFIRM_GOODS'
+    </select>
+
+</mapper>

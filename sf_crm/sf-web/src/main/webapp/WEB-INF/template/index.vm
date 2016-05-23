@@ -1,0 +1,58 @@
+#set($layout = "/layout/default.vm")
+<div class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <div class="BoxStyleA">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <i class="modal-logo index"></i>
+                    <ul class="breadcrumb">
+                        <li>
+                        <li>认识客户</li>
+                        </li>
+                        <li class="active">用户价值模型</li>
+                    </ul>
+                </div>
+                <div class="widget-body">
+                    <div style="width: 100%;height: auto;float: left;margin-top:20px;">
+                        <canvas style="background: url(${rc.contextPath}/media/images/index-bg.jpg) repeat-x; border: 1px solid rgb(68, 68, 68); cursor: default;margin-left: 10px;" width="1250" height="690" id="canvas">
+
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var loop = 0;
+    var dataArray = new Array();
+    var nameList = new Array();
+    #if($shopList)
+        loop = $shopList.size();
+        #set($size = $shopList.size())
+        #set($i = 0)
+        #foreach($shop in $shopList)
+            #if($shop.shopType == "TB")
+                #set($type = "淘宝")
+            #end
+            #if($shop.shopType == "TMALL")
+                #set($type = "天猫")
+            #end
+            #if($shop.shopType == "JD")
+                #set($type = "京东")
+            #end
+            #if($shop.shopType == "YZ")
+                #set($type = "有赞")
+            #end
+            nameList[$i] = '$shop.shopName'+'($type)';
+            dataArray[$i] = ['$shop.shopType',70,null];
+            dataArray[$i+$size] = ['$shop.shopType',50,70];
+            dataArray[$i+$size+$size] = ['$shop.shopType',null,50];
+            #set($i = $i + 1)
+        #end
+    #end
+
+</script>
+
+<script type="text/javascript" src="${rc.contextPath}/media/js/admin/index.js"></script>

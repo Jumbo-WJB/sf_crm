@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.seller.MarketPackageMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.seller.MarketPackage" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_package_desc" property="maxPackageDesc" jdbcType="BIGINT" />
+    <result column="min_package_desc" property="minPackageDesc" jdbcType="BIGINT" />
+    <result column="avg_package_desc" property="avgPackageDesc" jdbcType="BIGINT" />
+    <result column="count_package_desc" property="countPackageDesc" jdbcType="BIGINT" />
+    <result column="sum_package_desc" property="sumPackageDesc" jdbcType="VARCHAR" />
+    <result column="max_package_free" property="maxPackageFree" jdbcType="BIGINT" />
+    <result column="min_package_free" property="minPackageFree" jdbcType="BIGINT" />
+    <result column="avg_package_free" property="avgPackageFree" jdbcType="BIGINT" />
+    <result column="count_package_free" property="countPackageFree" jdbcType="BIGINT" />
+    <result column="sum_package_free" property="sumPackageFree" jdbcType="INTEGER" />
+    <result column="max_package_fee" property="maxPackageFee" jdbcType="BIGINT" />
+    <result column="min_package_fee" property="minPackageFee" jdbcType="BIGINT" />
+    <result column="avg_package_fee" property="avgPackageFee" jdbcType="BIGINT" />
+    <result column="count_package_fee" property="countPackageFee" jdbcType="BIGINT" />
+    <result column="sum_package_fee" property="sumPackageFee" jdbcType="INTEGER" />
+    <result column="max_package_count" property="maxPackageCount" jdbcType="BIGINT" />
+    <result column="min_package_count" property="minPackageCount" jdbcType="BIGINT" />
+    <result column="avg_package_count" property="avgPackageCount" jdbcType="BIGINT" />
+    <result column="count_package_count" property="countPackageCount" jdbcType="BIGINT" />
+    <result column="sum_package_count" property="sumPackageCount" jdbcType="INTEGER" />
+    <result column="max_package_type" property="maxPackageType" jdbcType="BIGINT" />
+    <result column="min_package_type" property="minPackageType" jdbcType="BIGINT" />
+    <result column="avg_package_type" property="avgPackageType" jdbcType="BIGINT" />
+    <result column="count_package_type" property="countPackageType" jdbcType="BIGINT" />
+    <result column="sum_package_type" property="sumPackageType" jdbcType="VARCHAR" />
+    <result column="max_package_name" property="maxPackageName" jdbcType="BIGINT" />
+    <result column="min_package_name" property="minPackageName" jdbcType="BIGINT" />
+    <result column="avg_package_name" property="avgPackageName" jdbcType="BIGINT" />
+    <result column="count_package_name" property="countPackageName" jdbcType="BIGINT" />
+    <result column="sum_package_name" property="sumPackageName" jdbcType="VARCHAR" />
+    <result column="max_package_id" property="maxPackageId" jdbcType="BIGINT" />
+    <result column="min_package_id" property="minPackageId" jdbcType="BIGINT" />
+    <result column="avg_package_id" property="avgPackageId" jdbcType="BIGINT" />
+    <result column="count_package_id" property="countPackageId" jdbcType="BIGINT" />
+    <result column="sum_package_id" property="sumPackageId" jdbcType="VARCHAR" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="package_id" property="packageId" jdbcType="VARCHAR" />
+    <result column="package_name" property="packageName" jdbcType="VARCHAR" />
+    <result column="package_type" property="packageType" jdbcType="VARCHAR" />
+    <result column="package_count" property="packageCount" jdbcType="INTEGER" />
+    <result column="package_fee" property="packageFee" jdbcType="INTEGER" />
+    <result column="package_free" property="packageFree" jdbcType="INTEGER" />
+    <result column="package_desc" property="packageDesc" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, created_by, gmt_modified, modified_by, is_deleted, package_id, package_name, 
+    package_type, package_count, package_fee, package_free, package_desc
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.seller.MarketPackageExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from market_package
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from market_package
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update market_package
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.seller.MarketPackageExample" >
+    update market_package
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.seller.MarketPackage" useGeneratedKeys="true" keyProperty="id" >
+    insert into market_package (id, gmt_created, created_by, 
+      gmt_modified, modified_by, is_deleted, 
+      package_id, package_name, package_type, 
+      package_count, package_fee, package_free, 
+      package_desc)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{createdBy,jdbcType=VARCHAR}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{packageId,jdbcType=VARCHAR}, #{packageName,jdbcType=VARCHAR}, #{packageType,jdbcType=VARCHAR}, 
+      #{packageCount,jdbcType=INTEGER}, #{packageFee,jdbcType=INTEGER}, #{packageFree,jdbcType=INTEGER}, 
+      #{packageDesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.seller.MarketPackage" useGeneratedKeys="true" keyProperty="id" >
+    insert into market_package
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="packageId != null" >
+        package_id,
+      </if>
+      <if test="packageName != null" >
+        package_name,
+      </if>
+      <if test="packageType != null" >
+        package_type,
+      </if>
+      <if test="packageCount != null" >
+        package_count,
+      </if>
+      <if test="packageFee != null" >
+        package_fee,
+      </if>
+      <if test="packageFree != null" >
+        package_free,
+      </if>
+      <if test="packageDesc != null" >
+        package_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="packageId != null" >
+        #{packageId,jdbcType=VARCHAR},
+      </if>
+      <if test="packageName != null" >
+        #{packageName,jdbcType=VARCHAR},
+      </if>
+      <if test="packageType != null" >
+        #{packageType,jdbcType=VARCHAR},
+      </if>
+      <if test="packageCount != null" >
+        #{packageCount,jdbcType=INTEGER},
+      </if>
+      <if test="packageFee != null" >
+        #{packageFee,jdbcType=INTEGER},
+      </if>
+      <if test="packageFree != null" >
+        #{packageFree,jdbcType=INTEGER},
+      </if>
+      <if test="packageDesc != null" >
+        #{packageDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.seller.MarketPackageExample" resultType="java.lang.Integer" >
+    select count(*) from market_package
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update market_package
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.packageId!=null and record.packageIdExpression==null" >
+          package_id = #{record.packageId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.packageIdExpression!=null" >
+          package_id = ${record.packageIdExpression},
+        </if>
+        <if test="record.packageName!=null and record.packageNameExpression==null" >
+          package_name = #{record.packageName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.packageNameExpression!=null" >
+          package_name = ${record.packageNameExpression},
+        </if>
+        <if test="record.packageType!=null and record.packageTypeExpression==null" >
+          package_type = #{record.packageType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.packageTypeExpression!=null" >
+          package_type = ${record.packageTypeExpression},
+        </if>
+        <if test="record.packageCount!=null and record.packageCountExpression==null" >
+          package_count = #{record.packageCount,jdbcType=INTEGER},
+        </if>
+        <if test="record.packageCountExpression!=null" >
+          package_count = ${record.packageCountExpression},
+        </if>
+        <if test="record.packageFee!=null and record.packageFeeExpression==null" >
+          package_fee = #{record.packageFee,jdbcType=INTEGER},
+        </if>
+        <if test="record.packageFeeExpression!=null" >
+          package_fee = ${record.packageFeeExpression},
+        </if>
+        <if test="record.packageFree!=null and record.packageFreeExpression==null" >
+          package_free = #{record.packageFree,jdbcType=INTEGER},
+        </if>
+        <if test="record.packageFreeExpression!=null" >
+          package_free = ${record.packageFreeExpression},
+        </if>
+        <if test="record.packageDesc!=null and record.packageDescExpression==null" >
+          package_desc = #{record.packageDesc,jdbcType=VARCHAR},
+        </if>
+        <if test="record.packageDescExpression!=null" >
+          package_desc = ${record.packageDescExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update market_package
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      package_id = #{record.packageId,jdbcType=VARCHAR},
+      package_name = #{record.packageName,jdbcType=VARCHAR},
+      package_type = #{record.packageType,jdbcType=VARCHAR},
+      package_count = #{record.packageCount,jdbcType=INTEGER},
+      package_fee = #{record.packageFee,jdbcType=INTEGER},
+      package_free = #{record.packageFree,jdbcType=INTEGER},
+      package_desc = #{record.packageDesc,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.seller.MarketPackage" >
+    update market_package
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.packageId!=null and record.packageIdExpression==null" >
+          package_id = #{record.packageId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.packageIdExpression!=null" >
+          package_id = ${record.packageIdExpression},
+        </if>
+        <if test="record.packageName!=null and record.packageNameExpression==null" >
+          package_name = #{record.packageName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.packageNameExpression!=null" >
+          package_name = ${record.packageNameExpression},
+        </if>
+        <if test="record.packageType!=null and record.packageTypeExpression==null" >
+          package_type = #{record.packageType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.packageTypeExpression!=null" >
+          package_type = ${record.packageTypeExpression},
+        </if>
+        <if test="record.packageCount!=null and record.packageCountExpression==null" >
+          package_count = #{record.packageCount,jdbcType=INTEGER},
+        </if>
+        <if test="record.packageCountExpression!=null" >
+          package_count = ${record.packageCountExpression},
+        </if>
+        <if test="record.packageFee!=null and record.packageFeeExpression==null" >
+          package_fee = #{record.packageFee,jdbcType=INTEGER},
+        </if>
+        <if test="record.packageFeeExpression!=null" >
+          package_fee = ${record.packageFeeExpression},
+        </if>
+        <if test="record.packageFree!=null and record.packageFreeExpression==null" >
+          package_free = #{record.packageFree,jdbcType=INTEGER},
+        </if>
+        <if test="record.packageFreeExpression!=null" >
+          package_free = ${record.packageFreeExpression},
+        </if>
+        <if test="record.packageDesc!=null and record.packageDescExpression==null" >
+          package_desc = #{record.packageDesc,jdbcType=VARCHAR},
+        </if>
+        <if test="record.packageDescExpression!=null" >
+          package_desc = ${record.packageDescExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.seller.MarketPackage" >
+    update market_package
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      package_id = #{packageId,jdbcType=VARCHAR},
+      package_name = #{packageName,jdbcType=VARCHAR},
+      package_type = #{packageType,jdbcType=VARCHAR},
+      package_count = #{packageCount,jdbcType=INTEGER},
+      package_fee = #{packageFee,jdbcType=INTEGER},
+      package_free = #{packageFree,jdbcType=INTEGER},
+      package_desc = #{packageDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

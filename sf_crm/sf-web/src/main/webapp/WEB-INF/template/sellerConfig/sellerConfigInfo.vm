@@ -1,0 +1,276 @@
+#set($layout = "/layout/blank.vm")
+<style>
+    #addForm .col-sm-5{margin-left: -50px;}
+    #addForm .required{color: red;font-size: 14px;margin-left: 15px;font-weight: normal;line-height: 35px;}
+    #addForm input{color: #333;font-weight: 600;}
+</style>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <div class="BoxStyleA">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <i class="modal-logo config"></i>
+                    <ul class="breadcrumb" style="margin-left: 2px">
+                        <li></li>
+                        <li>商家设置</li>
+                    </ul>
+                    <!-- .breadcrumb -->
+                </div>
+
+                <div class="widget-body">
+                    <div class="widget-main">
+                        <form class="form-horizontal" id="addForm">
+                            <input name="id" type="hidden" />
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="col-sm-5 control-label no-padding-right" for="form-field-1">
+                                    商家名称: </label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="col-xs-10 col-sm-6" name="sellerName" value="$!sellerConfig.sellerName"/>
+                                    <span class="required">＊</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="col-sm-5 control-label no-padding-right" for="form-field-1">
+                                    手机号: </label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="col-xs-10 col-sm-6" name="mobile" value="$!sellerConfig.mobile"/>
+                                    <span class="required"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="col-sm-5 control-label no-padding-right" for="form-field-1">
+                                    座机号: </label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="col-xs-10 col-sm-6" name="phone" value="$!sellerConfig.phone"/>
+                                    <span class="required"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="col-sm-5 control-label no-padding-right" for="form-field-1">
+                                    邮箱: </label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="col-xs-10 col-sm-6" name="email" value="$!sellerConfig.email"/>
+                                    <span class="required"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="col-sm-5 control-label no-padding-right" for="form-field-1">
+                                    地址: </label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="form-field-1" class="col-xs-10 col-sm-6" name="address" value="$!sellerConfig.address"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="col-sm-5 control-label no-padding-right" for="form-field-1">
+                                    微信号: </label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="col-xs-10 col-sm-6" name="wxNo" value="$!sellerConfig.wxNo"/>
+                                    <span class="required">＊</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="col-sm-5 control-label no-padding-right" for="form-field-1">
+                                    微信appid: </label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="col-xs-10 col-sm-6" name="wxAppId" value="$!sellerConfig.wxAppId"/>
+                                    <span class="required">＊</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="col-sm-5 control-label no-padding-right" for="form-field-1">
+                                    微信appsecret: </label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="col-xs-10 col-sm-6" name="wxAppSecret" value="$!sellerConfig.wxAppSecret"/>
+                                    <span class="required">＊</span>
+                                </div>
+                            </div>
+
+                            <!--<div class="form-group" style="margin-top: 10px;">
+                                <label class="col-sm-5 control-label no-padding-right" for="form-field-1">
+                                    本地appid: </label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="col-xs-10 col-sm-6" name="appId" value="$!sellerConfig.appId"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="col-sm-5 control-label no-padding-right" for="form-field-1">
+                                    本地appsecret: </label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="col-xs-10 col-sm-6" name="appSecret" value="$!sellerConfig.appSecret"/>
+                                </div>
+                            </div>-->
+
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="col-sm-5 control-label no-padding-right" for="form-field-1">
+                                    微信商户号: </label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="col-xs-10 col-sm-6" name="wxMchid" value="$!sellerConfig.wxMchid"/>
+                                    <span class="required">＊</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="col-sm-5 control-label no-padding-right" for="form-field-1">
+                                    微信商户key: </label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="col-xs-10 col-sm-6" name="wxAppKey" value="$!sellerConfig.wxAppKey"/>
+                                    <span class="required">＊</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="col-sm-5 control-label no-padding-right">
+                                    微信证书: </label>
+                                <div class="col-sm-6">
+                                    <span class="secrteSpan" style="float: left;font-weight: 600;margin-top: 4px;margin-right: 40px;font-size: 15px;color:#b5051b;">证书未上传</span>
+                                    <div style="position: relative;margin-left: 114px;float: left;width: 70px;height: 30px;text-align: center;border-radius: 2px;background-color: #428bca;">
+                                        <a id="secrteHref" style="color: #fff;font-size: 14px;line-height: 30px;">上传</a>
+                                        <div style="position: absolute;top:0;left:0;">
+                                            <input type="file" name="wxSecrteUrl" id="wxSecrteUrl" style="width: 100px; height: 30px;background: rgb(255, 255, 255) none repeat scroll 0% 0%;filter:alpha(opacity:0);opacity: 0;"
+                                                   onchange="getName(this,'wxSecrteUrl');" />
+                                        </div>
+                                    </div>
+                                    <span class="wxSecrteUrl" style="margin-left: 5px;"></span>
+                                    <span class="required">＊</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="col-sm-5 control-label no-padding-right" style="margin-top: 30px;">
+                                    公众号头像: </label>
+                                <div class="col-sm-6">
+                                    <img name="wxImgUrl" width="80" height="80" style="float: left;vertical-align: middle;">
+                                    <div style="position: relative;margin-left: 150px;margin-top: 25px;float: left;width: 70px;height: 30px;text-align: center;border-radius: 2px;background-color: #428bca;">
+                                        <a id="wxImgHref" style="color: #fff;font-size: 14px;line-height: 30px;">上传</a>
+                                        <div style="position: absolute;top:0;left:0;">
+                                            <input type="file" name="wxImgUrl" id="wxImgUrl" style="width: 100px; height: 30px;background: rgb(255, 255, 255) none repeat scroll 0% 0%;filter:alpha(opacity:0);opacity: 0;"
+                                                   onchange="getName(this,'wxImgUrl');" />
+                                        </div>
+                                    </div>
+                                    <span class="wxImgUrl" style="display: block;float: left;margin-left: 5px;margin-top: 30px;"></span>
+                                    <span class="required" style="display: block;float: left;margin-top: 27px;">＊</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="col-sm-5 control-label no-padding-right" style="margin-top: 30px;">
+                                    微信二维码: </label>
+                                <div class="col-sm-6">
+                                    <img name="wxQrcode" width="80" height="80" style="float: left;vertical-align: middle;">
+                                    <div style="position: relative;margin-left: 150px;margin-top: 25px;float: left;width: 70px;height: 30px;text-align: center;border-radius: 2px;background-color: #428bca;">
+                                        <a id="qrcodeHref" style="color: #fff;font-size: 14px;line-height: 30px;">上传</a>
+                                        <div style="position: absolute;top:0;left:0;">
+                                            <input type="file" name="wxQrcode" id="wxQrcode" style="width: 100px; height: 30px;background: rgb(255, 255, 255) none repeat scroll 0% 0%;filter:alpha(opacity:0);opacity: 0;"
+                                                   onchange="getName(this,'wxQrcode');" />
+                                        </div>
+                                    </div>
+                                    <span class="wxQrcode" style="display: block;float: left;margin-left: 5px;margin-top: 30px;"></span>
+                                    <span class="required" style="display: block;float: left;margin-top: 27px;">＊</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="col-sm-5 control-label no-padding-right" for="form-field-1">
+                                    短信发送扩展码: </label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="col-xs-10 col-sm-6" name="smsSerial" value="$!sellerConfig.smsSerial"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="col-sm-5 control-label no-padding-right" for="form-field-1">
+                                    通知短信签名: </label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="col-xs-10 col-sm-6" name="smsNotifySign" value="$!sellerConfig.smsNotifySign"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="col-sm-5 control-label no-padding-right" for="form-field-1">
+                                    营销短信签名: </label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="col-xs-10 col-sm-6" name="smsSaleSign" value="$!sellerConfig.smsSaleSign"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="col-sm-5 control-label no-padding-right" for="form-field-1">
+                                    邮件签名: </label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="col-xs-10 col-sm-6" name="emailSign" value="$!sellerConfig.emailSign"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="col-sm-5 control-label no-padding-right" for="form-field-1">
+                                    邮件发送者显示名称: </label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="col-xs-10 col-sm-6" name="emailFromName" value="$!sellerConfig.emailFromName"/>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer sn-footer">
+                                <center>
+                                    <input class="btn btn-primary" type="button" value="保存设置" id="save">
+                                </center>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getName(element,className){
+        var name = element.value;
+        var pos = name.lastIndexOf("\\");
+        var str = name.substring(pos+1);
+
+        $('.'+className).html(str);
+    }
+
+    $("#addForm input[name='sellerType']").each(function(){
+        if ($(this).val() == '$sellerConfig.sellerType'){
+            $(this).attr('checked','checked');
+        }else{
+            $(this).attr('disabled','true');
+        }
+    })
+
+    var hasSecrte = 0;
+    if ('$!sellerConfig.wxSecrteUrl' != ''){
+        $('.secrteSpan').html('证书已上传').css('color','#44B549');
+        $('#secrteHref').html('重新上传');
+        hasSecrte = 1;
+    }
+
+    var hasWxImg = 0;
+    if ('$!sellerConfig.wxImgUrl' != ''){
+        $("#addForm img[name='wxImgUrl']").attr('src',baseUrl+'$sellerConfig.wxImgUrl');
+        $('#wxImgHref').html('重新上传');
+        hasWxImg = 1;
+    }else{
+        $("#addForm img[name='wxImgUrl']").attr('src','${rc.contextPath}/media/images/no-pic.jpg');
+    }
+
+    var hasQrcode = 0;
+    if ('$!sellerConfig.wxQrcode' != ''){
+        $("#addForm img[name='wxQrcode']").attr('src',baseUrl+'$sellerConfig.wxQrcode');
+        $('#qrcodeHref').html('重新上传');
+        hasQrcode = 1;
+    }else{
+        $("#addForm img[name='wxQrcode']").attr('src','${rc.contextPath}/media/images/no-pic.jpg');
+    }
+</script>
+
+<script type="text/javascript" src="${rc.contextPath}/media/js/admin/sellerConfig/sellerConfig.js"></script>

@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.send.SendUserUnsubscribeMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.send.SendUserUnsubscribe" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="VARCHAR" />
+    <result column="user_send_address" property="userSendAddress" jdbcType="VARCHAR" />
+    <result column="unsubscribe_type" property="unsubscribeType" jdbcType="VARCHAR" />
+    <result column="sms_content" property="smsContent" jdbcType="VARCHAR" />
+    <result column="sent_time" property="sentTime" jdbcType="VARCHAR" />
+    <result column="add_serial" property="addSerial" jdbcType="VARCHAR" />
+    <result column="add_serial_rev" property="addSerialRev" jdbcType="VARCHAR" />
+    <result column="channel_number" property="channelNumber" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, created_by, gmt_modified, modified_by, is_deleted, seller_id, user_send_address, 
+    unsubscribe_type, sms_content, sent_time, add_serial, add_serial_rev, channel_number
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.send.SendUserUnsubscribeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from send_user_unsubscribe
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from send_user_unsubscribe
+    where id = #{id,jdbcType=BIGINT}
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update send_user_unsubscribe
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.send.SendUserUnsubscribeExample" >
+    update send_user_unsubscribe
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.send.SendUserUnsubscribe" >
+    insert into send_user_unsubscribe (id, gmt_created, created_by, 
+      gmt_modified, modified_by, is_deleted, 
+      seller_id, user_send_address, unsubscribe_type, 
+      sms_content, sent_time, add_serial, 
+      add_serial_rev, channel_number)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{createdBy,jdbcType=VARCHAR}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{sellerId,jdbcType=VARCHAR}, #{userSendAddress,jdbcType=VARCHAR}, #{unsubscribeType,jdbcType=VARCHAR}, 
+      #{smsContent,jdbcType=VARCHAR}, #{sentTime,jdbcType=VARCHAR}, #{addSerial,jdbcType=VARCHAR}, 
+      #{addSerialRev,jdbcType=VARCHAR}, #{channelNumber,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.send.SendUserUnsubscribe" >
+    insert into send_user_unsubscribe
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="userSendAddress != null" >
+        user_send_address,
+      </if>
+      <if test="unsubscribeType != null" >
+        unsubscribe_type,
+      </if>
+      <if test="smsContent != null" >
+        sms_content,
+      </if>
+      <if test="sentTime != null" >
+        sent_time,
+      </if>
+      <if test="addSerial != null" >
+        add_serial,
+      </if>
+      <if test="addSerialRev != null" >
+        add_serial_rev,
+      </if>
+      <if test="channelNumber != null" >
+        channel_number,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=VARCHAR},
+      </if>
+      <if test="userSendAddress != null" >
+        #{userSendAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="unsubscribeType != null" >
+        #{unsubscribeType,jdbcType=VARCHAR},
+      </if>
+      <if test="smsContent != null" >
+        #{smsContent,jdbcType=VARCHAR},
+      </if>
+      <if test="sentTime != null" >
+        #{sentTime,jdbcType=VARCHAR},
+      </if>
+      <if test="addSerial != null" >
+        #{addSerial,jdbcType=VARCHAR},
+      </if>
+      <if test="addSerialRev != null" >
+        #{addSerialRev,jdbcType=VARCHAR},
+      </if>
+      <if test="channelNumber != null" >
+        #{channelNumber,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.send.SendUserUnsubscribeExample" resultType="java.lang.Integer" >
+    select count(*) from send_user_unsubscribe
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update send_user_unsubscribe
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.userSendAddress!=null and record.userSendAddressExpression==null" >
+          user_send_address = #{record.userSendAddress,jdbcType=VARCHAR},
+        </if>
+        <if test="record.userSendAddressExpression!=null" >
+          user_send_address = ${record.userSendAddressExpression},
+        </if>
+        <if test="record.unsubscribeType!=null and record.unsubscribeTypeExpression==null" >
+          unsubscribe_type = #{record.unsubscribeType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.unsubscribeTypeExpression!=null" >
+          unsubscribe_type = ${record.unsubscribeTypeExpression},
+        </if>
+        <if test="record.smsContent!=null and record.smsContentExpression==null" >
+          sms_content = #{record.smsContent,jdbcType=VARCHAR},
+        </if>
+        <if test="record.smsContentExpression!=null" >
+          sms_content = ${record.smsContentExpression},
+        </if>
+        <if test="record.sentTime!=null and record.sentTimeExpression==null" >
+          sent_time = #{record.sentTime,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sentTimeExpression!=null" >
+          sent_time = ${record.sentTimeExpression},
+        </if>
+        <if test="record.addSerial!=null and record.addSerialExpression==null" >
+          add_serial = #{record.addSerial,jdbcType=VARCHAR},
+        </if>
+        <if test="record.addSerialExpression!=null" >
+          add_serial = ${record.addSerialExpression},
+        </if>
+        <if test="record.addSerialRev!=null and record.addSerialRevExpression==null" >
+          add_serial_rev = #{record.addSerialRev,jdbcType=VARCHAR},
+        </if>
+        <if test="record.addSerialRevExpression!=null" >
+          add_serial_rev = ${record.addSerialRevExpression},
+        </if>
+        <if test="record.channelNumber!=null and record.channelNumberExpression==null" >
+          channel_number = #{record.channelNumber,jdbcType=VARCHAR},
+        </if>
+        <if test="record.channelNumberExpression!=null" >
+          channel_number = ${record.channelNumberExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update send_user_unsubscribe
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=VARCHAR},
+      user_send_address = #{record.userSendAddress,jdbcType=VARCHAR},
+      unsubscribe_type = #{record.unsubscribeType,jdbcType=VARCHAR},
+      sms_content = #{record.smsContent,jdbcType=VARCHAR},
+      sent_time = #{record.sentTime,jdbcType=VARCHAR},
+      add_serial = #{record.addSerial,jdbcType=VARCHAR},
+      add_serial_rev = #{record.addSerialRev,jdbcType=VARCHAR},
+      channel_number = #{record.channelNumber,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.send.SendUserUnsubscribe" >
+    update send_user_unsubscribe
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.userSendAddress!=null and record.userSendAddressExpression==null" >
+          user_send_address = #{record.userSendAddress,jdbcType=VARCHAR},
+        </if>
+        <if test="record.userSendAddressExpression!=null" >
+          user_send_address = ${record.userSendAddressExpression},
+        </if>
+        <if test="record.unsubscribeType!=null and record.unsubscribeTypeExpression==null" >
+          unsubscribe_type = #{record.unsubscribeType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.unsubscribeTypeExpression!=null" >
+          unsubscribe_type = ${record.unsubscribeTypeExpression},
+        </if>
+        <if test="record.smsContent!=null and record.smsContentExpression==null" >
+          sms_content = #{record.smsContent,jdbcType=VARCHAR},
+        </if>
+        <if test="record.smsContentExpression!=null" >
+          sms_content = ${record.smsContentExpression},
+        </if>
+        <if test="record.sentTime!=null and record.sentTimeExpression==null" >
+          sent_time = #{record.sentTime,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sentTimeExpression!=null" >
+          sent_time = ${record.sentTimeExpression},
+        </if>
+        <if test="record.addSerial!=null and record.addSerialExpression==null" >
+          add_serial = #{record.addSerial,jdbcType=VARCHAR},
+        </if>
+        <if test="record.addSerialExpression!=null" >
+          add_serial = ${record.addSerialExpression},
+        </if>
+        <if test="record.addSerialRev!=null and record.addSerialRevExpression==null" >
+          add_serial_rev = #{record.addSerialRev,jdbcType=VARCHAR},
+        </if>
+        <if test="record.addSerialRevExpression!=null" >
+          add_serial_rev = ${record.addSerialRevExpression},
+        </if>
+        <if test="record.channelNumber!=null and record.channelNumberExpression==null" >
+          channel_number = #{record.channelNumber,jdbcType=VARCHAR},
+        </if>
+        <if test="record.channelNumberExpression!=null" >
+          channel_number = ${record.channelNumberExpression},
+        </if>
+      </trim>
+    </set>
+    where record.id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.send.SendUserUnsubscribe" >
+    update send_user_unsubscribe
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=VARCHAR},
+      user_send_address = #{userSendAddress,jdbcType=VARCHAR},
+      unsubscribe_type = #{unsubscribeType,jdbcType=VARCHAR},
+      sms_content = #{smsContent,jdbcType=VARCHAR},
+      sent_time = #{sentTime,jdbcType=VARCHAR},
+      add_serial = #{addSerial,jdbcType=VARCHAR},
+      add_serial_rev = #{addSerialRev,jdbcType=VARCHAR},
+      channel_number = #{channelNumber,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

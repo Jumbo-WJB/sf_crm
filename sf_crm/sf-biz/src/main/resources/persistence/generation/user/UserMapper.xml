@@ -1,0 +1,1198 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.user.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.user.User" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_receiver_id_yz" property="maxReceiverIdYz" jdbcType="BIGINT" />
+    <result column="min_receiver_id_yz" property="minReceiverIdYz" jdbcType="BIGINT" />
+    <result column="avg_receiver_id_yz" property="avgReceiverIdYz" jdbcType="BIGINT" />
+    <result column="count_receiver_id_yz" property="countReceiverIdYz" jdbcType="BIGINT" />
+    <result column="sum_receiver_id_yz" property="sumReceiverIdYz" jdbcType="BIGINT" />
+    <result column="count_distinct_receiver_id_yz" property="countDistinctReceiverIdYz" jdbcType="BIGINT" />
+    <result column="max_receiver_id_jd" property="maxReceiverIdJd" jdbcType="BIGINT" />
+    <result column="min_receiver_id_jd" property="minReceiverIdJd" jdbcType="BIGINT" />
+    <result column="avg_receiver_id_jd" property="avgReceiverIdJd" jdbcType="BIGINT" />
+    <result column="count_receiver_id_jd" property="countReceiverIdJd" jdbcType="BIGINT" />
+    <result column="sum_receiver_id_jd" property="sumReceiverIdJd" jdbcType="BIGINT" />
+    <result column="count_distinct_receiver_id_jd" property="countDistinctReceiverIdJd" jdbcType="BIGINT" />
+    <result column="max_receiver_id_tb" property="maxReceiverIdTb" jdbcType="BIGINT" />
+    <result column="min_receiver_id_tb" property="minReceiverIdTb" jdbcType="BIGINT" />
+    <result column="avg_receiver_id_tb" property="avgReceiverIdTb" jdbcType="BIGINT" />
+    <result column="count_receiver_id_tb" property="countReceiverIdTb" jdbcType="BIGINT" />
+    <result column="sum_receiver_id_tb" property="sumReceiverIdTb" jdbcType="BIGINT" />
+    <result column="count_distinct_receiver_id_tb" property="countDistinctReceiverIdTb" jdbcType="BIGINT" />
+    <result column="max_birthday" property="maxBirthday" jdbcType="BIGINT" />
+    <result column="min_birthday" property="minBirthday" jdbcType="BIGINT" />
+    <result column="avg_birthday" property="avgBirthday" jdbcType="BIGINT" />
+    <result column="count_birthday" property="countBirthday" jdbcType="BIGINT" />
+    <result column="sum_birthday" property="sumBirthday" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_birthday" property="countDistinctBirthday" jdbcType="BIGINT" />
+    <result column="max_user_portrait_id" property="maxUserPortraitId" jdbcType="BIGINT" />
+    <result column="min_user_portrait_id" property="minUserPortraitId" jdbcType="BIGINT" />
+    <result column="avg_user_portrait_id" property="avgUserPortraitId" jdbcType="BIGINT" />
+    <result column="count_user_portrait_id" property="countUserPortraitId" jdbcType="BIGINT" />
+    <result column="sum_user_portrait_id" property="sumUserPortraitId" jdbcType="BIGINT" />
+    <result column="count_distinct_user_portrait_id" property="countDistinctUserPortraitId" jdbcType="BIGINT" />
+    <result column="max_is_received_hb" property="maxIsReceivedHb" jdbcType="BIGINT" />
+    <result column="min_is_received_hb" property="minIsReceivedHb" jdbcType="BIGINT" />
+    <result column="avg_is_received_hb" property="avgIsReceivedHb" jdbcType="BIGINT" />
+    <result column="count_is_received_hb" property="countIsReceivedHb" jdbcType="BIGINT" />
+    <result column="sum_is_received_hb" property="sumIsReceivedHb" jdbcType="VARCHAR" />
+    <result column="count_distinct_is_received_hb" property="countDistinctIsReceivedHb" jdbcType="BIGINT" />
+    <result column="max_is_verify" property="maxIsVerify" jdbcType="BIGINT" />
+    <result column="min_is_verify" property="minIsVerify" jdbcType="BIGINT" />
+    <result column="avg_is_verify" property="avgIsVerify" jdbcType="BIGINT" />
+    <result column="count_is_verify" property="countIsVerify" jdbcType="BIGINT" />
+    <result column="sum_is_verify" property="sumIsVerify" jdbcType="VARCHAR" />
+    <result column="count_distinct_is_verify" property="countDistinctIsVerify" jdbcType="BIGINT" />
+    <result column="max_brand_fans" property="maxBrandFans" jdbcType="BIGINT" />
+    <result column="min_brand_fans" property="minBrandFans" jdbcType="BIGINT" />
+    <result column="avg_brand_fans" property="avgBrandFans" jdbcType="BIGINT" />
+    <result column="count_brand_fans" property="countBrandFans" jdbcType="BIGINT" />
+    <result column="sum_brand_fans" property="sumBrandFans" jdbcType="VARCHAR" />
+    <result column="count_distinct_brand_fans" property="countDistinctBrandFans" jdbcType="BIGINT" />
+    <result column="max_integral" property="maxIntegral" jdbcType="BIGINT" />
+    <result column="min_integral" property="minIntegral" jdbcType="BIGINT" />
+    <result column="avg_integral" property="avgIntegral" jdbcType="BIGINT" />
+    <result column="count_integral" property="countIntegral" jdbcType="BIGINT" />
+    <result column="sum_integral" property="sumIntegral" jdbcType="BIGINT" />
+    <result column="count_distinct_integral" property="countDistinctIntegral" jdbcType="BIGINT" />
+    <result column="max_is_old_user" property="maxIsOldUser" jdbcType="BIGINT" />
+    <result column="min_is_old_user" property="minIsOldUser" jdbcType="BIGINT" />
+    <result column="avg_is_old_user" property="avgIsOldUser" jdbcType="BIGINT" />
+    <result column="count_is_old_user" property="countIsOldUser" jdbcType="BIGINT" />
+    <result column="sum_is_old_user" property="sumIsOldUser" jdbcType="VARCHAR" />
+    <result column="count_distinct_is_old_user" property="countDistinctIsOldUser" jdbcType="BIGINT" />
+    <result column="max_wx_subscribe_time" property="maxWxSubscribeTime" jdbcType="BIGINT" />
+    <result column="min_wx_subscribe_time" property="minWxSubscribeTime" jdbcType="BIGINT" />
+    <result column="avg_wx_subscribe_time" property="avgWxSubscribeTime" jdbcType="BIGINT" />
+    <result column="count_wx_subscribe_time" property="countWxSubscribeTime" jdbcType="BIGINT" />
+    <result column="sum_wx_subscribe_time" property="sumWxSubscribeTime" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_wx_subscribe_time" property="countDistinctWxSubscribeTime" jdbcType="BIGINT" />
+    <result column="max_wx_headimgurl" property="maxWxHeadimgurl" jdbcType="BIGINT" />
+    <result column="min_wx_headimgurl" property="minWxHeadimgurl" jdbcType="BIGINT" />
+    <result column="avg_wx_headimgurl" property="avgWxHeadimgurl" jdbcType="BIGINT" />
+    <result column="count_wx_headimgurl" property="countWxHeadimgurl" jdbcType="BIGINT" />
+    <result column="sum_wx_headimgurl" property="sumWxHeadimgurl" jdbcType="VARCHAR" />
+    <result column="count_distinct_wx_headimgurl" property="countDistinctWxHeadimgurl" jdbcType="BIGINT" />
+    <result column="max_wx_subscribe" property="maxWxSubscribe" jdbcType="BIGINT" />
+    <result column="min_wx_subscribe" property="minWxSubscribe" jdbcType="BIGINT" />
+    <result column="avg_wx_subscribe" property="avgWxSubscribe" jdbcType="BIGINT" />
+    <result column="count_wx_subscribe" property="countWxSubscribe" jdbcType="BIGINT" />
+    <result column="sum_wx_subscribe" property="sumWxSubscribe" jdbcType="VARCHAR" />
+    <result column="count_distinct_wx_subscribe" property="countDistinctWxSubscribe" jdbcType="BIGINT" />
+    <result column="max_mobile" property="maxMobile" jdbcType="BIGINT" />
+    <result column="min_mobile" property="minMobile" jdbcType="BIGINT" />
+    <result column="avg_mobile" property="avgMobile" jdbcType="BIGINT" />
+    <result column="count_mobile" property="countMobile" jdbcType="BIGINT" />
+    <result column="sum_mobile" property="sumMobile" jdbcType="VARCHAR" />
+    <result column="count_distinct_mobile" property="countDistinctMobile" jdbcType="BIGINT" />
+    <result column="max_email" property="maxEmail" jdbcType="BIGINT" />
+    <result column="min_email" property="minEmail" jdbcType="BIGINT" />
+    <result column="avg_email" property="avgEmail" jdbcType="BIGINT" />
+    <result column="count_email" property="countEmail" jdbcType="BIGINT" />
+    <result column="sum_email" property="sumEmail" jdbcType="VARCHAR" />
+    <result column="count_distinct_email" property="countDistinctEmail" jdbcType="BIGINT" />
+    <result column="max_province" property="maxProvince" jdbcType="BIGINT" />
+    <result column="min_province" property="minProvince" jdbcType="BIGINT" />
+    <result column="avg_province" property="avgProvince" jdbcType="BIGINT" />
+    <result column="count_province" property="countProvince" jdbcType="BIGINT" />
+    <result column="sum_province" property="sumProvince" jdbcType="VARCHAR" />
+    <result column="count_distinct_province" property="countDistinctProvince" jdbcType="BIGINT" />
+    <result column="max_country" property="maxCountry" jdbcType="BIGINT" />
+    <result column="min_country" property="minCountry" jdbcType="BIGINT" />
+    <result column="avg_country" property="avgCountry" jdbcType="BIGINT" />
+    <result column="count_country" property="countCountry" jdbcType="BIGINT" />
+    <result column="sum_country" property="sumCountry" jdbcType="VARCHAR" />
+    <result column="count_distinct_country" property="countDistinctCountry" jdbcType="BIGINT" />
+    <result column="max_city" property="maxCity" jdbcType="BIGINT" />
+    <result column="min_city" property="minCity" jdbcType="BIGINT" />
+    <result column="avg_city" property="avgCity" jdbcType="BIGINT" />
+    <result column="count_city" property="countCity" jdbcType="BIGINT" />
+    <result column="sum_city" property="sumCity" jdbcType="VARCHAR" />
+    <result column="count_distinct_city" property="countDistinctCity" jdbcType="BIGINT" />
+    <result column="max_sex" property="maxSex" jdbcType="BIGINT" />
+    <result column="min_sex" property="minSex" jdbcType="BIGINT" />
+    <result column="avg_sex" property="avgSex" jdbcType="BIGINT" />
+    <result column="count_sex" property="countSex" jdbcType="BIGINT" />
+    <result column="sum_sex" property="sumSex" jdbcType="VARCHAR" />
+    <result column="count_distinct_sex" property="countDistinctSex" jdbcType="BIGINT" />
+    <result column="max_wx_nick_name" property="maxWxNickName" jdbcType="BIGINT" />
+    <result column="min_wx_nick_name" property="minWxNickName" jdbcType="BIGINT" />
+    <result column="avg_wx_nick_name" property="avgWxNickName" jdbcType="BIGINT" />
+    <result column="count_wx_nick_name" property="countWxNickName" jdbcType="BIGINT" />
+    <result column="sum_wx_nick_name" property="sumWxNickName" jdbcType="VARCHAR" />
+    <result column="count_distinct_wx_nick_name" property="countDistinctWxNickName" jdbcType="BIGINT" />
+    <result column="max_name" property="maxName" jdbcType="BIGINT" />
+    <result column="min_name" property="minName" jdbcType="BIGINT" />
+    <result column="avg_name" property="avgName" jdbcType="BIGINT" />
+    <result column="count_name" property="countName" jdbcType="BIGINT" />
+    <result column="sum_name" property="sumName" jdbcType="VARCHAR" />
+    <result column="count_distinct_name" property="countDistinctName" jdbcType="BIGINT" />
+    <result column="max_wx_openid" property="maxWxOpenid" jdbcType="BIGINT" />
+    <result column="min_wx_openid" property="minWxOpenid" jdbcType="BIGINT" />
+    <result column="avg_wx_openid" property="avgWxOpenid" jdbcType="BIGINT" />
+    <result column="count_wx_openid" property="countWxOpenid" jdbcType="BIGINT" />
+    <result column="sum_wx_openid" property="sumWxOpenid" jdbcType="VARCHAR" />
+    <result column="count_distinct_wx_openid" property="countDistinctWxOpenid" jdbcType="BIGINT" />
+    <result column="max_yz_buyer_nick" property="maxYzBuyerNick" jdbcType="BIGINT" />
+    <result column="min_yz_buyer_nick" property="minYzBuyerNick" jdbcType="BIGINT" />
+    <result column="avg_yz_buyer_nick" property="avgYzBuyerNick" jdbcType="BIGINT" />
+    <result column="count_yz_buyer_nick" property="countYzBuyerNick" jdbcType="BIGINT" />
+    <result column="sum_yz_buyer_nick" property="sumYzBuyerNick" jdbcType="VARCHAR" />
+    <result column="count_distinct_yz_buyer_nick" property="countDistinctYzBuyerNick" jdbcType="BIGINT" />
+    <result column="max_tb_buyer_nick" property="maxTbBuyerNick" jdbcType="BIGINT" />
+    <result column="min_tb_buyer_nick" property="minTbBuyerNick" jdbcType="BIGINT" />
+    <result column="avg_tb_buyer_nick" property="avgTbBuyerNick" jdbcType="BIGINT" />
+    <result column="count_tb_buyer_nick" property="countTbBuyerNick" jdbcType="BIGINT" />
+    <result column="sum_tb_buyer_nick" property="sumTbBuyerNick" jdbcType="VARCHAR" />
+    <result column="count_distinct_tb_buyer_nick" property="countDistinctTbBuyerNick" jdbcType="BIGINT" />
+    <result column="max_jd_pin" property="maxJdPin" jdbcType="BIGINT" />
+    <result column="min_jd_pin" property="minJdPin" jdbcType="BIGINT" />
+    <result column="avg_jd_pin" property="avgJdPin" jdbcType="BIGINT" />
+    <result column="count_jd_pin" property="countJdPin" jdbcType="BIGINT" />
+    <result column="sum_jd_pin" property="sumJdPin" jdbcType="VARCHAR" />
+    <result column="count_distinct_jd_pin" property="countDistinctJdPin" jdbcType="BIGINT" />
+    <result column="max_source" property="maxSource" jdbcType="BIGINT" />
+    <result column="min_source" property="minSource" jdbcType="BIGINT" />
+    <result column="avg_source" property="avgSource" jdbcType="BIGINT" />
+    <result column="count_source" property="countSource" jdbcType="BIGINT" />
+    <result column="sum_source" property="sumSource" jdbcType="VARCHAR" />
+    <result column="count_distinct_source" property="countDistinctSource" jdbcType="BIGINT" />
+    <result column="max_first_source" property="maxFirstSource" jdbcType="BIGINT" />
+    <result column="min_first_source" property="minFirstSource" jdbcType="BIGINT" />
+    <result column="avg_first_source" property="avgFirstSource" jdbcType="BIGINT" />
+    <result column="count_first_source" property="countFirstSource" jdbcType="BIGINT" />
+    <result column="sum_first_source" property="sumFirstSource" jdbcType="VARCHAR" />
+    <result column="count_distinct_first_source" property="countDistinctFirstSource" jdbcType="BIGINT" />
+    <result column="max_user_id_yz" property="maxUserIdYz" jdbcType="BIGINT" />
+    <result column="min_user_id_yz" property="minUserIdYz" jdbcType="BIGINT" />
+    <result column="avg_user_id_yz" property="avgUserIdYz" jdbcType="BIGINT" />
+    <result column="count_user_id_yz" property="countUserIdYz" jdbcType="BIGINT" />
+    <result column="sum_user_id_yz" property="sumUserIdYz" jdbcType="BIGINT" />
+    <result column="count_distinct_user_id_yz" property="countDistinctUserIdYz" jdbcType="BIGINT" />
+    <result column="max_user_id_jd" property="maxUserIdJd" jdbcType="BIGINT" />
+    <result column="min_user_id_jd" property="minUserIdJd" jdbcType="BIGINT" />
+    <result column="avg_user_id_jd" property="avgUserIdJd" jdbcType="BIGINT" />
+    <result column="count_user_id_jd" property="countUserIdJd" jdbcType="BIGINT" />
+    <result column="sum_user_id_jd" property="sumUserIdJd" jdbcType="BIGINT" />
+    <result column="count_distinct_user_id_jd" property="countDistinctUserIdJd" jdbcType="BIGINT" />
+    <result column="max_user_id_tb" property="maxUserIdTb" jdbcType="BIGINT" />
+    <result column="min_user_id_tb" property="minUserIdTb" jdbcType="BIGINT" />
+    <result column="avg_user_id_tb" property="avgUserIdTb" jdbcType="BIGINT" />
+    <result column="count_user_id_tb" property="countUserIdTb" jdbcType="BIGINT" />
+    <result column="sum_user_id_tb" property="sumUserIdTb" jdbcType="BIGINT" />
+    <result column="count_distinct_user_id_tb" property="countDistinctUserIdTb" jdbcType="BIGINT" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="count_distinct_seller_id" property="countDistinctSellerId" jdbcType="BIGINT" />
+    <result column="max_user_id" property="maxUserId" jdbcType="BIGINT" />
+    <result column="min_user_id" property="minUserId" jdbcType="BIGINT" />
+    <result column="avg_user_id" property="avgUserId" jdbcType="BIGINT" />
+    <result column="count_user_id" property="countUserId" jdbcType="BIGINT" />
+    <result column="sum_user_id" property="sumUserId" jdbcType="BIGINT" />
+    <result column="count_distinct_user_id" property="countDistinctUserId" jdbcType="BIGINT" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="count_distinct_is_deleted" property="countDistinctIsDeleted" jdbcType="BIGINT" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="count_distinct_modified_by" property="countDistinctModifiedBy" jdbcType="BIGINT" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="count_distinct_created_by" property="countDistinctCreatedBy" jdbcType="BIGINT" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_gmt_modified" property="countDistinctGmtModified" jdbcType="BIGINT" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="count_distinct_gmt_created" property="countDistinctGmtCreated" jdbcType="BIGINT" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="count_distinct_id" property="countDistinctId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+    <result column="user_id_tb" property="userIdTb" jdbcType="BIGINT" />
+    <result column="user_id_jd" property="userIdJd" jdbcType="BIGINT" />
+    <result column="user_id_yz" property="userIdYz" jdbcType="BIGINT" />
+    <result column="first_source" property="firstSource" jdbcType="VARCHAR" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+    <result column="jd_pin" property="jdPin" jdbcType="VARCHAR" />
+    <result column="tb_buyer_nick" property="tbBuyerNick" jdbcType="VARCHAR" />
+    <result column="yz_buyer_nick" property="yzBuyerNick" jdbcType="VARCHAR" />
+    <result column="wx_openid" property="wxOpenid" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="wx_nick_name" property="wxNickName" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="country" property="country" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="wx_subscribe" property="wxSubscribe" jdbcType="VARCHAR" />
+    <result column="wx_headimgurl" property="wxHeadimgurl" jdbcType="VARCHAR" />
+    <result column="wx_subscribe_time" property="wxSubscribeTime" jdbcType="TIMESTAMP" />
+    <result column="is_old_user" property="isOldUser" jdbcType="VARCHAR" />
+    <result column="integral" property="integral" jdbcType="BIGINT" />
+    <result column="brand_fans" property="brandFans" jdbcType="VARCHAR" />
+    <result column="is_verify" property="isVerify" jdbcType="VARCHAR" />
+    <result column="is_received_hb" property="isReceivedHb" jdbcType="VARCHAR" />
+    <result column="user_portrait_id" property="userPortraitId" jdbcType="BIGINT" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="receiver_id_tb" property="receiverIdTb" jdbcType="BIGINT" />
+    <result column="receiver_id_jd" property="receiverIdJd" jdbcType="BIGINT" />
+    <result column="receiver_id_yz" property="receiverIdYz" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, created_by, modified_by, is_deleted, user_id, seller_id, 
+    user_id_tb, user_id_jd, user_id_yz, first_source, source, jd_pin, tb_buyer_nick, 
+    yz_buyer_nick, wx_openid, name, wx_nick_name, sex, city, country, province, email, 
+    mobile, wx_subscribe, wx_headimgurl, wx_subscribe_time, is_old_user, integral, brand_fans, 
+    is_verify, is_received_hb, user_portrait_id, birthday, receiver_id_tb, receiver_id_jd, 
+    receiver_id_yz
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update user
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserExample" >
+    update user
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.user.User" useGeneratedKeys="true" keyProperty="id" >
+    insert into user (id, gmt_created, gmt_modified, 
+      created_by, modified_by, is_deleted, 
+      user_id, seller_id, user_id_tb, 
+      user_id_jd, user_id_yz, first_source, 
+      source, jd_pin, tb_buyer_nick, 
+      yz_buyer_nick, wx_openid, name, 
+      wx_nick_name, sex, city, 
+      country, province, email, 
+      mobile, wx_subscribe, wx_headimgurl, 
+      wx_subscribe_time, is_old_user, integral, 
+      brand_fans, is_verify, is_received_hb, 
+      user_portrait_id, birthday, receiver_id_tb, 
+      receiver_id_jd, receiver_id_yz)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=BIGINT}, #{sellerId,jdbcType=BIGINT}, #{userIdTb,jdbcType=BIGINT}, 
+      #{userIdJd,jdbcType=BIGINT}, #{userIdYz,jdbcType=BIGINT}, #{firstSource,jdbcType=VARCHAR}, 
+      #{source,jdbcType=VARCHAR}, #{jdPin,jdbcType=VARCHAR}, #{tbBuyerNick,jdbcType=VARCHAR}, 
+      #{yzBuyerNick,jdbcType=VARCHAR}, #{wxOpenid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{wxNickName,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{country,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{wxSubscribe,jdbcType=VARCHAR}, #{wxHeadimgurl,jdbcType=VARCHAR}, 
+      #{wxSubscribeTime,jdbcType=TIMESTAMP}, #{isOldUser,jdbcType=VARCHAR}, #{integral,jdbcType=BIGINT}, 
+      #{brandFans,jdbcType=VARCHAR}, #{isVerify,jdbcType=VARCHAR}, #{isReceivedHb,jdbcType=VARCHAR}, 
+      #{userPortraitId,jdbcType=BIGINT}, #{birthday,jdbcType=TIMESTAMP}, #{receiverIdTb,jdbcType=BIGINT}, 
+      #{receiverIdJd,jdbcType=BIGINT}, #{receiverIdYz,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.user.User" useGeneratedKeys="true" keyProperty="id" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="userIdTb != null" >
+        user_id_tb,
+      </if>
+      <if test="userIdJd != null" >
+        user_id_jd,
+      </if>
+      <if test="userIdYz != null" >
+        user_id_yz,
+      </if>
+      <if test="firstSource != null" >
+        first_source,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="jdPin != null" >
+        jd_pin,
+      </if>
+      <if test="tbBuyerNick != null" >
+        tb_buyer_nick,
+      </if>
+      <if test="yzBuyerNick != null" >
+        yz_buyer_nick,
+      </if>
+      <if test="wxOpenid != null" >
+        wx_openid,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="wxNickName != null" >
+        wx_nick_name,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="wxSubscribe != null" >
+        wx_subscribe,
+      </if>
+      <if test="wxHeadimgurl != null" >
+        wx_headimgurl,
+      </if>
+      <if test="wxSubscribeTime != null" >
+        wx_subscribe_time,
+      </if>
+      <if test="isOldUser != null" >
+        is_old_user,
+      </if>
+      <if test="integral != null" >
+        integral,
+      </if>
+      <if test="brandFans != null" >
+        brand_fans,
+      </if>
+      <if test="isVerify != null" >
+        is_verify,
+      </if>
+      <if test="isReceivedHb != null" >
+        is_received_hb,
+      </if>
+      <if test="userPortraitId != null" >
+        user_portrait_id,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="receiverIdTb != null" >
+        receiver_id_tb,
+      </if>
+      <if test="receiverIdJd != null" >
+        receiver_id_jd,
+      </if>
+      <if test="receiverIdYz != null" >
+        receiver_id_yz,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+      <if test="userIdTb != null" >
+        #{userIdTb,jdbcType=BIGINT},
+      </if>
+      <if test="userIdJd != null" >
+        #{userIdJd,jdbcType=BIGINT},
+      </if>
+      <if test="userIdYz != null" >
+        #{userIdYz,jdbcType=BIGINT},
+      </if>
+      <if test="firstSource != null" >
+        #{firstSource,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="jdPin != null" >
+        #{jdPin,jdbcType=VARCHAR},
+      </if>
+      <if test="tbBuyerNick != null" >
+        #{tbBuyerNick,jdbcType=VARCHAR},
+      </if>
+      <if test="yzBuyerNick != null" >
+        #{yzBuyerNick,jdbcType=VARCHAR},
+      </if>
+      <if test="wxOpenid != null" >
+        #{wxOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="wxNickName != null" >
+        #{wxNickName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="wxSubscribe != null" >
+        #{wxSubscribe,jdbcType=VARCHAR},
+      </if>
+      <if test="wxHeadimgurl != null" >
+        #{wxHeadimgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="wxSubscribeTime != null" >
+        #{wxSubscribeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isOldUser != null" >
+        #{isOldUser,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null" >
+        #{integral,jdbcType=BIGINT},
+      </if>
+      <if test="brandFans != null" >
+        #{brandFans,jdbcType=VARCHAR},
+      </if>
+      <if test="isVerify != null" >
+        #{isVerify,jdbcType=VARCHAR},
+      </if>
+      <if test="isReceivedHb != null" >
+        #{isReceivedHb,jdbcType=VARCHAR},
+      </if>
+      <if test="userPortraitId != null" >
+        #{userPortraitId,jdbcType=BIGINT},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="receiverIdTb != null" >
+        #{receiverIdTb,jdbcType=BIGINT},
+      </if>
+      <if test="receiverIdJd != null" >
+        #{receiverIdJd,jdbcType=BIGINT},
+      </if>
+      <if test="receiverIdYz != null" >
+        #{receiverIdYz,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.user.UserExample" resultType="java.lang.Integer" >
+    select count(*) from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update user
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.userId!=null and record.userIdExpression==null" >
+          user_id = #{record.userId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdExpression!=null" >
+          user_id = ${record.userIdExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.userIdTb!=null and record.userIdTbExpression==null" >
+          user_id_tb = #{record.userIdTb,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdTbExpression!=null" >
+          user_id_tb = ${record.userIdTbExpression},
+        </if>
+        <if test="record.userIdJd!=null and record.userIdJdExpression==null" >
+          user_id_jd = #{record.userIdJd,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdJdExpression!=null" >
+          user_id_jd = ${record.userIdJdExpression},
+        </if>
+        <if test="record.userIdYz!=null and record.userIdYzExpression==null" >
+          user_id_yz = #{record.userIdYz,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdYzExpression!=null" >
+          user_id_yz = ${record.userIdYzExpression},
+        </if>
+        <if test="record.firstSource!=null and record.firstSourceExpression==null" >
+          first_source = #{record.firstSource,jdbcType=VARCHAR},
+        </if>
+        <if test="record.firstSourceExpression!=null" >
+          first_source = ${record.firstSourceExpression},
+        </if>
+        <if test="record.source!=null and record.sourceExpression==null" >
+          source = #{record.source,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sourceExpression!=null" >
+          source = ${record.sourceExpression},
+        </if>
+        <if test="record.jdPin!=null and record.jdPinExpression==null" >
+          jd_pin = #{record.jdPin,jdbcType=VARCHAR},
+        </if>
+        <if test="record.jdPinExpression!=null" >
+          jd_pin = ${record.jdPinExpression},
+        </if>
+        <if test="record.tbBuyerNick!=null and record.tbBuyerNickExpression==null" >
+          tb_buyer_nick = #{record.tbBuyerNick,jdbcType=VARCHAR},
+        </if>
+        <if test="record.tbBuyerNickExpression!=null" >
+          tb_buyer_nick = ${record.tbBuyerNickExpression},
+        </if>
+        <if test="record.yzBuyerNick!=null and record.yzBuyerNickExpression==null" >
+          yz_buyer_nick = #{record.yzBuyerNick,jdbcType=VARCHAR},
+        </if>
+        <if test="record.yzBuyerNickExpression!=null" >
+          yz_buyer_nick = ${record.yzBuyerNickExpression},
+        </if>
+        <if test="record.wxOpenid!=null and record.wxOpenidExpression==null" >
+          wx_openid = #{record.wxOpenid,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxOpenidExpression!=null" >
+          wx_openid = ${record.wxOpenidExpression},
+        </if>
+        <if test="record.name!=null and record.nameExpression==null" >
+          name = #{record.name,jdbcType=VARCHAR},
+        </if>
+        <if test="record.nameExpression!=null" >
+          name = ${record.nameExpression},
+        </if>
+        <if test="record.wxNickName!=null and record.wxNickNameExpression==null" >
+          wx_nick_name = #{record.wxNickName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxNickNameExpression!=null" >
+          wx_nick_name = ${record.wxNickNameExpression},
+        </if>
+        <if test="record.sex!=null and record.sexExpression==null" >
+          sex = #{record.sex,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sexExpression!=null" >
+          sex = ${record.sexExpression},
+        </if>
+        <if test="record.city!=null and record.cityExpression==null" >
+          city = #{record.city,jdbcType=VARCHAR},
+        </if>
+        <if test="record.cityExpression!=null" >
+          city = ${record.cityExpression},
+        </if>
+        <if test="record.country!=null and record.countryExpression==null" >
+          country = #{record.country,jdbcType=VARCHAR},
+        </if>
+        <if test="record.countryExpression!=null" >
+          country = ${record.countryExpression},
+        </if>
+        <if test="record.province!=null and record.provinceExpression==null" >
+          province = #{record.province,jdbcType=VARCHAR},
+        </if>
+        <if test="record.provinceExpression!=null" >
+          province = ${record.provinceExpression},
+        </if>
+        <if test="record.email!=null and record.emailExpression==null" >
+          email = #{record.email,jdbcType=VARCHAR},
+        </if>
+        <if test="record.emailExpression!=null" >
+          email = ${record.emailExpression},
+        </if>
+        <if test="record.mobile!=null and record.mobileExpression==null" >
+          mobile = #{record.mobile,jdbcType=VARCHAR},
+        </if>
+        <if test="record.mobileExpression!=null" >
+          mobile = ${record.mobileExpression},
+        </if>
+        <if test="record.wxSubscribe!=null and record.wxSubscribeExpression==null" >
+          wx_subscribe = #{record.wxSubscribe,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxSubscribeExpression!=null" >
+          wx_subscribe = ${record.wxSubscribeExpression},
+        </if>
+        <if test="record.wxHeadimgurl!=null and record.wxHeadimgurlExpression==null" >
+          wx_headimgurl = #{record.wxHeadimgurl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxHeadimgurlExpression!=null" >
+          wx_headimgurl = ${record.wxHeadimgurlExpression},
+        </if>
+        <if test="record.wxSubscribeTime!=null and record.wxSubscribeTimeExpression==null" >
+          wx_subscribe_time = #{record.wxSubscribeTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.wxSubscribeTimeExpression!=null" >
+          wx_subscribe_time = ${record.wxSubscribeTimeExpression},
+        </if>
+        <if test="record.isOldUser!=null and record.isOldUserExpression==null" >
+          is_old_user = #{record.isOldUser,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isOldUserExpression!=null" >
+          is_old_user = ${record.isOldUserExpression},
+        </if>
+        <if test="record.integral!=null and record.integralExpression==null" >
+          integral = #{record.integral,jdbcType=BIGINT},
+        </if>
+        <if test="record.integralExpression!=null" >
+          integral = ${record.integralExpression},
+        </if>
+        <if test="record.brandFans!=null and record.brandFansExpression==null" >
+          brand_fans = #{record.brandFans,jdbcType=VARCHAR},
+        </if>
+        <if test="record.brandFansExpression!=null" >
+          brand_fans = ${record.brandFansExpression},
+        </if>
+        <if test="record.isVerify!=null and record.isVerifyExpression==null" >
+          is_verify = #{record.isVerify,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isVerifyExpression!=null" >
+          is_verify = ${record.isVerifyExpression},
+        </if>
+        <if test="record.isReceivedHb!=null and record.isReceivedHbExpression==null" >
+          is_received_hb = #{record.isReceivedHb,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isReceivedHbExpression!=null" >
+          is_received_hb = ${record.isReceivedHbExpression},
+        </if>
+        <if test="record.userPortraitId!=null and record.userPortraitIdExpression==null" >
+          user_portrait_id = #{record.userPortraitId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userPortraitIdExpression!=null" >
+          user_portrait_id = ${record.userPortraitIdExpression},
+        </if>
+        <if test="record.birthday!=null and record.birthdayExpression==null" >
+          birthday = #{record.birthday,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.birthdayExpression!=null" >
+          birthday = ${record.birthdayExpression},
+        </if>
+        <if test="record.receiverIdTb!=null and record.receiverIdTbExpression==null" >
+          receiver_id_tb = #{record.receiverIdTb,jdbcType=BIGINT},
+        </if>
+        <if test="record.receiverIdTbExpression!=null" >
+          receiver_id_tb = ${record.receiverIdTbExpression},
+        </if>
+        <if test="record.receiverIdJd!=null and record.receiverIdJdExpression==null" >
+          receiver_id_jd = #{record.receiverIdJd,jdbcType=BIGINT},
+        </if>
+        <if test="record.receiverIdJdExpression!=null" >
+          receiver_id_jd = ${record.receiverIdJdExpression},
+        </if>
+        <if test="record.receiverIdYz!=null and record.receiverIdYzExpression==null" >
+          receiver_id_yz = #{record.receiverIdYz,jdbcType=BIGINT},
+        </if>
+        <if test="record.receiverIdYzExpression!=null" >
+          receiver_id_yz = ${record.receiverIdYzExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update user
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      seller_id = #{record.sellerId,jdbcType=BIGINT},
+      user_id_tb = #{record.userIdTb,jdbcType=BIGINT},
+      user_id_jd = #{record.userIdJd,jdbcType=BIGINT},
+      user_id_yz = #{record.userIdYz,jdbcType=BIGINT},
+      first_source = #{record.firstSource,jdbcType=VARCHAR},
+      source = #{record.source,jdbcType=VARCHAR},
+      jd_pin = #{record.jdPin,jdbcType=VARCHAR},
+      tb_buyer_nick = #{record.tbBuyerNick,jdbcType=VARCHAR},
+      yz_buyer_nick = #{record.yzBuyerNick,jdbcType=VARCHAR},
+      wx_openid = #{record.wxOpenid,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      wx_nick_name = #{record.wxNickName,jdbcType=VARCHAR},
+      sex = #{record.sex,jdbcType=VARCHAR},
+      city = #{record.city,jdbcType=VARCHAR},
+      country = #{record.country,jdbcType=VARCHAR},
+      province = #{record.province,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      mobile = #{record.mobile,jdbcType=VARCHAR},
+      wx_subscribe = #{record.wxSubscribe,jdbcType=VARCHAR},
+      wx_headimgurl = #{record.wxHeadimgurl,jdbcType=VARCHAR},
+      wx_subscribe_time = #{record.wxSubscribeTime,jdbcType=TIMESTAMP},
+      is_old_user = #{record.isOldUser,jdbcType=VARCHAR},
+      integral = #{record.integral,jdbcType=BIGINT},
+      brand_fans = #{record.brandFans,jdbcType=VARCHAR},
+      is_verify = #{record.isVerify,jdbcType=VARCHAR},
+      is_received_hb = #{record.isReceivedHb,jdbcType=VARCHAR},
+      user_portrait_id = #{record.userPortraitId,jdbcType=BIGINT},
+      birthday = #{record.birthday,jdbcType=TIMESTAMP},
+      receiver_id_tb = #{record.receiverIdTb,jdbcType=BIGINT},
+      receiver_id_jd = #{record.receiverIdJd,jdbcType=BIGINT},
+      receiver_id_yz = #{record.receiverIdYz,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.user.User" >
+    update user
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.userId!=null and record.userIdExpression==null" >
+          user_id = #{record.userId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdExpression!=null" >
+          user_id = ${record.userIdExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.userIdTb!=null and record.userIdTbExpression==null" >
+          user_id_tb = #{record.userIdTb,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdTbExpression!=null" >
+          user_id_tb = ${record.userIdTbExpression},
+        </if>
+        <if test="record.userIdJd!=null and record.userIdJdExpression==null" >
+          user_id_jd = #{record.userIdJd,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdJdExpression!=null" >
+          user_id_jd = ${record.userIdJdExpression},
+        </if>
+        <if test="record.userIdYz!=null and record.userIdYzExpression==null" >
+          user_id_yz = #{record.userIdYz,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdYzExpression!=null" >
+          user_id_yz = ${record.userIdYzExpression},
+        </if>
+        <if test="record.firstSource!=null and record.firstSourceExpression==null" >
+          first_source = #{record.firstSource,jdbcType=VARCHAR},
+        </if>
+        <if test="record.firstSourceExpression!=null" >
+          first_source = ${record.firstSourceExpression},
+        </if>
+        <if test="record.source!=null and record.sourceExpression==null" >
+          source = #{record.source,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sourceExpression!=null" >
+          source = ${record.sourceExpression},
+        </if>
+        <if test="record.jdPin!=null and record.jdPinExpression==null" >
+          jd_pin = #{record.jdPin,jdbcType=VARCHAR},
+        </if>
+        <if test="record.jdPinExpression!=null" >
+          jd_pin = ${record.jdPinExpression},
+        </if>
+        <if test="record.tbBuyerNick!=null and record.tbBuyerNickExpression==null" >
+          tb_buyer_nick = #{record.tbBuyerNick,jdbcType=VARCHAR},
+        </if>
+        <if test="record.tbBuyerNickExpression!=null" >
+          tb_buyer_nick = ${record.tbBuyerNickExpression},
+        </if>
+        <if test="record.yzBuyerNick!=null and record.yzBuyerNickExpression==null" >
+          yz_buyer_nick = #{record.yzBuyerNick,jdbcType=VARCHAR},
+        </if>
+        <if test="record.yzBuyerNickExpression!=null" >
+          yz_buyer_nick = ${record.yzBuyerNickExpression},
+        </if>
+        <if test="record.wxOpenid!=null and record.wxOpenidExpression==null" >
+          wx_openid = #{record.wxOpenid,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxOpenidExpression!=null" >
+          wx_openid = ${record.wxOpenidExpression},
+        </if>
+        <if test="record.name!=null and record.nameExpression==null" >
+          name = #{record.name,jdbcType=VARCHAR},
+        </if>
+        <if test="record.nameExpression!=null" >
+          name = ${record.nameExpression},
+        </if>
+        <if test="record.wxNickName!=null and record.wxNickNameExpression==null" >
+          wx_nick_name = #{record.wxNickName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxNickNameExpression!=null" >
+          wx_nick_name = ${record.wxNickNameExpression},
+        </if>
+        <if test="record.sex!=null and record.sexExpression==null" >
+          sex = #{record.sex,jdbcType=VARCHAR},
+        </if>
+        <if test="record.sexExpression!=null" >
+          sex = ${record.sexExpression},
+        </if>
+        <if test="record.city!=null and record.cityExpression==null" >
+          city = #{record.city,jdbcType=VARCHAR},
+        </if>
+        <if test="record.cityExpression!=null" >
+          city = ${record.cityExpression},
+        </if>
+        <if test="record.country!=null and record.countryExpression==null" >
+          country = #{record.country,jdbcType=VARCHAR},
+        </if>
+        <if test="record.countryExpression!=null" >
+          country = ${record.countryExpression},
+        </if>
+        <if test="record.province!=null and record.provinceExpression==null" >
+          province = #{record.province,jdbcType=VARCHAR},
+        </if>
+        <if test="record.provinceExpression!=null" >
+          province = ${record.provinceExpression},
+        </if>
+        <if test="record.email!=null and record.emailExpression==null" >
+          email = #{record.email,jdbcType=VARCHAR},
+        </if>
+        <if test="record.emailExpression!=null" >
+          email = ${record.emailExpression},
+        </if>
+        <if test="record.mobile!=null and record.mobileExpression==null" >
+          mobile = #{record.mobile,jdbcType=VARCHAR},
+        </if>
+        <if test="record.mobileExpression!=null" >
+          mobile = ${record.mobileExpression},
+        </if>
+        <if test="record.wxSubscribe!=null and record.wxSubscribeExpression==null" >
+          wx_subscribe = #{record.wxSubscribe,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxSubscribeExpression!=null" >
+          wx_subscribe = ${record.wxSubscribeExpression},
+        </if>
+        <if test="record.wxHeadimgurl!=null and record.wxHeadimgurlExpression==null" >
+          wx_headimgurl = #{record.wxHeadimgurl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.wxHeadimgurlExpression!=null" >
+          wx_headimgurl = ${record.wxHeadimgurlExpression},
+        </if>
+        <if test="record.wxSubscribeTime!=null and record.wxSubscribeTimeExpression==null" >
+          wx_subscribe_time = #{record.wxSubscribeTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.wxSubscribeTimeExpression!=null" >
+          wx_subscribe_time = ${record.wxSubscribeTimeExpression},
+        </if>
+        <if test="record.isOldUser!=null and record.isOldUserExpression==null" >
+          is_old_user = #{record.isOldUser,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isOldUserExpression!=null" >
+          is_old_user = ${record.isOldUserExpression},
+        </if>
+        <if test="record.integral!=null and record.integralExpression==null" >
+          integral = #{record.integral,jdbcType=BIGINT},
+        </if>
+        <if test="record.integralExpression!=null" >
+          integral = ${record.integralExpression},
+        </if>
+        <if test="record.brandFans!=null and record.brandFansExpression==null" >
+          brand_fans = #{record.brandFans,jdbcType=VARCHAR},
+        </if>
+        <if test="record.brandFansExpression!=null" >
+          brand_fans = ${record.brandFansExpression},
+        </if>
+        <if test="record.isVerify!=null and record.isVerifyExpression==null" >
+          is_verify = #{record.isVerify,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isVerifyExpression!=null" >
+          is_verify = ${record.isVerifyExpression},
+        </if>
+        <if test="record.isReceivedHb!=null and record.isReceivedHbExpression==null" >
+          is_received_hb = #{record.isReceivedHb,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isReceivedHbExpression!=null" >
+          is_received_hb = ${record.isReceivedHbExpression},
+        </if>
+        <if test="record.userPortraitId!=null and record.userPortraitIdExpression==null" >
+          user_portrait_id = #{record.userPortraitId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userPortraitIdExpression!=null" >
+          user_portrait_id = ${record.userPortraitIdExpression},
+        </if>
+        <if test="record.birthday!=null and record.birthdayExpression==null" >
+          birthday = #{record.birthday,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.birthdayExpression!=null" >
+          birthday = ${record.birthdayExpression},
+        </if>
+        <if test="record.receiverIdTb!=null and record.receiverIdTbExpression==null" >
+          receiver_id_tb = #{record.receiverIdTb,jdbcType=BIGINT},
+        </if>
+        <if test="record.receiverIdTbExpression!=null" >
+          receiver_id_tb = ${record.receiverIdTbExpression},
+        </if>
+        <if test="record.receiverIdJd!=null and record.receiverIdJdExpression==null" >
+          receiver_id_jd = #{record.receiverIdJd,jdbcType=BIGINT},
+        </if>
+        <if test="record.receiverIdJdExpression!=null" >
+          receiver_id_jd = ${record.receiverIdJdExpression},
+        </if>
+        <if test="record.receiverIdYz!=null and record.receiverIdYzExpression==null" >
+          receiver_id_yz = #{record.receiverIdYz,jdbcType=BIGINT},
+        </if>
+        <if test="record.receiverIdYzExpression!=null" >
+          receiver_id_yz = ${record.receiverIdYzExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.user.User" >
+    update user
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=BIGINT},
+      seller_id = #{sellerId,jdbcType=BIGINT},
+      user_id_tb = #{userIdTb,jdbcType=BIGINT},
+      user_id_jd = #{userIdJd,jdbcType=BIGINT},
+      user_id_yz = #{userIdYz,jdbcType=BIGINT},
+      first_source = #{firstSource,jdbcType=VARCHAR},
+      source = #{source,jdbcType=VARCHAR},
+      jd_pin = #{jdPin,jdbcType=VARCHAR},
+      tb_buyer_nick = #{tbBuyerNick,jdbcType=VARCHAR},
+      yz_buyer_nick = #{yzBuyerNick,jdbcType=VARCHAR},
+      wx_openid = #{wxOpenid,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      wx_nick_name = #{wxNickName,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      country = #{country,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      wx_subscribe = #{wxSubscribe,jdbcType=VARCHAR},
+      wx_headimgurl = #{wxHeadimgurl,jdbcType=VARCHAR},
+      wx_subscribe_time = #{wxSubscribeTime,jdbcType=TIMESTAMP},
+      is_old_user = #{isOldUser,jdbcType=VARCHAR},
+      integral = #{integral,jdbcType=BIGINT},
+      brand_fans = #{brandFans,jdbcType=VARCHAR},
+      is_verify = #{isVerify,jdbcType=VARCHAR},
+      is_received_hb = #{isReceivedHb,jdbcType=VARCHAR},
+      user_portrait_id = #{userPortraitId,jdbcType=BIGINT},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      receiver_id_tb = #{receiverIdTb,jdbcType=BIGINT},
+      receiver_id_jd = #{receiverIdJd,jdbcType=BIGINT},
+      receiver_id_yz = #{receiverIdYz,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

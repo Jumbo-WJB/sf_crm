@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.pointMall.PointExchangeStaticsDao" >
+    <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.pointMall.PointExchangeStaticsDo" >
+        <result column="user_id" property="userId" jdbcType="BIGINT" />
+        <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+        <result column="hbPoint" property="hbPoint" jdbcType="BIGINT" />
+        <result column="goodsPoint" property="goodsPoint" jdbcType="BIGINT" />
+
+    </resultMap>
+
+    <select id="findPointExchangeStaticsByUserId" resultMap="BaseResultMap" parameterType="map">
+        SELECT seller_id, user_id, SUM(CASE WHEN exchange_method='hongbao' THEN point_amount END) hbPoint,
+                SUM(CASE WHEN exchange_method='goods' THEN point_amount END) goodsPoint
+        FROM point_exchange
+        <where>
+            <trim prefixOverrides="and">
+                <if test="sellerId != null">
+                    and seller_id = #{sellerId}
+                </if>
+                <if test="userId != null">
+                    and user_id = #{userId}
+                </if>
+                AND STATUS = 'success'
+            </trim>
+        </where>
+    </select>
+
+</mapper>

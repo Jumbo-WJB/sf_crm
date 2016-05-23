@@ -1,0 +1,293 @@
+#set($layout = "/layout/mobileBlank.vm")
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>摇一摇</title>
+    <meta name="apple-touch-fullscreen" content="YES">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="pragram" content="no-cache">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="${rc.contextPath}/media/mobile/assets/css/shake/shakeHB.css"/>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+
+</head>
+
+<body>
+<div class="wap personal-page">
+    <div class="personal-box">
+        <div class='user-pic'>
+            <img id="headImg" src=""/>
+        </div>
+
+
+        <h4>恭喜你！获得 <span id="obtainValue"></span></h4>
+        <h4><span id="pointTotal"></span></h4>
+
+        <div class="bottom-row" style="text-align: center;text">
+            <a href="" id="backIndex" class="share-btn btn" style="background-color: #FF9024;">回到首页</a>
+            <a href="" id="goBackShake" class="show-hb btn" style="background-color: #FF9024;">继续摇</a>
+        </div>
+
+
+
+        <div id="isShareBtn" class="bottom-row" style="text-align: center;display: none;">
+            <a href="javascript:;" id="share-btn" class="share-btn btn" style="background-color: #FF9024;">分享到朋友圈</a>
+            <a href="javascript:;" id="share-q-btn" class="show-hb btn" style="background-color: #FF9024;">分享给朋友</a>
+        </div>
+
+
+
+        <!--如果没有关注公众号，此处放二维码 -->
+        <div id="noScribe" style="display: none;">
+            <p id="subscribeNote"></p>
+
+            <div id="barCode"><img id="wxQrcode" src=""/></div>
+        </div>
+
+
+    </div>
+    <ul class="more-hb" style="display:none;">
+
+        <li>
+            <p class="infor"><span id="pointTotal"></span></p>
+
+        </li>
+
+    </ul>
+</div>
+<div class="giveTip" id="giveTip" style="display:none;">
+    <p class="icon-friend"><img src="${rc.contextPath}/media/mobile/assets/images/shake/share_to_friend.png" /></p>
+<div class="giveTip-content">
+    <h4>点击发送给朋友</h4>
+    <p>邀请好友一起来摇</p>
+    <a href="javascript:;" class="give-colseBtn">我知道了</a>
+</div>
+</div>
+
+<div class="giveTip" id="giveQTip" style="display:none;">
+    <p class="icon-friend"><img src="${rc.contextPath}/media/mobile/assets/images/shake/share_to_friend.png" /></p>
+    <div class="giveTip-content">
+        <h4>点击分享到朋友圈</h4>
+        <p>邀请朋友一起来摇</p>
+        <a href="javascript:;" class="give-colseBtn">我知道了</a>
+    </div>
+</div>
+<script>
+
+    showInfo();
+
+
+
+
+    function showInfo() {
+
+        //getWxJsConfig();
+
+        var obtainValue = '$!obtainValue';
+        var pointTotal = '$!pointTotal';
+        var pointRemain = '$!pointRemain';
+        var shakeType = '$!shakeType';
+        var headImg = '$!headImg';
+        var isShare = '$!isShare';
+        var userId = getArgs().userId;
+        var sellerId = getArgs().sellerId;
+        var rockId = getArgs().rockId;
+
+        if (isShare == 0) {
+            $('#isShareBtn').hide();
+
+        } else {
+            $('#isShareBtn').show();
+
+        }
+
+        var subscribeNoteContent = '';
+        var content = '';
+        $("#headImg").attr("src", headImg);
+
+        if ('$!shakeType' == 'point') {
+
+
+            content = obtainValue + '积分。';
+
+            subscribeNoteContent = '您还没有关注公众号，积分红包有效期为30分钟，请抓紧关注公众号领取!'
+
+            if ('$!isSubscribe' == 0) {
+
+                var wxQrcode = '${rc.contextPath}$wxQrcode';
+                $("#wxQrcode").attr("src", wxQrcode);
+                $('#noScribe').show();
+                $('#subscribeNote').text(subscribeNoteContent);
+
+            } else {
+                $('#noScribe').hide();
+
+                var pointTotal = '您总共累积' + pointTotal + '积分,剩余' + pointRemain + '。';
+                $("#pointTotal").text(pointTotal);
+
+
+            }
+
+            $("#obtainValue").text(content);
+
+            var goBackShake = '${rc.contextPath}/mobile/doShake?sellerId=' + sellerId + '&userId=' + userId + '&rockId=' + rockId;
+
+            var index = '${rc.contextPath}/mobile/index?sellerId=' + sellerId;
+
+            $('#goBackShake').attr("href", goBackShake);
+            $('#backIndex').attr("href", index);
+        }
+
+
+    }
+
+
+    wx.config({
+        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: '$!wxJsConfig.appId', // 必填，公众号的唯一标识
+        timestamp: '$!wxJsConfig.timestamp', // 必填，生成签名的时间戳
+        nonceStr: '$!wxJsConfig.nonceStr', // 必填，生成签名的随机串
+        signature: '$!wxJsConfig.signature',// 必填，签名，见附录1
+        jsApiList: ['onMenuShareAppMessage','onMenuShareTimeline'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+
+
+
+    wx.ready(function(){
+        var isShare = '$!isShare';
+
+        if (isShare == 0){
+            wx.hideOptionMenu();
+        }else{
+
+            var sellerId = getArgs().sellerId;
+            var rockId = getArgs().rockId;
+            var shakeName = getArgs().shakeName;
+
+            wx.onMenuShareAppMessage({
+                title: shakeName, // 分享标题
+                desc: shakeName, // 分享描述
+                link: baseUrl+'mobile/doShake?sellerId='+sellerId+'&rockId='+rockId, // 分享链接
+                imgUrl: baseUrl+'/media/mobile/assets/images/shake/shareImg.jpg', // 分享图标
+                type: '', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function () {
+                    alert("分享成功。");
+
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+
+            wx.onMenuShareTimeline({
+                title: shakeName, // 分享标题
+                link: baseUrl+'mobile/doShake?sellerId='+sellerId+'&rockId='+rockId, // 分享链接
+                imgUrl: baseUrl+'/media/mobile/assets/images/shake/shareImg.jpg', // 分享图标
+                success: function () {
+                    alert("分享成功。");
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        }
+
+
+
+        // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+    });
+
+
+
+//    function getWxJsConfig() {
+//        alert("getWxJsConfig()");
+//        var url = location.href.split('#')[0];
+//        alert(url)
+//        $.ajax({
+//            type: "post",
+//            url: baseUrl + "mobile/getWxJsConfig",
+//            data: {sellerId:'1',url: url},
+//            dataType: "json",
+//            success: function (data) {
+//                alert(data)
+//                alert(data.errorCode)
+//                if (data.errorCode == 0) {
+//                    alert(data.info.appId)
+//                    alert(data.info.timestamp)
+//                    alert(data.info.nonceStr)
+//                    alert(data.info.signature)
+//
+//
+//
+//
+//                } else {
+//                    alert("失败");
+//                    return false;
+//                }
+//            }
+//        });
+//
+//    }
+
+
+    function getArgs() {
+        var args = new Object(); //声明一个空对象
+        var query = window.location.search.substring(1); // 取查询字符串，如从 http://www.snowpeak.org/testjs.htm?a1=v1&a2=&a3=v3#anchor 中截出 a1=v1&a2=&a3=v3。
+        var pairs = query.split("&"); // 以 & 符分开成数组
+        for (var i = 0; i < pairs.length; i++) {
+            var pos = pairs[i].indexOf('='); // 查找 "name=value" 对
+            if (pos == -1) continue; // 若不成对，则跳出循环继续下一对
+            var argname = pairs[i].substring(0, pos); // 取参数名
+            var value = pairs[i].substring(pos + 1); // 取参数值
+            value = decodeURIComponent(value); // 若需要，则解码
+            args[argname] = value; // 存成对象的一个属性
+        }
+        return args; // 返回此对象
+
+    }
+
+
+    // 查看更多红包
+    $('.show-hb').bind('click', function (event) {
+        $('.more-hb').show();
+    });
+
+    $("#share-btn").bind('click', function (event) {
+        giveQTipShow();
+        event.preventDefault();
+    });
+
+    $("#share-q-btn").bind('click', function (event) {
+        giveTipShow();
+        event.preventDefault();
+    });
+
+    // 分享JS
+    function giveTipShow() {
+        $('#giveTip').show();
+    }
+    $('.give-colseBtn').bind('click', function (event) {
+        $('#giveTip').hide();
+    });
+
+    // 分享JS
+    function giveQTipShow() {
+        $('#giveQTip').show();
+    }
+    $('.give-colseBtn').bind('click', function (event) {
+        $('#giveQTip').hide();
+    });
+
+
+</script>
+
+</body>
+</html>

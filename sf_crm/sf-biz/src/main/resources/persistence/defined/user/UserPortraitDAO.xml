@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.user.UserPortraitDAO" >
+
+    <select id="selectTotalPurchaseAmount" resultType="java.lang.Long">
+      SELECT total_purchase_amount FROM user_portrait WHERE user_portrait_id=#{userPortraitId};
+    </select>
+
+    <select id="rank" resultType="java.lang.Long">
+        SELECT
+          (SELECT COUNT(1)
+           FROM user_portrait
+           WHERE total_purchase_amount>=
+                  (SELECT total_purchase_amount
+                   FROM user_portrait
+                   WHERE user_portrait_id = #{userPortraitId}
+                   ORDER BY total_purchase_amount DESC limit 1
+                   )) AS rank
+        FROM user_portrait
+        WHERE user_portrait_id = #{userPortraitId}
+    </select>
+</mapper>

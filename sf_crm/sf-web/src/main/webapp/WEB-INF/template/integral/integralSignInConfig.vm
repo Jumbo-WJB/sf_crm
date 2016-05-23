@@ -1,0 +1,86 @@
+#set($layout = "/layout/blank.vm")
+<style>
+    .delIcon{
+        width: 25px;
+        height: 25px;
+        vertical-align: middle;
+        display: inline-block;
+        background: url(${rc.contextPath}/media/images/delIcon.png) no-repeat;
+        background-size: 100%;;
+    }
+</style>
+
+<div class="row">
+<div class="col-xs-12">
+    <div class="table-responsive">
+        <div class="BoxStyleA">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <i class="modal-logo interact"></i>
+                <ul class="breadcrumb" style="margin-left: 2px">
+                    <li></li>
+                    <li>客户互动</li>
+                    <li>积分</li>
+                    <li class="active">签到送积分设置</li>
+                </ul><!-- .breadcrumb -->
+            </div>
+
+            <div class="widget-body">
+                <div class="widget-main">
+                    <form class="form-search" id="signInConifgForm">
+                        <div class="row" id="mvGruop">
+                            <div class="col-xs-16 col-sm-12" id="input_group_1">
+                                <div class="col-sm-3"></div>
+                                <div class="integralSignIn input-group">
+                                    <span style="width: 25px;display: inline-block;"></span>&nbsp;每连续签到&nbsp;&nbsp;<input disabled="disabled" type="text" class="signInNum" id="signInNum_1" value="1"/>&nbsp;&nbsp;天&nbsp;&nbsp;
+                                    送积分&nbsp;&nbsp;<input  class="integralNum" type="text" id="integralNum_1"/>&nbsp;&nbsp;个&nbsp;&nbsp;
+                                    领取限制&nbsp;&nbsp;<input name="config_1" class="getConfig" type="radio" class="ace" id="getConfig_1" checked="checked"/>
+                                    <span class="lbl"> 每人仅限领取一次</span>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div style="margin-bottom: 10px;margin-top: 20px;">
+                    <center>
+                        <input class="sure" type="button" value="继续添加" onclick="addSignInCofig()"/>
+                        <input class="sure" type="submit" value="保存设置" onclick="saveOrUpdateFrom()"/>
+                    </center>
+                </div>
+            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div>&nbsp</div>
+        <div class="BoxStyleA"  style="width: 94%;margin:20px 40px 0px 40px;float: center">
+            <div class="BoxStyleATop">
+                <span class="fl">用户查询明细信息</span>
+
+                <!--<a href="" class="fr">X</a>-->
+            </div>
+            <table id="signPointQueryTable" class="table table-striped table-bordered table-hover">
+                <thead>
+                <tr>
+
+                    <th>签到人昵称</th>
+                    <th>性别</th>
+                    <th>送积分</th>
+                    <th>签到次数</th>
+                    <th>最后一次签到时间</th>
+                    <th>累计积分</th>
+                    <th>是否老客户</th>
+                    <th>联系电话</th>
+                    <th>收货人姓名</th>
+                    <th>购物次数</th>
+
+
+
+                </tr>
+                </thead>
+                <tbody id="tbContainer"
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript" src="${rc.contextPath}/media/js/admin/point/integralSignConfig.js"></script>

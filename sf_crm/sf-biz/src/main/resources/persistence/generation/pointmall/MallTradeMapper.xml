@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.pointmall.MallTradeMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.pointmall.MallTrade" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="tid" property="tid" jdbcType="BIGINT" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="pay_time" property="payTime" jdbcType="TIMESTAMP" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="modified" property="modified" jdbcType="TIMESTAMP" />
+    <result column="consign_time" property="consignTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="receiver_id" property="receiverId" jdbcType="BIGINT" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="fee" property="fee" jdbcType="BIGINT" />
+    <result column="fee_point" property="feePoint" jdbcType="BIGINT" />
+    <result column="payment" property="payment" jdbcType="BIGINT" />
+    <result column="payment_point" property="paymentPoint" jdbcType="BIGINT" />
+    <result column="shipping_type" property="shippingType" jdbcType="VARCHAR" />
+    <result column="shipping_id" property="shippingId" jdbcType="VARCHAR" />
+    <result column="shipping_company" property="shippingCompany" jdbcType="VARCHAR" />
+    <result column="shipping_fee" property="shippingFee" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, created_by, modified_by, is_deleted, seller_id, user_id, 
+    tid, status, pay_time, created, modified, consign_time, end_time, receiver_id, type, 
+    fee, fee_point, payment, payment_point, shipping_type, shipping_id, shipping_company, 
+    shipping_fee
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.pointmall.MallTradeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from mall_trade
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from mall_trade
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update mall_trade
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.pointmall.MallTradeExample" >
+    update mall_trade
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.pointmall.MallTrade" useGeneratedKeys="true" keyProperty="id" >
+    insert into mall_trade (id, gmt_created, gmt_modified, 
+      created_by, modified_by, is_deleted, 
+      seller_id, user_id, tid, 
+      status, pay_time, created, 
+      modified, consign_time, end_time, 
+      receiver_id, type, fee, 
+      fee_point, payment, payment_point, 
+      shipping_type, shipping_id, shipping_company, 
+      shipping_fee)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{sellerId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{tid,jdbcType=BIGINT}, 
+      #{status,jdbcType=VARCHAR}, #{payTime,jdbcType=TIMESTAMP}, #{created,jdbcType=TIMESTAMP}, 
+      #{modified,jdbcType=TIMESTAMP}, #{consignTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{receiverId,jdbcType=BIGINT}, #{type,jdbcType=VARCHAR}, #{fee,jdbcType=BIGINT}, 
+      #{feePoint,jdbcType=BIGINT}, #{payment,jdbcType=BIGINT}, #{paymentPoint,jdbcType=BIGINT}, 
+      #{shippingType,jdbcType=VARCHAR}, #{shippingId,jdbcType=VARCHAR}, #{shippingCompany,jdbcType=VARCHAR}, 
+      #{shippingFee,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.pointmall.MallTrade" useGeneratedKeys="true" keyProperty="id" >
+    insert into mall_trade
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="tid != null" >
+        tid,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="payTime != null" >
+        pay_time,
+      </if>
+      <if test="created != null" >
+        created,
+      </if>
+      <if test="modified != null" >
+        modified,
+      </if>
+      <if test="consignTime != null" >
+        consign_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="receiverId != null" >
+        receiver_id,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="fee != null" >
+        fee,
+      </if>
+      <if test="feePoint != null" >
+        fee_point,
+      </if>
+      <if test="payment != null" >
+        payment,
+      </if>
+      <if test="paymentPoint != null" >
+        payment_point,
+      </if>
+      <if test="shippingType != null" >
+        shipping_type,
+      </if>
+      <if test="shippingId != null" >
+        shipping_id,
+      </if>
+      <if test="shippingCompany != null" >
+        shipping_company,
+      </if>
+      <if test="shippingFee != null" >
+        shipping_fee,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=BIGINT},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null" >
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modified != null" >
+        #{modified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="consignTime != null" >
+        #{consignTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="receiverId != null" >
+        #{receiverId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="fee != null" >
+        #{fee,jdbcType=BIGINT},
+      </if>
+      <if test="feePoint != null" >
+        #{feePoint,jdbcType=BIGINT},
+      </if>
+      <if test="payment != null" >
+        #{payment,jdbcType=BIGINT},
+      </if>
+      <if test="paymentPoint != null" >
+        #{paymentPoint,jdbcType=BIGINT},
+      </if>
+      <if test="shippingType != null" >
+        #{shippingType,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingId != null" >
+        #{shippingId,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingCompany != null" >
+        #{shippingCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingFee != null" >
+        #{shippingFee,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.pointmall.MallTradeExample" resultType="java.lang.Integer" >
+    select count(*) from mall_trade
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update mall_trade
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.userId!=null and record.userIdExpression==null" >
+          user_id = #{record.userId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdExpression!=null" >
+          user_id = ${record.userIdExpression},
+        </if>
+        <if test="record.tid!=null and record.tidExpression==null" >
+          tid = #{record.tid,jdbcType=BIGINT},
+        </if>
+        <if test="record.tidExpression!=null" >
+          tid = ${record.tidExpression},
+        </if>
+        <if test="record.status!=null and record.statusExpression==null" >
+          status = #{record.status,jdbcType=VARCHAR},
+        </if>
+        <if test="record.statusExpression!=null" >
+          status = ${record.statusExpression},
+        </if>
+        <if test="record.payTime!=null and record.payTimeExpression==null" >
+          pay_time = #{record.payTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.payTimeExpression!=null" >
+          pay_time = ${record.payTimeExpression},
+        </if>
+        <if test="record.created!=null and record.createdExpression==null" >
+          created = #{record.created,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.createdExpression!=null" >
+          created = ${record.createdExpression},
+        </if>
+        <if test="record.modified!=null and record.modifiedExpression==null" >
+          modified = #{record.modified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.modifiedExpression!=null" >
+          modified = ${record.modifiedExpression},
+        </if>
+        <if test="record.consignTime!=null and record.consignTimeExpression==null" >
+          consign_time = #{record.consignTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.consignTimeExpression!=null" >
+          consign_time = ${record.consignTimeExpression},
+        </if>
+        <if test="record.endTime!=null and record.endTimeExpression==null" >
+          end_time = #{record.endTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.endTimeExpression!=null" >
+          end_time = ${record.endTimeExpression},
+        </if>
+        <if test="record.receiverId!=null and record.receiverIdExpression==null" >
+          receiver_id = #{record.receiverId,jdbcType=BIGINT},
+        </if>
+        <if test="record.receiverIdExpression!=null" >
+          receiver_id = ${record.receiverIdExpression},
+        </if>
+        <if test="record.type!=null and record.typeExpression==null" >
+          type = #{record.type,jdbcType=VARCHAR},
+        </if>
+        <if test="record.typeExpression!=null" >
+          type = ${record.typeExpression},
+        </if>
+        <if test="record.fee!=null and record.feeExpression==null" >
+          fee = #{record.fee,jdbcType=BIGINT},
+        </if>
+        <if test="record.feeExpression!=null" >
+          fee = ${record.feeExpression},
+        </if>
+        <if test="record.feePoint!=null and record.feePointExpression==null" >
+          fee_point = #{record.feePoint,jdbcType=BIGINT},
+        </if>
+        <if test="record.feePointExpression!=null" >
+          fee_point = ${record.feePointExpression},
+        </if>
+        <if test="record.payment!=null and record.paymentExpression==null" >
+          payment = #{record.payment,jdbcType=BIGINT},
+        </if>
+        <if test="record.paymentExpression!=null" >
+          payment = ${record.paymentExpression},
+        </if>
+        <if test="record.paymentPoint!=null and record.paymentPointExpression==null" >
+          payment_point = #{record.paymentPoint,jdbcType=BIGINT},
+        </if>
+        <if test="record.paymentPointExpression!=null" >
+          payment_point = ${record.paymentPointExpression},
+        </if>
+        <if test="record.shippingType!=null and record.shippingTypeExpression==null" >
+          shipping_type = #{record.shippingType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shippingTypeExpression!=null" >
+          shipping_type = ${record.shippingTypeExpression},
+        </if>
+        <if test="record.shippingId!=null and record.shippingIdExpression==null" >
+          shipping_id = #{record.shippingId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shippingIdExpression!=null" >
+          shipping_id = ${record.shippingIdExpression},
+        </if>
+        <if test="record.shippingCompany!=null and record.shippingCompanyExpression==null" >
+          shipping_company = #{record.shippingCompany,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shippingCompanyExpression!=null" >
+          shipping_company = ${record.shippingCompanyExpression},
+        </if>
+        <if test="record.shippingFee!=null and record.shippingFeeExpression==null" >
+          shipping_fee = #{record.shippingFee,jdbcType=BIGINT},
+        </if>
+        <if test="record.shippingFeeExpression!=null" >
+          shipping_fee = ${record.shippingFeeExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update mall_trade
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      tid = #{record.tid,jdbcType=BIGINT},
+      status = #{record.status,jdbcType=VARCHAR},
+      pay_time = #{record.payTime,jdbcType=TIMESTAMP},
+      created = #{record.created,jdbcType=TIMESTAMP},
+      modified = #{record.modified,jdbcType=TIMESTAMP},
+      consign_time = #{record.consignTime,jdbcType=TIMESTAMP},
+      end_time = #{record.endTime,jdbcType=TIMESTAMP},
+      receiver_id = #{record.receiverId,jdbcType=BIGINT},
+      type = #{record.type,jdbcType=VARCHAR},
+      fee = #{record.fee,jdbcType=BIGINT},
+      fee_point = #{record.feePoint,jdbcType=BIGINT},
+      payment = #{record.payment,jdbcType=BIGINT},
+      payment_point = #{record.paymentPoint,jdbcType=BIGINT},
+      shipping_type = #{record.shippingType,jdbcType=VARCHAR},
+      shipping_id = #{record.shippingId,jdbcType=VARCHAR},
+      shipping_company = #{record.shippingCompany,jdbcType=VARCHAR},
+      shipping_fee = #{record.shippingFee,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.pointmall.MallTrade" >
+    update mall_trade
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.userId!=null and record.userIdExpression==null" >
+          user_id = #{record.userId,jdbcType=BIGINT},
+        </if>
+        <if test="record.userIdExpression!=null" >
+          user_id = ${record.userIdExpression},
+        </if>
+        <if test="record.tid!=null and record.tidExpression==null" >
+          tid = #{record.tid,jdbcType=BIGINT},
+        </if>
+        <if test="record.tidExpression!=null" >
+          tid = ${record.tidExpression},
+        </if>
+        <if test="record.status!=null and record.statusExpression==null" >
+          status = #{record.status,jdbcType=VARCHAR},
+        </if>
+        <if test="record.statusExpression!=null" >
+          status = ${record.statusExpression},
+        </if>
+        <if test="record.payTime!=null and record.payTimeExpression==null" >
+          pay_time = #{record.payTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.payTimeExpression!=null" >
+          pay_time = ${record.payTimeExpression},
+        </if>
+        <if test="record.created!=null and record.createdExpression==null" >
+          created = #{record.created,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.createdExpression!=null" >
+          created = ${record.createdExpression},
+        </if>
+        <if test="record.modified!=null and record.modifiedExpression==null" >
+          modified = #{record.modified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.modifiedExpression!=null" >
+          modified = ${record.modifiedExpression},
+        </if>
+        <if test="record.consignTime!=null and record.consignTimeExpression==null" >
+          consign_time = #{record.consignTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.consignTimeExpression!=null" >
+          consign_time = ${record.consignTimeExpression},
+        </if>
+        <if test="record.endTime!=null and record.endTimeExpression==null" >
+          end_time = #{record.endTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.endTimeExpression!=null" >
+          end_time = ${record.endTimeExpression},
+        </if>
+        <if test="record.receiverId!=null and record.receiverIdExpression==null" >
+          receiver_id = #{record.receiverId,jdbcType=BIGINT},
+        </if>
+        <if test="record.receiverIdExpression!=null" >
+          receiver_id = ${record.receiverIdExpression},
+        </if>
+        <if test="record.type!=null and record.typeExpression==null" >
+          type = #{record.type,jdbcType=VARCHAR},
+        </if>
+        <if test="record.typeExpression!=null" >
+          type = ${record.typeExpression},
+        </if>
+        <if test="record.fee!=null and record.feeExpression==null" >
+          fee = #{record.fee,jdbcType=BIGINT},
+        </if>
+        <if test="record.feeExpression!=null" >
+          fee = ${record.feeExpression},
+        </if>
+        <if test="record.feePoint!=null and record.feePointExpression==null" >
+          fee_point = #{record.feePoint,jdbcType=BIGINT},
+        </if>
+        <if test="record.feePointExpression!=null" >
+          fee_point = ${record.feePointExpression},
+        </if>
+        <if test="record.payment!=null and record.paymentExpression==null" >
+          payment = #{record.payment,jdbcType=BIGINT},
+        </if>
+        <if test="record.paymentExpression!=null" >
+          payment = ${record.paymentExpression},
+        </if>
+        <if test="record.paymentPoint!=null and record.paymentPointExpression==null" >
+          payment_point = #{record.paymentPoint,jdbcType=BIGINT},
+        </if>
+        <if test="record.paymentPointExpression!=null" >
+          payment_point = ${record.paymentPointExpression},
+        </if>
+        <if test="record.shippingType!=null and record.shippingTypeExpression==null" >
+          shipping_type = #{record.shippingType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shippingTypeExpression!=null" >
+          shipping_type = ${record.shippingTypeExpression},
+        </if>
+        <if test="record.shippingId!=null and record.shippingIdExpression==null" >
+          shipping_id = #{record.shippingId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shippingIdExpression!=null" >
+          shipping_id = ${record.shippingIdExpression},
+        </if>
+        <if test="record.shippingCompany!=null and record.shippingCompanyExpression==null" >
+          shipping_company = #{record.shippingCompany,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shippingCompanyExpression!=null" >
+          shipping_company = ${record.shippingCompanyExpression},
+        </if>
+        <if test="record.shippingFee!=null and record.shippingFeeExpression==null" >
+          shipping_fee = #{record.shippingFee,jdbcType=BIGINT},
+        </if>
+        <if test="record.shippingFeeExpression!=null" >
+          shipping_fee = ${record.shippingFeeExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.pointmall.MallTrade" >
+    update mall_trade
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      tid = #{tid,jdbcType=BIGINT},
+      status = #{status,jdbcType=VARCHAR},
+      pay_time = #{payTime,jdbcType=TIMESTAMP},
+      created = #{created,jdbcType=TIMESTAMP},
+      modified = #{modified,jdbcType=TIMESTAMP},
+      consign_time = #{consignTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      receiver_id = #{receiverId,jdbcType=BIGINT},
+      type = #{type,jdbcType=VARCHAR},
+      fee = #{fee,jdbcType=BIGINT},
+      fee_point = #{feePoint,jdbcType=BIGINT},
+      payment = #{payment,jdbcType=BIGINT},
+      payment_point = #{paymentPoint,jdbcType=BIGINT},
+      shipping_type = #{shippingType,jdbcType=VARCHAR},
+      shipping_id = #{shippingId,jdbcType=VARCHAR},
+      shipping_company = #{shippingCompany,jdbcType=VARCHAR},
+      shipping_fee = #{shippingFee,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

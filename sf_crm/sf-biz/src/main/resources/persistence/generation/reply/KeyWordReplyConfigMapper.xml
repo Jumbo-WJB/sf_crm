@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.reply.KeyWordReplyConfigMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.reply.KeyWordReplyConfig" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_biz_name" property="maxBizName" jdbcType="BIGINT" />
+    <result column="min_biz_name" property="minBizName" jdbcType="BIGINT" />
+    <result column="avg_biz_name" property="avgBizName" jdbcType="BIGINT" />
+    <result column="count_biz_name" property="countBizName" jdbcType="BIGINT" />
+    <result column="sum_biz_name" property="sumBizName" jdbcType="VARCHAR" />
+    <result column="max_repeat_operate_reply_content" property="maxRepeatOperateReplyContent" jdbcType="BIGINT" />
+    <result column="min_repeat_operate_reply_content" property="minRepeatOperateReplyContent" jdbcType="BIGINT" />
+    <result column="avg_repeat_operate_reply_content" property="avgRepeatOperateReplyContent" jdbcType="BIGINT" />
+    <result column="count_repeat_operate_reply_content" property="countRepeatOperateReplyContent" jdbcType="BIGINT" />
+    <result column="sum_repeat_operate_reply_content" property="sumRepeatOperateReplyContent" jdbcType="VARCHAR" />
+    <result column="max_fail_reply_content" property="maxFailReplyContent" jdbcType="BIGINT" />
+    <result column="min_fail_reply_content" property="minFailReplyContent" jdbcType="BIGINT" />
+    <result column="avg_fail_reply_content" property="avgFailReplyContent" jdbcType="BIGINT" />
+    <result column="count_fail_reply_content" property="countFailReplyContent" jdbcType="BIGINT" />
+    <result column="sum_fail_reply_content" property="sumFailReplyContent" jdbcType="VARCHAR" />
+    <result column="max_msg_type" property="maxMsgType" jdbcType="BIGINT" />
+    <result column="min_msg_type" property="minMsgType" jdbcType="BIGINT" />
+    <result column="avg_msg_type" property="avgMsgType" jdbcType="BIGINT" />
+    <result column="count_msg_type" property="countMsgType" jdbcType="BIGINT" />
+    <result column="sum_msg_type" property="sumMsgType" jdbcType="VARCHAR" />
+    <result column="max_success_reply_content" property="maxSuccessReplyContent" jdbcType="BIGINT" />
+    <result column="min_success_reply_content" property="minSuccessReplyContent" jdbcType="BIGINT" />
+    <result column="avg_success_reply_content" property="avgSuccessReplyContent" jdbcType="BIGINT" />
+    <result column="count_success_reply_content" property="countSuccessReplyContent" jdbcType="BIGINT" />
+    <result column="sum_success_reply_content" property="sumSuccessReplyContent" jdbcType="VARCHAR" />
+    <result column="max_match_type" property="maxMatchType" jdbcType="BIGINT" />
+    <result column="min_match_type" property="minMatchType" jdbcType="BIGINT" />
+    <result column="avg_match_type" property="avgMatchType" jdbcType="BIGINT" />
+    <result column="count_match_type" property="countMatchType" jdbcType="BIGINT" />
+    <result column="sum_match_type" property="sumMatchType" jdbcType="VARCHAR" />
+    <result column="max_biz_type" property="maxBizType" jdbcType="BIGINT" />
+    <result column="min_biz_type" property="minBizType" jdbcType="BIGINT" />
+    <result column="avg_biz_type" property="avgBizType" jdbcType="BIGINT" />
+    <result column="count_biz_type" property="countBizType" jdbcType="BIGINT" />
+    <result column="sum_biz_type" property="sumBizType" jdbcType="VARCHAR" />
+    <result column="max_media_id" property="maxMediaId" jdbcType="BIGINT" />
+    <result column="min_media_id" property="minMediaId" jdbcType="BIGINT" />
+    <result column="avg_media_id" property="avgMediaId" jdbcType="BIGINT" />
+    <result column="count_media_id" property="countMediaId" jdbcType="BIGINT" />
+    <result column="sum_media_id" property="sumMediaId" jdbcType="BIGINT" />
+    <result column="max_key_word" property="maxKeyWord" jdbcType="BIGINT" />
+    <result column="min_key_word" property="minKeyWord" jdbcType="BIGINT" />
+    <result column="avg_key_word" property="avgKeyWord" jdbcType="BIGINT" />
+    <result column="count_key_word" property="countKeyWord" jdbcType="BIGINT" />
+    <result column="sum_key_word" property="sumKeyWord" jdbcType="VARCHAR" />
+    <result column="max_biz_id" property="maxBizId" jdbcType="BIGINT" />
+    <result column="min_biz_id" property="minBizId" jdbcType="BIGINT" />
+    <result column="avg_biz_id" property="avgBizId" jdbcType="BIGINT" />
+    <result column="count_biz_id" property="countBizId" jdbcType="BIGINT" />
+    <result column="sum_biz_id" property="sumBizId" jdbcType="BIGINT" />
+    <result column="max_description" property="maxDescription" jdbcType="BIGINT" />
+    <result column="min_description" property="minDescription" jdbcType="BIGINT" />
+    <result column="avg_description" property="avgDescription" jdbcType="BIGINT" />
+    <result column="count_description" property="countDescription" jdbcType="BIGINT" />
+    <result column="sum_description" property="sumDescription" jdbcType="VARCHAR" />
+    <result column="max_title" property="maxTitle" jdbcType="BIGINT" />
+    <result column="min_title" property="minTitle" jdbcType="BIGINT" />
+    <result column="avg_title" property="avgTitle" jdbcType="BIGINT" />
+    <result column="count_title" property="countTitle" jdbcType="BIGINT" />
+    <result column="sum_title" property="sumTitle" jdbcType="VARCHAR" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="biz_id" property="bizId" jdbcType="BIGINT" />
+    <result column="key_word" property="keyWord" jdbcType="VARCHAR" />
+    <result column="media_id" property="mediaId" jdbcType="BIGINT" />
+    <result column="biz_type" property="bizType" jdbcType="VARCHAR" />
+    <result column="match_type" property="matchType" jdbcType="VARCHAR" />
+    <result column="success_reply_content" property="successReplyContent" jdbcType="VARCHAR" />
+    <result column="msg_type" property="msgType" jdbcType="VARCHAR" />
+    <result column="fail_reply_content" property="failReplyContent" jdbcType="VARCHAR" />
+    <result column="repeat_operate_reply_content" property="repeatOperateReplyContent" jdbcType="VARCHAR" />
+    <result column="biz_name" property="bizName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, created_by, modified_by, is_deleted, seller_id, title, 
+    description, biz_id, key_word, media_id, biz_type, match_type, success_reply_content, 
+    msg_type, fail_reply_content, repeat_operate_reply_content, biz_name
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.reply.KeyWordReplyConfigExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from keyword_reply_config
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from keyword_reply_config
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update keyword_reply_config
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.reply.KeyWordReplyConfigExample" >
+    update keyword_reply_config
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.reply.KeyWordReplyConfig" useGeneratedKeys="true" keyProperty="id" >
+    insert into keyword_reply_config (id, gmt_created, gmt_modified, 
+      created_by, modified_by, is_deleted, 
+      seller_id, title, description, 
+      biz_id, key_word, media_id, 
+      biz_type, match_type, success_reply_content, 
+      msg_type, fail_reply_content, repeat_operate_reply_content, 
+      biz_name)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{sellerId,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{bizId,jdbcType=BIGINT}, #{keyWord,jdbcType=VARCHAR}, #{mediaId,jdbcType=BIGINT}, 
+      #{bizType,jdbcType=VARCHAR}, #{matchType,jdbcType=VARCHAR}, #{successReplyContent,jdbcType=VARCHAR}, 
+      #{msgType,jdbcType=VARCHAR}, #{failReplyContent,jdbcType=VARCHAR}, #{repeatOperateReplyContent,jdbcType=VARCHAR}, 
+      #{bizName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.reply.KeyWordReplyConfig" useGeneratedKeys="true" keyProperty="id" >
+    insert into keyword_reply_config
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="bizId != null" >
+        biz_id,
+      </if>
+      <if test="keyWord != null" >
+        key_word,
+      </if>
+      <if test="mediaId != null" >
+        media_id,
+      </if>
+      <if test="bizType != null" >
+        biz_type,
+      </if>
+      <if test="matchType != null" >
+        match_type,
+      </if>
+      <if test="successReplyContent != null" >
+        success_reply_content,
+      </if>
+      <if test="msgType != null" >
+        msg_type,
+      </if>
+      <if test="failReplyContent != null" >
+        fail_reply_content,
+      </if>
+      <if test="repeatOperateReplyContent != null" >
+        repeat_operate_reply_content,
+      </if>
+      <if test="bizName != null" >
+        biz_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="bizId != null" >
+        #{bizId,jdbcType=BIGINT},
+      </if>
+      <if test="keyWord != null" >
+        #{keyWord,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaId != null" >
+        #{mediaId,jdbcType=BIGINT},
+      </if>
+      <if test="bizType != null" >
+        #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="matchType != null" >
+        #{matchType,jdbcType=VARCHAR},
+      </if>
+      <if test="successReplyContent != null" >
+        #{successReplyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="msgType != null" >
+        #{msgType,jdbcType=VARCHAR},
+      </if>
+      <if test="failReplyContent != null" >
+        #{failReplyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="repeatOperateReplyContent != null" >
+        #{repeatOperateReplyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="bizName != null" >
+        #{bizName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.reply.KeyWordReplyConfigExample" resultType="java.lang.Integer" >
+    select count(*) from keyword_reply_config
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update keyword_reply_config
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.title!=null and record.titleExpression==null" >
+          title = #{record.title,jdbcType=VARCHAR},
+        </if>
+        <if test="record.titleExpression!=null" >
+          title = ${record.titleExpression},
+        </if>
+        <if test="record.description!=null and record.descriptionExpression==null" >
+          description = #{record.description,jdbcType=VARCHAR},
+        </if>
+        <if test="record.descriptionExpression!=null" >
+          description = ${record.descriptionExpression},
+        </if>
+        <if test="record.bizId!=null and record.bizIdExpression==null" >
+          biz_id = #{record.bizId,jdbcType=BIGINT},
+        </if>
+        <if test="record.bizIdExpression!=null" >
+          biz_id = ${record.bizIdExpression},
+        </if>
+        <if test="record.keyWord!=null and record.keyWordExpression==null" >
+          key_word = #{record.keyWord,jdbcType=VARCHAR},
+        </if>
+        <if test="record.keyWordExpression!=null" >
+          key_word = ${record.keyWordExpression},
+        </if>
+        <if test="record.mediaId!=null and record.mediaIdExpression==null" >
+          media_id = #{record.mediaId,jdbcType=BIGINT},
+        </if>
+        <if test="record.mediaIdExpression!=null" >
+          media_id = ${record.mediaIdExpression},
+        </if>
+        <if test="record.bizType!=null and record.bizTypeExpression==null" >
+          biz_type = #{record.bizType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.bizTypeExpression!=null" >
+          biz_type = ${record.bizTypeExpression},
+        </if>
+        <if test="record.matchType!=null and record.matchTypeExpression==null" >
+          match_type = #{record.matchType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.matchTypeExpression!=null" >
+          match_type = ${record.matchTypeExpression},
+        </if>
+        <if test="record.successReplyContent!=null and record.successReplyContentExpression==null" >
+          success_reply_content = #{record.successReplyContent,jdbcType=VARCHAR},
+        </if>
+        <if test="record.successReplyContentExpression!=null" >
+          success_reply_content = ${record.successReplyContentExpression},
+        </if>
+        <if test="record.msgType!=null and record.msgTypeExpression==null" >
+          msg_type = #{record.msgType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.msgTypeExpression!=null" >
+          msg_type = ${record.msgTypeExpression},
+        </if>
+        <if test="record.failReplyContent!=null and record.failReplyContentExpression==null" >
+          fail_reply_content = #{record.failReplyContent,jdbcType=VARCHAR},
+        </if>
+        <if test="record.failReplyContentExpression!=null" >
+          fail_reply_content = ${record.failReplyContentExpression},
+        </if>
+        <if test="record.repeatOperateReplyContent!=null and record.repeatOperateReplyContentExpression==null" >
+          repeat_operate_reply_content = #{record.repeatOperateReplyContent,jdbcType=VARCHAR},
+        </if>
+        <if test="record.repeatOperateReplyContentExpression!=null" >
+          repeat_operate_reply_content = ${record.repeatOperateReplyContentExpression},
+        </if>
+        <if test="record.bizName!=null and record.bizNameExpression==null" >
+          biz_name = #{record.bizName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.bizNameExpression!=null" >
+          biz_name = ${record.bizNameExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update keyword_reply_config
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=BIGINT},
+      title = #{record.title,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR},
+      biz_id = #{record.bizId,jdbcType=BIGINT},
+      key_word = #{record.keyWord,jdbcType=VARCHAR},
+      media_id = #{record.mediaId,jdbcType=BIGINT},
+      biz_type = #{record.bizType,jdbcType=VARCHAR},
+      match_type = #{record.matchType,jdbcType=VARCHAR},
+      success_reply_content = #{record.successReplyContent,jdbcType=VARCHAR},
+      msg_type = #{record.msgType,jdbcType=VARCHAR},
+      fail_reply_content = #{record.failReplyContent,jdbcType=VARCHAR},
+      repeat_operate_reply_content = #{record.repeatOperateReplyContent,jdbcType=VARCHAR},
+      biz_name = #{record.bizName,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.reply.KeyWordReplyConfig" >
+    update keyword_reply_config
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.title!=null and record.titleExpression==null" >
+          title = #{record.title,jdbcType=VARCHAR},
+        </if>
+        <if test="record.titleExpression!=null" >
+          title = ${record.titleExpression},
+        </if>
+        <if test="record.description!=null and record.descriptionExpression==null" >
+          description = #{record.description,jdbcType=VARCHAR},
+        </if>
+        <if test="record.descriptionExpression!=null" >
+          description = ${record.descriptionExpression},
+        </if>
+        <if test="record.bizId!=null and record.bizIdExpression==null" >
+          biz_id = #{record.bizId,jdbcType=BIGINT},
+        </if>
+        <if test="record.bizIdExpression!=null" >
+          biz_id = ${record.bizIdExpression},
+        </if>
+        <if test="record.keyWord!=null and record.keyWordExpression==null" >
+          key_word = #{record.keyWord,jdbcType=VARCHAR},
+        </if>
+        <if test="record.keyWordExpression!=null" >
+          key_word = ${record.keyWordExpression},
+        </if>
+        <if test="record.mediaId!=null and record.mediaIdExpression==null" >
+          media_id = #{record.mediaId,jdbcType=BIGINT},
+        </if>
+        <if test="record.mediaIdExpression!=null" >
+          media_id = ${record.mediaIdExpression},
+        </if>
+        <if test="record.bizType!=null and record.bizTypeExpression==null" >
+          biz_type = #{record.bizType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.bizTypeExpression!=null" >
+          biz_type = ${record.bizTypeExpression},
+        </if>
+        <if test="record.matchType!=null and record.matchTypeExpression==null" >
+          match_type = #{record.matchType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.matchTypeExpression!=null" >
+          match_type = ${record.matchTypeExpression},
+        </if>
+        <if test="record.successReplyContent!=null and record.successReplyContentExpression==null" >
+          success_reply_content = #{record.successReplyContent,jdbcType=VARCHAR},
+        </if>
+        <if test="record.successReplyContentExpression!=null" >
+          success_reply_content = ${record.successReplyContentExpression},
+        </if>
+        <if test="record.msgType!=null and record.msgTypeExpression==null" >
+          msg_type = #{record.msgType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.msgTypeExpression!=null" >
+          msg_type = ${record.msgTypeExpression},
+        </if>
+        <if test="record.failReplyContent!=null and record.failReplyContentExpression==null" >
+          fail_reply_content = #{record.failReplyContent,jdbcType=VARCHAR},
+        </if>
+        <if test="record.failReplyContentExpression!=null" >
+          fail_reply_content = ${record.failReplyContentExpression},
+        </if>
+        <if test="record.repeatOperateReplyContent!=null and record.repeatOperateReplyContentExpression==null" >
+          repeat_operate_reply_content = #{record.repeatOperateReplyContent,jdbcType=VARCHAR},
+        </if>
+        <if test="record.repeatOperateReplyContentExpression!=null" >
+          repeat_operate_reply_content = ${record.repeatOperateReplyContentExpression},
+        </if>
+        <if test="record.bizName!=null and record.bizNameExpression==null" >
+          biz_name = #{record.bizName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.bizNameExpression!=null" >
+          biz_name = ${record.bizNameExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.reply.KeyWordReplyConfig" >
+    update keyword_reply_config
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=BIGINT},
+      title = #{title,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      biz_id = #{bizId,jdbcType=BIGINT},
+      key_word = #{keyWord,jdbcType=VARCHAR},
+      media_id = #{mediaId,jdbcType=BIGINT},
+      biz_type = #{bizType,jdbcType=VARCHAR},
+      match_type = #{matchType,jdbcType=VARCHAR},
+      success_reply_content = #{successReplyContent,jdbcType=VARCHAR},
+      msg_type = #{msgType,jdbcType=VARCHAR},
+      fail_reply_content = #{failReplyContent,jdbcType=VARCHAR},
+      repeat_operate_reply_content = #{repeatOperateReplyContent,jdbcType=VARCHAR},
+      biz_name = #{bizName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

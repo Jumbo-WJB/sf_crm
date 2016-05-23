@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.reply.WXMessageQueryDAO" >
+
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.reply.WXMessageQueryDO" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="times" property="times" jdbcType="INTEGER" />
+    <result column="first_source" property="firstSource" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="tb_buyer_nick" property="tbBuyerNick" jdbcType="VARCHAR" />
+    <result column="wx_nick_name" property="wxNickName" jdbcType="VARCHAR" />
+    <result column="to_user_name" property="toUserName" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="reply_content" property="replyContent" jdbcType="VARCHAR" />
+    <result column="reply_type" property="replyType" jdbcType="VARCHAR" />
+    <result column="reply_create_time" property="replyCreateTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="msg_type" property="msgType" jdbcType="VARCHAR" />
+    <result column="msg_id" property="msgId" jdbcType="VARCHAR" />
+    <result column="biz_type" property="bizType" jdbcType="VARCHAR" />
+    <result column="first_source" property="firstSource" jdbcType="VARCHAR" />
+    <result column="wx_openid" property="wxOpenid" jdbcType="VARCHAR" />
+
+  </resultMap>
+
+    <resultMap id="UserWxMessageMap" type="com.shufensoft.crm.biz.domain.generation.user.UserWxMessage" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+        <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+        <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+        <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+        <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+        <result column="max_pic_url" property="maxPicUrl" jdbcType="BIGINT" />
+        <result column="min_pic_url" property="minPicUrl" jdbcType="BIGINT" />
+        <result column="avg_pic_url" property="avgPicUrl" jdbcType="BIGINT" />
+        <result column="count_pic_url" property="countPicUrl" jdbcType="BIGINT" />
+        <result column="sum_pic_url" property="sumPicUrl" jdbcType="VARCHAR" />
+        <result column="max_url" property="maxUrl" jdbcType="BIGINT" />
+        <result column="min_url" property="minUrl" jdbcType="BIGINT" />
+        <result column="avg_url" property="avgUrl" jdbcType="BIGINT" />
+        <result column="count_url" property="countUrl" jdbcType="BIGINT" />
+        <result column="sum_url" property="sumUrl" jdbcType="VARCHAR" />
+        <result column="max_description" property="maxDescription" jdbcType="BIGINT" />
+        <result column="min_description" property="minDescription" jdbcType="BIGINT" />
+        <result column="avg_description" property="avgDescription" jdbcType="BIGINT" />
+        <result column="count_description" property="countDescription" jdbcType="BIGINT" />
+        <result column="sum_description" property="sumDescription" jdbcType="VARCHAR" />
+        <result column="max_title" property="maxTitle" jdbcType="BIGINT" />
+        <result column="min_title" property="minTitle" jdbcType="BIGINT" />
+        <result column="avg_title" property="avgTitle" jdbcType="BIGINT" />
+        <result column="count_title" property="countTitle" jdbcType="BIGINT" />
+        <result column="sum_title" property="sumTitle" jdbcType="VARCHAR" />
+        <result column="max_media_id" property="maxMediaId" jdbcType="BIGINT" />
+        <result column="min_media_id" property="minMediaId" jdbcType="BIGINT" />
+        <result column="avg_media_id" property="avgMediaId" jdbcType="BIGINT" />
+        <result column="count_media_id" property="countMediaId" jdbcType="BIGINT" />
+        <result column="sum_media_id" property="sumMediaId" jdbcType="VARCHAR" />
+        <result column="max_content" property="maxContent" jdbcType="BIGINT" />
+        <result column="min_content" property="minContent" jdbcType="BIGINT" />
+        <result column="avg_content" property="avgContent" jdbcType="BIGINT" />
+        <result column="count_content" property="countContent" jdbcType="BIGINT" />
+        <result column="sum_content" property="sumContent" jdbcType="VARCHAR" />
+        <result column="max_create_time" property="maxCreateTime" jdbcType="BIGINT" />
+        <result column="min_create_time" property="minCreateTime" jdbcType="BIGINT" />
+        <result column="avg_create_time" property="avgCreateTime" jdbcType="BIGINT" />
+        <result column="count_create_time" property="countCreateTime" jdbcType="BIGINT" />
+        <result column="sum_create_time" property="sumCreateTime" jdbcType="TIMESTAMP" />
+        <result column="max_from_user_name" property="maxFromUserName" jdbcType="BIGINT" />
+        <result column="min_from_user_name" property="minFromUserName" jdbcType="BIGINT" />
+        <result column="avg_from_user_name" property="avgFromUserName" jdbcType="BIGINT" />
+        <result column="count_from_user_name" property="countFromUserName" jdbcType="BIGINT" />
+        <result column="sum_from_user_name" property="sumFromUserName" jdbcType="VARCHAR" />
+        <result column="max_to_user_name" property="maxToUserName" jdbcType="BIGINT" />
+        <result column="min_to_user_name" property="minToUserName" jdbcType="BIGINT" />
+        <result column="avg_to_user_name" property="avgToUserName" jdbcType="BIGINT" />
+        <result column="count_to_user_name" property="countToUserName" jdbcType="BIGINT" />
+        <result column="sum_to_user_name" property="sumToUserName" jdbcType="VARCHAR" />
+        <result column="max_send_type" property="maxSendType" jdbcType="BIGINT" />
+        <result column="min_send_type" property="minSendType" jdbcType="BIGINT" />
+        <result column="avg_send_type" property="avgSendType" jdbcType="BIGINT" />
+        <result column="count_send_type" property="countSendType" jdbcType="BIGINT" />
+        <result column="sum_send_type" property="sumSendType" jdbcType="VARCHAR" />
+        <result column="max_reply_type" property="maxReplyType" jdbcType="BIGINT" />
+        <result column="min_reply_type" property="minReplyType" jdbcType="BIGINT" />
+        <result column="avg_reply_type" property="avgReplyType" jdbcType="BIGINT" />
+        <result column="count_reply_type" property="countReplyType" jdbcType="BIGINT" />
+        <result column="sum_reply_type" property="sumReplyType" jdbcType="VARCHAR" />
+        <result column="max_mobile" property="maxMobile" jdbcType="BIGINT" />
+        <result column="min_mobile" property="minMobile" jdbcType="BIGINT" />
+        <result column="avg_mobile" property="avgMobile" jdbcType="BIGINT" />
+        <result column="count_mobile" property="countMobile" jdbcType="BIGINT" />
+        <result column="sum_mobile" property="sumMobile" jdbcType="VARCHAR" />
+        <result column="max_wx_nick_name" property="maxWxNickName" jdbcType="BIGINT" />
+        <result column="min_wx_nick_name" property="minWxNickName" jdbcType="BIGINT" />
+        <result column="avg_wx_nick_name" property="avgWxNickName" jdbcType="BIGINT" />
+        <result column="count_wx_nick_name" property="countWxNickName" jdbcType="BIGINT" />
+        <result column="sum_wx_nick_name" property="sumWxNickName" jdbcType="VARCHAR" />
+        <result column="max_wx_openid" property="maxWxOpenid" jdbcType="BIGINT" />
+        <result column="min_wx_openid" property="minWxOpenid" jdbcType="BIGINT" />
+        <result column="avg_wx_openid" property="avgWxOpenid" jdbcType="BIGINT" />
+        <result column="count_wx_openid" property="countWxOpenid" jdbcType="BIGINT" />
+        <result column="sum_wx_openid" property="sumWxOpenid" jdbcType="VARCHAR" />
+        <result column="max_first_source" property="maxFirstSource" jdbcType="BIGINT" />
+        <result column="min_first_source" property="minFirstSource" jdbcType="BIGINT" />
+        <result column="avg_first_source" property="avgFirstSource" jdbcType="BIGINT" />
+        <result column="count_first_source" property="countFirstSource" jdbcType="BIGINT" />
+        <result column="sum_first_source" property="sumFirstSource" jdbcType="VARCHAR" />
+        <result column="max_user_id" property="maxUserId" jdbcType="BIGINT" />
+        <result column="min_user_id" property="minUserId" jdbcType="BIGINT" />
+        <result column="avg_user_id" property="avgUserId" jdbcType="BIGINT" />
+        <result column="count_user_id" property="countUserId" jdbcType="BIGINT" />
+        <result column="sum_user_id" property="sumUserId" jdbcType="BIGINT" />
+        <result column="max_biz_type" property="maxBizType" jdbcType="BIGINT" />
+        <result column="min_biz_type" property="minBizType" jdbcType="BIGINT" />
+        <result column="avg_biz_type" property="avgBizType" jdbcType="BIGINT" />
+        <result column="count_biz_type" property="countBizType" jdbcType="BIGINT" />
+        <result column="sum_biz_type" property="sumBizType" jdbcType="VARCHAR" />
+        <result column="max_key_word_config_id" property="maxKeyWordConfigId" jdbcType="BIGINT" />
+        <result column="min_key_word_config_id" property="minKeyWordConfigId" jdbcType="BIGINT" />
+        <result column="avg_key_word_config_id" property="avgKeyWordConfigId" jdbcType="BIGINT" />
+        <result column="count_key_word_config_id" property="countKeyWordConfigId" jdbcType="BIGINT" />
+        <result column="sum_key_word_config_id" property="sumKeyWordConfigId" jdbcType="BIGINT" />
+        <result column="max_msg_type" property="maxMsgType" jdbcType="BIGINT" />
+        <result column="min_msg_type" property="minMsgType" jdbcType="BIGINT" />
+        <result column="avg_msg_type" property="avgMsgType" jdbcType="BIGINT" />
+        <result column="count_msg_type" property="countMsgType" jdbcType="BIGINT" />
+        <result column="sum_msg_type" property="sumMsgType" jdbcType="VARCHAR" />
+        <result column="max_msg_id" property="maxMsgId" jdbcType="BIGINT" />
+        <result column="min_msg_id" property="minMsgId" jdbcType="BIGINT" />
+        <result column="avg_msg_id" property="avgMsgId" jdbcType="BIGINT" />
+        <result column="count_msg_id" property="countMsgId" jdbcType="BIGINT" />
+        <result column="sum_msg_id" property="sumMsgId" jdbcType="VARCHAR" />
+        <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+        <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+        <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+        <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+        <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+        <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+        <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+        <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+        <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+        <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+        <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+        <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+        <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+        <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+        <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+        <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+        <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+        <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+        <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+        <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+        <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+        <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+        <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+        <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+        <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+        <result column="max_id" property="maxId" jdbcType="BIGINT" />
+        <result column="min_id" property="minId" jdbcType="BIGINT" />
+        <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+        <result column="count_id" property="countId" jdbcType="BIGINT" />
+        <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+        <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+        <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+        <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+        <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+        <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+        <result column="msg_id" property="msgId" jdbcType="VARCHAR" />
+        <result column="msg_type" property="msgType" jdbcType="VARCHAR" />
+        <result column="key_word_config_id" property="keyWordConfigId" jdbcType="BIGINT" />
+        <result column="biz_type" property="bizType" jdbcType="VARCHAR" />
+        <result column="user_id" property="userId" jdbcType="BIGINT" />
+        <result column="first_source" property="firstSource" jdbcType="VARCHAR" />
+        <result column="wx_openid" property="wxOpenid" jdbcType="VARCHAR" />
+        <result column="wx_nick_name" property="wxNickName" jdbcType="VARCHAR" />
+        <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+        <result column="reply_type" property="replyType" jdbcType="VARCHAR" />
+        <result column="send_type" property="sendType" jdbcType="VARCHAR" />
+        <result column="to_user_name" property="toUserName" jdbcType="VARCHAR" />
+        <result column="from_user_name" property="fromUserName" jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="content" property="content" jdbcType="VARCHAR" />
+        <result column="media_id" property="mediaId" jdbcType="VARCHAR" />
+        <result column="title" property="title" jdbcType="VARCHAR" />
+        <result column="description" property="description" jdbcType="VARCHAR" />
+        <result column="url" property="url" jdbcType="VARCHAR" />
+        <result column="pic_url" property="picUrl" jdbcType="VARCHAR" />
+        <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+    </resultMap>
+
+    <select id="selectUserWXMessageQuery" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.defined.reply.WXMessageQueryDO">
+
+        SELECT
+        m.msg_id,
+        (
+            SELECT
+            COUNT(wx_openid)
+            FROM USER_WX_MESSAGE a
+            <where>
+                <trim prefixOverrides="and">
+                    <if test="sellerId!=null">
+                        and seller_id = #{sellerId}
+                    </if>
+                    <if test="mobile!=null">
+                        and a.mobile = #{mobile}
+                    </if>
+                    <if test="wxNickName!=null">
+                        and a.wx_nick_name like '%${wxNickName}%'
+                    </if>
+                    <if test="bizType!=null">
+                        and a.biz_type = #{bizType}
+                    </if>
+                    <if test="createTime!=null">
+                        and a.create_time >= #{createTime}
+                    </if>
+
+                    and a.send_type='from_custom'
+                    and a.wx_openid = m.wx_openid
+                    group by a.wx_openid
+                </trim>
+
+            </where>
+        ) AS times,
+        (
+        select
+          r.content
+        from
+          user_wx_message r
+        where
+          r.msg_id = m.msg_id
+          AND r.send_type='from_seller'
+          order by r.create_time desc limit 0,1
+        ) AS reply_content,
+        (
+        select
+        c.create_time
+        from
+        user_wx_message c
+        where
+        c.msg_id = m.msg_id
+        AND c.send_type='from_seller'
+        order by c.create_time desc limit 0,1
+        ) AS reply_create_time,
+        (
+        select
+        t.reply_type
+        from
+        user_wx_message t
+        where
+        t.msg_id = m.msg_id
+        AND t.send_type='from_seller'
+        order by t.create_time desc limit 0,1
+        ) AS reply_type,
+        m.content,
+        m.create_time,
+        m.first_source,
+        m.wx_openid,
+        m.wx_nick_name,
+        m.to_user_name,
+        m.msg_type,
+        m.biz_type,
+        m.mobile
+        FROM
+        user_wx_message m
+
+        <where>
+            <trim prefixOverrides="and">
+                <if test="sellerId!=null">
+                    and seller_id = #{sellerId}
+                </if>
+                <if test="mobile!=null">
+                    and mobile = #{mobile}
+                </if>
+                <if test="wxNickName!=null">
+                    and wx_nick_name like '%${wxNickName}%'
+                </if>
+                <if test="bizType!=null">
+                    and content like '%${bizType}%'
+                </if>
+                <if test="createTime!=null">
+                    and create_time >= #{createTime}
+                </if>
+                and send_type='from_custom'
+                and msg_type != 'event'
+                order by create_time desc
+            </trim>
+
+
+        </where>
+    </select>
+
+    <select id="queryWxInteractiveUser" parameterType="java.lang.Long" resultMap="UserWxMessageMap">
+        select
+          *
+        from
+          user_wx_message
+        where
+          is_deleted = "0"
+            and seller_id = #{sellerId}
+            and create_time > DATE_SUB(NOW(),INTERVAL 2 DAY)
+        group by
+            user_id
+    </select>
+
+   <select id="countWxInteractiveUser" parameterType="java.lang.Long" resultType="java.lang.Integer">
+       select
+          count(DISTINCT user_id)
+       from
+          user_wx_message
+       where
+          is_deleted = "0"
+          and seller_id = #{sellerId}
+          and create_time > DATE_SUB(NOW(),INTERVAL 2 DAY)
+   </select>
+
+</mapper>

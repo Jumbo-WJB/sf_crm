@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.express.ExpressDAO">
+    <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.express.ExpressMessageQueryDO">
+        <result column="wx_nick_name" property="wxNickName" jdbcType="VARCHAR" />
+        <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+        <result column="first_source" property="firstSource" jdbcType="VARCHAR" />
+        <result column="wx_openid" property="wxOpenid" jdbcType="VARCHAR" />
+        <result column="times" property="times" jdbcType="INTEGER" />
+        <result column="receive_content" property="receiveContent" jdbcType="VARCHAR" />
+        <result column="reply_content" property="replyContent" jdbcType="VARCHAR" />
+        <result column="replay_express_message" property="replayExpressMessage" jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="reply_time" property="replyTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <resultMap id="allIdsResultMap" type="com.shufensoft.crm.biz.domain.defined.user.UserDO">
+        <result column="user_id" property="userId" jdbcType="BIGINT"></result>
+        <result column="user_id_tb" property="userIdTb" jdbcType="BIGINT"></result>
+        <result column="user_id_jd" property="userIdJd" jdbcType="BIGINT"></result>
+        <result column="user_id_yz" property="userIdYz" jdbcType="BIGINT"></result>
+    </resultMap>
+
+    <resultMap id="expressInfoMap" type="com.shufensoft.crm.biz.domain.defined.express.ExpressInfoDO">
+        <result column="context" property="context" jdbcType="BIGINT"></result>
+        <result column="exp_spell_name" property="expSpellName" jdbcType="VARCHAR"></result>
+        <result column="mail_no" property="mailNo" jdbcType="VARCHAR"></result>
+        <result column="status" property="status" jdbcType="VARCHAR"></result>
+    </resultMap>
+    <select id="selectExpressList" parameterType="com.shufensoft.crm.biz.domain.defined.express.ExpressMessageQueryDO" resultMap="BaseResultMap">
+        SELECT
+        u.wx_nick_name,
+        u.mobile,
+        u.first_source,
+        u.wx_openid,
+        COUNT(M.msg_id) as times,
+        m.receive_content,
+        m.replay_express_message,
+        m.create_time,
+        m.reply_time,
+        m.send_type,
+        m.from_user_name,
+        m.msg_type,
+        m.biz_type
+        FROM
+        user u,USER_WX_MESSAGE M
+        <where>
+
+            <trim prefixOverrides="and">
+                <if test="mobile!=null">
+                    and u.mobile = #{mobile}
+                </if>
+                <if test="wxNickName!=null">
+                    and u.wx_nick_name like '%${wxNickName}%'
+                </if>
+                <if test="bizType!=null">
+                    and u.BIZ_TYPE = #{bizType}
+                </if>
+            </trim>
+            and u.wx_openid = M.from_user_name
+            and M.SEND_TYPE = "FROM_CUSTOM"
+        </where>
+        group by
+        from_user_name order by create_time desc
+    </select>
+
+    <select id="selectAllAboutId" parameterType="com.shufensoft.crm.biz.domain.defined.express.ExpressMessageQueryDO" resultMap="allIdsResultMap">
+        SELECT
+        u.user_id,
+        u.user_id_tb,
+        u.user_id_jd,
+        u.user_id_yz
+        FROM
+        user u,USER_WX_MESSAGE M
+        <where>
+            <trim prefixOverrides="and">
+                <if test="mobile!=null">
+                    AND u.mobile = #{mobile}
+                </if>
+                <if test="wxNickName!=null">
+                    AND u.wx_nick_name like '%${wxNickName}%'
+                </if>
+                <if test="bizType!=null">
+                    AND u.BIZ_TYPE = #{bizType}
+                </if>
+            </trim>
+            AND u.wx_openid = M.from_user_name
+            AND M.SEND_TYPE = "FROM_CUSTOM"
+        </where>
+        GROUP BY
+        from_user_name ORDER BY create_time DESC
+    </select>
+    <update id="updateExpressMessagesByUserId" parameterType="com.shufensoft.crm.biz.domain.defined.point.UserWxMessageDO">
+      UPDATE user_wx_message SET replay_express_message=#{replayExpressMessage}
+      WHERE user_id=#{userId}
+    </update>
+    <insert id="insertExpressInfo" parameterType="com.shufensoft.crm.biz.domain.defined.express.ExpressInfoDO" keyColumn="id" useGeneratedKeys="true" >
+      INSERT INTO express_info(context, user_id, exp_spell_name, mail_no, status)
+      VALUES (#{context}, #{userId}, #{expSpellName}, #{mailNo}, #{status})
+    </insert>
+    <update id="updateExpressInfo" parameterType="com.shufensoft.crm.biz.domain.defined.express.ExpressInfoDO">
+      UPDATE express_info
+      SET
+        context=#{context}, status=#{status}
+      WHERE
+        user_id=#{userId}
+      AND
+        mail_no=#{mailNo}
+    </update>
+    <select id="selectIdsByUserId" parameterType="Long" resultMap="allIdsResultMap">
+        SELECT user_id, user_id_tb, user_id_jd, user_id_yz
+        FROM user
+        WHERE user_id=#{userId}
+    </select>
+    <select id="selectExpressInfosByUserId" parameterType="Long" resultMap="expressInfoMap">
+      SELECT
+        context, exp_spell_name, mail_no, status
+      FROM express_info
+      WHERE
+        user_id=#{userId}
+    </select>
+    <select id="selectExpressWithUserIdAndmailNo" resultType="com.shufensoft.crm.biz.domain.defined.express.ExpressInfoDO">
+        SELECT
+          context,
+          exp_spell_name,
+          mail_no,
+          status
+        FROM express_info
+        WHERE
+          user_id=#{userId}
+        AND
+          mail_no=#{mailNo}
+    </select>
+</mapper>

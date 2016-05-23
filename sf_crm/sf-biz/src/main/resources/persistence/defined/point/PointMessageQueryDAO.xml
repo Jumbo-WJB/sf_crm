@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.point.PointMessageQueryDAO" >
+
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.point.PointMessageQueryDO" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="times" property="times" jdbcType="INTEGER" />
+    <result column="first_source" property="firstSource" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="wx_nick_name" property="wxNickName" jdbcType="VARCHAR" />
+    <result column="receive_content" property="receiveContent" jdbcType="VARCHAR" />
+    <result column="reply_content" property="replyContent" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="reply_time" property="replyTime" jdbcType="TIMESTAMP" />
+    <result column="first_source" property="firstSource" jdbcType="VARCHAR" />
+    <result column="wx_openid" property="wxOpenid" jdbcType="VARCHAR" />
+
+  </resultMap>
+
+    <select id="selectUserPointMessageQuery" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.defined.point.PointMessageQueryDO">
+
+        SELECT
+        msg_id,
+        (
+            SELECT
+            COUNT(biz_type)
+            FROM USER_WX_MESSAGE a
+            <where>
+                <trim prefixOverrides="and">
+                    <if test="mobile!=null">
+                        and a.mobile = #{mobile}
+                    </if>
+                    <if test="wxNickName!=null">
+                        and a.wx_nick_name like '%${wxNickName}%'
+                    </if>
+                    <if test="bizType!=null">
+                        and a.BIZ_TYPE = #{bizType}
+                    </if>
+                </trim>
+                biz_type = a.biz_type
+                and wx_openid = a.wx_openid
+            </where>
+        ) AS times,
+        content,
+        create_time,
+        (
+
+
+        ) as reply_content,
+        first_source,
+        wx_openid,
+        wx_nick_name,
+        reply_time
+        FROM
+        user_wx_message m
+        <where>
+            <trim prefixOverrides="and">
+                <if test="mobile!=null">
+                    and m.mobile = #{mobile}
+                </if>
+                <if test="wxNickName!=null">
+                    and m.wx_nick_name like '%${wxNickName}%'
+                </if>
+                <if test="bizType!=null">
+                    and m.BIZ_TYPE = #{bizType}
+                </if>
+            </trim>
+            and send_type='FROM_CUSTOM'
+        </where>
+    </select>
+</mapper>

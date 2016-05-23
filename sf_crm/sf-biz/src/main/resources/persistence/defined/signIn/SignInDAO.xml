@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.signIn.SignInDAO" >
+
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.sIgnIn.SignInDO" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="sign_in_rank" property="signInRank" jdbcType="VARCHAR" />
+    <result column="wx_nick_name" property="wxNickName" jdbcType="VARCHAR" />
+    <result column="sign_in_times" property="signInTimes" jdbcType="BIGINT" />
+    <result column="sign_in_date" property="signInDate" jdbcType="TIMESTAMP" />
+
+  </resultMap>
+
+
+    <select id="selectUserTodaySignInRanking" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.defined.sIgnIn.SignInDO">
+
+        select
+        u.wx_nick_name,
+        count(1) as sign_in_times,
+        max(o.gmt_transfer) as sign_in_date
+        from
+        point_obtain o,
+        user u
+        <where>
+
+
+            <trim prefixOverrides="and">
+                o.user_id = u.user_id
+                and o.obtain_method ='sign_in'
+                <if test="obtainStartDate!=null and obtainEndDate!=null">
+                    and o.gmt_transfer between #{obtainStartDate} and #{obtainEndDate}
+                </if>
+                group by o.user_id
+                order by sign_in_date
+            </trim>
+
+
+        </where>
+
+    </select>
+
+
+    <select id="selectUserSignInRanking" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.defined.sIgnIn.SignInDO">
+
+        select
+            u.wx_nick_name,
+            count(1) as sign_in_times,
+            max(o.gmt_transfer) as sign_in_date
+        from
+            point_obtain o,
+            user u
+        <where>
+
+
+            <trim prefixOverrides="and">
+                <if test="obtainStartDate!=null and obtainEndDate!=null">
+                    and o.gmt_transfer between #{obtainStartDate} and #{obtainEndDate}
+                </if>
+                and o.user_id = u.user_id
+                and o.obtain_method ='sign_in'
+                group by o.user_id
+                order by sign_in_times desc,sign_in_date
+            </trim>
+        </where>
+
+    </select>
+
+    <select id="selectMySignInRank" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.defined.sIgnIn.SignInDO">
+
+        select
+            wx_nick_name,
+            max(gmt_transfer) as sign_in_date,
+            count(1) as sign_in_times,
+            (
+                select
+                  count(1) as sign_in_rank
+                from
+                (
+                    select
+                        u.wx_nick_name,
+                        o.gmt_transfer as sign_in_date,
+                        count(1) as sign_in_times
+                    from
+                        point_obtain o,
+                        user u
+                    <where>
+                        <trim prefixOverrides="and">
+                            <if test="obtainStartDate!=null and obtainEndDate!=null">
+                                and o.gmt_transfer between #{obtainStartDate} and #{obtainEndDate}
+                            </if>
+                            and o.user_id = u.user_id
+                            and o.obtain_method = 'sign_in'
+                        </trim>
+
+                        group by o.user_id
+                        order by sign_in_times desc,sign_in_date desc
+                    </where>
+
+            ) a where a.sign_in_times >= (
+
+                select
+                  count(1)
+                from
+                    point_obtain o,
+                    user u
+
+                <where>
+                    <trim prefixOverrides="and">
+                        <if test="obtainStartDate!=null and obtainEndDate!=null">
+                            and o.gmt_transfer between #{obtainStartDate} and #{obtainEndDate}
+                        </if>
+                        <if test="userId!=null">
+                            and o.user_id= #{userId}
+                        </if>
+                        and o.user_id = u.user_id
+                        and o.obtain_method = 'sign_in'
+                    </trim>
+
+                    group by o.user_id
+                </where>
+
+            )
+        ) as sign_in_rank
+
+        from
+          point_obtain ao,
+          user au
+        <where>
+            <trim prefixOverrides="and">
+                <if test="userId!=null">
+                    and ao.user_id= #{userId}
+                </if>
+                <if test="obtainStartDate!=null and obtainEndDate!=null">
+                    and ao.gmt_transfer between #{obtainStartDate} and #{obtainEndDate}
+                </if>
+                and ao.user_id = au.user_id
+                and ao.obtain_method = 'sign_in'
+            </trim>
+
+            group by au.user_id
+            order by sign_in_times desc,
+            sign_in_date desc
+        </where>
+
+
+
+
+    </select>
+
+
+
+
+
+    <select id="selectCurrentDayMySignInRank" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.defined.sIgnIn.SignInDO">
+
+
+
+
+        select
+        wx_nick_name,
+        min(gmt_transfer) as sign_in_date,
+        count(1) as sign_in_times,
+        (
+        select
+        count(1) as sign_in_rank
+        from
+        (
+        select
+        o.gmt_transfer as sign_in_date
+        from
+        point_obtain o,
+        user u
+
+        <where>
+            <trim prefixOverrides="and">
+                <if test="obtainStartDate!=null and obtainEndDate!=null">
+                    and o.gmt_transfer between #{obtainStartDate} and #{obtainEndDate}
+                </if>
+                and o.user_id = u.user_id
+                and o.obtain_method = 'sign_in'
+            </trim>
+      </where>
+        group by o.user_id
+        order by sign_in_date
+
+        ) a where a.sign_in_date
+
+        <![CDATA[ <=]]>  (
+
+        select
+        o.gmt_transfer
+        from
+        point_obtain o,
+        user u
+
+        <where>
+            <trim prefixOverrides="and">
+                <if test="obtainStartDate!=null and obtainEndDate!=null">
+                    and o.gmt_transfer between #{obtainStartDate} and #{obtainEndDate}
+                </if>
+                <if test="userId!=null">
+                    and o.user_id= #{userId}
+                </if>
+                and o.user_id = u.user_id
+                and o.obtain_method = 'sign_in'
+            </trim>
+
+            group by o.user_id
+        </where>
+
+        )
+        ) as sign_in_rank
+
+        from
+        point_obtain ao,
+        user au
+        <where>
+            <trim prefixOverrides="and">
+                <if test="userId!=null">
+                    and ao.user_id= #{userId}
+                </if>
+                <if test="obtainStartDate!=null and obtainEndDate!=null">
+                    and ao.gmt_transfer between #{obtainStartDate} and #{obtainEndDate}
+                </if>
+                and ao.user_id = au.user_id
+                and ao.obtain_method = 'sign_in'
+            </trim>
+
+            group by au.user_id
+            order by sign_in_date
+        </where>
+
+
+    </select>
+
+
+
+
+</mapper>

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.user.UserAccountDAO" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.user.UserAccountDO" >
+      <id column="id" property="id" jdbcType="BIGINT" />
+      <result column="max_user_account_version" property="maxUserAccountVersion" jdbcType="BIGINT" />
+      <result column="min_user_account_version" property="minUserAccountVersion" jdbcType="BIGINT" />
+      <result column="avg_user_account_version" property="avgUserAccountVersion" jdbcType="BIGINT" />
+      <result column="count_user_account_version" property="countUserAccountVersion" jdbcType="BIGINT" />
+      <result column="sum_user_account_version" property="sumUserAccountVersion" jdbcType="BIGINT" />
+      <result column="max_point_amount_transferred" property="maxPointAmountTransferred" jdbcType="BIGINT" />
+      <result column="min_point_amount_transferred" property="minPointAmountTransferred" jdbcType="BIGINT" />
+      <result column="avg_point_amount_transferred" property="avgPointAmountTransferred" jdbcType="BIGINT" />
+      <result column="count_point_amount_transferred" property="countPointAmountTransferred" jdbcType="BIGINT" />
+      <result column="sum_point_amount_transferred" property="sumPointAmountTransferred" jdbcType="BIGINT" />
+      <result column="max_point_amount_expired" property="maxPointAmountExpired" jdbcType="BIGINT" />
+      <result column="min_point_amount_expired" property="minPointAmountExpired" jdbcType="BIGINT" />
+      <result column="avg_point_amount_expired" property="avgPointAmountExpired" jdbcType="BIGINT" />
+      <result column="count_point_amount_expired" property="countPointAmountExpired" jdbcType="BIGINT" />
+      <result column="sum_point_amount_expired" property="sumPointAmountExpired" jdbcType="BIGINT" />
+      <result column="max_point_amount_exchange" property="maxPointAmountExchange" jdbcType="BIGINT" />
+      <result column="min_point_amount_exchange" property="minPointAmountExchange" jdbcType="BIGINT" />
+      <result column="avg_point_amount_exchange" property="avgPointAmountExchange" jdbcType="BIGINT" />
+      <result column="count_point_amount_exchange" property="countPointAmountExchange" jdbcType="BIGINT" />
+      <result column="sum_point_amount_exchange" property="sumPointAmountExchange" jdbcType="BIGINT" />
+      <result column="max_point_amount_total" property="maxPointAmountTotal" jdbcType="BIGINT" />
+      <result column="min_point_amount_total" property="minPointAmountTotal" jdbcType="BIGINT" />
+      <result column="avg_point_amount_total" property="avgPointAmountTotal" jdbcType="BIGINT" />
+      <result column="count_point_amount_total" property="countPointAmountTotal" jdbcType="BIGINT" />
+      <result column="sum_point_amount_total" property="sumPointAmountTotal" jdbcType="BIGINT" />
+      <result column="max_point_amount" property="maxPointAmount" jdbcType="BIGINT" />
+      <result column="min_point_amount" property="minPointAmount" jdbcType="BIGINT" />
+      <result column="avg_point_amount" property="avgPointAmount" jdbcType="BIGINT" />
+      <result column="count_point_amount" property="countPointAmount" jdbcType="BIGINT" />
+      <result column="sum_point_amount" property="sumPointAmount" jdbcType="BIGINT" />
+      <result column="max_hbcash_number" property="maxHbcashNumber" jdbcType="BIGINT" />
+      <result column="min_hbcash_number" property="minHbcashNumber" jdbcType="BIGINT" />
+      <result column="avg_hbcash_number" property="avgHbcashNumber" jdbcType="BIGINT" />
+      <result column="count_hbcash_number" property="countHbcashNumber" jdbcType="BIGINT" />
+      <result column="sum_hbcash_number" property="sumHbcashNumber" jdbcType="BIGINT" />
+      <result column="max_hbcash_date" property="maxHbcashDate" jdbcType="BIGINT" />
+      <result column="min_hbcash_date" property="minHbcashDate" jdbcType="BIGINT" />
+      <result column="avg_hbcash_date" property="avgHbcashDate" jdbcType="BIGINT" />
+      <result column="count_hbcash_date" property="countHbcashDate" jdbcType="BIGINT" />
+      <result column="sum_hbcash_date" property="sumHbcashDate" jdbcType="TIMESTAMP" />
+      <result column="max_hbcash_amount" property="maxHbcashAmount" jdbcType="BIGINT" />
+      <result column="min_hbcash_amount" property="minHbcashAmount" jdbcType="BIGINT" />
+      <result column="avg_hbcash_amount" property="avgHbcashAmount" jdbcType="BIGINT" />
+      <result column="count_hbcash_amount" property="countHbcashAmount" jdbcType="BIGINT" />
+      <result column="sum_hbcash_amount" property="sumHbcashAmount" jdbcType="BIGINT" />
+      <result column="max_hbobtain_date" property="maxHbobtainDate" jdbcType="BIGINT" />
+      <result column="min_hbobtain_date" property="minHbobtainDate" jdbcType="BIGINT" />
+      <result column="avg_hbobtain_date" property="avgHbobtainDate" jdbcType="BIGINT" />
+      <result column="count_hbobtain_date" property="countHbobtainDate" jdbcType="BIGINT" />
+      <result column="sum_hbobtain_date" property="sumHbobtainDate" jdbcType="TIMESTAMP" />
+      <result column="max_hongbao_shop_amount" property="maxHongbaoShopAmount" jdbcType="BIGINT" />
+      <result column="min_hongbao_shop_amount" property="minHongbaoShopAmount" jdbcType="BIGINT" />
+      <result column="avg_hongbao_shop_amount" property="avgHongbaoShopAmount" jdbcType="BIGINT" />
+      <result column="count_hongbao_shop_amount" property="countHongbaoShopAmount" jdbcType="BIGINT" />
+      <result column="sum_hongbao_shop_amount" property="sumHongbaoShopAmount" jdbcType="BIGINT" />
+      <result column="max_hongbao_praise_amount" property="maxHongbaoPraiseAmount" jdbcType="BIGINT" />
+      <result column="min_hongbao_praise_amount" property="minHongbaoPraiseAmount" jdbcType="BIGINT" />
+      <result column="avg_hongbao_praise_amount" property="avgHongbaoPraiseAmount" jdbcType="BIGINT" />
+      <result column="count_hongbao_praise_amount" property="countHongbaoPraiseAmount" jdbcType="BIGINT" />
+      <result column="sum_hongbao_praise_amount" property="sumHongbaoPraiseAmount" jdbcType="BIGINT" />
+      <result column="max_hbobtain_amount" property="maxHbobtainAmount" jdbcType="BIGINT" />
+      <result column="min_hbobtain_amount" property="minHbobtainAmount" jdbcType="BIGINT" />
+      <result column="avg_hbobtain_amount" property="avgHbobtainAmount" jdbcType="BIGINT" />
+      <result column="count_hbobtain_amount" property="countHbobtainAmount" jdbcType="BIGINT" />
+      <result column="sum_hbobtain_amount" property="sumHbobtainAmount" jdbcType="BIGINT" />
+      <result column="max_hbtotal_number" property="maxHbtotalNumber" jdbcType="BIGINT" />
+      <result column="min_hbtotal_number" property="minHbtotalNumber" jdbcType="BIGINT" />
+      <result column="avg_hbtotal_number" property="avgHbtotalNumber" jdbcType="BIGINT" />
+      <result column="count_hbtotal_number" property="countHbtotalNumber" jdbcType="BIGINT" />
+      <result column="sum_hbtotal_number" property="sumHbtotalNumber" jdbcType="BIGINT" />
+      <result column="max_hongbao_amount" property="maxHongbaoAmount" jdbcType="BIGINT" />
+      <result column="min_hongbao_amount" property="minHongbaoAmount" jdbcType="BIGINT" />
+      <result column="avg_hongbao_amount" property="avgHongbaoAmount" jdbcType="BIGINT" />
+      <result column="count_hongbao_amount" property="countHongbaoAmount" jdbcType="BIGINT" />
+      <result column="sum_hongbao_amount" property="sumHongbaoAmount" jdbcType="BIGINT" />
+      <result column="max_user_id" property="maxUserId" jdbcType="BIGINT" />
+      <result column="min_user_id" property="minUserId" jdbcType="BIGINT" />
+      <result column="avg_user_id" property="avgUserId" jdbcType="BIGINT" />
+      <result column="count_user_id" property="countUserId" jdbcType="BIGINT" />
+      <result column="sum_user_id" property="sumUserId" jdbcType="BIGINT" />
+      <result column="max_account_id" property="maxAccountId" jdbcType="BIGINT" />
+      <result column="min_account_id" property="minAccountId" jdbcType="BIGINT" />
+      <result column="avg_account_id" property="avgAccountId" jdbcType="BIGINT" />
+      <result column="count_account_id" property="countAccountId" jdbcType="BIGINT" />
+      <result column="sum_account_id" property="sumAccountId" jdbcType="BIGINT" />
+      <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+      <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+      <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+      <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+      <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+      <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+      <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+      <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+      <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+      <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+      <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+      <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+      <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+      <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+      <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+      <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+      <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+      <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+      <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+      <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+      <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+      <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+      <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+      <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+      <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+      <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+      <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+      <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+      <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+      <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+      <result column="max_id" property="maxId" jdbcType="BIGINT" />
+      <result column="min_id" property="minId" jdbcType="BIGINT" />
+      <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+      <result column="count_id" property="countId" jdbcType="BIGINT" />
+      <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+      <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+      <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+      <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+      <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+      <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+      <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+      <result column="account_id" property="accountId" jdbcType="BIGINT" />
+      <result column="user_id" property="userId" jdbcType="BIGINT" />
+      <result column="user_id_tb" property="userIdTb" jdbcType="BIGINT" />
+      <result column="user_id_jd" property="userIdJd" jdbcType="BIGINT" />
+      <result column="hongbao_amount" property="hongbaoAmount" jdbcType="BIGINT" />
+      <result column="hbtotal_number" property="hbtotalNumber" jdbcType="BIGINT" />
+      <result column="hbobtain_amount" property="hbobtainAmount" jdbcType="BIGINT" />
+      <result column="hongbao_praise_amount" property="hongbaoPraiseAmount" jdbcType="BIGINT" />
+      <result column="hongbao_shop_amount" property="hongbaoShopAmount" jdbcType="BIGINT" />
+      <result column="hbobtain_date" property="hbobtainDate" jdbcType="TIMESTAMP" />
+      <result column="hbcash_amount" property="hbcashAmount" jdbcType="BIGINT" />
+      <result column="hbcash_date" property="hbcashDate" jdbcType="TIMESTAMP" />
+      <result column="hbcash_number" property="hbcashNumber" jdbcType="BIGINT" />
+      <result column="point_amount" property="pointAmount" jdbcType="BIGINT" />
+      <result column="point_amount_total" property="pointAmountTotal" jdbcType="BIGINT" />
+      <result column="point_amount_exchange" property="pointAmountExchange" jdbcType="BIGINT" />
+      <result column="point_amount_expired" property="pointAmountExpired" jdbcType="BIGINT" />
+      <result column="point_amount_transferred" property="pointAmountTransferred" jdbcType="BIGINT" />
+      <result column="user_account_version" property="userAccountVersion" jdbcType="BIGINT" />
+      <result column="wx_openid" property="wxOpenId" jdbcType="VARCHAR" />
+      <result column="wx_nick_name" property="wxNickName" jdbcType="VARCHAR" />
+      <result column="name" property="name" jdbcType="VARCHAR" />
+      <result column="wx_headimgurl" property="wxHeadImgUrl" jdbcType="VARCHAR" />
+      <result column="sex" property="sex" jdbcType="VARCHAR" />
+      <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+      <result column="is_old_user" property="isOldUser" jdbcType="VARCHAR" />
+      <result column="is_verify" property="isVerify" jdbcType="VARCHAR" />
+      <result column="hbobtain_amount_times" property="hongbaoRank" jdbcType="VARCHAR" />
+      <result column="point_amount_times" property="pointRank" jdbcType="VARCHAR" />
+      <result column="hbpraise_amount_times" property="hbPraiseRank" jdbcType="VARCHAR" />
+      <result column="interactionCount" property="interactionCount" jdbcType="VARCHAR" />
+
+  </resultMap>
+    <select id="selectUserAccountWithUser" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.defined.user.UserAccountDO">
+        select
+        a.id, a.gmt_created, a.gmt_modified, a.created_by, a.modified_by, a.is_deleted, a.seller_id, a.account_id,
+        a.user_id, a.hongbao_amount, a.hbtotal_number, a.hbobtain_amount, a.hbobtain_date, a.hbcash_amount,
+        a.hbcash_date, a.hbcash_number, a.point_amount, a.point_amount_total, a.point_amount_expired,
+        a.point_amount_transferred,a.hongbao_praise_amount, a.hongbao_shop_amount, b.wx_nick_name,b.sex,b.mobile,b.is_old_user,b.is_verify,b.wx_headimgurl,b.wx_openid,b.user_id_tb,b.user_id_jd,b.name
+         from user_account a , user b
+        <where>
+            <trim prefixOverrides="and">
+                <if test="sellerId != null">
+                    and a.seller_id = #{sellerId}  and b.seller_id = #{sellerId}
+                </if>
+                <if test="wxNickName!=null">
+                    and b.wx_nick_name like '%${wxNickName}%'
+                </if>
+                <if test="name!=null">
+                    and b.name like '%${name}%'
+                </if>
+                <if test="wxOpenId!=null">
+                    and b.wx_openid =#{wxOpenId}
+                </if>
+                <if test="hongbaoAmount!=null">
+                    and a.hongbao_amount>#{hongbaoAmount}
+                </if>
+                <if test="startDate!=null and endDate!=null">
+                    and a.hbcash_date between #{startDate} and #{endDate}
+                </if>
+                <if test="startDate!=null and endDate==null">
+                    and a.hbcash_date >= #{startDate}
+                </if>
+                <if test="startDate==null and endDate!=null">
+                    and a.hbcash_date >= #{endDate}
+                </if>
+                <if test="userId!=null">
+                    and a.user_id= #{userId}
+                </if>
+                and a.user_id = b.user_id
+            </trim>
+        </where>
+        <if test="orderByClause != null" >
+                order by a.${orderByClause}
+        </if>
+    </select>
+
+    <select id="selectUserAccountInteraction" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.defined.user.UserAccountDO">
+
+            <include refid="sqlUserAccountInteraction"/>
+             ON
+            <if test=" interactionEntry!=null">
+                  pr.praise_entry=#{interactionEntry}  AND
+            </if>
+                 c.user_id=pr.b_user_id
+            <if test="sellerId != null">
+                and c.seller_id = #{sellerId}  and pr.seller_id = #{sellerId}
+            </if>
+            GROUP BY c.user_id) interaction_count
+            <where>
+                <trim prefixOverrides="and">
+                    <if test="userId!=null">
+                       and hb_times.user_id =#{userId}
+                    </if>
+                    <if test="wxOpenId!=null">
+                        and d.wx_openid =#{wxOpenId}
+                    </if>
+                    <if test="exceptUserId!=null">
+                        and hb_times.user_id !=#{exceptUserId}
+                    </if>
+                     AND hb_times.user_id = d.user_id  AND point_times.user_id=d.user_id AND hbpraise_times.user_id=d.user_id  AND  interaction_count.user_id = hb_times.user_id  GROUP BY  hb_times.user_id
+                </trim>
+            </where>
+            <if test="orderByClause != null" >
+                order by ${orderByClause}
+            </if>
+      </select>
+    <sql id="sqlUserAccountInteraction">
+        SELECT
+        hb_times.id, hb_times.gmt_created, hb_times.gmt_modified, hb_times.created_by, hb_times.modified_by, hb_times.is_deleted, hb_times.seller_id, hb_times.account_id,
+        hb_times.user_id, hb_times.hongbao_amount, hb_times.hbtotal_number, hb_times.hbobtain_amount, hb_times.hbobtain_date, hb_times.hbcash_amount,
+        hb_times.hbcash_date, hb_times.hbcash_number, hb_times.point_amount, hb_times.point_amount_total, hb_times.point_amount_expired,
+        hb_times.point_amount_transferred,hb_times.hongbao_praise_amount,hb_times.hongbao_shop_amount,hbobtain_amount_times,point_amount_times,hbpraise_amount_times,d.wx_nick_name,d.wx_headimgurl,d.sex,d.mobile,d.is_old_user,d.is_verify,d.user_id_tb,d.user_id_jd,interaction_count.interactionCount
+        FROM
+        (SELECT    a.id, a.gmt_created, a.gmt_modified, a.created_by, a.modified_by, a.is_deleted, a.seller_id, a.account_id,
+            a.user_id, a.hongbao_amount, a.hbtotal_number, a.hbobtain_amount, a.hbobtain_date, a.hbcash_amount,
+            a.hbcash_date, a.hbcash_number, a.point_amount, a.point_amount_total, a.point_amount_expired,a.hongbao_praise_amount, a.hongbao_shop_amount,
+            a.point_amount_transferred,(@hbobtain_amount_rowNum:=@hbobtain_amount_rowNum+1) AS hbobtain_amount_times
+            FROM user_account a,
+            (SELECT (@hbobtain_amount_rowNum :=0) ) b
+             <if test="sellerId != null">
+                 where   a.seller_id = #{sellerId}
+             </if>
+             ORDER BY a.hbobtain_amount DESC) hb_times,
+            (SELECT ua.user_id,(@point_amount_rowNum:=@point_amount_rowNum+1) AS point_amount_times
+            FROM user_account ua,
+            (SELECT (@point_amount_rowNum :=0) ) c
+            <if test="sellerId != null">
+                where   ua.seller_id = #{sellerId}
+            </if>
+            ORDER BY ua.point_amount DESC) point_times,
+            (SELECT ub.user_id,(@hbpraise_amount_rowNum:=@hbpraise_amount_rowNum+1) AS hbpraise_amount_times
+            FROM user_account ub,
+            (SELECT (@hbpraise_amount_rowNum :=0) ) e
+            <if test="sellerId != null">
+                where   ub.seller_id = #{sellerId}
+            </if>
+            ORDER BY ub.hongbao_praise_amount DESC) hbpraise_times,
+        USER  d,(
+        SELECT c.user_id,IFNULL(COUNT(pr.id),0) interactionCount  FROM  user_account c  LEFT  JOIN  praise_records  pr
+    </sql>
+</mapper>

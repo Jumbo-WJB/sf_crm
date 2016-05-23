@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.hongbao.HBPoolDAO" >
+    <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.hongbao.HBPoolDO" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="max_id" property="maxId" jdbcType="BIGINT" />
+        <result column="min_id" property="minId" jdbcType="BIGINT" />
+        <result column="max_id" property="maxId" jdbcType="BIGINT" />
+        <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+        <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+        <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+        <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+        <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+        <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+        <result column="pool_id" property="poolId" jdbcType="BIGINT" />
+        <result column="start_date" property="startDate" jdbcType="TIMESTAMP" />
+        <result column="end_date" property="endDate" jdbcType="TIMESTAMP" />
+        <result column="RULE_CONFIG_ID" property="ruleConfigId" jdbcType="BIGINT" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="number" property="number" jdbcType="BIGINT" />
+        <result column="NUMBER_OBTAIN" property="numberObtain" jdbcType="BIGINT" />
+        <result column="CONFIG" property="config" jdbcType="VARCHAR" />
+        <result column="STATES" property="states" jdbcType="VARCHAR" />
+        <result column="type" property="type" jdbcType="VARCHAR" />
+        <result column="total_amount" property="totalAmount" jdbcType="BIGINT" />
+        <result column="obtain_amount" property="obtainAmount" jdbcType="BIGINT" />
+    </resultMap>
+    <sql id="Update_By_Example_Where_Clause" >
+        <where >
+            <trim prefix="(" suffix=")" prefixOverrides="and" >
+                IS_DELETED = '0'
+                <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+                    <if test="criteria.valid" >
+                        <foreach collection="criteria.criteria" item="criterion" >
+                            <choose >
+                                <when test="criterion.noValue" >
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue" >
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue" >
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue" >
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </if>
+                </foreach>
+            </trim>
+        </where>
+    </sql>
+    <update id="updateByNumberExampleSelective" parameterType="map" >
+        update hongbao_pool
+        <set >
+            <trim suffixOverrides="," >
+                <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+                    gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+                </if>
+                <if test="record.gmtCreatedExpression!=null" >
+                    gmt_created = ${record.gmtCreatedExpression},
+                </if>
+                <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+                    gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+                </if>
+                <if test="record.gmtModifiedExpression!=null" >
+                    gmt_modified = ${record.gmtModifiedExpression},
+                </if>
+                <if test="record.createdBy!=null and record.createdByExpression==null" >
+                    created_by = #{record.createdBy,jdbcType=VARCHAR},
+                </if>
+                <if test="record.createdByExpression!=null" >
+                    created_by = ${record.createdByExpression},
+                </if>
+                <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+                    modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+                </if>
+                <if test="record.modifiedByExpression!=null" >
+                    modified_by = ${record.modifiedByExpression},
+                </if>
+                <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+                    is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+                </if>
+                <if test="record.isDeletedExpression!=null" >
+                    is_deleted = ${record.isDeletedExpression},
+                </if>
+                <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+                    seller_id = #{record.sellerId,jdbcType=BIGINT},
+                </if>
+                <if test="record.sellerIdExpression!=null" >
+                    seller_id = ${record.sellerIdExpression},
+                </if>
+                <if test="record.poolId!=null and record.poolIdExpression==null" >
+                    pool_id = #{record.poolId,jdbcType=BIGINT},
+                </if>
+                <if test="record.poolIdExpression!=null" >
+                    pool_id = ${record.poolIdExpression},
+                </if>
+                <if test="record.startDate!=null and record.startDateExpression==null" >
+                    start_date = #{record.startDate,jdbcType=TIMESTAMP},
+                </if>
+                <if test="record.startDateExpression!=null" >
+                    start_date = ${record.startDateExpression},
+                </if>
+                <if test="record.endDate!=null and record.endDateExpression==null" >
+                    end_date = #{record.endDate,jdbcType=TIMESTAMP},
+                </if>
+                <if test="record.endDateExpression!=null" >
+                    end_date = ${record.endDateExpression},
+                </if>
+                <if test="record.ruleConfigId!=null and record.ruleConfigIdExpression==null" >
+                    RULE_CONFIG_ID = #{record.ruleConfigId,jdbcType=BIGINT},
+                </if>
+                <if test="record.ruleConfigIdExpression!=null" >
+                    RULE_CONFIG_ID = ${record.ruleConfigIdExpression},
+                </if>
+                <if test="record.name!=null and record.nameExpression==null" >
+                    name = #{record.name,jdbcType=VARCHAR},
+                </if>
+                <if test="record.nameExpression!=null" >
+                    name = ${record.nameExpression},
+                </if>
+                <if test="record.number!=null and record.numberExpression==null" >
+                    number = #{record.number,jdbcType=BIGINT},
+                </if>
+                <if test="record.numberExpression!=null" >
+                    number = ${record.numberExpression},
+                </if>
+                <if test="record.numberObtain!=null and record.numberObtainExpression==null" >
+                    NUMBER_OBTAIN = #{record.numberObtain,jdbcType=BIGINT},
+                </if>
+                <if test="record.numberObtainExpression!=null" >
+                    NUMBER_OBTAIN = ${record.numberObtainExpression},
+                </if>
+                <if test="record.config!=null and record.configExpression==null" >
+                    CONFIG = #{record.config,jdbcType=VARCHAR},
+                </if>
+                <if test="record.configExpression!=null" >
+                    CONFIG = ${record.configExpression},
+                </if>
+                <if test="record.states!=null and record.statesExpression==null" >
+                    STATES = #{record.states,jdbcType=VARCHAR},
+                </if>
+                <if test="record.statesExpression!=null" >
+                    STATES = ${record.statesExpression},
+                </if>
+                <if test="record.type!=null and record.typeExpression==null" >
+                    type = #{record.type,jdbcType=VARCHAR},
+                </if>
+                <if test="record.typeExpression!=null" >
+                    type = ${record.typeExpression},
+                </if>
+                <if test="record.totalAmount!=null and record.totalAmountExpression==null" >
+                    total_amount = #{record.totalAmount,jdbcType=BIGINT},
+                </if>
+                <if test="record.totalAmountExpression!=null" >
+                    total_amount = ${record.totalAmountExpression},
+                </if>
+                <if test="record.obtainAmount!=null and record.obtainAmountExpression==null" >
+                    obtain_amount = #{record.obtainAmount,jdbcType=BIGINT},
+                </if>
+                <if test="record.obtainAmountExpression!=null" >
+                    obtain_amount = ${record.obtainAmountExpression},
+                </if>
+            </trim>
+        </set>
+        <if test="_parameter != null" >
+            <include refid="Update_By_Example_Where_Clause" />
+        </if>
+             and  number > number_obtain
+    </update>
+
+    <sql id="Base_Column_List" >
+        id, gmt_created, gmt_modified, created_by, modified_by, is_deleted, seller_id, pool_id,
+        start_date, end_date, RULE_CONFIG_ID, name, number, NUMBER_OBTAIN, CONFIG, STATES,
+        type, total_amount, obtain_amount
+    </sql>
+
+    <select id="findValidHbPoolBySellerId" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.defined.hongbao.HBPoolDO">
+        select
+        <include refid="Base_Column_List" />
+        from hongbao_pool
+        <where>
+            <trim prefix="(" suffix=")" prefixOverrides="and" >
+                <if test="sellerId != null">
+                    and seller_id = #{sellerId}
+                </if>
+                <if test="type != null">
+                    and type = #{type}
+                </if>
+                and start_date <![CDATA[ <= ]]> now() and end_date > now() and number > NUMBER_OBTAIN
+            </trim>
+        </where>
+    </select>
+
+</mapper>

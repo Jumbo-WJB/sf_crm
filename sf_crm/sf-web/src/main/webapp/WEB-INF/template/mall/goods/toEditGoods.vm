@@ -1,0 +1,391 @@
+#set($layout = "/layout/blank.vm")
+<link rel="stylesheet" href="${rc.contextPath}/media/js/plugins/zyUpload/control/css/zyUpload.css" type="text/css"/>
+<!-- 百度 文本编辑器 -->
+<div id="web">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="table-responsive">
+                <div class="BoxStyleA">
+                    <div class="breadcrumbs" id="breadcrumbs">
+                        <i class="modal-logo interact"></i>
+                        <ul class="breadcrumb" style="margin-left: 2px">
+                            <li></li>
+                            <li>客户互动</li>
+                            <li>积分商城</li>
+                            <li class="active"><a href="javascript:freshUrl('${rc.contextPath}/mall/product/list')" style="color: #ffff00">商品列表</a></li>
+                            <li class="active">编辑商品详情</li>
+                        </ul><!-- .breadcrumb -->
+                    </div>
+                </div>
+                <div>&nbsp;</div>
+            <!-- 右边 -->
+                    #set($char = "/")
+            <div class="BoxStyleA">
+##                <div class="BoxStyleATop">
+##                    <span class="fl">编辑商品详情</span>
+##                </div>
+                <br/>
+                <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" id="uploadForm">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">商品标题(<font color="red">*</font>)：</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="form-field-1" placeholder="" class="col-xs-12 col-sm-7" name="goodsName" value="$mallGoods.title"/>
+                        </div>
+                    </div>
+                    <div class="space-4"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-2">商品分类(<font color="red">*</font>)：</label>
+                        <div class="col-sm-9" style="text-align: left">
+                            <select  name="category" onchange="createPropertyHTML('p_prop',this.value)">
+                                <option value="">请选择</option>
+                                #foreach($category in $categoryList)
+                                    <option value="$category.cid"
+                                        #if($category.cid==$mallGoods.categoryId)
+                                            selected
+                                        #end
+                                            >$category.name</option>
+                                    #foreach($oneChilds in $category.childs)
+                                        <option value="$oneChilds.cid"
+                                            #if($oneChilds.cid==$mallGoods.categoryId)
+                                                selected
+                                            #end
+                                                >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$oneChilds.name</option>
+                                        #foreach($twoChilds in $oneChilds.childs)
+                                            <option value="$twoChilds.cid"
+                                                #if($twoChilds.cid==$mallGoods.categoryId)
+                                                    selected
+                                                #end
+                                                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$twoChilds.name</option>
+                                        #end
+                                    #end
+                                #end
+                            </select>
+                        </div>
+                    </div>
+                    <div class="space-4"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">商品类型(<font color="red">*</font>)：</label>
+                        <div class="col-sm-9" style="text-align: left">
+                            <input type="radio" class="ace" value="n" name="goodsType"
+                                   #if($mallGoods.isVirtual == 'n')
+                                        checked="checked"
+                                   #end />
+                            <span class="lbl">实物(物流发货)</span>
+                            &nbsp;&nbsp;
+                            <input type="radio" class="ace" value="y" name="goodsType"
+                                #if($mallGoods.isVirtual == 'y')
+                                   checked="checked"
+                                #end />
+                            <span class="lbl">虚拟(无需发货)</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">商品设置：</label>
+                        <div class="col-sm-9" style="text-align: left;" id="p_prop">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">商品总数量(<font color="red">*</font>)：</label>
+                        <div class="col-sm-9" style="text-align: left">
+                            <input class="input-sm" type="text" placeholder="" name="goodsAmount" id="goodsAmount" value="$mallGoods.quantity" style="width: 80px" onblur="checkQuantityById('goodsAmount','amount_err_msg');return;"/>
+                            <span id="amount_err_msg" style="color: red"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">商品价格(<font color="red">*</font>)：</label>
+                        <div class="col-sm-9" style="text-align: left">
+                            #set($pri = $math.div($mallGoods.price , 100))
+                            <input class="input-sm" type="text" placeholder="" name="goodsPrice" id="goodsPrice" value="$numTool.format($pri)" style="width: 80px" onblur="checkPriceById('goodsPrice','price_err_msg');return;"/>
+                            <span class="lbl">元</span>
+                            <span id="price_err_msg" style="color: red"></span>
+##                            &nbsp;&nbsp;
+##                            <input class="ace" type="checkbox" id="id-disable-check" name="isShow" value="1"/>
+##                            <span class="lbl">前台展示</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">每件所需积分(<font color="red">*</font>)：</label>
+                        <div class="col-sm-9" style="text-align: left">
+                            <input class="input-sm" type="text" placeholder="" name="payPointsAmount" id="payPointsAmount" value="$mallGoods.point" style="width: 80px" onblur="checkPointById('payPointsAmount','point_err_msg');return;"/>
+                            <span id="point_err_msg" style="color: red"></span>
+##                            &nbsp;&nbsp;
+##                            <input class="ace" type="checkbox" name="isFaceWxFnas" value="1"/>
+##                            <span class="lbl">只是针对公众号粉丝</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">商品缩略图：</label>
+                        <div class="col-sm-9" style="text-align: left">
+                            <div style="width: 120px">
+                                <img src="${rc.contextPath}$char$!mallGoods.thumbnail" width="100px" height="100px"/>
+                                <input type="file" id="thumbnail" name="thumbnail" style="margin-top: 5px"/>
+                            </div>
+                            <span style="color: blue">图片规格: 220*150, 不超过1M, 支持jpg,jpeg,png,bmp,gif格式</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">商品图片：
+                        </label>
+                        <div class="col-sm-9" style="padding: 0;text-align: left">
+                            #set($p1 = "")
+                            #set($p2 = "")
+                            #set($p3 = "")
+                            #set($p4 = "")
+                            #set($p5 = "")
+                            #foreach($img in $mallGoods.imgsUrl.split(","))
+                                #if($velocityCount == 1)
+                                    #set($p1 = $img)
+                                #elseif($velocityCount == 2)
+                                    #set($p2 = $img)
+                                #elseif($velocityCount == 3)
+                                    #set($p3 = $img)
+                                #elseif($velocityCount == 4)
+                                    #set($p4 = $img)
+                                #elseif($velocityCount == 5)
+                                    #set($p5 = $img)
+                                #end
+                            #end
+                            <div style="float: left; width: 120px">
+                                <img src="${rc.contextPath}$char$!p1" width="100px" height="100px"/>
+                                <input type="file" name="photo1" id="photo1" style="margin-top: 5px"/>
+                            </div>
+                            <div style="float: left; width: 120px; margin: 0 40px">
+                                <img src="${rc.contextPath}$char$!p2" width="100px" height="100px"/>
+                                <input type="file" name="photo2" id="photo2" style="margin-top: 5px"/>
+                            </div>
+                            <div style="float: left; width: 120px">
+                                <img src="${rc.contextPath}$char$!p3" width="100px" height="100px"/>
+                                <input type="file" name="photo3" id="photo3" style="margin-top: 5px"/>
+                            </div>
+                            <div style="float: left; width: 120px; margin: 0 40px">
+                                <img src="${rc.contextPath}$char$!p4" width="100px" height="100px"/>
+                                <input type="file" name="photo4" id="photo4" style="margin-top: 5px"/>
+                            </div>
+                            <div style="float: left; width: 120px">
+                                <img src="${rc.contextPath}$char$!p5" width="100px" height="100px"/>
+                                <input type="file" name="photo5" id="photo5" style="margin-top: 5px"/>
+                            </div>
+##                            <input type="file" name="photo1" id="photo1"/>
+##                            <input type="file" name="photo2" id="photo2" style="margin: 5px 0"/>
+##                            <input type="file" name="photo3" id="photo3"/>
+##                            <input type="file" name="photo4" id="photo4" style="margin: 5px 0"/>
+##                            <input type="file" name="photo5" id="photo5"/>
+                            <!--
+                            <div id="demo" class="demo" ></div>
+                            -->
+                            <div style="clear: both"></div>
+                            <span style="color: blue">图片规格: 750*425, 不超过2M, 支持jpg,jpeg,png,bmp,gif格式<font color="red">注意:上传图片会覆盖以前的商品图片</font></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">开始兑换时间：</label>
+                        <div class="col-sm-9" style="text-align: left">
+                            <input name="isImmediate" type="radio" class="ace" value="onsale" checked="checked"/>
+                            <span class="lbl">立即上架</span>
+                            &nbsp;&nbsp;
+                            <input name="isImmediate" type="radio" class="ace" value="instock" disabled="disabled"/>
+                            <span class="lbl">定时上架</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">商品详情：</label>
+                        <div class="col-sm-9" style="text-align: left">
+                            <script id="editor" type="text/plain" style="width:90%; height:300px;" name="content">
+                                $!mallGoods.goodsDetail
+                            </script>
+                        </div>
+                    </div>
+##                    <div class="form-group">
+##                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">商品二维码：</label>
+##                        <div class="col-sm-9" style="text-align: left">
+##                            <input type="file" name="wxRq" id="wxRq"/>
+##                        </div>
+##                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"></label>
+                        <div class="col-sm-9" style="text-align: left">
+                            <button class="btn btn-info" type="button" onclick="submitForm('uploadForm');return false;">
+                                <i class="icon-ok bigger-110"></i>
+                                保存
+                            </button>
+                        </div>
+                    </div>
+                    <input type="hidden" name="goodsId" value="$mallGoods.goodsId">
+                </form>
+            </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" charset="utf-8" src="${rc.contextPath}/media/js/admin/mall/pointMall.js"></script>
+<script type="text/javascript">
+
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+//    var ue = UE.getEditor('editor');
+    var editor = new baidu.editor.ui.Editor();
+    editor.render("editor");
+
+    createPropertyHTMLForEdit('p_prop','$mallGoods.goodsId','$mallGoods.quantity');
+
+    createToken('uploadForm');
+
+
+    function submitForm(id){
+
+        var imgId = [];
+
+        //goodsId
+        var goodsId = $('input[name="goodsId"]').val();
+        //商品名
+        var goodsName = $('input[name="goodsName"]').val();
+        if(isNullOrEmpty(goodsName)){
+            alert('商品名不能为空');
+            return ;
+        }
+        //商品分类
+        var category = $('select[name="category"]').val();
+        if(isNullOrEmpty(category)){
+            alert('商品分类不能为空');
+            return ;
+        }
+        //商品类型
+        var goodsType = $('input[name="goodsType"]:checked').val();
+        //sku属性1
+        var skuP1 = '';
+        $.each($('select[name="prop_1"]'),function(index, obj){
+            var value = $('select[name="prop_1"]').eq(index).val();
+            skuP1 += value;
+            if(index < $('select[name="prop_1"]').length - 1){
+                skuP1 += '|';
+            }
+        });
+        //sku属性2
+        var skuP2 = '';
+        $.each($('select[name="prop_2"]'),function(index, obj){
+            var value = $('select[name="prop_2"]').eq(index).val();
+            skuP2 += value;
+            if(index < $('select[name="prop_2"]').length - 1){
+                skuP2 += '|';
+            }
+        });
+//        alert("p2=" + skuP2);
+        //sku属性3
+        var skuP3 = '';
+        $.each($('select[name="prop_3"]'),function(index, obj){
+            var value = $('select[name="prop_3"]').eq(index).val();
+            skuP3 += value;
+            if(index < $('select[name="prop_3"]').length -1){
+                skuP3 += '|';
+            }
+        });
+//        alert("p3=" + skuP3);
+        //sku数量
+        var skuNum = '';
+        $.each($('input[name="skuAmount"]'),function(index, obj){
+            var value = $('input[name="skuAmount"]').eq(index).val();
+            skuNum += value;
+            if(index < $('input[name="skuAmount"]').length - 1){
+                skuNum += '|';
+            }
+        });
+//        if(isNullOrEmpty(skuNum)){
+//            alert('商品数量必填');
+//            return ;
+//        }
+        //sku价格
+        var skuPrice = '';
+        $.each($('input[name="skuPrice"]'),function(index, obj){
+            var value = $('input[name="skuPrice"]').eq(index).val();
+            skuPrice += value;
+            if(index < $('input[name="skuPrice"]').length - 1){
+                skuPrice += '|';
+            }
+        });
+//        if(isNullOrEmpty(skuPrice)){
+//            alert('商品价格必填');
+//            return ;
+//        }
+        if(!batchCheckSkuAmount()){
+            alert('请输入商品数量,正整数');
+            return;
+        }
+        if(!batchCheckSkuPrice()){
+            alert('请输入商品价格,最多保留两位小数');
+            return;
+        }
+        //商品总数量
+        var goodsAmount = $('input[name="goodsAmount"]').val();
+        if(isNullOrEmpty(goodsAmount)){
+            alert('商品总数量必填');
+            return ;
+        }
+        if(!checkQuantityById('goodsAmount')){
+            alert('请输入数量,正整数');
+            return ;
+        }
+        //商品价格
+        var goodsPrice = $('input[name="goodsPrice"]').val();
+        if(isNullOrEmpty(goodsPrice)){
+            alert('商品价格必填');
+            return ;
+        }
+        if(!checkPriceById('goodsPrice')){
+            alert('请输入价格,最多保留两位小数');
+            return ;
+        }
+        //兑换每件商品所需积分
+        var payPointsAmount = $('input[name="payPointsAmount"]').val();
+        if(isNullOrEmpty(payPointsAmount)){
+            alert('每件商品兑换所需积分必填');
+            return ;
+        }
+        if(!checkPointById('payPointsAmount')){
+            alert('请输入积分数,正整数或者0');
+            return ;
+        }
+        //开始兑换时间
+        var isImmediate = $('input[name="isImmediate"]').val();
+        //商品详情
+        var goodsDetailContext = editor.getContent();
+        //图片
+        var fileNames = '';
+        $.each($('input[type="file"]'), function(index,obj){
+            var fn = $('input[type="file"]').eq(index).attr("name");
+            fileNames += fn;
+            if(index < $('input[type="file"]').length -1){
+                fileNames += '|';
+            }
+            imgId.push($('input[type="file"]').eq(index).attr("id"));
+        });
+        var token = $('#token').val()
+        var data = {"goodsId":goodsId,"goodsName":goodsName,"category":category,"goodsType":goodsType,"skuProps1":skuP1,"skuProps2":skuP2, "skuProps3":skuP3,"skuAmounts":skuNum, "skuPrices":skuPrice,"goodsAmount":goodsAmount,"goodsPrice":goodsPrice,"payPointsAmount":payPointsAmount,"isImmediate":isImmediate,"content":escape(goodsDetailContext),"fileNames":fileNames};
+//        console.dir(data);
+        var  postData = JSON.stringify(data).replace(/\"/g,"'");
+//        console.dir(postData);
+        $.ajaxFileUpload({
+            url : baseUrl + 'mall/goods/ajaxEditorGoods?token=' + token,
+            secureuri:false,
+            fileElementId: imgId,  //这里不在是以前的id了，要写成数组的形式哦！
+            dataType: 'json',
+            data: {goodsData:postData},
+            success: function(reponseData){
+                if(reponseData.errorCode == 0){
+                    alert(reponseData.errorMessage);
+                    freshUrl(baseUrl + "/mall/product/list");
+                }else{
+                    alert(reponseData.errorMessage);
+                }
+            },
+            error: function(reponseData){
+                alert("编辑失败!");
+            }
+        });
+    }
+
+</script>

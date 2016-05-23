@@ -1,0 +1,211 @@
+
+
+/* ///////////////////////////////////////////// */
+
+
+
+body {
+    background: none repeat scroll 0 0 #fff;
+    margin: 0;
+    text-align: center;
+}
+body, div, td, th {
+    background-repeat: repeat;
+    color: #9f9f9f;
+    font-family: 'Lucida Grande','微软雅黑','黑体','宋体',simsun,sans-serif;
+    font-size: 24px;
+    line-height: 150%; 
+}
+div, form, img {
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+dl, dt, dd, ul, ol, li {
+    border: 0 none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+dl, ul {
+    clear: left;
+    text-align: left;
+}
+dt, dd, li {
+    display: block;
+}
+h1, h2, h3, h4, h5 {
+    margin: 0;
+}
+select, input {
+    font-size: 9pt;
+}
+td, p, div {
+    text-align: left;
+}
+a {
+    text-decoration: none;
+}
+a:link {
+    color: #333;
+}
+a:visited {
+    color: #333;
+}
+a:hover {
+    color: #FF3300;
+    text-decoration: none;
+}
+a:active {
+    color: #FF3300;
+}
+.center {
+    margin: 0 auto;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.font_w {
+    color: #FFFFFF;
+    float: right;
+    position: relative;
+    right: 15px;
+    top: -30px;
+}
+.font_r {
+    color: red; margin:0 0 0 -10px;
+}
+
+a.font_2 { background:#aaa; color:#fff; padding:0 5px; }
+.font_3 { color:#333; }
+.font_4 { font-size:18px; color:#333; line-height:40px; }
+.font_5 { font-size:20px; color:#F00; margin-left:-10px;}
+.font_6 { font-size:13px; line-height:150%;   }
+.fgx{ height:10px; overflow:hidden; line-height:10px; clear:both; display:block; width:100%;}
+
+.font_link {
+}
+a.font_link {
+    text-decoration: underline;
+}
+a.font_link:visited {
+    color: #333;
+}
+.font_title {
+    background: none repeat scroll 0 0 #c11214;
+    color: #FFFFFF;
+    font-size: 20px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+#menu_1 { background:#393939; position:fixed; top:0; z-index:1000; width:640px; }
+.menu_1 .line_1 {
+    background: none repeat scroll 0 0 #AAAAAA;
+    height: 1px;
+    line-height: 1px;
+    overflow: hidden;
+}
+.menu_1 a {
+    background: none repeat scroll 0 0 #393939;
+    color: #393939;
+    display: inline-block;
+    height: 200px;
+    text-align: center;
+}
+a.bt_2 { 
+    background: none repeat scroll 0 0 #AAAAAA;
+	color:#fff;
+    height: 33px;
+    position: relative;
+    top: 2px;
+    z-index: 1;
+}
+
+#main { width:640px; margin:0 auto; background:#fff; }
+
+#all { width:590px; margin:280px 0 0 50px; padding:0 0 20px; position:relative; }
+
+#all .top { padding:0 20px; }
+
+#all_2 {
+    background: none repeat scroll 0 0 #FFFFFF;
+    padding:20px 20px 0px;
+}
+#all .a1 { border-top:1px #ddd solid;
+    background: url(img/icon_1.gif) no-repeat scroll top right #fff;
+    color: #333333; font-size:28px;
+    display: block;
+    line-height: 110px;
+    margin: 1px 0 0;
+    text-decoration: none;
+    width: 100%;
+}
+#all div { color: #666;}
+
+
+#menu_2 { height:80px; font-size:28px; width:640px; overflow:hidden; border-bottom:1px solid #ddd; position:fixed; top:200px; z-index:1000; background:#fff;}
+#menu_2 .border_w { border-left:0px; }
+#menu_2 a{ text-align:center; width:159px; display:inline-block; margin:20px 0 0; }
+#menu_2 .menu_red { height:55px; border-bottom:5px #f00 solid; color:#f00; text-align:center; }
+#menu_2 .menu_left { border-left:1px solid #ddd; }
+/*#menu_2 .menu_right { border-right:1px solid #ddd; }*/
+#menu_2 .menu_right { border:none }
+
+
+.font_1{ width:480px; }
+.font_1 a{ color:#F00; text-decoration:none; margin:0 0 10px; }
+
+.font_1 .font_2 { background:url(img/icon_3.gif ) 0 2px no-repeat; padding:0 0 0 48px; margin:30px 0; }
+.bt_1{ width:37px; height:30px; position:relative; top:-70px; right:40px; float:right; z-index:500; text-align:right; background:url(img/icon_2.gif) top right no-repeat; }
+
+
+
+#menu_3 { height:700px; margin:250px 0 0 ; }
+#menu_3 a { width:159px; height:200px; float:left; line-height:270px; overflow:hidden; text-align:center; display:block; color:#666; font-size:24px; }
+
+#menu_3 .nolink { width:212px; height:200px; float:left; line-height:270px; overflow:hidden; text-align:center; display:block; border-bottom:1px solid #ddd; border-left:1px solid #ddd; }
+
+
+#menu_3 .bt1{
+    background:url(img/hongbao.png) 0 0 no-repeat;
+    background-size:100px 90px;
+    background-position:30px 30px;
+}
+#menu_3 .bt2{ background:url(img/point.png) 0 0 no-repeat; background-size:100px 90px;background-position:30px 30px;}
+#menu_3 .bt3{ background:url(img/share.png) 0 0 no-repeat;  background-size:100px 90px;background-position:30px 30px;}
+#menu_3 .bt4{ background:url(img/pointmall.png) 0 0 no-repeat;  background-size:100px 90px;background-position:30px 30px;}
+#menu_3 .bt5{ background:url(img/activity.png) 0 0 no-repeat;  background-size:100px 90px;background-position:30px 30px;}
+#menu_3 .bt6{ background:url(img/sale.png) 0 0 no-repeat;  background-size:100px 90px;background-position:30px 30px;}
+#menu_3 .bt7{ background:url(img/birthday.png) 0 0 no-repeat;  background-size:100px 90px;background-position:30px 30px;}
+#menu_3 .bt8{ background:url(img/evaluate.png) 0 0 no-repeat;  background-size:100px 90px;background-position:30px 30px;}
+#menu_3 .bt9{ background:url(img/grow.png) 0 0 no-repeat;  background-size:100px 90px;background-position:30px 30px;}
+#menu_3 .bt10{ background:url(img/express.png) 0 0 no-repeat;  background-size:100px 90px;background-position:30px 30px;}
+#menu_3 .bt11{ background:url(img/shake.png) 0 0 no-repeat; background-size:100px 90px;background-position:30px 30px;}
+#menu_3 .bt12{ background:url(img/identify.png) 0 0 no-repeat;  background-size:100px 90px;background-position:30px 30px;}
+#menu_3 .bt13{ background:url(img/sighIn.png) 0 0 no-repeat;  background-size:100px 90px;background-position:30px 30px;}
+#menu_3 .bt_none{  }
+/*#menu_3 .b_left{ border-left:1px solid #fff; }*/
+#menu_3 .b_left{ border:none; }
+
+
+#foot{ background:url(img/logo.gif) left 40px no-repeat; height:100px; border-top:1px #ddd solid; padding:30px 0 0 70px; color:#666; font-size:24px; }
+
+
+
+/*展开按钮*/
+
+.bt_3 { position:relative; top:-40px; right:-20px; width:30px; height:30px; padding:0; margin:0; display:block; float:right; z-index:10; background:#ccc; }
+
+
+
+
+
+

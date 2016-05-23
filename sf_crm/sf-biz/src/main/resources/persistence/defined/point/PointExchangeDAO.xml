@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.defined.point.PointExchangeDAO" >
+
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.defined.point.PointExchangeDO" >
+    <id column="day" property="day" jdbcType="TIMESTAMP" />
+    <result column="total_exchange_point" property="totalExchangePoint" jdbcType="BIGINT" />
+    <result column="total_exchange_count" property="totalExchangeCount" jdbcType="BIGINT" />
+  </resultMap>
+
+    <select id="queryPointExchaneStatistics" resultMap="BaseResultMap" parameterType="Map">
+        SELECT DATE_FORMAT(gmt_modified,'%Y-%m-%d') as day,
+        sum(case when point_amount>0 then point_amount when point_amount=0 then 0 end) as total_exchange_point,
+        count(user_id) as total_exchange_count
+        from point_exchange
+        <![CDATA[
+        where gmt_modified >= #{lastDate}
+              and seller_id = #{sellerId}
+              and user_id>0
+              and status = 'success'
+              group by day;
+        ]]>
+    </select>
+
+
+
+
+</mapper>

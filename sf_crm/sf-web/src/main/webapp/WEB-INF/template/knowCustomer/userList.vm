@@ -1,0 +1,165 @@
+#set($layout = "/layout/blank.vm")
+<div class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <div class="BoxStyleA">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <i class="modal-logo know"></i>
+                    <ul class="breadcrumb" style="margin-left: 2px;">
+                        <li></li>
+                        <li>认识客户</li>
+                        <li class="active">客户列表</li>
+                    </ul>
+                </div>
+                <div class="widget-body">
+                    <div class="widget-main">
+                        <form class="form-horizontal markAct" id="searchForm" role="form">
+                            <div class="row" style="padding-bottom: 10px;border-bottom: 2px solid #f3ecec">
+                                <div class="col-xs-16 col-sm-11 no-padding-left" style="margin-top: 5px;">
+                                    <div class="input-group">
+                                        <input type="hidden" name="source" value="$!source" />
+                                        <input type="hidden" name="startContribution" value="$!startContribution" />
+                                        <input type="hidden" name="endContribution" value="$!endContribution" />
+                                        <input type="hidden" id="status" value="SUCCESS_PURCHASE" />
+                                        <span style="float: left;margin-left: 20px;">客户名称：<input  type="text" name="name" /></span>
+                                        <span style="float: left;margin-left: 25px;">来源：
+                                            <select  name="tempSource">
+                                                <option value="">--所有--</option>
+                                                <option value="TB">淘宝</option>
+                                                <option value="TMALL">天猫</option>
+                                                <option value="JD">京东</option>
+                                                <option value="YZ">有赞</option>
+                                                <option value="WX" class="wxOption">微信</option>
+                                            </select>
+                                        </span>
+                                        <span style="float: left;margin-left: 25px;">客户账号：<input  type="text" name="keyword" placeholder="淘宝、天猫、京东账号" /></span>
+                                        <span style="float: left;margin-left: 25px;">最后一次购物时间：
+                                            <select  name="time">
+                                                <option value="">不限</option>
+                                                <option value="7">最近7天</option>
+                                                <option value="30">最近30天</option>
+                                                <option value="60">最近60天</option>
+                                                <option value="90">最近90天</option>
+                                            </select>
+                                        </span>
+                                        <span class="input-group-btn" style="float: left;margin-left: 20px;">
+                                            <button class="btn_searchA" style="background: #428bca;" type="button" id="SearchBut">
+                                                查询
+                                            </button>
+                                            <button class="btn_searchA" style="background: #44B549" type="button" id="selectAllBut">
+                                                全选
+                                            </button>
+                                            <button class="btn_searchA" style="background: #ff4269" type="button" id="cancelAllBut">
+                                                取消
+                                            </button>
+                                        </span>
+                                    </div>
+                                    <div class="input-group" style="margin-top: 25px;">
+                                        <span style="float: left;margin-left: 20px;">过滤条件:</span>
+                                        <label style="margin-left: 10px;">
+                                            <input name="type" type="checkbox" class="ace" value="mobile"/>
+                                            <span class="lbl"> 过滤无手机用户</span>
+                                        </label>
+                                        <label style="margin-left: 10px;" class="hasEmail">
+                                            <input name="type" type="checkbox" class="ace" value="email"/>
+                                            <span class="lbl"> 过滤无邮件用户</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="userTable" style="margin-top: 25px;">
+                            <ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4">
+                                <li class="active">
+                                    <a data-toggle="tab" id="purchase_tab" href="#purchase_customer_table">成功购买的客户</a>
+                                </li>
+
+                                <li>
+                                    <a data-toggle="tab" id="potential_tab" href="#potential_customer_table">潜在购买的客户</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div id="purchase_customer_table" class="tab-pane in active">
+                                    <table id="userListTable" class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <td style="width:17px;">
+                                                <label>
+                                                    <input type="checkbox" class="ace box-head" />
+                                                    <span class="lbl"></span>
+                                                </label>
+                                            </td>
+                                            <th width="8%">用户姓名</th>
+                                            <th width="8%">微信昵称</th>
+                                            <th>淘宝昵称</th>
+                                            <th width="8%">京东账号</th>
+                                            <th>电话</th>
+                                            <th>邮件</th>
+                                            <th width="10%">城市</th>
+                                            <th width="8%">平均购买周期</th>
+                                            <th width="8%">平均购买金额</th>
+                                            <th width="8%">累计购买次数</th>
+                                            <th>最近一次购买日期</th>
+                                            <th width="8%">第一次来源</th>
+                                            <th width="10%">来源</th>
+                                            <th>综合贡献价值</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="potential_customer_table" class="tab-pane">
+                                    <table id="potentialUserTable" class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <td>
+                                                <label>
+                                                    <input  type="checkbox" class="ace box-head" />
+                                                    <span class="lbl"></span>
+                                                </label>
+                                            </td>
+                                            <th>订单编号</th>
+                                            <th>用户姓名</th>
+                                            <th>昵称</th>
+                                            <th>状态</th>
+                                            <th>电话</th>
+                                            <th>城市</th>
+                                            <th>下单时间</th>
+                                            <th>订单金额</th>
+                                            <th>购买店铺</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="padding: 35px 0;">
+                            <label>
+                                <a id="goSmsMarketing" href="javascript:void(0);" class="btn btn-success" style="border-radius: 5px">新建短信活动</a>
+                            </label>
+                            <label style="margin-left: 60px;" class="goEmail">
+                                <a id="goEmailMarketing" href="javascript:void(0);" class="btn btn-primary" style="border-radius: 5px">新建邮件活动</a>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--用户画像 Modal -->
+<div class="modal fade" id="userportraitModal" tabindex="-1" role="dialog" aria-labelledby="userportraitModal" aria-hidden="true" >
+    <div class="modal-dialog" style="width: 1300px">
+        <div class="modal-content" >
+            <div class="tiptop"><span>用户画像</span><a data-dismiss="modal" aria-hidden="true"></a></div>
+            <iframe height=730 width=1200 frameborder=0 scrolling=auto></iframe>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="${rc.contextPath}/media/js/admin/knowCustomer/userList.js"></script>

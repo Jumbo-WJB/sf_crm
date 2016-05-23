@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shufensoft.crm.biz.dao.generation.seller.SellerShopMapper" >
+  <resultMap id="BaseResultMap" type="com.shufensoft.crm.biz.domain.generation.seller.SellerShop" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="max_poly_spire_url" property="maxPolySpireUrl" jdbcType="BIGINT" />
+    <result column="min_poly_spire_url" property="minPolySpireUrl" jdbcType="BIGINT" />
+    <result column="avg_poly_spire_url" property="avgPolySpireUrl" jdbcType="BIGINT" />
+    <result column="count_poly_spire_url" property="countPolySpireUrl" jdbcType="BIGINT" />
+    <result column="sum_poly_spire_url" property="sumPolySpireUrl" jdbcType="VARCHAR" />
+    <result column="max_shop_token_expire" property="maxShopTokenExpire" jdbcType="BIGINT" />
+    <result column="min_shop_token_expire" property="minShopTokenExpire" jdbcType="BIGINT" />
+    <result column="avg_shop_token_expire" property="avgShopTokenExpire" jdbcType="BIGINT" />
+    <result column="count_shop_token_expire" property="countShopTokenExpire" jdbcType="BIGINT" />
+    <result column="sum_shop_token_expire" property="sumShopTokenExpire" jdbcType="TIMESTAMP" />
+    <result column="max_shop_refresh_token" property="maxShopRefreshToken" jdbcType="BIGINT" />
+    <result column="min_shop_refresh_token" property="minShopRefreshToken" jdbcType="BIGINT" />
+    <result column="avg_shop_refresh_token" property="avgShopRefreshToken" jdbcType="BIGINT" />
+    <result column="count_shop_refresh_token" property="countShopRefreshToken" jdbcType="BIGINT" />
+    <result column="sum_shop_refresh_token" property="sumShopRefreshToken" jdbcType="VARCHAR" />
+    <result column="max_shop_access_token" property="maxShopAccessToken" jdbcType="BIGINT" />
+    <result column="min_shop_access_token" property="minShopAccessToken" jdbcType="BIGINT" />
+    <result column="avg_shop_access_token" property="avgShopAccessToken" jdbcType="BIGINT" />
+    <result column="count_shop_access_token" property="countShopAccessToken" jdbcType="BIGINT" />
+    <result column="sum_shop_access_token" property="sumShopAccessToken" jdbcType="VARCHAR" />
+    <result column="max_shop_app_secret" property="maxShopAppSecret" jdbcType="BIGINT" />
+    <result column="min_shop_app_secret" property="minShopAppSecret" jdbcType="BIGINT" />
+    <result column="avg_shop_app_secret" property="avgShopAppSecret" jdbcType="BIGINT" />
+    <result column="count_shop_app_secret" property="countShopAppSecret" jdbcType="BIGINT" />
+    <result column="sum_shop_app_secret" property="sumShopAppSecret" jdbcType="VARCHAR" />
+    <result column="max_shop_app_id" property="maxShopAppId" jdbcType="BIGINT" />
+    <result column="min_shop_app_id" property="minShopAppId" jdbcType="BIGINT" />
+    <result column="avg_shop_app_id" property="avgShopAppId" jdbcType="BIGINT" />
+    <result column="count_shop_app_id" property="countShopAppId" jdbcType="BIGINT" />
+    <result column="sum_shop_app_id" property="sumShopAppId" jdbcType="VARCHAR" />
+    <result column="max_access_type" property="maxAccessType" jdbcType="BIGINT" />
+    <result column="min_access_type" property="minAccessType" jdbcType="BIGINT" />
+    <result column="avg_access_type" property="avgAccessType" jdbcType="BIGINT" />
+    <result column="count_access_type" property="countAccessType" jdbcType="BIGINT" />
+    <result column="sum_access_type" property="sumAccessType" jdbcType="VARCHAR" />
+    <result column="max_shop_type" property="maxShopType" jdbcType="BIGINT" />
+    <result column="min_shop_type" property="minShopType" jdbcType="BIGINT" />
+    <result column="avg_shop_type" property="avgShopType" jdbcType="BIGINT" />
+    <result column="count_shop_type" property="countShopType" jdbcType="BIGINT" />
+    <result column="sum_shop_type" property="sumShopType" jdbcType="VARCHAR" />
+    <result column="max_shop_name" property="maxShopName" jdbcType="BIGINT" />
+    <result column="min_shop_name" property="minShopName" jdbcType="BIGINT" />
+    <result column="avg_shop_name" property="avgShopName" jdbcType="BIGINT" />
+    <result column="count_shop_name" property="countShopName" jdbcType="BIGINT" />
+    <result column="sum_shop_name" property="sumShopName" jdbcType="VARCHAR" />
+    <result column="max_shop_id" property="maxShopId" jdbcType="BIGINT" />
+    <result column="min_shop_id" property="minShopId" jdbcType="BIGINT" />
+    <result column="avg_shop_id" property="avgShopId" jdbcType="BIGINT" />
+    <result column="count_shop_id" property="countShopId" jdbcType="BIGINT" />
+    <result column="sum_shop_id" property="sumShopId" jdbcType="BIGINT" />
+    <result column="max_seller_id" property="maxSellerId" jdbcType="BIGINT" />
+    <result column="min_seller_id" property="minSellerId" jdbcType="BIGINT" />
+    <result column="avg_seller_id" property="avgSellerId" jdbcType="BIGINT" />
+    <result column="count_seller_id" property="countSellerId" jdbcType="BIGINT" />
+    <result column="sum_seller_id" property="sumSellerId" jdbcType="BIGINT" />
+    <result column="max_is_deleted" property="maxIsDeleted" jdbcType="BIGINT" />
+    <result column="min_is_deleted" property="minIsDeleted" jdbcType="BIGINT" />
+    <result column="avg_is_deleted" property="avgIsDeleted" jdbcType="BIGINT" />
+    <result column="count_is_deleted" property="countIsDeleted" jdbcType="BIGINT" />
+    <result column="sum_is_deleted" property="sumIsDeleted" jdbcType="VARCHAR" />
+    <result column="max_modified_by" property="maxModifiedBy" jdbcType="BIGINT" />
+    <result column="min_modified_by" property="minModifiedBy" jdbcType="BIGINT" />
+    <result column="avg_modified_by" property="avgModifiedBy" jdbcType="BIGINT" />
+    <result column="count_modified_by" property="countModifiedBy" jdbcType="BIGINT" />
+    <result column="sum_modified_by" property="sumModifiedBy" jdbcType="VARCHAR" />
+    <result column="max_created_by" property="maxCreatedBy" jdbcType="BIGINT" />
+    <result column="min_created_by" property="minCreatedBy" jdbcType="BIGINT" />
+    <result column="avg_created_by" property="avgCreatedBy" jdbcType="BIGINT" />
+    <result column="count_created_by" property="countCreatedBy" jdbcType="BIGINT" />
+    <result column="sum_created_by" property="sumCreatedBy" jdbcType="VARCHAR" />
+    <result column="max_gmt_modified" property="maxGmtModified" jdbcType="BIGINT" />
+    <result column="min_gmt_modified" property="minGmtModified" jdbcType="BIGINT" />
+    <result column="avg_gmt_modified" property="avgGmtModified" jdbcType="BIGINT" />
+    <result column="count_gmt_modified" property="countGmtModified" jdbcType="BIGINT" />
+    <result column="sum_gmt_modified" property="sumGmtModified" jdbcType="TIMESTAMP" />
+    <result column="max_gmt_created" property="maxGmtCreated" jdbcType="BIGINT" />
+    <result column="min_gmt_created" property="minGmtCreated" jdbcType="BIGINT" />
+    <result column="avg_gmt_created" property="avgGmtCreated" jdbcType="BIGINT" />
+    <result column="count_gmt_created" property="countGmtCreated" jdbcType="BIGINT" />
+    <result column="sum_gmt_created" property="sumGmtCreated" jdbcType="TIMESTAMP" />
+    <result column="max_id" property="maxId" jdbcType="BIGINT" />
+    <result column="min_id" property="minId" jdbcType="BIGINT" />
+    <result column="avg_id" property="avgId" jdbcType="BIGINT" />
+    <result column="count_id" property="countId" jdbcType="BIGINT" />
+    <result column="sum_id" property="sumId" jdbcType="BIGINT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="is_deleted" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="seller_id" property="sellerId" jdbcType="BIGINT" />
+    <result column="shop_id" property="shopId" jdbcType="BIGINT" />
+    <result column="shop_name" property="shopName" jdbcType="VARCHAR" />
+    <result column="shop_type" property="shopType" jdbcType="VARCHAR" />
+    <result column="access_type" property="accessType" jdbcType="VARCHAR" />
+    <result column="shop_app_id" property="shopAppId" jdbcType="VARCHAR" />
+    <result column="shop_app_secret" property="shopAppSecret" jdbcType="VARCHAR" />
+    <result column="shop_access_token" property="shopAccessToken" jdbcType="VARCHAR" />
+    <result column="shop_refresh_token" property="shopRefreshToken" jdbcType="VARCHAR" />
+    <result column="shop_token_expire" property="shopTokenExpire" jdbcType="TIMESTAMP" />
+    <result column="poly_spire_url" property="polySpireUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <trim prefix="(" suffix=")" prefixOverrides="and" >
+        IS_DELETED = '0'
+        <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </trim>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_created, gmt_modified, created_by, modified_by, is_deleted, seller_id, shop_id, 
+    shop_name, shop_type, access_type, shop_app_id, shop_app_secret, shop_access_token, 
+    shop_refresh_token, shop_token_expire, poly_spire_url
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerShopExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <if test="!definedQueryColumns" >
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="definedQueryColumns" >
+      <foreach collection="queryColumns" item="queryColumn" separator="," >
+        ${queryColumn}
+      </foreach>
+    </if>
+    from seller_shop
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="forUpdate" >
+      for update
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from seller_shop
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    update seller_shop
+    set IS_DELETED = '1'
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerShopExample" >
+    update seller_shop
+    set IS_DELETED = '1'
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerShop" useGeneratedKeys="true" keyProperty="id" >
+    insert into seller_shop (id, gmt_created, gmt_modified, 
+      created_by, modified_by, is_deleted, 
+      seller_id, shop_id, shop_name, 
+      shop_type, access_type, shop_app_id, 
+      shop_app_secret, shop_access_token, shop_refresh_token, 
+      shop_token_expire, poly_spire_url)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=VARCHAR}, 
+      #{sellerId,jdbcType=BIGINT}, #{shopId,jdbcType=BIGINT}, #{shopName,jdbcType=VARCHAR}, 
+      #{shopType,jdbcType=VARCHAR}, #{accessType,jdbcType=VARCHAR}, #{shopAppId,jdbcType=VARCHAR}, 
+      #{shopAppSecret,jdbcType=VARCHAR}, #{shopAccessToken,jdbcType=VARCHAR}, #{shopRefreshToken,jdbcType=VARCHAR}, 
+      #{shopTokenExpire,jdbcType=TIMESTAMP}, #{polySpireUrl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerShop" useGeneratedKeys="true" keyProperty="id" >
+    insert into seller_shop
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+      <if test="sellerId != null" >
+        seller_id,
+      </if>
+      <if test="shopId != null" >
+        shop_id,
+      </if>
+      <if test="shopName != null" >
+        shop_name,
+      </if>
+      <if test="shopType != null" >
+        shop_type,
+      </if>
+      <if test="accessType != null" >
+        access_type,
+      </if>
+      <if test="shopAppId != null" >
+        shop_app_id,
+      </if>
+      <if test="shopAppSecret != null" >
+        shop_app_secret,
+      </if>
+      <if test="shopAccessToken != null" >
+        shop_access_token,
+      </if>
+      <if test="shopRefreshToken != null" >
+        shop_refresh_token,
+      </if>
+      <if test="shopTokenExpire != null" >
+        shop_token_expire,
+      </if>
+      <if test="polySpireUrl != null" >
+        poly_spire_url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+      <if test="shopId != null" >
+        #{shopId,jdbcType=BIGINT},
+      </if>
+      <if test="shopName != null" >
+        #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopType != null" >
+        #{shopType,jdbcType=VARCHAR},
+      </if>
+      <if test="accessType != null" >
+        #{accessType,jdbcType=VARCHAR},
+      </if>
+      <if test="shopAppId != null" >
+        #{shopAppId,jdbcType=VARCHAR},
+      </if>
+      <if test="shopAppSecret != null" >
+        #{shopAppSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="shopAccessToken != null" >
+        #{shopAccessToken,jdbcType=VARCHAR},
+      </if>
+      <if test="shopRefreshToken != null" >
+        #{shopRefreshToken,jdbcType=VARCHAR},
+      </if>
+      <if test="shopTokenExpire != null" >
+        #{shopTokenExpire,jdbcType=TIMESTAMP},
+      </if>
+      <if test="polySpireUrl != null" >
+        #{polySpireUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerShopExample" resultType="java.lang.Integer" >
+    select count(*) from seller_shop
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update seller_shop
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.shopId!=null and record.shopIdExpression==null" >
+          shop_id = #{record.shopId,jdbcType=BIGINT},
+        </if>
+        <if test="record.shopIdExpression!=null" >
+          shop_id = ${record.shopIdExpression},
+        </if>
+        <if test="record.shopName!=null and record.shopNameExpression==null" >
+          shop_name = #{record.shopName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shopNameExpression!=null" >
+          shop_name = ${record.shopNameExpression},
+        </if>
+        <if test="record.shopType!=null and record.shopTypeExpression==null" >
+          shop_type = #{record.shopType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shopTypeExpression!=null" >
+          shop_type = ${record.shopTypeExpression},
+        </if>
+        <if test="record.accessType!=null and record.accessTypeExpression==null" >
+          access_type = #{record.accessType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.accessTypeExpression!=null" >
+          access_type = ${record.accessTypeExpression},
+        </if>
+        <if test="record.shopAppId!=null and record.shopAppIdExpression==null" >
+          shop_app_id = #{record.shopAppId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shopAppIdExpression!=null" >
+          shop_app_id = ${record.shopAppIdExpression},
+        </if>
+        <if test="record.shopAppSecret!=null and record.shopAppSecretExpression==null" >
+          shop_app_secret = #{record.shopAppSecret,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shopAppSecretExpression!=null" >
+          shop_app_secret = ${record.shopAppSecretExpression},
+        </if>
+        <if test="record.shopAccessToken!=null and record.shopAccessTokenExpression==null" >
+          shop_access_token = #{record.shopAccessToken,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shopAccessTokenExpression!=null" >
+          shop_access_token = ${record.shopAccessTokenExpression},
+        </if>
+        <if test="record.shopRefreshToken!=null and record.shopRefreshTokenExpression==null" >
+          shop_refresh_token = #{record.shopRefreshToken,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shopRefreshTokenExpression!=null" >
+          shop_refresh_token = ${record.shopRefreshTokenExpression},
+        </if>
+        <if test="record.shopTokenExpire!=null and record.shopTokenExpireExpression==null" >
+          shop_token_expire = #{record.shopTokenExpire,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.shopTokenExpireExpression!=null" >
+          shop_token_expire = ${record.shopTokenExpireExpression},
+        </if>
+        <if test="record.polySpireUrl!=null and record.polySpireUrlExpression==null" >
+          poly_spire_url = #{record.polySpireUrl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.polySpireUrlExpression!=null" >
+          poly_spire_url = ${record.polySpireUrlExpression},
+        </if>
+      </trim>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update seller_shop
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+      seller_id = #{record.sellerId,jdbcType=BIGINT},
+      shop_id = #{record.shopId,jdbcType=BIGINT},
+      shop_name = #{record.shopName,jdbcType=VARCHAR},
+      shop_type = #{record.shopType,jdbcType=VARCHAR},
+      access_type = #{record.accessType,jdbcType=VARCHAR},
+      shop_app_id = #{record.shopAppId,jdbcType=VARCHAR},
+      shop_app_secret = #{record.shopAppSecret,jdbcType=VARCHAR},
+      shop_access_token = #{record.shopAccessToken,jdbcType=VARCHAR},
+      shop_refresh_token = #{record.shopRefreshToken,jdbcType=VARCHAR},
+      shop_token_expire = #{record.shopTokenExpire,jdbcType=TIMESTAMP},
+      poly_spire_url = #{record.polySpireUrl,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerShop" >
+    update seller_shop
+    <set >
+      <trim suffixOverrides="," >
+        <if test="record.gmtCreated!=null and record.gmtCreatedExpression==null" >
+          gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtCreatedExpression!=null" >
+          gmt_created = ${record.gmtCreatedExpression},
+        </if>
+        <if test="record.gmtModified!=null and record.gmtModifiedExpression==null" >
+          gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.gmtModifiedExpression!=null" >
+          gmt_modified = ${record.gmtModifiedExpression},
+        </if>
+        <if test="record.createdBy!=null and record.createdByExpression==null" >
+          created_by = #{record.createdBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createdByExpression!=null" >
+          created_by = ${record.createdByExpression},
+        </if>
+        <if test="record.modifiedBy!=null and record.modifiedByExpression==null" >
+          modified_by = #{record.modifiedBy,jdbcType=VARCHAR},
+        </if>
+        <if test="record.modifiedByExpression!=null" >
+          modified_by = ${record.modifiedByExpression},
+        </if>
+        <if test="record.isDeleted!=null and record.isDeletedExpression==null" >
+          is_deleted = #{record.isDeleted,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isDeletedExpression!=null" >
+          is_deleted = ${record.isDeletedExpression},
+        </if>
+        <if test="record.sellerId!=null and record.sellerIdExpression==null" >
+          seller_id = #{record.sellerId,jdbcType=BIGINT},
+        </if>
+        <if test="record.sellerIdExpression!=null" >
+          seller_id = ${record.sellerIdExpression},
+        </if>
+        <if test="record.shopId!=null and record.shopIdExpression==null" >
+          shop_id = #{record.shopId,jdbcType=BIGINT},
+        </if>
+        <if test="record.shopIdExpression!=null" >
+          shop_id = ${record.shopIdExpression},
+        </if>
+        <if test="record.shopName!=null and record.shopNameExpression==null" >
+          shop_name = #{record.shopName,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shopNameExpression!=null" >
+          shop_name = ${record.shopNameExpression},
+        </if>
+        <if test="record.shopType!=null and record.shopTypeExpression==null" >
+          shop_type = #{record.shopType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shopTypeExpression!=null" >
+          shop_type = ${record.shopTypeExpression},
+        </if>
+        <if test="record.accessType!=null and record.accessTypeExpression==null" >
+          access_type = #{record.accessType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.accessTypeExpression!=null" >
+          access_type = ${record.accessTypeExpression},
+        </if>
+        <if test="record.shopAppId!=null and record.shopAppIdExpression==null" >
+          shop_app_id = #{record.shopAppId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shopAppIdExpression!=null" >
+          shop_app_id = ${record.shopAppIdExpression},
+        </if>
+        <if test="record.shopAppSecret!=null and record.shopAppSecretExpression==null" >
+          shop_app_secret = #{record.shopAppSecret,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shopAppSecretExpression!=null" >
+          shop_app_secret = ${record.shopAppSecretExpression},
+        </if>
+        <if test="record.shopAccessToken!=null and record.shopAccessTokenExpression==null" >
+          shop_access_token = #{record.shopAccessToken,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shopAccessTokenExpression!=null" >
+          shop_access_token = ${record.shopAccessTokenExpression},
+        </if>
+        <if test="record.shopRefreshToken!=null and record.shopRefreshTokenExpression==null" >
+          shop_refresh_token = #{record.shopRefreshToken,jdbcType=VARCHAR},
+        </if>
+        <if test="record.shopRefreshTokenExpression!=null" >
+          shop_refresh_token = ${record.shopRefreshTokenExpression},
+        </if>
+        <if test="record.shopTokenExpire!=null and record.shopTokenExpireExpression==null" >
+          shop_token_expire = #{record.shopTokenExpire,jdbcType=TIMESTAMP},
+        </if>
+        <if test="record.shopTokenExpireExpression!=null" >
+          shop_token_expire = ${record.shopTokenExpireExpression},
+        </if>
+        <if test="record.polySpireUrl!=null and record.polySpireUrlExpression==null" >
+          poly_spire_url = #{record.polySpireUrl,jdbcType=VARCHAR},
+        </if>
+        <if test="record.polySpireUrlExpression!=null" >
+          poly_spire_url = ${record.polySpireUrlExpression},
+        </if>
+      </trim>
+    </set>
+    where id = #{record.id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shufensoft.crm.biz.domain.generation.seller.SellerShop" >
+    update seller_shop
+    set gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=BIGINT},
+      shop_id = #{shopId,jdbcType=BIGINT},
+      shop_name = #{shopName,jdbcType=VARCHAR},
+      shop_type = #{shopType,jdbcType=VARCHAR},
+      access_type = #{accessType,jdbcType=VARCHAR},
+      shop_app_id = #{shopAppId,jdbcType=VARCHAR},
+      shop_app_secret = #{shopAppSecret,jdbcType=VARCHAR},
+      shop_access_token = #{shopAccessToken,jdbcType=VARCHAR},
+      shop_refresh_token = #{shopRefreshToken,jdbcType=VARCHAR},
+      shop_token_expire = #{shopTokenExpire,jdbcType=TIMESTAMP},
+      poly_spire_url = #{polySpireUrl,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
